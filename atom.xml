@@ -6,7 +6,7 @@
   <link href="https://lovobin.github.io/atom.xml" rel="self"/>
   
   <link href="https://lovobin.github.io/"/>
-  <updated>2020-12-19T03:25:22.417Z</updated>
+  <updated>2020-12-19T04:51:30.915Z</updated>
   <id>https://lovobin.github.io/</id>
   
   <author>
@@ -21,14 +21,16 @@
     <link href="https://lovobin.github.io/2020/12/Hexo-valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://lovobin.github.io/2020/12/Hexo-valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</id>
     <published>2020-12-19T03:24:37.000Z</published>
-    <updated>2020-12-19T03:25:22.417Z</updated>
+    <updated>2020-12-19T04:51:30.915Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Hexo-valine评论系统"><a href="#Hexo-valine评论系统" class="headerlink" title="Hexo-valine评论系统"></a>Hexo-valine评论系统</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="Hexo-valine评论系统"><a href="#Hexo-valine评论系统" class="headerlink" title="Hexo-valine评论系统"></a>Hexo-valine评论系统</h3><ul><li><p>效果展示</p><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/valines.png" width="600" title="成功添加 valine 评论系统"></li><li><p>手机端回复测试(刷新即可预览)</p><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/replay.png" width="600" title="测试多端效果"></li><li><p>注册 learnColud </p><blockquote><p><a href="https://www.leancloud.cn/"> 点击跳转  leancloud </a></p></blockquote><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/leanrColoud.png" width="600" title="点击免费试用"></li><li><p>登录所注册账号</p></li><li><p>创建应用</p><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/createLearn.png" width="600" title="创建应用"></li><li><p>点击设置</p><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/setLearn.png" width="600" title="点击设置"></li><li><p>应用 <code>key</code></p><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/keyID.png" title="应用 key" width="600"></li><li><p>进入主题下的配置文件中 (使用 <code>ctrl + f </code>,搜索 <code>valine</code>)</p><ul><li><p>开启 <code>Valine</code>(取消注释)</p><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/useValine.png" title="开启 valine 取消注释" width="600"></li></ul><ul><li><p>继续搜索 <code>valine</code></p><ul><li>添加  <code>**AppID**</code></li><li>添加 <code>**AppKey**</code></li></ul><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/valineKey.png" title="开启 valine 取消注释" width="600"></li></ul></li><li><p>(<code>learnColud</code>)域名绑定（github 仓库地址）</p></li><li><p>部署</p></li><li><p>由于函数选择列表无法获取导致无法开启定时任务</p><img src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/function.png" title="定时任务开启失败" width="600">  </li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;Hexo-valine评论系统&quot;&gt;&lt;a href=&quot;#Hexo-valine评论系统&quot; class=&quot;headerlink&quot; title=&quot;Hexo-valine评论系统&quot;&gt;&lt;/a&gt;Hexo-valine评论系统&lt;/h3&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;Hexo-valine评论系统&quot;&gt;&lt;a href=&quot;#Hexo-valine评论系统&quot; class=&quot;headerlink&quot; title=&quot;Hexo-valine评论系统&quot;&gt;&lt;/a&gt;Hexo-valine评论系统&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;效果展示&lt;/p&gt;
+</summary>
       
     
     
