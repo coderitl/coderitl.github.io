@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lovobin.github.io/2020/12/Hexo-valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</loc>
+    
+    <lastmod>2020-12-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lovobin.github.io/2020/12/Oracle-%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/</loc>
     
     <lastmod>2020-12-18</lastmod>
@@ -445,14 +452,14 @@
 
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://lovobin.github.io/tags/HTML/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/HTML/</loc>
+    <loc>https://lovobin.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -522,14 +529,14 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/theme/</loc>
+    <loc>https://lovobin.github.io/tags/css/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/css/</loc>
+    <loc>https://lovobin.github.io/tags/theme/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -580,14 +587,14 @@
 
   
   <url>
-    <loc>https://lovobin.github.io/categories/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://lovobin.github.io/categories/HTML/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/categories/HTML/</loc>
+    <loc>https://lovobin.github.io/categories/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

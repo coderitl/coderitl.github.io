@@ -6,7 +6,7 @@
   <link href="https://lovobin.github.io/atom.xml" rel="self"/>
   
   <link href="https://lovobin.github.io/"/>
-  <updated>2020-12-18T08:19:26.605Z</updated>
+  <updated>2020-12-19T03:25:22.417Z</updated>
   <id>https://lovobin.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo-valine评论系统</title>
+    <link href="https://lovobin.github.io/2020/12/Hexo-valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://lovobin.github.io/2020/12/Hexo-valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</id>
+    <published>2020-12-19T03:24:37.000Z</published>
+    <updated>2020-12-19T03:25:22.417Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Hexo-valine评论系统"><a href="#Hexo-valine评论系统" class="headerlink" title="Hexo-valine评论系统"></a>Hexo-valine评论系统</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Hexo-valine评论系统&quot;&gt;&lt;a href=&quot;#Hexo-valine评论系统&quot; class=&quot;headerlink&quot; title=&quot;Hexo-valine评论系统&quot;&gt;&lt;/a&gt;Hexo-valine评论系统&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    <category term="Hexo" scheme="https://lovobin.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://lovobin.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Oracle-日常积累</title>
@@ -481,29 +505,6 @@
     
     
     <category term="javascript" scheme="https://lovobin.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ImageHover-scale</title>
-    <link href="https://lovobin.github.io/2020/11/ImageHover-scale/"/>
-    <id>https://lovobin.github.io/2020/11/ImageHover-scale/</id>
-    <published>2020-11-29T07:37:22.000Z</published>
-    <updated>2020-11-29T13:19:22.943Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前端鼠标划入图片原位放大"><a href="#前端鼠标划入图片原位放大" class="headerlink" title="前端鼠标划入图片原位放大"></a>前端鼠标划入图片原位放大</h3><ul><li><p>效果演示<br><img src="https://img-blog.csdnimg.cn/20201129153425915.gif#pic_center" alt="鼠标滑入图片原位放大"></p></li><li><p> <code>css</code>源码:</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">            <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">            <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">body</span> &#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="selector-class">.box</span> &#123;</span><br><span class="line">            <span class="attribute">position</span>: relative;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">533px</span>;</span><br><span class="line">            <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span> &#123;</span><br><span class="line">            <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">            <span class="attribute">display</span>: block;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">533px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">overflow</span>: hidden;</span><br><span class="line">            <span class="attribute">border</span>: <span class="number">3px</span> solid red;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">img</span> &#123;</span><br><span class="line">            <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">533px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">span</span> &#123;</span><br><span class="line">            <span class="attribute">position</span>: absolute;</span><br><span class="line">            <span class="attribute">display</span>: block;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">533px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>);</span><br><span class="line">            <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">            <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">            <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">            <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">            <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.3</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">            <span class="attribute">opacity</span>: .<span class="number">5</span>;</span><br><span class="line">            <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li><li><p><code>html</code>结构: </p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/dream.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;前端鼠标划入图片原位放大&quot;&gt;&lt;a href=&quot;#前端鼠标划入图片原位放大&quot; class=&quot;headerlink&quot; title=&quot;前端鼠标划入图片原位放大&quot;&gt;&lt;/a&gt;前端鼠标划入图片原位放大&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;效果演示&lt;br&gt;&lt;img src=&quot;htt</summary>
-      
-    
-    
-    
-    <category term="css" scheme="https://lovobin.github.io/categories/css/"/>
-    
     
   </entry>
   
