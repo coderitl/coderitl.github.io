@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lovobin.github.io/2020/12/Hexo-%E5%9B%BE%E7%89%87%E5%A4%96%E9%93%BE%E5%AD%98%E5%82%A8/</loc>
+    
+    <lastmod>2020-12-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lovobin.github.io/2020/12/Hexo-github%E6%97%A5%E5%8E%86%E5%9B%BE/</loc>
     
     <lastmod>2020-12-19</lastmod>
@@ -536,14 +543,14 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/Hexo/</loc>
+    <loc>https://lovobin.github.io/tags/%E7%AE%80%E5%8E%86/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E7%AE%80%E5%8E%86/</loc>
+    <loc>https://lovobin.github.io/tags/Hexo/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -571,6 +578,13 @@
   </url>
   
   <url>
+    <loc>https://lovobin.github.io/tags/git/</loc>
+    <lastmod>2020-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lovobin.github.io/tags/theme/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
@@ -579,13 +593,6 @@
   
   <url>
     <loc>https://lovobin.github.io/tags/css/</loc>
-    <lastmod>2020-12-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lovobin.github.io/tags/git/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
