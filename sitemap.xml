@@ -543,14 +543,14 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/Hexo/</loc>
+    <loc>https://lovobin.github.io/tags/%E7%AE%80%E5%8E%86/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E7%AE%80%E5%8E%86/</loc>
+    <loc>https://lovobin.github.io/tags/Hexo/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -564,6 +564,13 @@
   </url>
   
   <url>
+    <loc>https://lovobin.github.io/tags/AE/</loc>
+    <lastmod>2020-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lovobin.github.io/tags/Python/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
@@ -571,7 +578,7 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/AE/</loc>
+    <loc>https://lovobin.github.io/tags/git/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -586,13 +593,6 @@
   
   <url>
     <loc>https://lovobin.github.io/tags/theme/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lovobin.github.io/tags/git/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
