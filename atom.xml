@@ -6,7 +6,7 @@
   <link href="https://lovobin.github.io/atom.xml" rel="self"/>
   
   <link href="https://lovobin.github.io/"/>
-  <updated>2020-12-20T07:35:16.760Z</updated>
+  <updated>2020-12-20T08:09:21.640Z</updated>
   <id>https://lovobin.github.io/</id>
   
   <author>
@@ -15,6 +15,95 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue-promise</title>
+    <link href="https://lovobin.github.io/2020/12/Vue-promise/"/>
+    <id>https://lovobin.github.io/2020/12/Vue-promise/</id>
+    <published>2020-12-20T08:09:03.000Z</published>
+    <updated>2020-12-20T08:09:21.640Z</updated>
+    
+    
+    
+    
+    <category term="Vue" scheme="https://lovobin.github.io/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://lovobin.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue</title>
+    <link href="https://lovobin.github.io/2020/12/Vue/"/>
+    <id>https://lovobin.github.io/2020/12/Vue/</id>
+    <published>2020-12-20T08:07:45.000Z</published>
+    <updated>2020-12-20T08:08:14.283Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Vue-组件化"><a href="#Vue-组件化" class="headerlink" title="Vue 组件化"></a>Vue 组件化</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Vue-组件化&quot;&gt;&lt;a href=&quot;#Vue-组件化&quot; class=&quot;headerlink&quot; title=&quot;Vue 组件化&quot;&gt;&lt;/a&gt;Vue 组件化&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    <category term="Vue" scheme="https://lovobin.github.io/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://lovobin.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-axios</title>
+    <link href="https://lovobin.github.io/2020/12/Vue-axios/"/>
+    <id>https://lovobin.github.io/2020/12/Vue-axios/</id>
+    <published>2020-12-20T08:07:05.000Z</published>
+    <updated>2020-12-20T08:08:45.649Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="axios模块"><a href="#axios模块" class="headerlink" title="axios模块"></a>axios模块</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;axios模块&quot;&gt;&lt;a href=&quot;#axios模块&quot; class=&quot;headerlink&quot; title=&quot;axios模块&quot;&gt;&lt;/a&gt;axios模块&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    <category term="Vue" scheme="https://lovobin.github.io/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://lovobin.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ajax</title>
+    <link href="https://lovobin.github.io/2020/12/Ajax/"/>
+    <id>https://lovobin.github.io/2020/12/Ajax/</id>
+    <published>2020-12-20T08:06:09.000Z</published>
+    <updated>2020-12-20T08:06:49.616Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Ajax&quot;&gt;&lt;a href=&quot;#Ajax&quot; class=&quot;headerlink&quot; title=&quot;Ajax&quot;&gt;&lt;/a&gt;Ajax&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    <category term="Ajax" scheme="https://lovobin.github.io/categories/Ajax/"/>
+    
+    
+    <category term="Ajax" scheme="https://lovobin.github.io/tags/Ajax/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo-Tab栏实现分享</title>
@@ -413,106 +502,6 @@
     
     
     <category term="javascript" scheme="https://lovobin.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript-offset系列</title>
-    <link href="https://lovobin.github.io/2020/12/JavaScript-offset%E7%B3%BB%E5%88%97/"/>
-    <id>https://lovobin.github.io/2020/12/JavaScript-offset%E7%B3%BB%E5%88%97/</id>
-    <published>2020-12-01T08:38:58.000Z</published>
-    <updated>2020-12-01T08:58:24.528Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="offset-概述"><a href="#offset-概述" class="headerlink" title="offset 概述"></a>offset 概述</h3><blockquote><p><code>offset</code> 就是偏移量 使用 <code>offset 系列相关的属性</code>可以动态的得到该元素得位置(偏移) </p></blockquote><ul><li><p>获得元素距离带有定位父元素的位置</p></li><li><p>获得元素自身的大小(宽度高度)</p></li><li><p>返回的数值不带单位</p></li></ul><ul><li><p><code>offset</code>系列常用属性</p><table><thead><tr><th align="center"><code>offset</code>系列属性</th><th align="center">作用</th></tr></thead><tbody><tr><td align="center"><code>element.offsetParent</code></td><td align="center">返回该元素带有定位的父级元素,如果父级都没有定位则返回<code>body</code></td></tr><tr><td align="center"><code>element.offsetTop</code></td><td align="center">返回元素相对带有定位父元素上方的偏移</td></tr><tr><td align="center"><code>element.offsetLeft</code></td><td align="center">返回元素相对带有定位元素左边框的偏移</td></tr><tr><td align="center"><code>element.offsetWidth</code></td><td align="center">返回自身包括padding、边框、内容区的宽度、返回数值不带单位</td></tr><tr><td align="center"><code>element.offsetHeight</code></td><td align="center">返回自身包括 padding、边框、内容区域的高度,返回数值不带单位</td></tr></tbody></table></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;offset-概述&quot;&gt;&lt;a href=&quot;#offset-概述&quot; class=&quot;headerlink&quot; title=&quot;offset 概述&quot;&gt;&lt;/a&gt;offset 概述&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;offset&lt;/code&gt; 就是偏移量 使用 </summary>
-      
-    
-    
-    
-    <category term="javascript" scheme="https://lovobin.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://lovobin.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript-Location对象的属性</title>
-    <link href="https://lovobin.github.io/2020/12/JavaScript-Location%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7/"/>
-    <id>https://lovobin.github.io/2020/12/JavaScript-Location%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7/</id>
-    <published>2020-12-01T07:11:29.000Z</published>
-    <updated>2020-12-01T08:37:41.984Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Location-对象的属性"><a href="#Location-对象的属性" class="headerlink" title="Location 对象的属性"></a>Location 对象的属性</h3><table><thead><tr><th align="center">Location 对象属性</th><th align="center">返回值</th></tr></thead><tbody><tr><td align="center"><code>location.href</code></td><td align="center">获取或者设置整个 URL</td></tr><tr><td align="center"><code>location.host</code></td><td align="center">返回主机(域名)</td></tr><tr><td align="center"><code>location.port</code></td><td align="center">返回端口号,如果未写返回 空字符串</td></tr><tr><td align="center"><code>location.pathname</code></td><td align="center">返回路径</td></tr><tr><td align="center"><code>location.search</code></td><td align="center">返回参数</td></tr><tr><td align="center"><code>location.hash</code></td><td align="center">返回片段 #后面的内容 常见于链接 锚点</td></tr></tbody></table><h3 id="Location-对象方法"><a href="#Location-对象方法" class="headerlink" title="Location 对象方法"></a>Location 对象方法</h3><table><thead><tr><th align="center">Location 对象方法</th><th align="center">返回值</th></tr></thead><tbody><tr><td align="center"><code>location.assign</code></td><td align="center">跟 <code>href </code>一样,可以跳转页面（也成为重定向页面）</td></tr><tr><td align="center"><code>location.replace</code></td><td align="center">替换当前页面,因为不记录历史,所以不能后退页面</td></tr><tr><td align="center"><code>location.reload</code></td><td align="center">重新加载页面,相当于刷新按钮或者 <code>F5 </code>如果参数为<code>true</code>强制刷新 <code>ctrl+F5</code></td></tr></tbody></table><h3 id="Location-应用"><a href="#Location-应用" class="headerlink" title="Location 应用"></a>Location 应用</h3><ul><li><p>效果演示</p><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201201154431714.gif" alt="location.href" title="location.href"></li><li><p><code>css</code></p><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">           <span class="attribute">color</span>: red;</span><br><span class="line">           <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">           <span class="attribute">display</span>: inline-block;</span><br><span class="line">           <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">           <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">           <span class="attribute">line-height</span>: <span class="number">40px</span>;</span><br><span class="line">           <span class="attribute">text-align</span>: center;</span><br><span class="line">           <span class="attribute">background-color</span>: <span class="number">#09f</span>;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></li><li><p><code>html</code></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    自动跳转</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p><code>JS</code></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素</span></span><br><span class="line">        <span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">        <span class="comment">// 计时器</span></span><br><span class="line">        <span class="keyword">var</span> time = <span class="number">5</span>;</span><br><span class="line">        <span class="comment">// 调用该函数解决空白刷新</span></span><br><span class="line">        showText();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (time == <span class="number">0</span>) &#123;</span><br><span class="line">                location.href = <span class="string">&#x27;https://lovobin.github.io/&#x27;</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                div.innerHTML = <span class="string">&#x27;您将在&#x27;</span> + <span class="string">&#x27;&lt;span&gt;&#x27;</span> + time + <span class="string">&#x27;&lt;/span&gt;&#x27;</span> + <span class="string">&#x27;秒后返回奔跑的小前端&#x27;</span>;</span><br><span class="line">                time--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 开启定时器</span></span><br><span class="line">        <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            showText();</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure></li></ul><h3 id="location-search"><a href="#location-search" class="headerlink" title="location.search"></a>location.search</h3><ul><li><p>效果演示</p><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201201160351281.gif" alt="location.search" title="location.search"></li><li><p><code>login.html</code></p><ul><li><p><code>css</code></p><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    </span><br></pre></td></tr></table></figure></li><li><p><code>html</code>结构</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;index.html&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;uname&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul></li><li><p><code>index.html</code></p><ul><li><p><code>css</code></p><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    </span><br></pre></td></tr></table></figure></li><li><p><code>html</code>结构</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p><code>JS</code>原理分析</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">     <span class="built_in">console</span>.log(location.search); <span class="comment">// ?uname=input.value</span></span><br><span class="line">     <span class="comment">// 字符串截取</span></span><br><span class="line">     <span class="keyword">var</span> str = location.search;</span><br><span class="line">     <span class="keyword">var</span> newStr = str.substr(<span class="number">1</span>);</span><br><span class="line">     <span class="built_in">console</span>.log(newStr); <span class="comment">// uname=input.value</span></span><br><span class="line">     <span class="comment">// 分割字符串 </span></span><br><span class="line">     <span class="keyword">var</span> arr = newStr.split(<span class="string">&#x27;=&#x27;</span>);</span><br><span class="line">     <span class="built_in">console</span>.log(arr);</span><br><span class="line">     <span class="keyword">var</span> parmer = arr[<span class="number">1</span>];</span><br><span class="line">     div.innerHTML = parmer;</span><br></pre></td></tr></table></figure></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;Location-对象的属性&quot;&gt;&lt;a href=&quot;#Location-对象的属性&quot; class=&quot;headerlink&quot; title=&quot;Location 对象的属性&quot;&gt;&lt;/a&gt;Location 对象的属性&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th </summary>
-      
-    
-    
-    
-    <category term="javascript" scheme="https://lovobin.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://lovobin.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BOM-页面加载事件</title>
-    <link href="https://lovobin.github.io/2020/12/BOM-%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/"/>
-    <id>https://lovobin.github.io/2020/12/BOM-%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/</id>
-    <published>2020-12-01T03:13:07.000Z</published>
-    <updated>2020-12-01T07:11:54.012Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="BOM-页面加载事件"><a href="#BOM-页面加载事件" class="headerlink" title="BOM-页面加载事件"></a>BOM-页面加载事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> load 等页面内容全部加载完毕,包含页面 dom 元素 图片 flash css 等</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> DOMContentLoaded 是 DOM 加载完毕,不包含图片 flash css 等就可以执行 加载速度比 load更快一些</span><br></pre></td></tr></table></figure><h3 id="BOM-窗口大小事件"><a href="#BOM-窗口大小事件" class="headerlink" title="BOM-窗口大小事件"></a>BOM-窗口大小事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;resize&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;················&#x27;</span>);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;BOM-页面加载事件&quot;&gt;&lt;a href=&quot;#BOM-页面加载事件&quot; class=&quot;headerlink&quot; title=&quot;BOM-页面加载事件&quot;&gt;&lt;/a&gt;BOM-页面加载事件&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;tab</summary>
-      
-    
-    
-    
-    <category term="javascript" scheme="https://lovobin.github.io/categories/javascript/"/>
-    
-    
-    <category term="javascript" scheme="https://lovobin.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-统一定位符(url)-引起错误解决方案</title>
-    <link href="https://lovobin.github.io/2020/11/Hexo-%E7%BB%9F%E4%B8%80%E5%AE%9A%E4%BD%8D%E7%AC%A6-url-%E5%BC%95%E8%B5%B7%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>https://lovobin.github.io/2020/11/Hexo-%E7%BB%9F%E4%B8%80%E5%AE%9A%E4%BD%8D%E7%AC%A6-url-%E5%BC%95%E8%B5%B7%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</id>
-    <published>2020-11-29T15:07:04.000Z</published>
-    <updated>2020-11-29T16:09:15.310Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Hexo-统一定位符-url-引起错误解决方案"><a href="#Hexo-统一定位符-url-引起错误解决方案" class="headerlink" title="Hexo-统一定位符(url)-引起错误解决方案"></a>Hexo-统一定位符(url)-引起错误解决方案</h3><ul><li><p>在起初由于文章过多(<code>全部显示在 _posts下</code>) </p><ul><li>配置 <code>permalink</code></li><li>配置 <code>new_post_name</code></li></ul></li><li><p>在提交文章内容后本地可预览状态 - <code>gitpages</code>路径中出现小写</p><blockquote><p><code>Eg.</code></p><p><code>lovobin.github.io/2020/hexo/Hexo-统一定位符-url-引起错误解决方案/</code> （<strong>正确显示</strong>）</p><p> <code>lovobin.github.io/2020/Hexo/Hexo-统一定位符-url-引起错误解决方案/</code>(<strong>错误显示</strong>)</p><p><code>hexo</code>  不等于 <code>Hexo</code>（导致无法显示）</p></blockquote></li><li><p>引起上述错误解决方案</p><ul><li><p>在博客根目录下找到如下文件夹</p><p><code>.deploy_git</code> 需要开启</p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/hiddenBlog.png"></li><li><p>进入<code>.deploy_git</code></p></li><li><p>再进入<code>.git</code></p></li><li><p>使用编辑器打开<code>config</code>配置文件</p></li><li><p>修改如下参数</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ignorecase = <span class="literal">true</span> 改为 ignorecase = <span class="literal">false</span></span><br></pre></td></tr></table></figure></li><li><p>再不信任的情况下剪切出  除<code>.git</code>文件之外的文件到其他路径下暂存</p></li><li><p>进行如下操作</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -rf * (等价于剪切 因为剪切后文件不存在)</span><br><span class="line">git commit -m ‘clean all file’  (提交日志信息)</span><br><span class="line">git push  (推送)</span><br></pre></td></tr></table></figure></li></ul></li><li><p>返回博客根目录重新部署</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo -d</span><br></pre></td></tr></table></figure></li><li><p>进入博客网站</p><blockquote><p>强制刷新:  <code>ctrl+F5</code></p></blockquote></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;Hexo-统一定位符-url-引起错误解决方案&quot;&gt;&lt;a href=&quot;#Hexo-统一定位符-url-引起错误解决方案&quot; class=&quot;headerlink&quot; title=&quot;Hexo-统一定位符(url)-引起错误解决方案&quot;&gt;&lt;/a&gt;Hexo-统一定位符(url)-</summary>
-      
-    
-    
-    
-    <category term="Hexo" scheme="https://lovobin.github.io/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://lovobin.github.io/tags/Hexo/"/>
     
   </entry>
   
