@@ -824,7 +824,10 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 // 去除 banner
+var sitetitle = document.querySelector('#site-title');
 var full_page = document.getElementsByClassName("full_page");
 if (full_page.length != 0) {
   full_page[0].style.background = "transparent";
+  // 修改显示文字颜色
+  sitetitle.style.color = '#000';
 }
