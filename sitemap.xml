@@ -536,14 +536,14 @@
 
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://lovobin.github.io/tags/HTML/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/HTML/</loc>
+    <loc>https://lovobin.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -578,14 +578,14 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E7%AE%80%E5%8E%86/</loc>
+    <loc>https://lovobin.github.io/tags/Hexo/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/Hexo/</loc>
+    <loc>https://lovobin.github.io/tags/%E7%AE%80%E5%8E%86/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -606,6 +606,34 @@
   </url>
   
   <url>
+    <loc>https://lovobin.github.io/tags/Ajax/</loc>
+    <lastmod>2020-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovobin.github.io/tags/javascript/</loc>
+    <lastmod>2020-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovobin.github.io/tags/Vue/</loc>
+    <lastmod>2020-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovobin.github.io/tags/jQuery/</loc>
+    <lastmod>2020-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lovobin.github.io/tags/AE/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
@@ -620,13 +648,6 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/theme/</loc>
-    <lastmod>2020-12-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lovobin.github.io/tags/git/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
@@ -634,7 +655,7 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/javascript/</loc>
+    <loc>https://lovobin.github.io/tags/theme/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -662,27 +683,6 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/Ajax/</loc>
-    <lastmod>2020-12-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lovobin.github.io/tags/Vue/</loc>
-    <lastmod>2020-12-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lovobin.github.io/tags/jQuery/</loc>
-    <lastmod>2020-12-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lovobin.github.io/tags/JavaScript/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
@@ -692,14 +692,14 @@
 
   
   <url>
-    <loc>https://lovobin.github.io/categories/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://lovobin.github.io/categories/HTML/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/categories/HTML/</loc>
+    <loc>https://lovobin.github.io/categories/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -741,7 +741,7 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/categories/css/</loc>
+    <loc>https://lovobin.github.io/categories/Ajax/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -749,13 +749,6 @@
   
   <url>
     <loc>https://lovobin.github.io/categories/javascript/</loc>
-    <lastmod>2020-12-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lovobin.github.io/categories/Ajax/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -770,6 +763,13 @@
   
   <url>
     <loc>https://lovobin.github.io/categories/jQuery/</loc>
+    <lastmod>2020-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovobin.github.io/categories/css/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
