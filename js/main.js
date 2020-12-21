@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	var menus = document.querySelector('#menus');
 	// 主标题
 	var sitetitle = document.querySelector('#site-title');
+	var footerWrap = document.querySelector('#footer-wrap');
 	// 副标题颜色修改
 	var siteSubtitle = document.querySelector('#site-subtitle');
 	var full_page = document.getElementsByClassName("full_page");
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	  sitetitle.style.color = '#000';
 	  siteSubtitle.style.color = '#000';
 	  menus.style.color = '#000';
+	  footerWrap.style.color = '#fff';
 	}
 
 
