@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>https://lovobin.github.io/2020/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    
+    <lastmod>2020-12-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lovobin.github.io/2020/10/Web%E5%89%8D%E7%AB%AF/</loc>
     
     <lastmod>2020-12-20</lastmod>
@@ -536,14 +543,14 @@
 
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://lovobin.github.io/tags/HTML/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/HTML/</loc>
+    <loc>https://lovobin.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -557,7 +564,7 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/Java/</loc>
+    <loc>https://lovobin.github.io/tags/SQL/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -571,7 +578,7 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/SQL/</loc>
+    <loc>https://lovobin.github.io/tags/Java/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -606,14 +613,14 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/AE/</loc>
+    <loc>https://lovobin.github.io/tags/css/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/css/</loc>
+    <loc>https://lovobin.github.io/tags/AE/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -648,14 +655,14 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://lovobin.github.io/tags/%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/tags/%E5%AE%9E%E6%88%98/</loc>
+    <loc>https://lovobin.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -683,6 +690,13 @@
   </url>
   
   <url>
+    <loc>https://lovobin.github.io/tags/Inter/</loc>
+    <lastmod>2020-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lovobin.github.io/tags/JavaScript/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
@@ -692,14 +706,14 @@
 
   
   <url>
-    <loc>https://lovobin.github.io/categories/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://lovobin.github.io/categories/HTML/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/categories/HTML/</loc>
+    <loc>https://lovobin.github.io/categories/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -713,7 +727,7 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/categories/Java/</loc>
+    <loc>https://lovobin.github.io/categories/SQL/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -727,7 +741,7 @@
   </url>
   
   <url>
-    <loc>https://lovobin.github.io/categories/SQL/</loc>
+    <loc>https://lovobin.github.io/categories/Java/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -770,6 +784,13 @@
   
   <url>
     <loc>https://lovobin.github.io/categories/jQuery/</loc>
+    <lastmod>2020-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovobin.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2020-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
