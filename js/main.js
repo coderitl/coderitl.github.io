@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+	// 去除 banner
+	var menus = document.querySelector('#menus');
+	// 主标题
+	var sitetitle = document.querySelector('#site-title');
+	// 副标题颜色修改
+	var siteSubtitle = document.querySelector('#site-subtitle');
+	var full_page = document.getElementsByClassName("full_page");
+	if (full_page.length != 0) {
+	  full_page[0].style.background = "transparent";
+	  // 修改显示文字颜色
+	  sitetitle.style.color = '#000';
+	  siteSubtitle.style.color = '#000';
+	  menus.style.color = '#000';
+	}
+
+
   let blogNameWidth = document.getElementById('site-name').offsetWidth
   const $menusEle = document.querySelector('#menus .menus_items')
   let menusWidth = $menusEle && $menusEle.offsetWidth
@@ -823,17 +839,3 @@ document.addEventListener('DOMContentLoaded', function () {
   unRefreshFn()
 })
 
-// 去除 banner
-var menus = document.querySelector('#menus');
-// 主标题
-var sitetitle = document.querySelector('#site-title');
-// 副标题颜色修改
-var siteSubtitle = document.querySelector('#site-subtitle');
-var full_page = document.getElementsByClassName("full_page");
-if (full_page.length != 0) {
-  full_page[0].style.background = "transparent";
-  // 修改显示文字颜色
-  sitetitle.style.color = '#000';
-  siteSubtitle.style.color = '#000';
-  menus.style.color = '#000';
-}
