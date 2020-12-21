@@ -70,6 +70,10 @@ const calendar = new Vue({
   }
 });
 let githubapiurl = "https://githubapi.ryanchristian.dev/user/" + calendar.user;
+
+// 方法 1
+btf.isJqueryLoad(function() {
+    
 $(function () {
   $.ajax({
     type: "GET",
@@ -234,4 +238,8 @@ $(function () {
     }
   })
 });
+
+
+}}
+
 if(document.getElementById("calendarcanvasbox").offsetWidth<500){calendar.simplemode=false}
