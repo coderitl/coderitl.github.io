@@ -824,7 +824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 // 去除 banner
-var nav = document.querySelector('#nav');
+var menus = document.querySelector('#menus');
 // 主标题
 var sitetitle = document.querySelector('#site-title');
 // 副标题颜色修改
@@ -835,5 +835,5 @@ if (full_page.length != 0) {
   // 修改显示文字颜色
   sitetitle.style.color = '#000';
   siteSubtitle.style.color = '#000';
-  nav.style.color = '#000';
+  menus.style.color = '#000';
 }
