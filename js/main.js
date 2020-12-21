@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
+	/******************** S: 个人新添加项  ***********************/
 	// 去除 banner
-	var menus = document.querySelector('#menus');
+	const menus = document.querySelector('#menus');
 	// 主标题
-	var sitetitle = document.querySelector('#site-title');
-	var footerWrap = document.querySelector('#footer-wrap');
+	const sitetitle = document.querySelector('#site-title');
+	const footerWrap = document.querySelector('#footer-wrap');
 	// 副标题颜色修改
-	var siteSubtitle = document.querySelector('#site-subtitle');
-	var full_page = document.getElementsByClassName("full_page");
+	const siteSubtitle = document.querySelector('#site-subtitle');
+	const full_page = document.getElementsByClassName("full_page");
 	if (full_page.length != 0) {
 	  full_page[0].style.background = "transparent";
 	  // 修改显示文字颜色
@@ -16,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	  footerWrap.style.color = '#fff';
 	}
 	// page 透明度修改
-	var _page = document.querySelector('#page');
-	_page.style.background = 'rgba(255,255,255,.5)';
-
+	const _page = document.querySelector('#page');
+	_page.style.opacity = '.5';
+	/******************** E: 个人新添加项  ***********************/
 
   let blogNameWidth = document.getElementById('site-name').offsetWidth
   const $menusEle = document.querySelector('#menus .menus_items')
