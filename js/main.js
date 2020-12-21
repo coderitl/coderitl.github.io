@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	/******************** S: 个人新添加项  ***********************/
 	// 去除 banner
 	const menus = document.querySelector('#menus');
+	// page 透明度修改
+	const _page = document.querySelector('#page');
 	// 主标题
 	const sitetitle = document.querySelector('#site-title');
 	const footerWrap = document.querySelector('#footer-wrap');
@@ -15,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	  siteSubtitle.style.color = '#000';
 	  menus.style.color = '#000';
 	  footerWrap.style.color = '#fff';
+	  _page.style.opacity = '0.5';
 	}
-	// page 透明度修改
-	const _page = document.querySelector('#page');
-	_page.style.opacity = '.5';
+	
+	
 	/******************** E: 个人新添加项  ***********************/
 
   let blogNameWidth = document.getElementById('site-name').offsetWidth
