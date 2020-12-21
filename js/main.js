@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	  menus.style.color = '#000';
 	  footerWrap.style.color = '#fff';
 	}
+	// page 透明度修改
+	var _page = document.querySelector('#page');
+	_page.style.background = 'rgba(255,255,255,.5)';
 
 
   let blogNameWidth = document.getElementById('site-name').offsetWidth
