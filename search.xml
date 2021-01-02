@@ -168,9 +168,9 @@
       
         <tags>
             
-            <tag> HTML </tag>
-            
             <tag> css </tag>
+            
+            <tag> HTML </tag>
             
         </tags>
       
@@ -1295,6 +1295,12 @@
         <content type="html"><![CDATA[<h3 id="兼职说明文档"><a href="#兼职说明文档" class="headerlink" title="兼职说明文档:"></a>兼职说明文档:</h3><ul><li><p>请说明需求类型</p><ul><li>自适应布局<code>Bootstrap框架</code></li><li><code>DIV + CSS</code></li><li><code>DIV + CSS + JavaScript</code></li><li><code>Vue</code>(没有安装<code>Vue + node</code>使用<code>CSDN</code>半状态搭建)</li></ul></li><li><p>请准备完整的资料内容（<code>标准尺寸图</code>）</p></li><li><p>请提供<code>UI</code>设计稿(含布局结构)</p></li><li><p>请说明开发周期</p></li></ul><h3 id="个人微信-请备注"><a href="#个人微信-请备注" class="headerlink" title="个人微信:请备注"></a>个人微信:<code>请备注</code></h3><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/wechat.jpg" width="200">]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 技能 </tag>
+            
+        </tags>
       
     </entry>
     
