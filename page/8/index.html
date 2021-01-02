@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>源于此 - 源？即是缘</title><meta name="keywords" content="奔跑的小前端,HTML+CSS,Hexo"><meta name="author" content="源于此"><meta name="copyright" content="源于此"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="源于此">
+<meta property="og:url" content="https://lovobin.github.io/page/8/index.html">
+<meta property="og:site_name" content="源于此">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/avatar.png">
+<meta property="article:author" content="源于此">
+<meta property="article:tag" content="奔跑的小前端,HTML+CSS,Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lovobin.github.io/page/8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="yandex-verification" content="{&quot;theme_color&quot;:{&quot;enable&quot;:true,&quot;main&quot;:&quot;#49B1F5&quot;,&quot;paginator&quot;:&quot;#00c4b6&quot;,&quot;button_hover&quot;:&quot;#FF7242&quot;,&quot;text_selection&quot;:&quot;#00c4b6&quot;,&quot;link_color&quot;:&quot;#99a9bf&quot;,&quot;meta_color&quot;:&quot;#858585&quot;,&quot;hr_color&quot;:&quot;#A4D8FA&quot;,&quot;code_foreground&quot;:&quot;#F47466&quot;,&quot;code_background&quot;:&quot;rgba(27, 31, 35, .05)&quot;,&quot;toc_color&quot;:&quot;#00c4b6&quot;,&quot;blockquote_padding_color&quot;:&quot;#49b1f5&quot;,&quot;blockquote_background_color&quot;:&quot;#49b1f5&quot;}}"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-01-02 11:32:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/gitcalendar/css/gitcalendar.css"/><link rel="stylesheet" href="/swiper/swiper.min.css"><link rel="stylesheet" href="/swiper/swiperstyle.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 点点滴滴</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/3.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">源于此</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 点点滴滴</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">源于此</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item" style="width:100%"><div class="calendar" id="calendar"><div id="gitmessage" :style="{top:y+px,left:x+px,position: fixed,zIndex:9999}"><div class="angle-wrapper"><span>{{span1}} &nbsp;</span><span>{{span2}} 次上传</span></div></div><div class="position-relative"><div class="border py-2 graph-before-activity-overview"><div class="js-calendar-graph mx-md-2 mx-3 d-flex flex-column flex-items-end flex-xl-items-center overflow-hidden pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center" data-graph-url="/users/Zfour/contributions?to=2020-10-29" data-url="/Zfour" data-from="2019-10-27 00:00:00 UTC" data-to="2020-10-29 23:59:59 UTC" data-org="data-org"><div id="calendarcanvasbox" v-if="simplemode"><canvas id="gitcanvas" style="animation: none;"></canvas></div><svg class="js-calendar-graph-svg" width="100%" viewBox="0 0 770 128" v-if="!simplemode"><text class="month" :x="32 + monthindex*64" y="20" v-for="(month,monthindex) in monthchange">{{month}}</text><text class="wday" text-anchor="start" dx="0" dy="40"> 日</text><text class="wday" text-anchor="start" dx="0" dy="65"> 二</text><text class="wday" text-anchor="start" dx="0" dy="90"> 四</text><text class="wday" text-anchor="start" dx="0" dy="115">六</text><g v-for="(weekitem,weekIndex) in data" :transform="'translate('+ (16 + weekIndex*14) + ',' + '0)'"><rect @mouseover="selectStyle(dayitem,$event)" @mouseleave="outStyle()" v-for="(dayitem,dayIndex) in weekitem" :style="{fill:thiscolor(dayitem.count),shapeRendering:crispedges}" :data-score="dayitem.count" :data-date="dayitem.date" x="0" :y=" 30 + dayIndex*13 " width="11" height="11"></rect></g></svg></div><div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1"><div class="float-left text-gray">数据来源 <a :href="'https://github.com/'+ user " target="blank">@{{user}}</a></div><div class="contrib-legend text-gray" title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">Less<ul class="legend"><li :style="{backgroundColor:color[0]}"></li><li :style="{backgroundColor:color[2]}"></li><li :style="{backgroundColor:color[4]}"></li><li :style="{backgroundColor:color[6]}"></li><li :style="{backgroundColor:color[8]}"></li></ul>More</div></div></div></div><div class="contrib-column contrib-column-first table-column"><span class="text-muted">过去一年提交</span><span class="contrib-number">{{total}}</span><span class="text-muted">{{oneyearbeforeday}}&nbsp;-&nbsp;{{thisday}}</span></div><div class="contrib-column table-column"><span class="text-muted">最近一月提交</span><span class="contrib-number">{{thisweekdatacore}}</span><span class="text-muted">{{amonthago}}&nbsp;-&nbsp;{{thisday}}</span></div><div class="contrib-column table-column"><span class="text-muted">最近一周提交</span><span class="contrib-number">{{weekdatacore}}</span><span class="text-muted">{{aweekago}}&nbsp;-&nbsp;{{thisday}}</span></div></div></div><div class="recent-post-item" style="height:auto;width:100%;"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__img"><img src="https://zfe.space/images/letter/m.png" alt="https://zfe.space/images/letter/m.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2020-11-05</span><a class="blog-slider__title" target="_blank" rel="noopener" href="https://zfe.space/2020/11/05/2020-11-05/">教程：基于Butterfly主题的新闻资讯侧边栏</a><div class="blog-slider__text">这个插件基于RollToolsApi,在使用前请先在微信搜索小程序“Roll地盘”获取api.id和api.key。</div><a class="blog-slider__button" target="_blank" rel="noopener" href="https://zfe.space/2020/11/05/2020-11-05/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__img"><img src="https://zfe.space/images/letter/g.png" alt="https://zfe.space/images/letter/g.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2020-10-31</span><a class="blog-slider__title" target="_blank" rel="noopener" href="https://zfe.space/2020/10/28/2020-10-31/">教程：基于Butterfly主题的gitcalendar2.0</a><div class="blog-slider__text">因为用之前的gitcalendar服务器失效了，于是找api自己手写了一个。项目用到了GitHub Contribution Calendar API。通过vuejs进行编码。</div><a class="blog-slider__button" target="_blank" rel="noopener" href="https://zfe.space/2020/10/28/2020-10-31/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__img"><img src="https://zfe.space/images/letter/d.png" alt="https://zfe.space/images/letter/d.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2020-10-26</span><a class="blog-slider__title" target="_blank" rel="noopener" href="https://zfe.space/2020/10/30/2020-10-26/">教程：基于Butterfly主题的双栏卡片主页文章css样式</a><div class="blog-slider__text">首先你需要确保文章的图片位置为左侧布局。打开主题配置文件，搜索封面顯示的位置。</div><a class="blog-slider__button" target="_blank" rel="noopener" href="https://zfe.space/2020/10/30/2020-10-26/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__img"><img src="https://zfe.space/images/letter/c.png" alt="https://zfe.space/images/letter/c.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2020-10-18</span><a class="blog-slider__title" target="_blank" rel="noopener" href="https://zfe.space/2020/10/18/2020-10-18/">教程：基于Butterfly主题的分类磁贴2.0版</a><div class="blog-slider__text">灵感来源于原生主题的gallery以及在其他主题见到过的分类列表。考虑到部分小伙伴的tag比较多，因此用categories为标准进行分类。</div><a class="blog-slider__button" target="_blank" rel="noopener" href="https://zfe.space/2020/10/18/2020-10-18/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__img"><img src="https://zfe.space/images/letter/t.png" alt="https://zfe.space/images/letter/t.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2020-10-16</span><a class="blog-slider__title" target="_blank" rel="noopener" href="https://zfe.space/2020/10/16/2020-10-16-1/">教程：基于Butterfly主题的模拟电子钟侧边栏小部件3.0版</a><div class="blog-slider__text">相比1.0版本，加快了访问速度并优化了加载效果。相比2.0版本，通过vue替换jquery的dom操作提升了性能。解决了date class 会导致相关文章的时间样式出错的BUG。</div><a class="blog-slider__button" target="_blank" rel="noopener" href="https://zfe.space/2020/10/16/2020-10-16-1/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__img"><img src="https://zfe.space/images/letter/h.png" alt="https://zfe.space/images/letter/h.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2020-08-25</span><a class="blog-slider__title" target="_blank" rel="noopener" href="https://zfe.space/2020/08/25/2020-08-25-1/">教程：基于Butterfly主题的历史上的今天侧边栏小部件</a><div class="blog-slider__text">做这个的目的是想学习一下ajax的跨域访问API，但实际上却很难弄。于是最终采用本地读取json的方法，制作了这个小部件。</div><a class="blog-slider__button" target="_blank" rel="noopener" href="https://zfe.space/2020/08/25/2020-08-25-1/">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div><div class="recent-post-item" style="height:0px;clear:both;margin-top:0px;"></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="字符实体的使用">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/fontS.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字符实体的使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="字符实体的使用">字符实体的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-23T14:27:08.000Z" title="发表于 2020-10-23 22:27:08">2020-10-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML/">HTML</a></span></div><div class="content">字符实体的使用:12345678910111213&amp;nbsp; 空格text-indent: 2em; 段落文字进行缩进(css 样式)&amp;lt; &lt;&amp;gt; &gt;    &amp;quot; 双引号&amp;apos; 单引号
+案例操作:12345+ 在网页上显示一下字符:	实体字符 &amp;nbsp; 代表空格
+实现源码:12345&lt;div&gt;    &lt;pre&gt;    	实体字符 &amp;nbsp; 代表空格    &lt;/pre&gt;&lt;/div&gt;
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/10/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/" title="防抖、节流">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Dou.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="防抖、节流"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/" title="防抖、节流">防抖、节流</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-22T04:27:09.000Z" title="发表于 2020-10-22 12:27:09">2020-10-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML/">HTML</a></span></div><div class="content">滚动条滚动事件:12345678&lt;script&gt;        window.addEventListener(&#x27;scroll&#x27;, function () &#123;            // 兼容性处理    		var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;            // 打印滚动条滚动高度    		console.log(&quot;滚动条滚动高度: &quot;+scrollTop);        &#125;)&lt;/script&gt;
+
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/Dos%E7%AA%97%E5%8F%A3%E4%BF%AE%E6%94%B9/" title="Dos窗口修改">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/dos.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Dos窗口修改"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/Dos%E7%AA%97%E5%8F%A3%E4%BF%AE%E6%94%B9/" title="Dos窗口修改">Dos窗口修改</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-20T16:04:46.000Z" title="发表于 2020-10-21 00:04:46">2020-10-21</time></span></div><div class="content">12345678910111213141516171819Windows Registry Editor Version 5.00 [HKEY_CURRENT_USER\Console\%SystemRoot%_system32_cmd.exe] &quot;WindowSize&quot;=dword:00190069 &quot;ScreenBufferSize&quot;=dword:01170058 &quot;WindowPosition&quot;=dword:0079004b &quot;ColorTable01&quot;=dword:00235600 &quot;FontSize&quot;=dword:00160010 &quot;FontWeight&quot;=dword:00000190 &quot;FaceName&quot;=&quot;Consolas&quot; &quot;FontFamily&quot;=dword:00000036保存为: Consolas.reg双击运行修改 cmd 属性的透明度为: 85%
+运行 Ipython:
+Vscode ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/10/%E9%80%9A%E8%BF%87python-%E5%B0%81%E8%A3%85git%E5%91%BD%E4%BB%A4%E5%BF%AB%E9%80%9F%E6%8F%90%E4%BA%A4/" title="通过python 封装git命令快速提交">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/python.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="通过python 封装git命令快速提交"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/%E9%80%9A%E8%BF%87python-%E5%B0%81%E8%A3%85git%E5%91%BD%E4%BB%A4%E5%BF%AB%E9%80%9F%E6%8F%90%E4%BA%A4/" title="通过python 封装git命令快速提交">通过python 封装git命令快速提交</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-20T13:51:41.000Z" title="发表于 2020-10-20 21:51:41">2020-10-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content">新建 github 仓库本地建立一个资源文件夹，放入tool.py
+请按照图片显示操作
+
+
+
+
+根据 cmd 提示信息操作
+
+
+
+github 结果展示:
+12345tool.py 下载地址:        https://github.com/lovobin/GitPythonTool.git        
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/%E7%80%91%E5%B8%83%E6%B5%81/" title="瀑布流">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/unnamed.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="瀑布流"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/%E7%80%91%E5%B8%83%E6%B5%81/" title="瀑布流">瀑布流</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-20T02:48:42.000Z" title="发表于 2020-10-20 10:48:42">2020-10-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML/">HTML</a></span></div><div class="content">思路分析:瀑布流实现思路:
+什么是瀑布流
+12345瀑布流，又称瀑布流式布局。是比较流行的一种网站页面布局，视觉表现为参差不齐的多栏布局，随着页面滚动条向下滚动，这种布局还会不断加载数据块并附加至当前尾部。最早采用此布局的网站是Pinterest，逐渐在国内流行开来。国内大多数清新站基本为这类风格。
+
+
+
+
+
+什么地方需要使用瀑布流
+
+app 大数据展示等
+
+
+
+
+瀑布流布局的优点
+有效的降低了界面复杂度，节省了空间：我们不再需要臃肿复杂的页码导航链接或按钮了。
+对触屏设备来说，交互方式更符合直觉：在移动应用的交互环境当中，通过向上滑动进行滚屏的操作已经成为最基本的用户习惯，而且所需要的操作精准程度远远低于点击链接或按钮。
+更高的参与度：以上两点所带来的交互便捷性可以使用户将注意力更多的集中在内容而不是操作上，从而让他们更乐于沉浸在探索与浏览当中。
+
+
+
+解决思路:12345678910111213通过图片等宽不等高:    图片的定位    left: 最小的索引 * 图片的宽度    top: 最小图片的高度    定义数组存放图片高度
+过程中使用到的 jQuery 整合jQuer ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/10/Yilia-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0%E6%9C%89%E6%95%88%E8%A7%A3%E5%86%B3/" title="Yilia 相册实现有效解决">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Yilia.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Yilia 相册实现有效解决"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/Yilia-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0%E6%9C%89%E6%95%88%E8%A7%A3%E5%86%B3/" title="Yilia 相册实现有效解决">Yilia 相册实现有效解决</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-19T12:42:42.000Z" title="发表于 2020-10-19 20:42:42">2020-10-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span></div><div class="content">创建 photos1234567E:\&gt;cd 你的博客路径E:\blog&gt;cd source // 进入资源文件夹E:\blog\source&gt;hexo new page &quot;photos&quot; // 创建 photosINFO  Created: E:\blog\source\photos\index.md ***// 之后删除 source/photos/ index.md    
+创建 Github仓库:
+克隆你的仓库至本地博客的根目录下:
+新建两个文件夹在你所克隆的仓库文件夹中:
+新建文件夹并在两个文件夹下存放·2014-11-16_name.jpg 格式的图片(必须是此格式)
+
+12345678开始只新建两个文件夹，分别是:	+ min_photos	+ photos
+
+
+
+
+通过 git 命令对仓库远程关联1234567891011git add .git commit -m &quot;xxxx&quot;git branch -M maingit remote add origin xxxgit push -u origin main   ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/CSDN%E5%AE%9E%E7%8E%B0%E5%9B%BE%E5%BA%8A/" title="CSDN实现图床">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/picPhoto.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSDN实现图床"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/CSDN%E5%AE%9E%E7%8E%B0%E5%9B%BE%E5%BA%8A/" title="CSDN实现图床">CSDN实现图床</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-19T07:50:27.000Z" title="发表于 2020-10-19 15:50:27">2020-10-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%9B%BE%E5%BA%8A/">图床</a></span></div><div class="content">根目录下的source/添加静态资源文件夹：
+添加不被渲染的主文件夹
+在主文件夹下添加子文件夹 / ( idnex.html,css,js)
+
+添加友情链接：123456789smart_menu:  innerArchive: &#x27;所有文章&#x27;  friends: &#x27;友情链接&#x27;  aboutme: &#x27;关于&#x27;friends:    media媒体查询: https://lovobin.github.io/ZONE/PageDemo/    Flex弹性布局: https://lovobin.github.io/ZONE/QQ-Nav/
+1234567友情链接的作用: 通过友情链接实现静态资源 demo 的在线预览 主要文件是；	html + css + js + image
+
+
+图床的实现；
+繁琐方式
+1通过 CSDN 上传图片获取 图片外连接 
+图床效果
+
+
+步骤演示
+
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/10/Javascript-%E5%9F%BA%E7%A1%80/" title="JavaScript-基础">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/JavaScript.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript-基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/Javascript-%E5%9F%BA%E7%A1%80/" title="JavaScript-基础">JavaScript-基础</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-18T15:53:19.000Z" title="发表于 2020-10-18 23:53:19">2020-10-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/javascript/">javascript</a></span></div><div class="content">基础:123456789101112131415varletconstwindow.onload = function()&#123;    console.log(x); // undefind    var x = 100;        console.log(x); // 直接报错    let x = 100;    &#125;
+let 、const的区别:11. let  和 const 不存在变量提升
+12. let 和 const 在同一个作用域下不能重复定义相同的一个变量名称
+13. let 和 const 有严格的作用域 块级作用域
+
+
+12345678910window.onload = function () &#123;    var c = 10;    var c = 99;    console.log(c); // 99    let d = 10;    let d = 20;    console.log(d); // Uncaught SyntaxError: Identifier &#x27;d&#x27; has already been  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/Linux-Command/" title="Linux Command">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Linux.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux Command"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/Linux-Command/" title="Linux Command">Linux Command</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-17T14:20:21.000Z" title="发表于 2020-10-17 22:20:21">2020-10-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">123username: Centospasswd: aidou123456
+12345# 超级用户提示符$ 普通用户提示符~ 当前所在家目录
+Centos 7 安装后没有网络的解决方案：123456789101112131415检测网络状态		ping xxx没有 ifconfig 使用: ip addr 切换目录： cd etc/sysconfig/network-scripts显示: ls	ifcfg-ens33	编辑: ifcfg-ens33	vi ifcfg-ens33
+
+
+Linux 常用命令:
+文件处理命令
+1234567891011121314创建目录: mkdir -p [目录名] (-p递归创建)删除目录: rm -rf 【目录名】  【-r 删除目录   -f 强制】复制: cp [选项] [原文件或目录] [目标目录]		[-r 复制目录 -p 连带文件属性复制 -d 若源文件是链接文件，则复制链接属性 -a == -pdr] ll = ls -l 剪切: mv [原文件或目录] [目标目录]重命名: mv
+目录：123456789+ /根目录+ /bin 命令 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/10/Web%E5%89%8D%E7%AB%AF/" title="Web前端">     <img class="post_bg" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/selfInfo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Web前端"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/Web%E5%89%8D%E7%AB%AF/" title="Web前端">Web前端</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-15T15:40:49.000Z" title="发表于 2020-10-15 23:40:49">2020-10-15</time></span></div><div class="content"> 王宏斌简历： 王宏斌   简历 
+浏览密码: 锁定暂时无法查看
+
+
+
+
+姓名： 王宏斌联系方式
+
+
+手机: 17782523971
+Email:  3327511395@qq.com
+微信: ZeroPlans(17629049261)
+
+
+
+个人信息
+姓名： 王宏斌,性别: 男
+
+专业: 计算机信息管理
+
+技术博客: https://lovobin.github.io/
+
+荣誉奖项:
+
+荣获2019年”第二届全国大学生大数据竟能竞赛”三等奖
+
+荣获陕西国际商贸学院”中软国际杯”程序设计大赛三等奖
+
+2018-2019学年科技竞赛，获得科技之星
+
+荣获校级三等奖学金
+
+期望职位: Web前端(首选)/Java研发程序员
+
+
+
+
+
+
+项目经历
+
+项目名称: 彩陶网项目描述:​        该项目主要是对传统手工艺进行了解，传统文化的宣传，该项目通过 div+css+js+git+github+picgo+gitpages等技术实现
+个人承担责任:
+ 在该项目中本人主要负责页面重构,实现首页导航,首页动画函数封装,首页轮播图,切图等
+ 在该项目中熟练掌握了 html语义化以及css3的 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">源于此</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/01/Hexo-%E8%AF%B4%E8%AF%B4%E9%A1%B5%E6%B7%BB%E5%8A%A0/" title="Hexo 说说页添加"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 说说页添加"/></a><div class="content"><a class="title" href="/2021/01/Hexo-%E8%AF%B4%E8%AF%B4%E9%A1%B5%E6%B7%BB%E5%8A%A0/" title="Hexo 说说页添加">Hexo 说说页添加</a><time datetime="2021-01-01T08:19:12.000Z" title="发表于 2021-01-01 16:19:12">2021-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/Vscode-%E6%B3%A8%E9%87%8A%E9%A2%9C%E8%89%B2%E6%96%9C%E4%BD%93%E4%BF%AE%E6%94%B9/" title="Vscode-注释颜色斜体修改"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/20.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vscode-注释颜色斜体修改"/></a><div class="content"><a class="title" href="/2020/12/Vscode-%E6%B3%A8%E9%87%8A%E9%A2%9C%E8%89%B2%E6%96%9C%E4%BD%93%E4%BF%AE%E6%94%B9/" title="Vscode-注释颜色斜体修改">Vscode-注释颜色斜体修改</a><time datetime="2020-12-31T09:37:03.000Z" title="发表于 2020-12-31 17:37:03">2020-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/javascript-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/" title="javascript-立即执行函数"><img data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/20201231173933.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="javascript-立即执行函数"/></a><div class="content"><a class="title" href="/2020/12/javascript-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/" title="javascript-立即执行函数">javascript-立即执行函数</a><time datetime="2020-12-31T09:17:37.000Z" title="发表于 2020-12-31 17:17:37">2020-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/HTML-%E5%AE%8C%E7%BE%8E%E8%A7%86%E5%8F%A3/" title="HTML-完美视口"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/23.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML-完美视口"/></a><div class="content"><a class="title" href="/2020/12/HTML-%E5%AE%8C%E7%BE%8E%E8%A7%86%E5%8F%A3/" title="HTML-完美视口">HTML-完美视口</a><time datetime="2020-12-31T08:07:45.000Z" title="发表于 2020-12-31 16:07:45">2020-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/Web-%E6%B5%8B%E8%AF%95/" title="Web-测试"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/18.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Web-测试"/></a><div class="content"><a class="title" href="/2020/12/Web-%E6%B5%8B%E8%AF%95/" title="Web-测试">Web-测试</a><time datetime="2020-12-31T05:13:09.000Z" title="发表于 2020-12-31 13:13:09">2020-12-31</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Ajax/"><span class="card-category-list-name">Ajax</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Buffterfly/"><span class="card-category-list-name">Buffterfly</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/HTML/"><span class="card-category-list-name">HTML</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/SQL/"><span class="card-category-list-name">SQL</span><span class="card-category-list-count">4</span></a></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories/">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/AE/" style="font-size: 1.1em; color: #999">AE</a> <a href="/tags/Ajax/" style="font-size: 1.1em; color: #999">Ajax</a> <a href="/tags/Buffterfly/" style="font-size: 1.1em; color: #999">Buffterfly</a> <a href="/tags/HTML/" style="font-size: 1.39em; color: #99a4b4">HTML</a> <a href="/tags/HTML5/" style="font-size: 1.1em; color: #999">HTML5</a> <a href="/tags/Hexo/" style="font-size: 1.44em; color: #99a7ba">Hexo</a> <a href="/tags/Inter/" style="font-size: 1.1em; color: #999">Inter</a> <a href="/tags/JS%E7%89%B9%E6%95%88/" style="font-size: 1.1em; color: #999">JS特效</a> <a href="/tags/Java/" style="font-size: 1.1em; color: #999">Java</a> <a href="/tags/JavaScript/" style="font-size: 1.16em; color: #999b9e">JavaScript</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">Python</a> <a href="/tags/SQL/" style="font-size: 1.27em; color: #99a0a9">SQL</a> <a href="/tags/Vue/" style="font-size: 1.21em; color: #999ea4">Vue</a> <a href="/tags/css/" style="font-size: 1.21em; color: #999ea4">css</a> <a href="/tags/git/" style="font-size: 1.33em; color: #99a2af">git</a> <a href="/tags/html/" style="font-size: 1.1em; color: #999">html</a> <a href="/tags/iconfont/" style="font-size: 1.1em; color: #999">iconfont</a> <a href="/tags/jQuery/" style="font-size: 1.16em; color: #999b9e">jQuery</a> <a href="/tags/javascript/" style="font-size: 1.5em; color: #99a9bf">javascript</a> <a href="/tags/less/" style="font-size: 1.1em; color: #999">less</a> <a href="/tags/matery/" style="font-size: 1.16em; color: #999b9e">matery</a> <a href="/tags/theme/" style="font-size: 1.1em; color: #999">theme</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 1.16em; color: #999b9e">图床</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">开发工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.1em; color: #999">教程</a> <a href="/tags/%E7%94%B5%E8%84%91%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">电脑小技巧</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 1.1em; color: #999">移动端</a> <a href="/tags/%E7%AE%80%E5%8E%86/" style="font-size: 1.1em; color: #999">简历</a> <a href="/tags/%E7%BD%91%E9%A1%B5%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">网页优化</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 1.1em; color: #999">资源</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">项目实战</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">24</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">24</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">86</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-02T03:32:34.695Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/3.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 源于此</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "遇见即是源!".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '遇见即是源!'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script defer src="/gitcalendar/js/gitcalendar.js"></script><script src="/swiper/swiper.min.js"></script><script src="/swiper/swiperindex.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})</script></div></body></html>
