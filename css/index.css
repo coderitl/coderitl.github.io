@@ -4425,6 +4425,9 @@ _:future,
 #waline .vcards .vcard .vcontent.expand:after {
   z-index: 22;
 }
+#vcomment textarea {
+  background: url("https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/bg-b.jpg") 100% 100% no-repeat;
+}
 #waline-wrap textarea {
   background: url("/image/comment_bg.png") 100% 100% no-repeat;
 }
