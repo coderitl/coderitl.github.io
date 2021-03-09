@@ -22,6 +22,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x"
+    
+    - name: 安装 Hexo 和 Gulp
+      run: |
+        npm install hexo-cli -g
+        npm install gulp-cli -g  
         
     - name: 缓存依赖
       uses: actions/cache@v2.1.1
@@ -29,11 +34,7 @@ jobs:
       with:
         path: node_modules
         key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}    
-    
-    - name: 安装 Hexo
-      run: |
-        npm install hexo-cli -g
-
+        
     - name: 安装依赖
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
@@ -43,11 +44,15 @@ jobs:
     - name: 生成静态文件
       run: |
         hexo clean
+        hexo bangumi -u
         hexo generate
+        gulp
     
     - name: 部署
       run: |
         git config --global user.name "lovobin"
-        git config --global user.email ""
-        git clone 博客静态文件仓库地址 .deploy_git # clone 静态文件仓库，防止 Hexo 推送时覆盖整个静态文件仓库，只推送有更改的文件
+        git config --global user.email "3327511395@qq.com"
+        git clone  -b develop  https://github.com/lovobin/lovobin.github.io.git # clone 静态文件仓库，防止 Hexo 推送时覆盖整个静态文件仓库，只推送有更改的文件
         hexo deploy
+
+    
