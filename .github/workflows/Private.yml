@@ -1,0 +1,53 @@
+name: 自动部署
+
+on: 
+  push:
+    branches:
+      - master
+
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 检查分支
+      uses: actions/checkout@v2
+      with:
+        ref: master
+
+    - name: 安装 Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+        
+    - name: 缓存依赖
+      uses: actions/cache@v2.1.1
+      id: cache-dependencies
+      with:
+        path: node_modules
+        key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}    
+    
+    - name: 安装 Hexo
+      run: |
+        npm install hexo-cli -g
+
+    - name: 安装依赖
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        export TZ='Asia/Shanghai'
+        npm install --save
+
+    - name: 生成静态文件
+      run: |
+        hexo clean
+        hexo generate
+    
+    - name: 部署
+      run: |
+        git config --global user.name "lovobin"
+        git config --global user.email ""
+        git clone 博客静态文件仓库地址 .deploy_git # clone 静态文件仓库，防止 Hexo 推送时覆盖整个静态文件仓库，只推送有更改的文件
+        hexo deploy

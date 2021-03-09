@@ -136,4 +136,5 @@ githubcalendar:
 deploy:
   type: git
   repo: https://www.github.com/lovobin/lovobin.github.io.git
+    #github: https://lovobin:95f5811d0fcaab23cf6e4ace2d91eb933c92c8e9@github.com/lovobin/Private.git
   branch: master
