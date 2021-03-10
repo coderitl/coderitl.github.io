@@ -911,7 +911,6 @@ inject:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'" />
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
-    - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'">
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
   bottom:
     - <script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
@@ -938,10 +937,10 @@ pjax:
 # 非必要請不要修改
 CDN:
   # main
-  main_css: /css/index.css
+  main_css: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/css/index.css
   jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
-  main: /js/main.js
-  utils: /js/utils.js
+  main: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/js/main.js
+  utils: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/js/utils.js
 
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
@@ -962,8 +961,8 @@ CDN:
   sharejs_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
 
   # search
-  local_search: /js/search/local-search.js
-  algolia_js: /js/search/algolia.js
+  local_search: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/js/search/local-search.js
+  algolia_js: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/js/search/algolia.js
   algolia_search: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js
   algolia_search_css: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css
 
@@ -1006,7 +1005,7 @@ CDN:
   fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
 
   # Conversion between Traditional and Simplified Chinese
-  translate: /js/tw_cn.js
+  translate: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/js/tw_cn.js
 
   # justifiedGallery
   justifiedGallery_js: https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js
