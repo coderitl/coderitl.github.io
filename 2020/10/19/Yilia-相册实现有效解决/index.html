@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yilia 相册实现有效解决 | 源于此</title><meta name="keywords" content="Hexo"><meta name="author" content="源于此"><meta name="copyright" content="源于此"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="创建 photos1234567E:\&gt;cd 你的博客路径E:\blog&gt;cd source &#x2F;&#x2F; 进入资源文件夹E:\blog\source&gt;hexo new page &quot;photos&quot; &#x2F;&#x2F; 创建 photosINFO  Created: E:\blog\source\photos\index.md ***&#x2F;&#x2F; 之后删除 source&#x2F;photos&#x2F; in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yilia 相册实现有效解决">
+<meta property="og:url" content="https://lovobin.github.io/2020/10/19/Yilia-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0%E6%9C%89%E6%95%88%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:site_name" content="源于此">
+<meta property="og:description" content="创建 photos1234567E:\&gt;cd 你的博客路径E:\blog&gt;cd source &#x2F;&#x2F; 进入资源文件夹E:\blog\source&gt;hexo new page &quot;photos&quot; &#x2F;&#x2F; 创建 photosINFO  Created: E:\blog\source\photos\index.md ***&#x2F;&#x2F; 之后删除 source&#x2F;photos&#x2F; in">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-2.jpg">
+<meta property="article:published_time" content="2020-10-19T12:42:42.000Z">
+<meta property="article:modified_time" content="2021-03-10T08:20:49.713Z">
+<meta property="article:author" content="源于此">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lovobin.github.io/2020/10/19/Yilia-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0%E6%9C%89%E6%95%88%E8%A7%A3%E5%86%B3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="yandex-verification" content="{&quot;theme_color&quot;:{&quot;enable&quot;:true,&quot;main&quot;:&quot;#49B1F5&quot;,&quot;paginator&quot;:&quot;#00c4b6&quot;,&quot;button_hover&quot;:&quot;#FF7242&quot;,&quot;text_selection&quot;:&quot;#00c4b6&quot;,&quot;link_color&quot;:&quot;#99a9bf&quot;,&quot;meta_color&quot;:&quot;#858585&quot;,&quot;hr_color&quot;:&quot;#A4D8FA&quot;,&quot;code_foreground&quot;:&quot;#F47466&quot;,&quot;code_background&quot;:&quot;rgba(27, 31, 35, .05)&quot;,&quot;toc_color&quot;:&quot;#00c4b6&quot;,&quot;blockquote_padding_color&quot;:&quot;#49b1f5&quot;,&quot;blockquote_background_color&quot;:&quot;#49b1f5&quot;}}"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-10 16:20:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="/%E7%BD%AE%E9%A1%B6%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%8C%E7%AB%99%E5%86%85%E6%96%87%E7%AB%A0%E5%BB%BA%E8%AE%AE%E5%A1%AB%E7%9B%B8%E5%AF%B9%E9%93%BE%E6%8E%A5" alt=""><img width="48" height="48" src="/%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" onerror="this.onerror=null;this.src='/img/404.jpg'" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2020-10-01</span><a class="blog-slider__title" href="/%E7%BD%AE%E9%A1%B6%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%8C%E7%AB%99%E5%86%85%E6%96%87%E7%AB%A0%E5%BB%BA%E8%AE%AE%E5%A1%AB%E7%9B%B8%E5%AF%B9%E9%93%BE%E6%8E%A5" alt="">置顶文章标题</a><div class="blog-slider__text">置顶文章描述</div><a class="blog-slider__button" href="/%E7%BD%AE%E9%A1%B6%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%8C%E7%AB%99%E5%86%85%E6%96%87%E7%AB%A0%E5%BB%BA%E8%AE%AE%E5%A1%AB%E7%9B%B8%E5%AF%B9%E9%93%BE%E6%8E%A5" alt="">手机端按钮内容</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="/posts/7c16c4bb/" alt=""><img width="48" height="48" src="/img/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2020-10-01</span><a class="blog-slider__title" href="/posts/7c16c4bb/" alt="">📁Hexo博客访问优化日记</a><div class="blog-slider__text">对本站的Hexo优化路线做了个归纳.</div><a class="blog-slider__button" href="/posts/7c16c4bb/" alt="">🍡详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="/posts/f99b208/" alt=""><img width="48" height="48" src="/img/cover2.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2020-10-27</span><a class="blog-slider__title" href="/posts/f99b208/" alt="">🦋基于Butterfly主题的美化日记</a><div class="blog-slider__text">基于butterfly的魔改美化记录.</div><a class="blog-slider__button" href="/posts/f99b208/" alt="">🍡详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div><script defer="defer" src="/"></script><script defer="defer" data-pjax="data-pjax" src="/"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-2.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">源于此</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fab fa-d-and-d"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Yilia 相册实现有效解决</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-19T12:42:42.000Z" title="发表于 2020-10-19 20:42:42">2020-10-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-10T08:20:49.713Z" title="更新于 2021-03-10 16:20:49">2021-03-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hexo/">Hexo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="创建-photos"><a href="#创建-photos" class="headerlink" title="创建 photos"></a>创建 <code>photos</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">E:\&gt;cd 你的博客路径</span><br><span class="line">E:\blog&gt;cd source <span class="comment">// 进入资源文件夹</span></span><br><span class="line">E:\blog\source&gt;hexo <span class="keyword">new</span> page <span class="string">&quot;photos&quot;</span> <span class="comment">// 创建 photos</span></span><br><span class="line">INFO  Created: E:\blog\source\photos\index.md </span><br><span class="line"></span><br><span class="line">***<span class="comment">// 之后删除 source/photos/ index.md</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-Github仓库"><a href="#创建-Github仓库" class="headerlink" title="创建 Github仓库:"></a>创建 <code>Github</code>仓库:</h3><p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020101920485210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="创建github仓库"></p>
+<h3 id="克隆你的仓库至本地博客的根目录下"><a href="#克隆你的仓库至本地博客的根目录下" class="headerlink" title="克隆你的仓库至本地博客的根目录下:"></a>克隆你的仓库至本地博客的根目录下:</h3><p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201019205449237.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="请在博客根目录下"></p>
+<h4 id="新建两个文件夹在你所克隆的仓库文件夹中"><a href="#新建两个文件夹在你所克隆的仓库文件夹中" class="headerlink" title="新建两个文件夹在你所克隆的仓库文件夹中:"></a>新建两个文件夹在你所克隆的仓库文件夹中:</h4><ul>
+<li><p>新建文件夹并在两个文件夹下存放·<code>2014-11-16_name.jpg</code> 格式的图片(必须是此格式)</p>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201019205859490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="新建两个文件夹"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">开始只新建两个文件夹，分别是:</span><br><span class="line"></span><br><span class="line">	+ min_photos</span><br><span class="line"></span><br><span class="line">	+ photos</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="通过-git-命令对仓库远程关联"><a href="#通过-git-命令对仓库远程关联" class="headerlink" title="通过 git 命令对仓库远程关联"></a>通过 <code>git</code> 命令对仓库远程关联</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&quot;xxxx&quot;</span></span><br><span class="line"></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line">git remote add origin xxx</span><br><span class="line"></span><br><span class="line">git push -u origin main</span><br><span class="line">                </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="下载网络上已知的样式"><a href="#下载网络上已知的样式" class="headerlink" title="下载网络上已知的样式:"></a>下载网络上已知的样式:</h3><p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201019210552545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="已知样式下载"></p>
+<h3 id="在掘金发现这个解决方案很是重要"><a href="#在掘金发现这个解决方案很是重要" class="headerlink" title="在掘金发现这个解决方案很是重要:"></a>在掘金发现这个解决方案很是重要:</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*** 注意: ***</span><br><span class="line"></span><br><span class="line">	1. 修改: class= &quot;instagram itemscope&quot; 下的 href 路径</span><br><span class="line"></span><br><span class="line">	2. 删除 photos 下的 dat.json</span><br><span class="line"></span><br><span class="line">修改 index.ejs 的 href = &quot;你的博客地址&quot;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;instagram itemscope&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://chemlez.github.io/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">class</span>=<span class="string">&quot;open-ins&quot;</span>&gt;</span>图片正在加载中…<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改-修改ins-js文件里的render-函数："><a href="#修改-修改ins-js文件里的render-函数：" class="headerlink" title="修改 修改ins.js文件里的render()函数："></a>修改 <code>修改ins.js文件里的render()函数</code>：</h3><ul>
+<li>先通过 <code>ipaddress</code>   解析出可加载的 <code>raw.xx.com</code> 的 <code>ip</code>, 将 <code>ip</code> 添加在 <code>hosts</code> 文件里</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ipaddress: https://www.ipaddress.com/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201019211952623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li><p><code>hosts</code>路径:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">C:\Windows\System32\drivers\etc</span><br><span class="line">       </span><br><span class="line">添加对应的 `ip`</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201019212505974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="hosts路径"></p>
+</li>
+</ul>
+<h3 id="图片路径的获取"><a href="#图片路径的获取" class="headerlink" title="图片路径的获取:"></a>图片路径的获取:</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">minSrc = 如下图</span><br><span class="line"></span><br><span class="line">src = 如下图</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201019213247705.gif#pic_center" alt="获取图片路径"></p>
+<h3 id="python脚本："><a href="#python脚本：" class="headerlink" title="python脚本："></a><code>python</code>脚本：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">将其中的.py文件拷贝至本地仓库blog-Picture文件夹中.  (跳转: 新建文件夹那一步查看 python 文件 )</span><br><span class="line"></span><br><span class="line">根据脚本文件，图片的命名规则为：<span class="number">2019</span>-<span class="number">10</span>-21_xxx.jpg/png.</span><br><span class="line"></span><br><span class="line">将图片[empty.png]下载放入博客目录下的 assets/img 文件夹中.</span><br><span class="line"></span><br><span class="line">打开tool.py文件,修改<span class="function"><span class="keyword">def</span> <span class="title">handle_photo</span>():</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    // 路径属于(source下) 删除的 data.json 处</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;E:/blog/source/photos/data.json&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">        </span><br><span class="line">      </span><br><span class="line">  -- 安装 python 所需要的两个模块可能出错</span><br><span class="line"></span><br><span class="line">	我当初使用 windows + x : Windows PowerShell 到博客目录下使用: </span><br><span class="line">            </span><br><span class="line">            pip install pillow (建议切换 pip 源下载 )</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行:"></a>运行:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="我的博客相册效果截图"><a href="#我的博客相册效果截图" class="headerlink" title="我的博客相册效果截图:"></a>我的博客相册效果截图:</h3><p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201019214735290.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="效果截图"></p>
+<h3 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题:"></a>遗留问题:</h3><ul>
+<li><p>加入第二张图片时出现不了的解决方案</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可能是 github 修改了 master --&gt; main,提交命令导致</span><br><span class="line"></span><br><span class="line">所以修改 tool.py 的如下方法的 git 命令，注释掉原先的 git 命令,修改为最新的仓库关联方式</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">git_operation</span>():</span></span><br><span class="line">    </span><br><span class="line">    os.system(<span class="string">&#x27;git remote add origin https://github.com/lovobin/Blog-Back-Up.git&#x27;</span>)</span><br><span class="line">    os.system(<span class="string">&#x27;git branch -M main&#x27;</span>)</span><br><span class="line">    os.system(<span class="string">&#x27;git push -u origin main&#x27;</span>)</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    git 命令行函数，将仓库提交</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    需要安装git命令行工具，并且添加到环境变量中</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment">#os.system(&#x27;git add --all&#x27;)</span></span><br><span class="line">    <span class="comment">#os.system(&#x27;git commit -m &quot;add photos&quot;&#x27;)</span></span><br><span class="line">    <span class="comment">#os.system(&#x27;git push origin master&#x27;)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>第二次的图片展示结果:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">首先得在博客本地执行一次 tool.py </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201020100626447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="正确显示二次提交的图片"></p>
+</li>
+<li><p>分析过程来源：</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">作者：ChmeLez</span><br><span class="line">链接：https://juejin.im/post/6844904088878972941</span><br><span class="line">来源：掘金</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br><span class="line"></span><br><span class="line">具体参考: https://juejin.im/post/6844904088878972941</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">源于此</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lovobin.github.io/2020/10/19/Yilia-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0%E6%9C%89%E6%95%88%E8%A7%A3%E5%86%B3/">https://lovobin.github.io/2020/10/19/Yilia-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0%E6%9C%89%E6%95%88%E8%A7%A3%E5%86%B3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lovobin.github.io" target="_blank">源于此</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/20/%E7%80%91%E5%B8%83%E6%B5%81/"><img class="prev-cover" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/unnamed.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">瀑布流</div></div></a></div><div class="next-post pull-right"><a href="/2020/10/19/CSDN%E5%AE%9E%E7%8E%B0%E5%9B%BE%E5%BA%8A/"><img class="next-cover" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/picPhoto.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CSDN实现图床</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/11/29/Hexo-统一定位符-url-引起错误解决方案/" title="Hexo-统一定位符(url)-引起错误解决方案"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-9.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-29</div><div class="title">Hexo-统一定位符(url)-引起错误解决方案</div></div></a></div><div><a href="/2020/11/18/Hexo文章加密/" title="Hexo文章加密"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-18</div><div class="title">Hexo文章加密</div></div></a></div><div><a href="/2020/12/19/Hexo-github日历图/" title="Hexo-github日历图"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-19</div><div class="title">Hexo-github日历图</div></div></a></div><div><a href="/2020/12/24/Hexo-JsDeliver/" title="Hexo-JsDeliver"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent/timeline.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-24</div><div class="title">Hexo-JsDeliver</div></div></a></div><div><a href="/2020/12/20/Hexo-Tab栏实现分享/" title="Hexo-Bufftery-Tab栏实现分享"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-20</div><div class="title">Hexo-Bufftery-Tab栏实现分享</div></div></a></div><div><a href="/2020/12/19/Hexo-valine评论系统/" title="Hexo-valine评论系统"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-19</div><div class="title">Hexo-valine评论系统</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">源于此</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">125</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lovobin"><i class="fab fa-github"></i><span>源于此</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content"><p><a target="_blank" rel="noopener" href="http://wang_hong_bin.gitee.io/hexoblog/"><img src="https://img.shields.io/badge/Theme-Matery-red"></a></p> <p><a target="_blank" rel="noopener" href="http://aidou.3vfree.com/"><img src="https://img.shields.io/badge/Gitee-Gitee--Matery-red"></a></p><a target="_blank" rel="noopener" href="https://learnmore.vercel.app/"><img src="https://img.shields.io/badge/Gitee-Vercel-red"></a></p> <p>请勿尝试破解本站未知密码,渗透测试!</p></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-photos"><span class="toc-number">1.</span> <span class="toc-text">创建 photos</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Github%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">创建 Github仓库:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E4%BD%A0%E7%9A%84%E4%BB%93%E5%BA%93%E8%87%B3%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="toc-number">3.</span> <span class="toc-text">克隆你的仓库至本地博客的根目录下:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%9C%A8%E4%BD%A0%E6%89%80%E5%85%8B%E9%9A%86%E7%9A%84%E4%BB%93%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD"><span class="toc-number">3.1.</span> <span class="toc-text">新建两个文件夹在你所克隆的仓库文件夹中:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-git-%E5%91%BD%E4%BB%A4%E5%AF%B9%E4%BB%93%E5%BA%93%E8%BF%9C%E7%A8%8B%E5%85%B3%E8%81%94"><span class="toc-number">4.</span> <span class="toc-text">通过 git 命令对仓库远程关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E4%B8%8A%E5%B7%B2%E7%9F%A5%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">下载网络上已知的样式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%8E%98%E9%87%91%E5%8F%91%E7%8E%B0%E8%BF%99%E4%B8%AA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%BE%88%E6%98%AF%E9%87%8D%E8%A6%81"><span class="toc-number">6.</span> <span class="toc-text">在掘金发现这个解决方案很是重要:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-%E4%BF%AE%E6%94%B9ins-js%E6%96%87%E4%BB%B6%E9%87%8C%E7%9A%84render-%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">修改 修改ins.js文件里的render()函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="toc-number">8.</span> <span class="toc-text">图片路径的获取:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E8%84%9A%E6%9C%AC%EF%BC%9A"><span class="toc-number">9.</span> <span class="toc-text">python脚本：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-number">10.</span> <span class="toc-text">运行:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%86%8C%E6%95%88%E6%9E%9C%E6%88%AA%E5%9B%BE"><span class="toc-number">11.</span> <span class="toc-text">我的博客相册效果截图:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">遗留问题:</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/25/%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" title="编写接口文档"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/14.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编写接口文档"/></a><div class="content"><a class="title" href="/2021/02/25/%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" title="编写接口文档">编写接口文档</a><time datetime="2021-02-25T09:28:05.000Z" title="发表于 2021-02-25 17:28:05">2021-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/18/Bootstrap-%E6%A1%86%E6%9E%B6/" title="Bootstrap-框架"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bootstrap-框架"/></a><div class="content"><a class="title" href="/2021/02/18/Bootstrap-%E6%A1%86%E6%9E%B6/" title="Bootstrap-框架">Bootstrap-框架</a><time datetime="2021-02-18T03:35:16.000Z" title="发表于 2021-02-18 11:35:16">2021-02-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/18/Node-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE/" title="Node-多人博客项目"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node-多人博客项目"/></a><div class="content"><a class="title" href="/2021/02/18/Node-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE/" title="Node-多人博客项目">Node-多人博客项目</a><time datetime="2021-02-18T02:05:56.000Z" title="发表于 2021-02-18 10:05:56">2021-02-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/15/MongoDB-%E4%BD%BF%E7%94%A8/" title="MongoDB-使用"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MongoDB-使用"/></a><div class="content"><a class="title" href="/2021/02/15/MongoDB-%E4%BD%BF%E7%94%A8/" title="MongoDB-使用">MongoDB-使用</a><time datetime="2021-02-15T02:02:12.000Z" title="发表于 2021-02-15 10:02:12">2021-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/10/MongoDB-%E5%AE%89%E8%A3%85/" title="MongoDB-安装"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MongoDB-安装"/></a><div class="content"><a class="title" href="/2021/02/10/MongoDB-%E5%AE%89%E8%A3%85/" title="MongoDB-安装">MongoDB-安装</a><time datetime="2021-02-10T03:39:49.000Z" title="发表于 2021-02-10 11:39:49">2021-02-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-2.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 源于此</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><p><img src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src="https://img.shields.io/badge/Python-Flask-red"></p><p><img src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&logoWidth=18">&nbsp;<img src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&logoWidth=18"></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'mBJmPXWzwyV04mxhgYDlcesh-MdYXbMMI',
+      appKey: 'YmiNUWFhvvnoxmwyOo4iAEUy',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script><script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?lovobin";
+            var git_color =['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'];
+            var git_user ="lovobin";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux-基础 | 源于此</title><meta name="keywords" content="Linux"><meta name="author" content="源于此"><meta name="copyright" content="源于此"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="准本工作 Centos连接用户信息 123login: rootpasswd: aidou123456 基本权限符 12345# 超级用户提示符$ 普通用户提示符~ 当前所在家目录  Centos 7 安装后没有网络的解决方案：设置 设置 - 网络适配器 - NAT模式(wlan可以选择桥接模式)  进入 Linux终端   1234567 # 进入 网卡配置信息目录 cd &#x2F;etc&#x2F;syscon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-基础">
+<meta property="og:url" content="https://lovobin.github.io/2020/10/17/Linux-%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="源于此">
+<meta property="og:description" content="准本工作 Centos连接用户信息 123login: rootpasswd: aidou123456 基本权限符 12345# 超级用户提示符$ 普通用户提示符~ 当前所在家目录  Centos 7 安装后没有网络的解决方案：设置 设置 - 网络适配器 - NAT模式(wlan可以选择桥接模式)  进入 Linux终端   1234567 # 进入 网卡配置信息目录 cd &#x2F;etc&#x2F;syscon">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Linux.jpg">
+<meta property="article:published_time" content="2020-10-17T14:20:21.000Z">
+<meta property="article:modified_time" content="2021-03-10T08:20:49.707Z">
+<meta property="article:author" content="源于此">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Linux.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lovobin.github.io/2020/10/17/Linux-%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="yandex-verification" content="{&quot;theme_color&quot;:{&quot;enable&quot;:true,&quot;main&quot;:&quot;#49B1F5&quot;,&quot;paginator&quot;:&quot;#00c4b6&quot;,&quot;button_hover&quot;:&quot;#FF7242&quot;,&quot;text_selection&quot;:&quot;#00c4b6&quot;,&quot;link_color&quot;:&quot;#99a9bf&quot;,&quot;meta_color&quot;:&quot;#858585&quot;,&quot;hr_color&quot;:&quot;#A4D8FA&quot;,&quot;code_foreground&quot;:&quot;#F47466&quot;,&quot;code_background&quot;:&quot;rgba(27, 31, 35, .05)&quot;,&quot;toc_color&quot;:&quot;#00c4b6&quot;,&quot;blockquote_padding_color&quot;:&quot;#49b1f5&quot;,&quot;blockquote_background_color&quot;:&quot;#49b1f5&quot;}}"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-10 16:20:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="/%E7%BD%AE%E9%A1%B6%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%8C%E7%AB%99%E5%86%85%E6%96%87%E7%AB%A0%E5%BB%BA%E8%AE%AE%E5%A1%AB%E7%9B%B8%E5%AF%B9%E9%93%BE%E6%8E%A5" alt=""><img width="48" height="48" src="/%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" onerror="this.onerror=null;this.src='/img/404.jpg'" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2020-10-01</span><a class="blog-slider__title" href="/%E7%BD%AE%E9%A1%B6%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%8C%E7%AB%99%E5%86%85%E6%96%87%E7%AB%A0%E5%BB%BA%E8%AE%AE%E5%A1%AB%E7%9B%B8%E5%AF%B9%E9%93%BE%E6%8E%A5" alt="">置顶文章标题</a><div class="blog-slider__text">置顶文章描述</div><a class="blog-slider__button" href="/%E7%BD%AE%E9%A1%B6%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%8C%E7%AB%99%E5%86%85%E6%96%87%E7%AB%A0%E5%BB%BA%E8%AE%AE%E5%A1%AB%E7%9B%B8%E5%AF%B9%E9%93%BE%E6%8E%A5" alt="">手机端按钮内容</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="/posts/7c16c4bb/" alt=""><img width="48" height="48" src="/img/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2020-10-01</span><a class="blog-slider__title" href="/posts/7c16c4bb/" alt="">📁Hexo博客访问优化日记</a><div class="blog-slider__text">对本站的Hexo优化路线做了个归纳.</div><a class="blog-slider__button" href="/posts/7c16c4bb/" alt="">🍡详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="/posts/f99b208/" alt=""><img width="48" height="48" src="/img/cover2.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2020-10-27</span><a class="blog-slider__title" href="/posts/f99b208/" alt="">🦋基于Butterfly主题的美化日记</a><div class="blog-slider__text">基于butterfly的魔改美化记录.</div><a class="blog-slider__button" href="/posts/f99b208/" alt="">🍡详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div><script defer="defer" src="/"></script><script defer="defer" data-pjax="data-pjax" src="/"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Linux.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">源于此</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fab fa-d-and-d"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-17T14:20:21.000Z" title="发表于 2020-10-17 22:20:21">2020-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-10T08:20:49.707Z" title="更新于 2021-03-10 16:20:49">2021-03-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="准本工作"><a href="#准本工作" class="headerlink" title="准本工作"></a>准本工作</h3><ul>
+<li><p><code>Centos</code>连接用户信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">login: root</span><br><span class="line"></span><br><span class="line">passwd: aidou123456</span><br></pre></td></tr></table></figure></li>
+<li><p>基本权限符</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 超级用户提示符</span></span><br><span class="line"></span><br><span class="line">$ 普通用户提示符</span><br><span class="line"></span><br><span class="line">~ 当前所在家目录</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Centos-7-安装后没有网络的解决方案："><a href="#Centos-7-安装后没有网络的解决方案：" class="headerlink" title="Centos 7 安装后没有网络的解决方案："></a>Centos 7 安装后没有网络的解决方案：</h3><h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><ol>
+<li><p>设置 - 网络适配器 - <code>NAT模式(wlan可以选择桥接模式)</code></p>
+</li>
+<li><p>进入 <code>Linux终端 </code> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 进入 网卡配置信息目录</span></span><br><span class="line"> <span class="built_in">cd</span> /etc/sysconfig/network-scripts</span><br><span class="line"><span class="comment"># 查看具体信息</span></span><br><span class="line">ls </span><br><span class="line"><span class="comment"># 编辑该文件 ens33 每个电脑应该不相同,但以 ifcfg- 开头</span></span><br><span class="line">vi ifcfg-ens33</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>文件解读（配置两个）</p>
+<ul>
+<li><p>公网访问配置</p>
+<details ><summary> ifcfg-ens33-公网访问配置 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 个人配置项 默认配置项忘记预留 ifconfig/ip addr</span></span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEVICE=ens33</span><br><span class="line">ONBOOT=yes</span><br><span class="line">NM_CONTROLLED=yes</span><br><span class="line"></span><br><span class="line">-------- 保存退出 ------------</span><br><span class="line">esc: wq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">service network restart</span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">ping https://www.baidu.com</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+              </div>
+            </details></li>
+<li><p>内网配置</p>
+<blockquote>
+<p> <code>再开机启动设置处再添加一个网络适配器</code></p>
+</blockquote>
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/nat.png"></li>
+<li><p> 添加 <code>ip</code></p>
+</li>
+</ul>
+  <details ><summary> 添加内网`IP` </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看已开启的网卡信息 </span></span><br><span class="line">ip -a</span><br><span class="line"><span class="comment"># windows 下</span></span><br><span class="line">控制面板 \ 网络和 Internet \ 网络连接 \ Vmware 网络 [net1 仅主机模式]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入网卡信息配置目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/sysconfig/network-scripts</span><br><span class="line"><span class="comment"># 复制 ifcfg-ens33 到当前目录下</span></span><br><span class="line">cp ifcfg-ens33 new-name</span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------</span><br><span class="line"><span class="comment"># 添加如下信息</span></span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEVICE=ens37</span><br><span class="line">ONBOOT=yes</span><br><span class="line">NM_CONTROLLED=yes</span><br><span class="line">IPADDR=10.1.1.250 <span class="comment"># 不要和主机同一网段</span></span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存退出 重启服务</span></span><br><span class="line">service network restart</span><br></pre></td></tr></table></figure><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/windowsIP.png">
+              </div>
+            </details>
+
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="主机名永久修改"><a href="#主机名永久修改" class="headerlink" title="主机名永久修改"></a>主机名永久修改</h3><ul>
+<li><p><code>centos7</code>主机名修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network</span><br><span class="line"><span class="comment"># 修改如下配置信息</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=new-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># [主机名和 ip 绑定 前面两个请勿改动 在后续添加即可] 可选操作</span></span><br><span class="line">vi /etc/hosts</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="关闭防火墙-注意权限使用"><a href="#关闭防火墙-注意权限使用" class="headerlink" title="关闭防火墙(注意权限使用)"></a>关闭防火墙(注意权限使用)</h3><ol>
+<li><p>临时关闭防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop</span><br></pre></td></tr></table></figure></li>
+<li><p>永久关闭防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig iptables off</span><br></pre></td></tr></table></figure></li>
+<li><p>查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --list | grep iptables</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="YUM-源配置（请更换aliyun）"><a href="#YUM-源配置（请更换aliyun）" class="headerlink" title="YUM 源配置（请更换aliyun）"></a>YUM 源配置（请更换<code>aliyun</code>）</h3><ul>
+<li><code>yum</code>作用： 类似于 360软件安装管家</li>
+</ul>
+<h4 id="镜像挂载-ISO-镜像文件设置后"><a href="#镜像挂载-ISO-镜像文件设置后" class="headerlink" title="镜像挂载(ISO 镜像文件设置后)"></a>镜像挂载(ISO 镜像文件设置后)</h4><ol>
+<li><p>已挂载在光驱中信息查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[roo@localhost ~]$ lsblk</span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0   20G  0 disk </span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0   19G  0 part </span><br><span class="line">  ├─centos-root 253:0    0   17G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    2G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1  4.5G  0 rom  /run/media/roo/CentOS 7 x86_64 <span class="comment"># 需要查看信息</span></span><br><span class="line">[roo@localhost ~]$ </span><br></pre></td></tr></table></figure></li>
+<li><p>挂载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以只读方式挂载</span></span><br><span class="line">mount -o ro /dev/sr0 /mnt/</span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">/dev/sr0                 4.5G  4.5G     0  100% /run/media/roo/CentOS 7 x86_64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看光盘下的目录 [mnt]</span></span><br><span class="line">ls /mnt/</span><br></pre></td></tr></table></figure></li>
+<li><p>修改配置文件告诉<code>yum</code> 工具去那个仓库找</p>
+<details ><summary> yum配置 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入仓库目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d</span><br><span class="line"><span class="comment"># 查看已有网络源</span></span><br><span class="line">ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份已有</span></span><br><span class="line"><span class="comment"># 新建文件见存放已有 repo</span></span><br><span class="line">mkdir backupRepo</span><br><span class="line"><span class="comment"># 移动所有 repo 至 backupRepo目录中</span></span><br><span class="line"> CentOS-* backupRepo/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建文件  光盘镜像源 发现在后续使用有缺陷</span></span><br><span class="line">vi local.repo</span><br><span class="line"><span class="comment"># 添加如下配置</span></span><br><span class="line">[<span class="built_in">local</span>] <span class="comment"># [名称随意]</span></span><br><span class="line">name=xxx <span class="comment"># 描述信息</span></span><br><span class="line">baseurl=file:///mnt <span class="comment"># 必须指定</span></span><br><span class="line">enabled=1 <span class="comment"># 启用仓库</span></span><br><span class="line">gpgcheck=0 <span class="comment"># 不检验 【校验码】</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存 退出</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除 yum 缓存</span></span><br><span class="line">yum clear  all</span><br><span class="line"><span class="comment"># 创建 yum 缓存</span></span><br><span class="line">yum makecache</span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">yum repolist</span><br></pre></td></tr></table></figure>
+              </div>
+            </details> </li>
+<li><p>阿里源更换</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 备份原有镜像源</span><br><span class="line">2. 下载 wget</span><br><span class="line">	yum -y install wget</span><br><span class="line">	</span><br><span class="line">3. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/</span><br><span class="line">	wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line">	</span><br><span class="line">4. 下载aliyun</span><br><span class="line">	wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</span><br><span class="line">	</span><br><span class="line">5. 清理缓存</span><br><span class="line">	yum clean all</span><br><span class="line">	</span><br><span class="line">6. 生成缓存</span><br><span class="line">	yum makecache  </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="SSH-远程NAT-模式ip不可以连接-需要通过-仅主机模式即为内网ip连接"><a href="#SSH-远程NAT-模式ip不可以连接-需要通过-仅主机模式即为内网ip连接" class="headerlink" title="SSH 远程NAT 模式ip不可以连接,需要通过 仅主机模式即为内网ip连接 "></a>SSH 远程<code>NAT 模式ip不可以连接,需要通过 仅主机模式即为内网ip连接 </code></h3><ul>
+<li><p>检测端口号占用问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstart -a|grep 端口号</span><br><span class="line">ss -a|grep 端口号</span><br><span class="line">lsof -i 端口号</span><br><span class="line">grep 端口号 /etc/services</span><br></pre></td></tr></table></figure></li>
+<li><p>修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/ssh_config </span><br><span class="line"><span class="comment"># 过滤</span></span><br><span class="line">esc: /Port 修改端口号【2209】</span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">service sshd restart</span><br><span class="line"><span class="comment"># 验证连接</span></span><br><span class="line">	1. 连接方式一: ssh -l用户名 ip -p端口号</span><br><span class="line">	2. ssh 用户名@ip:port 【ip: 使用内网自定义ip可用于连接】</span><br></pre></td></tr></table></figure>
+
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/ipaddr.png" width="800">
+
+<ul>
+<li><p>个人出现了一写问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">主要原因就是由于使用的光盘镜像中 openssh 包问题,导致 sshd 服务无法启动</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令:"></a>Linux 常用命令:</h3><h4 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h4><ol>
+<li><p>创建目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p [目录名] (-p递归创建)</span><br></pre></td></tr></table></figure></li>
+<li><p>删除目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf 【目录名】  【-r 删除目录   -f 强制】</span><br></pre></td></tr></table></figure></li>
+<li><p>复制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp [选项] [原文件或目录] [目标目录]</span><br><span class="line">	[-r 复制目录 -p 连带文件属性复制 -d 若源文件是链接文件，则复制链接属性 -a == -pdr]</span><br></pre></td></tr></table></figure></li>
+<li><p>重命名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv [在移动的基础上进行重命名 cp 命令同样可以进行重命名操作]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h4><ul>
+<li><p><code>linux</code>常用目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ /根目录</span><br><span class="line">+ /bin 命令保存目录(普通用户就可以读取)</span><br><span class="line">+ /boot 启动目录，启动相关文件</span><br><span class="line">+ /dev 设备文件保存目录</span><br><span class="line">+ /etc 配置文件保存目录</span><br><span class="line">+ /home 普通用户家目录</span><br><span class="line">+ /lib 系统库保存目录</span><br><span class="line">+ /mnt 系统挂载目录</span><br><span class="line">+ /media 挂载目录</span><br></pre></td></tr></table></figure></li>
+<li><p>文件搜索命令</p>
+<ol>
+<li><p><code>find</code>名令基础使用</p>
+<details ><summary> Find命令基本使用方法 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">文件搜索命令: locate 文件名[只能是文件名]</span><br><span class="line"></span><br><span class="line">命令搜索命令 whereis 与 <span class="built_in">which</span></span><br><span class="line"></span><br><span class="line">文件搜索命令 find</span><br><span class="line"></span><br><span class="line">字符串搜索命令 grep</span><br><span class="line"></span><br><span class="line">find 命令与 grep 命令的区别</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">搜命令的搜索：</span><br><span class="line"></span><br><span class="line">	whereis 命令名</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">which</span> is</span><br><span class="line">	</span><br><span class="line">find 命令:</span><br><span class="line">	</span><br><span class="line">	find 【搜索范围】 【搜索条件】</span><br><span class="line">	</span><br><span class="line">	find / -name 具体文件名</span><br><span class="line">	</span><br><span class="line">通配符:</span><br><span class="line">	</span><br><span class="line">    * ? []</span><br><span class="line">    </span><br><span class="line">    find /路径 -name <span class="string">&quot;*&quot;</span>  任意多个</span><br><span class="line">    </span><br><span class="line">    find /root -iname 具体文件名（忽略大小写）</span><br><span class="line">    </span><br><span class="line">    find /root -nouser 没有所有者文件</span><br><span class="line">    </span><br><span class="line">    find /var/<span class="built_in">log</span>/ -mtime +10 （10天前修改的文件）</span><br><span class="line">    </span><br><span class="line">    -10: 10 内修改的文件</span><br><span class="line">     10 10天当天修改的文件</span><br><span class="line">    +10 10天前修改的文件</span><br><span class="line">    </span><br><span class="line">	按照文件大小搜索:</span><br><span class="line">	</span><br><span class="line">	find . -size 25k(k,M 单位)</span><br><span class="line">	+25(大于)</span><br><span class="line">	-25(小于)</span><br><span class="line">	</span><br><span class="line">PATH: 环境变量</span><br></pre></td></tr></table></figure>
+              </div>
+            </details></li>
+<li><p><code>grep</code> 命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	grep 【选项】 字符串 文件名</span><br><span class="line">	</span><br><span class="line">	选项:</span><br><span class="line">		</span><br><span class="line">		-i 忽略大小写</span><br><span class="line">		</span><br><span class="line">		-v 排除指定字符串</span><br><span class="line">		</span><br><span class="line">grep <span class="string">&quot;size&quot;</span> 文件名（xxx）（在xxx 中查找 size 相关的字符串 ）</span><br><span class="line"></span><br><span class="line">grep -v <span class="string">&quot;size&quot;</span> 文件名（xxx）（在 xxx 中不查找 size 相关的字符串 ）</span><br></pre></td></tr></table></figure></li>
+<li><p> <code>find</code>与<code>grep</code> 的区别:</p>
+</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find 命令: 在系统当中搜索费和条件的文件名，如果需要匹配，使用通配符匹配，通配符是完全匹配</span><br><span class="line"></span><br><span class="line">grep 命令:  在文件当中搜索符合条件的字符串，如果需要匹配，使用正则表达式进行匹配，正则表达式包含匹配</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>帮助命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man </span><br><span class="line"></span><br><span class="line"><span class="built_in">help</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<h4 id="压缩与解压缩命令"><a href="#压缩与解压缩命令" class="headerlink" title="压缩与解压缩命令"></a>压缩与解压缩命令</h4><ul>
+<li><p>常见压缩格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">压缩:</span><br><span class="line">    .zip </span><br><span class="line">    .rar</span><br><span class="line">    .bz2</span><br><span class="line"></span><br><span class="line">    .tar.gz</span><br><span class="line">    .tar.bz2</span><br><span class="line">    </span><br><span class="line">   zip 压缩文件名.zip 源文件</span><br><span class="line">   </span><br><span class="line">   zip -r 压缩文件名 源目录 </span><br></pre></td></tr></table></figure></li>
+<li><p>zip 使用</p>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201018113743290.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>zip file</p>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201018113743458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>解压缩命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压缩:</span><br><span class="line">	unzip 压缩文件</span><br></pre></td></tr></table></figure></li>
+<li><p>解压目录压缩文件 <code>unzip one.zip</code> </p>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020101811374235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>解压文件 <code>unzip newFile.zip</code></p>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201018113743372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>gzip使用方法</p>
+<details ><summary> gzip使用方法 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">gzip 源文件</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩为 .gz 格式的压缩文件，源文件会消失</span></span><br><span class="line"></span><br><span class="line">gzip -c 源文件 &gt; 压缩文件</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩为 .gz 格式 源文件保留</span></span><br><span class="line"></span><br><span class="line">gzip -r 目录 <span class="comment"># 测试未通过</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩目录下所有的子文件 但不能压缩目录</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩:</span></span><br><span class="line">	</span><br><span class="line">	gzip -d 压缩文件</span><br><span class="line">	</span><br><span class="line">	gunzip 压缩文件</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"><span class="comment"># 压缩</span></span><br><span class="line"></span><br><span class="line">bzip 源文件 <span class="comment"># 压缩为 .bz2 格式 不保留源文件</span></span><br><span class="line"></span><br><span class="line">bzip2 -k 源文件 (不能压缩目录) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line"></span><br><span class="line">bzip2 -d 压缩文件（-k 保留压缩文件）</span><br><span class="line"></span><br><span class="line">bunzip2 压缩文件 （-k 保留压缩文件）</span><br></pre></td></tr></table></figure>
+              </div>
+            </details></li>
+</ul>
+<h4 id="常用压缩格式"><a href="#常用压缩格式" class="headerlink" title="常用压缩格式"></a>常用压缩格式</h4><ul>
+<li><p>常用压缩格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.tar.gz</span><br><span class="line"></span><br><span class="line">.tar.bz2</span><br></pre></td></tr></table></figure></li>
+<li><p>使用方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf 打包文件名 源文件</span><br><span class="line"></span><br><span class="line">选项: </span><br><span class="line">	</span><br><span class="line">	-c 打包</span><br><span class="line">	</span><br><span class="line">	-v </span><br><span class="line">	</span><br><span class="line">	-f 指定打包的文件名</span><br></pre></td></tr></table></figure></li>
+<li><p><code>.tar.gz</code> 格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .tar.gz 压缩格式</span></span><br><span class="line"></span><br><span class="line">其实 .tar.gz 格式是先打包为 .tar 格式,在压缩为 .gz 格式</span><br><span class="line"></span><br><span class="line">tar -zcvf 压缩包名 .tar.gz 源文件</span><br><span class="line"></span><br><span class="line">选项: </span><br><span class="line">	</span><br><span class="line">	-z 压缩为 .tar.gz 格式</span><br><span class="line">	</span><br><span class="line">	-x 解压缩为 .tar.gz 格式</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li><p><code>tar zcvf </code></p>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201018144436364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="tar-gz格式压缩"></p>
+</li>
+<li><p><code>zxvf tar-gz</code></p>
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201018144620489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="解压缩"></p>
+</li>
+<li><p><code>.tar.bz2</code> 压缩格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tar -jcvf 压缩包名.tar.bz2 源文件</span><br><span class="line"></span><br><span class="line">选项；</span><br><span class="line"></span><br><span class="line">	-z 压缩为 .tar.bz2 格式</span><br><span class="line">	</span><br><span class="line">tar -jxvf 压缩包名.tar.bz2</span><br><span class="line">	</span><br><span class="line">	-x 解压缩为 .tar.bz2 格式</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li><p>解压到指定位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf 文件名.tar.bz2 -C xxx/xxx/xxx ( xxx--&gt; 指定的文件路径)</span><br><span class="line"></span><br><span class="line">** 注意: -C 的位置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020101814505577.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM0MDQyMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>关机和重启命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">关机:</span><br><span class="line"></span><br><span class="line">	shutdown -r now</span><br><span class="line"></span><br><span class="line">重启: </span><br><span class="line"></span><br><span class="line">	reboot</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="配置VIM编辑器"><a href="#配置VIM编辑器" class="headerlink" title="配置VIM编辑器"></a>配置<code>VIM</code>编辑器</h3><h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4><ul>
+<li><p>配置 vim</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建文件</span></span><br><span class="line">touch .vimrc</span><br><span class="line"><span class="comment"># 写入一下配置信息</span></span><br><span class="line">vim .vimrc</span><br><span class="line"></span><br><span class="line">    <span class="built_in">set</span> nu <span class="comment"># 显示行号</span></span><br><span class="line">    syntax on <span class="comment"># 高亮显示</span></span><br><span class="line">    <span class="built_in">set</span> ts=4 <span class="comment"># 制表位</span></span><br><span class="line">    <span class="built_in">set</span> expandtab <span class="comment"># 自动转换 tab</span></span><br><span class="line">    <span class="built_in">set</span> ruler <span class="comment"># 显示光标</span></span><br><span class="line">    <span class="built_in">set</span> nohls <span class="comment"># 关闭搜索高亮</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="末行模式"><a href="#末行模式" class="headerlink" title="末行模式"></a>末行模式</h4><ol>
+<li><p>显示关闭行号(<code>按下Esc后执行</code>)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> nonu <span class="comment"># 关闭行号</span></span><br><span class="line"><span class="built_in">set</span> nu <span class="comment"># 显示行号</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>制表键位数设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> ts=4</span><br></pre></td></tr></table></figure></li>
+<li><p><code>vim</code>下代码高亮显示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">syntax on <span class="comment"># 开启</span></span><br><span class="line">syntax off <span class="comment"># 关闭</span></span><br></pre></td></tr></table></figure></li>
+<li><p>光标所在位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> ruler <span class="comment"># 显示光标所在位置</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> noruler <span class="comment"># 关闭光标显示</span></span><br></pre></td></tr></table></figure>
+
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/ruler.png"></li>
+<li><p>命令模式</p>
+</li>
+</ol>
+<ul>
+<li><p>移动光标</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">G <span class="comment"># 光标移到文件末尾</span></span><br><span class="line">200G <span class="comment"># 光标移动到第 200行</span></span><br><span class="line">gg <span class="comment"># 光标移动到行首</span></span><br><span class="line"></span><br><span class="line">h 左</span><br><span class="line">j 下</span><br><span class="line">k 上</span><br><span class="line">l 右</span><br><span class="line"> </span><br><span class="line"> ctrl + y / ctrl + e 移动一行</span><br><span class="line"> ctrl + f / ctrl + b 翻一页</span><br><span class="line"> </span><br><span class="line"> 0 光标移动到行首</span><br><span class="line"> $ 光标移动到行尾</span><br><span class="line"> w 光标移动到下一个单词</span><br></pre></td></tr></table></figure>
+
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/LinuxD.png" title="慕课网截图"></li>
+<li><p>删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="comment"># 删除光标所在行</span></span><br><span class="line">100dd 从光标所在删除 100 行</span><br></pre></td></tr></table></figure></li>
+<li><p>复制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yy <span class="comment"># 复制光标所在行</span></span><br><span class="line"></span><br><span class="line">10yy <span class="comment"># 光标所在行开始复制 10 行</span></span><br><span class="line"></span><br><span class="line">p <span class="comment"># 粘贴</span></span><br><span class="line">10p <span class="comment"># 粘贴 10 遍</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>撤销恢复</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u <span class="comment"># 撤销</span></span><br><span class="line">ctrl + r <span class="comment"># 恢复</span></span><br></pre></td></tr></table></figure></li>
+<li><p>映射快捷键</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map &lt;F2&gt; gg99999dd <span class="comment"># 回到行首 删除 9999行</span></span><br><span class="line"></span><br><span class="line">inoremap _main <span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span> </span><br></pre></td></tr></table></figure></li>
+<li><p>多文件操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:ls <span class="comment"># 查看当前打开的所有文件（类似于windows的 windows + Tab,在linux只显示文件名称）</span></span><br><span class="line">:b 数字 <span class="comment"># 显示指定文件</span></span><br></pre></td></tr></table></figure>
+
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/lsAllfile.png"></li>
+<li><p>窗口显示(分屏)</p>
+<ul>
+<li><p>水平拆分</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换窗口</span></span><br><span class="line">ctrl + ww</span><br></pre></td></tr></table></figure></li>
+<li><p>垂直拆分</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vs <span class="comment"># 垂直拆分窗口</span></span><br></pre></td></tr></table></figure></li>
+<li><p>退出窗口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">qa <span class="comment"># 水平拆分垂直窗口</span></span><br><span class="line"></span><br><span class="line">wqa <span class="comment"># 保存并退出所有窗口</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>中断恢复</p>
+<ul>
+<li><code>shift + r</code></li>
+</ul>
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/recover.png">
+
+<ul>
+<li><p>删除隐藏文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示隐藏文件 </span></span><br><span class="line">ls -a</span><br><span class="line"></span><br><span class="line">rm -y 上一次中断的执行文件.后缀名.swp</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>命令别名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 别名: 简化输入</span></span><br><span class="line"><span class="built_in">alias</span> 别名 = <span class="string">&#x27;命令&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># alias nl=&#x27;ls -laR&#x27; # 递归显示,</span></span><br></pre></td></tr></table></figure></li>
+<li><p>查找替换</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全文替换</span></span><br><span class="line">:1,<span class="variable">$s</span>/替换目标/替换为/ci <span class="comment"># c确认 i 忽略大小写</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 前 n 替换</span></span><br><span class="line">:1,10s/替换目标/替换为/ci <span class="comment"># c确认 i 忽略大小写 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一行有多个需要替换就需要添加 g 参数</span></span><br><span class="line">:1,10s/替换目标/替换为/cg <span class="comment"># c确认 g 全局 global</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接替换</span></span><br><span class="line">:1,<span class="variable">$s</span>/替换目标/替换为</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="VIM查找"><a href="#VIM查找" class="headerlink" title="VIM查找"></a><code>VIM</code>查找</h4><blockquote>
+<p><code> ? 或 /</code></p>
+</blockquote>
+<ol>
+<li><p>快捷键</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shift</span> + v | V <span class="comment"># 选中光标所在行</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">shift</span> + g | G <span class="comment"># 向下选择  </span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>vim</code>主题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 末行模式下</span></span><br><span class="line"></span><br><span class="line">:colorscheme (空格一下，按下 ctrl + d)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示可选主题</span></span><br><span class="line">    blue       default    desert     evening    koehler    murphy     peachpuff  shine      torte</span><br><span class="line">    darkblue   delek      elflord    industry   morning    pablo      ron        slate      zellner</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以从网络下载主题</span></span><br><span class="line"></span><br><span class="line">https://github.com/flazz/vim-colorschemes</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可写入 .vimrc 文件永久配置 存入 git 进行版本控制, 以后方便使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开源: https://github.com/liuchengxu/space-vim (以后配置)</span></span><br></pre></td></tr></table></figure>
+
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/autoindent.png" title="python 文件未能实现自动换行"></li>
+<li><p><code>Vim</code>插件配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://github.com/sbdchd/neoformat vim 代码格式化插件</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="宏："><a href="#宏：" class="headerlink" title="宏："></a>宏：</h4><ul>
+<li><p>录制宏</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">末行模式: q其他字母</span><br></pre></td></tr></table></figure></li>
+<li><p><code>python</code>注释宏录制</p>
+<ul>
+<li><p><code>vim</code>文件</p>
+</li>
+<li><p>按下<code>q</code>，在键入其他字母<code>Eg. a 寄存器名称</code></p>
+</li>
+<li><p>按下<code>i</code></p>
+</li>
+<li><p>添加注释 <code>#</code></p>
+</li>
+<li><p>按下<code>ESC</code>，按下<code>j</code>进入下一行</p>
+</li>
+<li><p>按下<code>q</code>结束宏</p>
+</li>
+<li><p>播放宏</p>
+<ul>
+<li>数字 <code>@a</code></li>
+</ul>
+</li>
+<li><p>演示</p>
+<img src= "https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/gif/3.gif" data-lazy-src="https://gitee.com/wang_hong_bin/repo-bin/raw/master/hong.gif" width="600"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Shell基础"><a href="#Shell基础" class="headerlink" title="Shell基础:"></a>Shell基础:</h3><div class="tabs" id="shell-符号"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#shell-符号-1">管道符</button></li><li class="tab"><button type="button" data-href="#shell-符号-2">通配符</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="shell-符号-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">管道符；</span><br><span class="line"> 	</span><br><span class="line"> 	;</span><br><span class="line"> 	</span><br><span class="line"> 	&amp;&amp;</span><br><span class="line"> 	</span><br><span class="line"> 	||</span><br><span class="line"> 	</span><br><span class="line"> 	</span><br><span class="line"> 检测:</span><br><span class="line"> </span><br><span class="line"> 	ls &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;yes&quot;</span> || <span class="built_in">echo</span> <span class="string">&quot;no&quot;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 如果 ls 正确执行 输出 yes 否则 no</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="shell-符号-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">通配符:</span><br><span class="line"></span><br><span class="line">	?</span><br><span class="line">	*</span><br><span class="line">	[]</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+
+
+
+
+<h3 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组:"></a>用户和用户组:</h3><div class="tabs" id="用户和用户组"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#用户和用户组-1">认识用户和用户组</button></li><li class="tab"><button type="button" data-href="#用户和用户组-2">创建用户和用户组</button></li><li class="tab"><button type="button" data-href="#用户和用户组-3">删除用户和用户组</button></li><li class="tab"><button type="button" data-href="#用户和用户组-4">户和用户组权限管理</button></li><li class="tab"><button type="button" data-href="#用户和用户组-5">进阶</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="用户和用户组-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户: 使用操作系统</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户组: 具有相同系统权限的一组用户</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="用户和用户组-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">	groupadd 组名</span><br><span class="line"><span class="comment"># 修改用户组名称</span></span><br><span class="line">	groupmod -n 新组名 旧组名</span><br><span class="line"><span class="comment"># 添加组编号</span></span><br><span class="line">	groupmod -g 668(组编号) 组名</span><br><span class="line"><span class="comment"># 创建用户组 并添加组编号</span></span><br><span class="line">	groupadd -g 888 组名</span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">	groupdel 组名(必须先删除用户)</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"><span class="comment"># 用户</span></span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">	groupadd 组名</span><br><span class="line"><span class="comment"># 添加用户</span></span><br><span class="line">	useradd -g 组名 用户名1</span><br><span class="line">	useradd -g 组名 用户名2</span><br><span class="line">	</span><br><span class="line"><span class="comment"># 添加用户 并指定用户个人文件夹</span></span><br><span class="line">	useradd -d /hone/xxx (用户组 可省略) 用户名</span><br><span class="line">	</span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">	cat /etc/passwd</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="用户和用户组-3"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对用户添加备注</span></span><br><span class="line">	usermod -c 备注信息 用户名</span><br><span class="line"><span class="comment"># 修改用户的文件夹路径</span></span><br><span class="line">	usernod -d /home/xxx 用户名</span><br><span class="line"><span class="comment"># 修改用户的所属用户组</span></span><br><span class="line">	usermod -g 新用户组名 旧用户组名</span><br><span class="line"><span class="comment"># 删除用户和用户文件夹</span></span><br><span class="line">	userdel -r 用户名</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="用户和用户组-4"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁止除了root 其他用户登录</span></span><br><span class="line"></span><br><span class="line">touch /etc/nologin</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="用户和用户组-5"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 锁定用户</span></span><br><span class="line">	passwd -l 用户名 </span><br><span class="line"><span class="comment"># 解锁用户</span></span><br><span class="line">	password -u 锁定的用户名</span><br><span class="line"><span class="comment"># 无密码登录</span></span><br><span class="line">	passwd -d 用户名</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<p>​    </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">源于此</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lovobin.github.io/2020/10/17/Linux-%E5%9F%BA%E7%A1%80/">https://lovobin.github.io/2020/10/17/Linux-%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lovobin.github.io" target="_blank">源于此</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Linux.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/18/Javascript-%E5%9F%BA%E7%A1%80/"><img class="prev-cover" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/JavaScript.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JavaScript-基础</div></div></a></div><div class="next-post pull-right"><a href="/2020/10/15/Web%E5%89%8D%E7%AB%AF/"><img class="next-cover" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/selfInfo.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Web前端</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/01/13/Linux-Install-Python3/" title="Linux-Install-Python3"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-18.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-13</div><div class="title">Linux-Install-Python3</div></div></a></div><div><a href="/2021/01/14/Linux-Redis-Install/" title="Linux-Redis-Install"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.5/bg/19.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div><div class="title">Linux-Redis-Install</div></div></a></div><div><a href="/2021/01/14/Linux-mariadb-Install/" title="Linux-Mariadb-Install"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-15.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div><div class="title">Linux-Mariadb-Install</div></div></a></div><div><a href="/2021/01/15/Linux-git-Install/" title="Linux-git-Install"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.5/bg/05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-15</div><div class="title">Linux-git-Install</div></div></a></div><div><a href="/2021/01/18/Redis使用/" title="Redis使用"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.5/bg/17.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-18</div><div class="title">Redis使用</div></div></a></div><div><a href="/2021/01/22/Flask-Proj/" title="Flask-Proj"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-18.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-22</div><div class="title">Flask-Proj</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">源于此</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">125</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lovobin"><i class="fab fa-github"></i><span>源于此</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content"><p><a target="_blank" rel="noopener" href="http://wang_hong_bin.gitee.io/hexoblog/"><img src="https://img.shields.io/badge/Theme-Matery-red"></a></p> <p><a target="_blank" rel="noopener" href="http://aidou.3vfree.com/"><img src="https://img.shields.io/badge/Gitee-Gitee--Matery-red"></a></p><a target="_blank" rel="noopener" href="https://learnmore.vercel.app/"><img src="https://img.shields.io/badge/Gitee-Vercel-red"></a></p> <p>请勿尝试破解本站未知密码,渗透测试!</p></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E6%9C%AC%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准本工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos-7-%E5%AE%89%E8%A3%85%E5%90%8E%E6%B2%A1%E6%9C%89%E7%BD%91%E7%BB%9C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">Centos 7 安装后没有网络的解决方案：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%90%8D%E6%B0%B8%E4%B9%85%E4%BF%AE%E6%94%B9"><span class="toc-number">3.</span> <span class="toc-text">主机名永久修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99-%E6%B3%A8%E6%84%8F%E6%9D%83%E9%99%90%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">关闭防火墙(注意权限使用)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YUM-%E6%BA%90%E9%85%8D%E7%BD%AE%EF%BC%88%E8%AF%B7%E6%9B%B4%E6%8D%A2aliyun%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">YUM 源配置（请更换aliyun）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%8C%82%E8%BD%BD-ISO-%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE%E5%90%8E"><span class="toc-number">5.1.</span> <span class="toc-text">镜像挂载(ISO 镜像文件设置后)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH-%E8%BF%9C%E7%A8%8BNAT-%E6%A8%A1%E5%BC%8Fip%E4%B8%8D%E5%8F%AF%E4%BB%A5%E8%BF%9E%E6%8E%A5-%E9%9C%80%E8%A6%81%E9%80%9A%E8%BF%87-%E4%BB%85%E4%B8%BB%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%8D%B3%E4%B8%BA%E5%86%85%E7%BD%91ip%E8%BF%9E%E6%8E%A5"><span class="toc-number">6.</span> <span class="toc-text">SSH 远程NAT 模式ip不可以连接,需要通过 仅主机模式即为内网ip连接 </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">7.</span> <span class="toc-text">Linux 常用命令:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">7.1.</span> <span class="toc-text">文件处理命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%EF%BC%9A"><span class="toc-number">7.2.</span> <span class="toc-text">目录：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4"><span class="toc-number">7.3.</span> <span class="toc-text">压缩与解压缩命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F"><span class="toc-number">7.4.</span> <span class="toc-text">常用压缩格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEVIM%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">8.</span> <span class="toc-text">配置VIM编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">8.1.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AB%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="toc-number">8.2.</span> <span class="toc-text">末行模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VIM%E6%9F%A5%E6%89%BE"><span class="toc-number">8.3.</span> <span class="toc-text">VIM查找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8F%EF%BC%9A"><span class="toc-number">8.4.</span> <span class="toc-text">宏：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell%E5%9F%BA%E7%A1%80"><span class="toc-number">9.</span> <span class="toc-text">Shell基础:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">10.</span> <span class="toc-text">用户和用户组:</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/25/%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" title="编写接口文档"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/14.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编写接口文档"/></a><div class="content"><a class="title" href="/2021/02/25/%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" title="编写接口文档">编写接口文档</a><time datetime="2021-02-25T09:28:05.000Z" title="发表于 2021-02-25 17:28:05">2021-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/18/Bootstrap-%E6%A1%86%E6%9E%B6/" title="Bootstrap-框架"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bootstrap-框架"/></a><div class="content"><a class="title" href="/2021/02/18/Bootstrap-%E6%A1%86%E6%9E%B6/" title="Bootstrap-框架">Bootstrap-框架</a><time datetime="2021-02-18T03:35:16.000Z" title="发表于 2021-02-18 11:35:16">2021-02-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/18/Node-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE/" title="Node-多人博客项目"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-16.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node-多人博客项目"/></a><div class="content"><a class="title" href="/2021/02/18/Node-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE/" title="Node-多人博客项目">Node-多人博客项目</a><time datetime="2021-02-18T02:05:56.000Z" title="发表于 2021-02-18 10:05:56">2021-02-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/15/MongoDB-%E4%BD%BF%E7%94%A8/" title="MongoDB-使用"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/Access@v1.0/medias/featureimages/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MongoDB-使用"/></a><div class="content"><a class="title" href="/2021/02/15/MongoDB-%E4%BD%BF%E7%94%A8/" title="MongoDB-使用">MongoDB-使用</a><time datetime="2021-02-15T02:02:12.000Z" title="发表于 2021-02-15 10:02:12">2021-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/10/MongoDB-%E5%AE%89%E8%A3%85/" title="MongoDB-安装"><img data-lazy-src="https://cdn.jsdelivr.net/gh/lovobin/hiddenContent@v1.0.4/re-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MongoDB-安装"/></a><div class="content"><a class="title" href="/2021/02/10/MongoDB-%E5%AE%89%E8%A3%85/" title="MongoDB-安装">MongoDB-安装</a><time datetime="2021-02-10T03:39:49.000Z" title="发表于 2021-02-10 11:39:49">2021-02-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Linux.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 源于此</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><p><img src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src="https://img.shields.io/badge/Python-Flask-red"></p><p><img src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&logoWidth=18">&nbsp;<img src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&logoWidth=18"></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'mBJmPXWzwyV04mxhgYDlcesh-MdYXbMMI',
+      appKey: 'YmiNUWFhvvnoxmwyOo4iAEUy',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script><script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?lovobin";
+            var git_color =['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'];
+            var git_user ="lovobin";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>
