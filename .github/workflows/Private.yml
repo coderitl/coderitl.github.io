@@ -21,7 +21,7 @@ jobs:
       run: |
         export TZ='Asia/Shanghai'
         npm install hexo-cli gulp-cli -g
-        npm install --save  gulp-uglify-es gulp-htmlmin
+        npm install --save --dev  gulp-uglify-es gulp-htmlmin gulp-imagemin gulp-html-minifier-terser gulp-clean-css gulp-uglify gulp-babel @babel/core @babel/preset-env
 
 
 
