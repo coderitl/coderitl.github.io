@@ -722,7 +722,9 @@ aside:
     post_count: true
     last_push_date: true
     sort_order: # Don't modify the setting unless you know how it works
-
+  card_clock:
+    enable: true
+    sort_order: # Dont't modify
 # busuanzi count for PV / UV in site
 # 訪問人數
 busuanzi:
@@ -921,7 +923,7 @@ inject:
     - <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     - <script data-pjax src="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
     - <script data-pjax src="https://cdn.jsdelivr.net/gh/lovobin/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
-
+    - - <script defer src="/live2d-widget/autoload.js"></script>
 # Ice Kano Plus_in
 # Hexo Github Canlendar
 # Author: Ice Kano
@@ -941,6 +943,8 @@ CDN:
   jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
   main: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/js/main.js
   utils: https://cdn.jsdelivr.net/gh/lovobin/lovobin.github.io@m1.0/js/utils.js
+  vue: https://cdn.jsdelivr.net/npm/vue@2.6.11  # vue.js依赖
+  card_clock: /js/card_clock.js  # 首页电子钟
 
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
