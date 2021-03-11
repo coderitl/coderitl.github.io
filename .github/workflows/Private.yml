@@ -21,6 +21,7 @@ jobs:
       run: |
         export TZ='Asia/Shanghai'
         npm install hexo-cli gulp-cli -g
+        npm install --save  gulp-uglify-es
 
 
     - name: 缓存 Hexo
@@ -37,7 +38,6 @@ jobs:
 
     - name: 生成静态文件
       run: |
-        npm install --global gulp-cli gulp-uglify-es
         gulp
 
     - name: 部署
