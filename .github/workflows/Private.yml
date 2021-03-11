@@ -20,8 +20,8 @@ jobs:
     - name: 安装 Hexo
       run: |
         export TZ='Asia/Shanghai'
-        npm install hexo-cli gulp-cli -g
-        npm install --save --dev  gulp-uglify-es gulp-htmlmin  gulp-imagemin gulp-imagemin gulp-html-minifier-terser gulp-clean-css gulp-uglify gulp-babel @babel/core @babel/preset-env
+        npm install hexo-cli  -g
+        # npm install --save --dev  gulp-uglify-es gulp-htmlmin  gulp-imagemin gulp-imagemin gulp-html-minifier-terser gulp-clean-css gulp-uglify gulp-babel @babel/core @babel/preset-env
 
 
 
@@ -36,10 +36,6 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         npm install --save
-
-    - name: 生成静态文件
-      run: |
-        gulp
 
     - name: 部署
       run: |
