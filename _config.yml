@@ -1,4 +1,4 @@
-# Hexo Configuration
+# Hexo Configuration 
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
@@ -135,5 +135,5 @@ githubcalendar:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://www.github.com/lovobin/lovobin.github.io.git
+  repo: https://lovobin:bf814c96c983751e668b63540b59f7c36101996c@github.com/lovobin/lovobin.github.io.git #git@github.com:lovobin/lovobin.github.io.git #https://www.github.com/lovobin/lovobin.github.io.git #  #
   branch: master
