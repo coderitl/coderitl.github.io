@@ -37,6 +37,7 @@ jobs:
 
     - name: 生成静态文件
       run: |
+        npm install --global gulp-cli gulp-uglify-es
         gulp
 
     - name: 部署
