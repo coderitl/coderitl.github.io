@@ -1,0 +1,1433 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Element-UI | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Element-UI安装123# 在 vue 项目中启动终端执行vue add element# 安装过程中可以选择按需加载   按需加载    按需加载         基础使用 引入 1234567891011121314<!-- Button.vue --><template>  <div>    <el-row>      <el-">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Element-UI">
+  <meta property="og:url" content="https://coderitl.github.io/2022/03/15/29696.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="Element-UI安装123# 在 vue 项目中启动终端执行vue add element# 安装过程中可以选择按需加载   按需加载    按需加载         基础使用 引入 1234567891011121314<!-- Button.vue --><template>  <div>    <el-row>      <el-">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://i.328888.xyz/2023/04/01/i2pIO3.jpeg">
+  <meta property="article:published_time" content="2022-03-15T11:21:18.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.466Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://i.328888.xyz/2023/04/01/i2pIO3.jpeg">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2022/03/15/29696.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'Element-UI',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://i.328888.xyz/2023/04/01/i2pIO3.jpeg')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">Element-UI</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">
+                <hanla></hanla>发表于<hanla></hanla>
+              </span><time class="post-meta-date-created" datetime="2022-03-15T11:21:18.000Z" title="发表于 2022-03-15 19:21:18">2022-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.466Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="Element-UI"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://i.328888.xyz/2023/04/01/i2pIO3.jpeg');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h3 id="Element-UI"><a href="#Element-UI" class="headerlink" title="Element-UI"></a>Element-UI</h3>
+          <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>
+            <hanla></hanla>安装<hanla></hanla>
+          </h4>
+          <figure class="highlight sh">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="comment"># 在 vue 项目中启动终端执行<hanla></hanla></span></span><br><span class="line">vue add element</span><br><span class="line"><span class="comment"># 安装过程中可以选择按需加载</span></span><br></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <ul>
+            <li>
+              <p>按需加载</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">按需加载</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/c952e358f544493aa4cea6c53421e129.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="按需加载"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h4>
+          <ul>
+            <li>
+              <p>引入</p>
+              <figure class="highlight html">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">&lt;!-- Button.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-row</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span>&gt;</span><hanla></hanla>默认按钮<hanla></hanla><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"primary"</span>&gt;</span><hanla></hanla>主要按钮<hanla></hanla><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"success"</span>&gt;</span><hanla></hanla>成功按钮<hanla></hanla><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"info"</span>&gt;</span><hanla></hanla>信息按钮<hanla></hanla><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"warning"</span>&gt;</span><hanla></hanla>警告按钮<hanla></hanla><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"danger"</span>&gt;</span><hanla></hanla>危险按钮<hanla></hanla><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>渲染</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>Button</code>
+                          <hanla></hanla>使用
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e091224cc2504e2cbdef540a0a0d148d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Button使用"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>属性介绍: 使用<hanla></hanla><code>type</code>、<code>plain</code>、<code>round</code>
+                    <hanla></hanla>和<hanla></hanla><code>circle</code>
+                    <hanla></hanla>属性来定义 Button 的样式。
+                  </p>
+                </li>
+                <li>
+                  <p>灵活使用属性即可获得想要的结果</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a><code>Layout</code> 布局</h4>
+          <ul>
+            <li>
+              <p>通过基础的 <code>24</code> 分栏，迅速简便地创建布局。</p>
+            </li>
+            <li>
+              <p><code>offset</code>
+                <hanla></hanla>属性使用
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>offset</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f2bb65373a8c4e9cab992ab8b0022a1c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="offset"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="RadioButton"><a href="#RadioButton" class="headerlink" title="RadioButton"></a>RadioButton</h4>
+          <ul>
+            <li>
+              <p>使用</p>
+              <figure class="highlight html">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"radio-button"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">"label"</span> <span class="attr">label</span>=<span class="string">"男"</span>&gt;</span><hanla></hanla>男<hanla></hanla><span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">"label"</span> <span class="attr">label</span>=<span class="string">"女"</span>&gt;</span><hanla></hanla>女<hanla></hanla><span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> ({</span></span><br><span class="line"><span class="language-javascript">   <span class="title function_">data</span>(<span class="params"></span>){</span></span><br><span class="line"><span class="language-javascript">       <span class="keyword">return</span>{</span></span><br><span class="line"><span class="language-javascript">           <span class="attr">label</span>:<span class="string">'男'</span></span></span><br><span class="line"><span class="language-javascript">       }</span></span><br><span class="line"><span class="language-javascript">   }</span></span><br><span class="line"><span class="language-javascript">})</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.radio-button</span>{</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>渲染</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>radio-button</code>
+                      <hanla></hanla>使用需要与<hanla></hanla><code>v-model</code>
+                      <hanla></hanla>共同配合
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f22abab4f5a9417dbbf672830923ec88.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="radio-button"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4>
+          <table>
+            <thead>
+              <tr>
+                <th align="center"><code>input</code></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/5e08f59919034368b24497594320fca0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="input"></td>
+              </tr>
+            </tbody>
+          </table>
+          <ul>
+            <li>在使用组件的方法时需要在对应的组件中加入<hanla></hanla><code>ref="组件别名"</code></li>
+            <li>在调用方法时直接使用<hanla></hanla><code>this.$refs.<hanla></hanla>组件别名.<hanla></hanla>方法名<hanla></hanla>()</code></li>
+            <li>在<hanla></hanla><code>element-ui</code>
+              <hanla></hanla>中所有组件标签上,<hanla></hanla>使用方式<code>属性名<hanla></hanla>=<hanla></hanla>属性值</code>方式<ul>
+                <li><code>属性</code>: 直接写在对应的组件标签上,<hanla></hanla>使用方式<code>属性名<hanla></hanla>=<hanla></hanla>属性值</code>方式</li>
+                <li><code>事件</code>: 直接使用<hanla></hanla><code>vue</code>
+                  <hanla></hanla>绑定事件方式写在对应的组件标签上,<hanla></hanla>使用方式<hanla></hanla><code>@<hanla></hanla>事件名<hanla></hanla>=vue<hanla></hanla>中事件的处理函数</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h4>
+          <figure class="highlight html">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"select"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-select</span> <span class="attr">v-model</span>=<span class="string">"value"</span> <span class="attr">placeholder</span>=<span class="string">"请选择"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-option</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">v-for</span>=<span class="string">"item in options"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">:key</span>=<span class="string">"item.value"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">:label</span>=<span class="string">"item.label"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">:value</span>=<span class="string">"item.value"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">"Select"</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> {</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">options</span>: [{</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>1'</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">label</span>: <span class="string">'黄金糕'</span></span></span><br><span class="line"><span class="language-javascript">            }, {</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>2'</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">label</span>: <span class="string">'双皮奶'</span></span></span><br><span class="line"><span class="language-javascript">            }, {</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>3'</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">label</span>: <span class="string">'蚵仔煎'</span></span></span><br><span class="line"><span class="language-javascript">            }, {</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>4'</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">label</span>: <span class="string">'龙须面'</span></span></span><br><span class="line"><span class="language-javascript">            }, {</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>5'</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">label</span>: <span class="string">'北京烤鸭'</span></span></span><br><span class="line"><span class="language-javascript">            }],</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">value</span>: <span class="string">''</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.select</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <h4 id="Switch开关组件"><a href="#Switch开关组件" class="headerlink" title="Switch开关组件"></a>Switch<hanla></hanla>开关组件</h4>
+          <ul>
+            <li>
+              <p>使用</p>
+              <ul>
+                <li>
+                  <p>后台传值为<hanla></hanla><code>boolean</code></p>
+                  <figure class="highlight html">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-switch</span></span></span><br><span class="line"><span class="tag">            <span class="attr">v-model</span>=<span class="string">"value"</span></span></span><br><span class="line"><span class="tag">            &lt;!<span class="attr">--</span> <span class="attr">name</span> <span class="attr">数据库操作</span> <span class="attr">--</span>&gt;</span></span><br><span class="line">            name="switch" </span><br><span class="line">            active-color="#13ce66"</span><br><span class="line">            inactive-color="#ff4949"&gt;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-switch</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> {</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">value</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">};</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>后台传值为<hanla></hanla><code>number</code></p>
+                  <figure class="highlight html">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">'scope'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-tooltip</span> <span class="attr">class</span>=<span class="string">'item'</span></span></span><br><span class="line"><span class="tag">                <span class="attr">effect</span>=<span class="string">'dark'</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:content</span>=<span class="string">'scope.row.status=="1"?"正常":"禁用"'</span></span></span><br><span class="line"><span class="tag">                <span class="attr">placement</span>=<span class="string">'top-start'</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:enterable</span>=<span class="string">'false'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-switch</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">v-model</span>=<span class="string">'scope.row.status'</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">inactive-color</span>=<span class="string">'#ff4949'</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">:active-value</span>=<span class="string">'1'</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">:inactive-value</span>=<span class="string">'0'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-switch</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-tooltip</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <ul>
+                    <li>
+                      <p>渲染效果</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center"><code>switch</code></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/95b4d8118da042b6b5acd2458bb43529.gif#pic_center" alt="switch"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="DatePicker组件使用"><a href="#DatePicker组件使用" class="headerlink" title="DatePicker组件使用"></a>DatePicker<hanla></hanla>组件使用<hanla></hanla>
+          </h4>
+          <figure class="highlight html">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"date-picker"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"block"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"demonstration"</span>&gt;</span><hanla></hanla>多个日期<hanla></hanla><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">                <span class="attr">type</span>=<span class="string">"dates"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">"value4"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">placeholder</span>=<span class="string">"选择一个或多个日期"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"block"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"demonstration"</span>&gt;</span><hanla></hanla>带快捷选项<hanla></hanla><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-date-picker</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">v-model</span>=<span class="string">"value2"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">type</span>=<span class="string">"monthrange"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">align</span>=<span class="string">"right"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">unlink-panels</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">range-separator</span>=<span class="string">"至"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">start-placeholder</span>=<span class="string">"开始月份"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">end-placeholder</span>=<span class="string">"结束月份"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">:picker-options</span>=<span class="string">"pickerOptions"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">"DatePickerVue"</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> {</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">pickerOptions</span>: {</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">shortcuts</span>: [{</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">text</span>: <span class="string">'本月'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">onClick</span>(<span class="params">picker</span>) {</span></span><br><span class="line"><span class="language-javascript">                        picker.$emit(<span class="string">'pick'</span>, [<span class="keyword">new</span> <span class="title class_">Date</span>(), <span class="keyword">new</span> <span class="title class_">Date</span>()]);</span></span><br><span class="line"><span class="language-javascript">                    }</span></span><br><span class="line"><span class="language-javascript">                }, {</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">text</span>: <span class="string">'今年至今'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">onClick</span>(<span class="params">picker</span>) {</span></span><br><span class="line"><span class="language-javascript">                        <span class="keyword">const</span> end = <span class="keyword">new</span> <span class="title class_">Date</span>();</span></span><br><span class="line"><span class="language-javascript">                        <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getFullYear</span>(), <span class="number">0</span>);</span></span><br><span class="line"><span class="language-javascript">                        picker.$emit(<span class="string">'pick'</span>, [start, end]);</span></span><br><span class="line"><span class="language-javascript">                    }</span></span><br><span class="line"><span class="language-javascript">                }, {</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">text</span>: <span class="string">'最近六个月'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">onClick</span>(<span class="params">picker</span>) {</span></span><br><span class="line"><span class="language-javascript">                        <span class="keyword">const</span> end = <span class="keyword">new</span> <span class="title class_">Date</span>();</span></span><br><span class="line"><span class="language-javascript">                        <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="title class_">Date</span>();</span></span><br><span class="line"><span class="language-javascript">                        start.<span class="title function_">setMonth</span>(start.<span class="title function_">getMonth</span>() - <span class="number">6</span>);</span></span><br><span class="line"><span class="language-javascript">                        picker.$emit(<span class="string">'pick'</span>, [start, end]);</span></span><br><span class="line"><span class="language-javascript">                    }</span></span><br><span class="line"><span class="language-javascript">                }]</span></span><br><span class="line"><span class="language-javascript">            },</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">value1</span>: <span class="string">''</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">value2</span>: <span class="string">''</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">value3</span>: <span class="string">''</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">value4</span>: <span class="string">''</span></span></span><br><span class="line"><span class="language-javascript">        };</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.block</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <ul>
+            <li>
+              <p>渲染</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">渲染</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d41d085a72784283bde9b44f006cd486.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="渲染"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="Select-1"><a href="#Select-1" class="headerlink" title="Select"></a>Select</h4>
+          <ul>
+            <li>
+              <p>基础使用</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">&lt;el-select v-model=<span class="string">"value"</span> placeholder=<span class="string">"请选择"</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">el-option</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">v-for</span>=<span class="string">"item in options"</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">:key</span>=<span class="string">"item.value"</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">:label</span>=<span class="string">"item.label"</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">:value</span>=<span class="string">"item.value"</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">	<span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span></span><br><span class="line">&lt;/el-select&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">export</span> <span class="keyword">default</span> {</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">data</span>(<span class="params"></span>) {</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">return</span> {</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">options</span>: [{</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>1'</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">label</span>: <span class="string">'黄金糕'</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        }, {</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>2'</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">label</span>: <span class="string">'双皮奶'</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        }, {</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>3'</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">label</span>: <span class="string">'蚵仔煎'</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        }, {</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>4'</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">label</span>: <span class="string">'龙须面'</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        }, {</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>5'</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">label</span>: <span class="string">'北京烤鸭'</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        }],</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">value</span>: <span class="string">''</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      }</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    }</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  }</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>数值使用</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">options</span>: [{</span><br><span class="line">                <span class="attr">value</span>: <span class="string">'1'</span>,</span><br><span class="line">                <span class="attr">label</span>: <span class="string">'1'</span></span><br><span class="line">            }, {</span><br><span class="line">                <span class="attr">value</span>: <span class="string">'2'</span>,</span><br><span class="line">                <span class="attr">label</span>: <span class="string">'2'</span></span><br><span class="line">            }, {</span><br><span class="line">                <span class="attr">value</span>: <span class="string">'3'</span>,</span><br><span class="line">                <span class="attr">label</span>: <span class="string">'3'</span></span><br><span class="line">            }, {</span><br><span class="line">                <span class="attr">value</span>: <span class="string">'4'</span>,</span><br><span class="line">                <span class="attr">label</span>: <span class="string">'4'</span></span><br><span class="line">            }, {</span><br><span class="line">                <span class="attr">value</span>: <span class="string">'5'</span>,</span><br><span class="line">                <span class="attr">label</span>: <span class="string">'5'</span></span><br><span class="line">            }]</span><br><span class="line"></span><br><span class="line"><hanla></hanla>也可以使用修饰符 v-model.<span class="property">number</span>=<span class="string">"xxx"</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>渲染</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">数值使用</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0325f925e3a9455b8d91ab417c643ee7.gif#pic_center" alt="数值使用"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="Message"><a href="#Message" class="headerlink" title="Message"></a>Message</h4>
+          <ul>
+            <li>
+              <p>使用一</p>
+              <figure class="highlight html">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"message-view"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">:plain</span>=<span class="string">"true"</span> @<span class="attr">click</span>=<span class="string">"getMessage"</span> <span class="attr">type</span>=<span class="string">"success"</span>&gt;</span><hanla></hanla>打开消息提示<hanla></hanla><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">"MessageView"</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">methods</span>: {</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">getMessage</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.$message({</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">showClose</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">message</span>: <span class="string">'恭喜你，这是一条成功消息'</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">type</span>: <span class="string">'success'</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">offset</span>: <span class="number">50</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">duration</span>: <span class="number">1000</span></span></span><br><span class="line"><span class="language-javascript">            });</span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.message-view</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">}</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>渲染</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">渲染</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0cef49dcaffa45208179da351c1a2f7a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="渲染"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>使用二</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">//  Message 需要全局挂载 plugin/element.js</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$message</span> = <span class="title class_">Message</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">success</span>(<span class="string">'成功获取点击后的提示信息!'</span>);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="MessageBox"><a href="#MessageBox" class="headerlink" title="MessageBox"></a>MessageBox</h4>
+          <ul>
+            <li>
+              <p>全局挂载</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 不需要经过 Vue.use()</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$confirm</span> = <span class="title class_">MessageBox</span>.<span class="property">confirm</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$message</span> = <span class="title class_">Message</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>使用</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="title function_">handleDelete</span>(<span class="params">id</span>) {</span><br><span class="line">            <span class="variable language_">this</span>.$confirm(<span class="string">'此操作将永久删除该文件, 是否继续?'</span>, <span class="string">'提示'</span>, {</span><br><span class="line">                <span class="attr">confirmButtonText</span>: <span class="string">'确定'</span>,</span><br><span class="line">                <span class="attr">cancelButtonText</span>: <span class="string">'取消'</span>,</span><br><span class="line">                <span class="attr">type</span>: <span class="string">'warning'</span></span><br><span class="line">            }).<span class="title function_">then</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">                <span class="variable language_">this</span>.$message({</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">'success'</span>,</span><br><span class="line">                    <span class="attr">message</span>: <span class="string">'删除成功!'</span></span><br><span class="line">                });</span><br><span class="line">            }).<span class="title function_">catch</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">                <span class="variable language_">this</span>.$message({</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">'info'</span>,</span><br><span class="line">                    <span class="attr">message</span>: <span class="string">'已取消删除'</span></span><br><span class="line">                });</span><br><span class="line">            });</span><br><span class="line">        }</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>渲染</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>MessageBox</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/859b2b10af8f43f7b88948553e80524a.gif#pic_center" alt="MessageBox"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="Select-2"><a href="#Select-2" class="headerlink" title="Select"></a>Select</h4>
+          <ul>
+            <li>
+              <p>效果</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">下拉框数据绑定</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d2c6b9b061d545c79ff3292e7b05e3e4.gif#pic_center" alt="下拉框数据绑定"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>实现分析</p>
+              <figure class="highlight html">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="tag">&lt;<span class="name">el-select</span> <span class="attr">v-model</span>=<span class="string">'dishCategoryList'</span> <span class="attr">placeholder</span>=<span class="string">'请选择菜品分类'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-option</span></span></span><br><span class="line"><span class="tag">               <span class="attr">v-for</span>=<span class="string">'item in formFoodInput.category'</span></span></span><br><span class="line"><span class="tag">               <span class="attr">:key</span>=<span class="string">'item.id'</span></span></span><br><span class="line"><span class="tag">               <span class="attr">:label</span>=<span class="string">'item.name'</span></span></span><br><span class="line"><span class="tag">               <span class="attr">:value</span>=<span class="string">'item.name'</span></span></span><br><span class="line"><span class="tag">               &gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">dishCategoryList: '' <span class="comment">&lt;!-- 选择后的数据绑定 --&gt;</span> </span><br><span class="line">formFoodInput.category: [] <span class="comment">&lt;!-- 获取数据绑定 --&gt;</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight java">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取下拉分类请求</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> category</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@GetMapping("/list")</span></span><br><span class="line"><span class="keyword">public</span> R&lt;List&lt;Category&gt;&gt; <span class="title function_">list</span><span class="params">(Category category)</span> {</span><br><span class="line">    log.info(<span class="string">"根据条件查询分类: {}"</span>, category.toString());</span><br><span class="line">    <span class="comment">/* 条件构造器 */</span></span><br><span class="line">    LambdaQueryWrapper&lt;Category&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">/* 添加条件 */</span></span><br><span class="line">    queryWrapper.eq(category.getType() != <span class="literal">null</span>, Category::getType, category.getType());</span><br><span class="line">    <span class="comment">/* 添加排序条件 */</span></span><br><span class="line">    queryWrapper.orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);</span><br><span class="line">    List&lt;Category&gt; list = categoryService.list(queryWrapper);</span><br><span class="line">    <span class="keyword">return</span> R.success(list);</span><br><span class="line">}</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h3 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h3>
+          <ul>
+            <li>
+              <p>过滤器的使用</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">基础使用</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b2d07f1cb610455a889685c19615774d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基础使用"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>自定义过滤器</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 时间长忘记<hanla></hanla>vue<hanla></hanla>是有过滤器配置项 以下为 vue 配置项中的过滤器<hanla></hanla></span></span><br><span class="line"><span class="attr">filters</span>: {</span><br><span class="line">        <span class="comment">// 过滤价格显示</span></span><br><span class="line">        <span class="title function_">filterPrice</span>(<span class="params">price</span>) {</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'￥'</span> + <span class="built_in">parseFloat</span>(price).<span class="title function_">toFixed</span>(<span class="number">2</span>)</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>需求</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">// 实现数据库查询,<hanla></hanla>对价格显示进行格式化操作</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">渲染</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/688e0b009e3c4e738dcdc09dc34a7e68.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="渲染"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>数据库数据</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">数据库原始数据格式</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9e949eb1d8bd49d9abfbe12f2f31ea0a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据库原始数据格式"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>表格使用布局</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">布局结构</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f44ba5c8876b4694823ae0e47917b69a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_19,color_FFFFFF,t_70,g_se,x_16" alt="布局结构"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="综合表单初始值确定"><a href="#综合表单初始值确定" class="headerlink" title="综合表单初始值确定"></a>综合表单初始值确定<hanla></hanla>
+          </h4>
+          <figure class="highlight html">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"vmodel"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"userform"</span>&gt;</span></span><br><span class="line">            用户名:</span><br><span class="line">            <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"input"</span> <span class="attr">placeholder</span>=<span class="string">"请输入内容"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            密码:</span><br><span class="line">            <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            性别:</span><br><span class="line">            <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">"sex"</span> <span class="attr">label</span>=<span class="string">"male"</span>&gt;</span><hanla></hanla>男<hanla></hanla><span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">"sex"</span> <span class="attr">label</span>=<span class="string">"female"</span>&gt;</span><hanla></hanla>女<hanla></hanla><span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">          爱好:</span><br><span class="line">            <span class="tag">&lt;<span class="name">el-checkbox-group</span> <span class="attr">v-model</span>=<span class="string">"hobby"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-checkbox</span> <span class="attr">label</span>=<span class="string">"Java"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-checkbox</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-checkbox</span> <span class="attr">label</span>=<span class="string">"Python"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-checkbox</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-checkbox</span> <span class="attr">label</span>=<span class="string">"Vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-checkbox</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-checkbox</span> <span class="attr">label</span>=<span class="string">"C#"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-checkbox</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-checkbox</span> <span class="attr">label</span>=<span class="string">"C++"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-checkbox</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-checkbox-group</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            所属校区:</span><br><span class="line">            <span class="tag">&lt;<span class="name">el-select</span> <span class="attr">v-model</span>=<span class="string">"belogSchoolValue"</span> <span class="attr">placeholder</span>=<span class="string">"请选择"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">el-option</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">v-for</span>=<span class="string">"item in belogSchool"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">:key</span>=<span class="string">"item.value"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">:label</span>=<span class="string">"item.label"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">:value</span>=<span class="string">"item.value"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            其他信息:</span><br><span class="line">            <span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">                <span class="attr">type</span>=<span class="string">"textarea"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">autosize</span></span></span><br><span class="line"><span class="tag">                <span class="attr">placeholder</span>=<span class="string">"请输入内容"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">"textarea"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-checkbox</span> <span class="attr">v-model</span>=<span class="string">"checked"</span>&gt;</span><hanla></hanla>备选项<hanla></hanla><span class="tag">&lt;/<span class="name">el-checkbox</span>&gt;</span><hanla></hanla>阅读并接受  <span class="tag">&lt;<span class="name">el-link</span> <span class="attr">type</span>=<span class="string">"warning"</span>&gt;</span><span class="symbol">&amp;lt;</span><span class="symbol">&amp;lt;</span>用户协议<hanla></hanla><span class="symbol">&amp;gt;</span><span class="symbol">&amp;gt;</span><span class="tag">&lt;/<span class="name">el-link</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">"VmodelButton"</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> {</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">input</span>: <span class="string">''</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">password</span>: <span class="string">''</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">sex</span>: <span class="string">''</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">hobby</span>: [],</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">belogSchool</span>: [</span></span><br><span class="line"><span class="language-javascript">                {</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>1'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">label</span>: <span class="string">'黄金糕'</span></span></span><br><span class="line"><span class="language-javascript">                }, {</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>2'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">label</span>: <span class="string">'双皮奶'</span></span></span><br><span class="line"><span class="language-javascript">                }, {</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>3'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">label</span>: <span class="string">'蚵仔煎'</span></span></span><br><span class="line"><span class="language-javascript">                }, {</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>4'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">label</span>: <span class="string">'龙须面'</span></span></span><br><span class="line"><span class="language-javascript">                }, {</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">value</span>: <span class="string">'选项<hanla></hanla>5'</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">label</span>: <span class="string">'北京烤鸭'</span></span></span><br><span class="line"><span class="language-javascript">                }</span></span><br><span class="line"><span class="language-javascript">            ],</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">belogSchoolValue</span>: <span class="string">''</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">textarea</span>: <span class="string">''</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <table>
+            <thead>
+              <tr>
+                <th align="center">初始值类型</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0769d69e639645c4a36bb8b140501520.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="初始值"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 id="GiteePages部署测试"><a href="#GiteePages部署测试" class="headerlink" title="GiteePages部署测试"></a>GiteePages<hanla></hanla>部署测试</h4>
+          <ul>
+            <li>
+              <p>路由模式不能是<hanla></hanla><code>history</code></p>
+            </li>
+            <li>
+              <p>配置<hanla></hanla><code>vue.config.js</code></p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">const</span> {defineConfig} = <span class="built_in">require</span>(<span class="string">'@vue/cli-service'</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title function_">defineConfig</span>({</span><br><span class="line">    <span class="attr">transpileDependencies</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">publicPath</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">'production'</span></span><br><span class="line">        ? <span class="string">'/element-ui/'</span></span><br><span class="line">        : <span class="string">'/'</span></span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"># 修改为需要部署到的仓库 <span class="title class_">Eg</span>: element-ui,<hanla></hanla>部署时选择对应打包的静态文件分支部署即可</span><br><span class="line"># 部署后的地址会添加上仓库地址 <span class="attr">https</span>:<span class="comment">//coder-itl.gitee.io/element-ui/#/index</span></span><br><span class="line"># 如果不进行配置,<hanla></hanla>是无法进行访问的</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">仓库信息</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/7da377715a7a4685b14a730a4ccadd6a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="仓库信息"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p><code>gitee</code></p>
+              <div class="tag link"><a class="link-card" title="Element-UI部署查看" target="_blank" rel="external nofollow noopener noreferrer" href="https://coder-itl.gitee.io/element-ui">
+                  <div class="left"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://coder-itl.gitee.io//element-ui/favicon.ico"></div>
+                  <div class="right">
+                    <p class="text">Element-UI<hanla></hanla>部署查看<hanla></hanla>
+                    </p>
+                    <p class="url">https://coder-itl.gitee.io/element-ui</p>
+                  </div>
+                </a></div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>部署测试</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/46aca8c121ec4543bf7ddd28ae2ddc78.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_17,color_FFFFFF,t_70,g_se,x_16" alt="部署测试"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">
+              <hanla></hanla>文章链接:
+            </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">
+              <hanla></hanla>版权声明:
+            </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+        </div>
+        <div class="tag_share">
+          <div class="post-meta__tag-list"></div>
+          <div class="post_share">
+            <div class="social-share" data-image="https://i.328888.xyz/2023/04/01/i2pIO3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+            <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+          </div>
+        </div>
+        <nav class="pagination-post" id="pagination">
+          <div class="prev-post pull-left"><a href="/2022/03/16/55598.html" title="开发工具配置汇总"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/16.jpg" onerror="onerror=null;src='/null'" alt="cover of previous post">
+              <div class="pagination-info">
+                <div class="label">上一篇</div>
+                <div class="prev_info">开发工具配置汇总</div>
+              </div>
+            </a></div>
+          <div class="next-post pull-right"><a href="/2022/03/13/52493.html" title="H5-快速入门"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/01.jpg" onerror="onerror=null;src='/null'" alt="cover of next post">
+              <div class="pagination-info">
+                <div class="label">下一篇<hanla></hanla>
+                </div>
+                <div class="next_info">H5-快速入门</div>
+              </div>
+            </a></div>
+        </nav>
+        <hr>
+        <div id="post-comment">
+          <div class="comment-head">
+            <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+          </div>
+          <div class="comment-wrap">
+            <div>
+              <div id="twikoo-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget" id="card-toc">
+            <div class="item-headline"><i class="fas fa-stream"></i><span>
+                <hanla></hanla>目录<hanla></hanla>
+              </span><span class="toc-percentage"></span></div>
+            <div class="toc-content">
+              <ol class="toc">
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Element-UI"><span class="toc-number">1.</span> <span class="toc-text">Element-UI</span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">安装<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">基础使用<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Layout-%E5%B8%83%E5%B1%80"><span class="toc-number">1.3.</span> <span class="toc-text">Layout 布局<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#RadioButton"><span class="toc-number">1.4.</span> <span class="toc-text">RadioButton</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Input"><span class="toc-number">1.5.</span> <span class="toc-text">Input</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Select"><span class="toc-number">1.6.</span> <span class="toc-text">Select</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Switch%E5%BC%80%E5%85%B3%E7%BB%84%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">Switch<hanla></hanla>开关组件<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#DatePicker%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">1.8.</span> <span class="toc-text">DatePicker<hanla></hanla>组件使用<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Select-1"><span class="toc-number">1.9.</span> <span class="toc-text">Select</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Message"><span class="toc-number">1.10.</span> <span class="toc-text">Message</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#MessageBox"><span class="toc-number">1.11.</span> <span class="toc-text">MessageBox</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Select-2"><span class="toc-number">1.12.</span> <span class="toc-text">Select</span></a></li>
+                  </ol>
+                </li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Table"><span class="toc-number">2.</span> <span class="toc-text">Table</span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E8%A1%A8%E5%8D%95%E5%88%9D%E5%A7%8B%E5%80%BC%E7%A1%AE%E5%AE%9A"><span class="toc-number">2.1.</span> <span class="toc-text">综合表单初始值确定<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#GiteePages%E9%83%A8%E7%BD%B2%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.</span> <span class="toc-text">GiteePages<hanla></hanla>部署测试</span></a></li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

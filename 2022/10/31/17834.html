@@ -1,0 +1,2099 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Jenkins | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="JenkinsSSH-Gitlab 虚拟机内存查看    内存分配信息        安装相关依赖 123sudo yum install -y curl policycoreutils-python openssh-server perlsudo systemctl enable sshdsudo systemctl start sshd  配置镜像 12# 配置极狐 GitLab 软件源镜">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Jenkins">
+  <meta property="og:url" content="https://coderitl.github.io/2022/10/31/17834.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="JenkinsSSH-Gitlab 虚拟机内存查看    内存分配信息        安装相关依赖 123sudo yum install -y curl policycoreutils-python openssh-server perlsudo systemctl enable sshdsudo systemctl start sshd  配置镜像 12# 配置极狐 GitLab 软件源镜">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/10.jpg">
+  <meta property="article:published_time" content="2022-10-31T09:07:10.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.474Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/10.jpg">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2022/10/31/17834.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'Jenkins',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/10.jpg')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">Jenkins</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">
+                <hanla></hanla>发表于<hanla></hanla>
+              </span><time class="post-meta-date-created" datetime="2022-10-31T09:07:10.000Z" title="发表于 2022-10-31 17:07:10">2022-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.474Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="Jenkins"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/10.jpg');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h3 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h3>
+          <h4 id="SSH-Gitlab"><a href="#SSH-Gitlab" class="headerlink" title="SSH-Gitlab"></a>SSH-Gitlab</h4>
+          <ul>
+            <li>
+              <p>虚拟机内存查看</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">内存分配信息</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2763f5284f6948ffaad37d95177957cf.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>安装相关依赖</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">sudo</span> <span class="string">yum install -y curl policycoreutils-python openssh-server perl</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl enable sshd</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl start sshd</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>配置镜像</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 配置极狐 GitLab 软件源镜像。</span></span><br><span class="line"><span class="attr">curl</span> <span class="string">-fsSL https://packages.gitlab.cn/repository/raw/scripts/setup.sh | /bin/bash</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>开始安装</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">sudo</span> <span class="string">EXTERNAL_URL="http://192.168.247.129" yum install -y gitlab-jh</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                <p>
+                  <hanla></hanla>随机密码存储位置: <code>/etc/gitlab/initial_roo_password</code>
+                  <hanla></hanla>文件中<hanla></hanla>(出于安全原因,<code>24</code>
+                  <hanla></hanla>小时候,<hanla></hanla>此文件会被第一次<hanla></hanla><code>gitlab-ctlreconfgure</code>
+                  <hanla></hanla>自动删除,<hanla></hanla>因此若使用随机密码登录,<hanla></hanla>建议安装成功初始登录成功之后,<code>
+                    <hanla></hanla>立即修改初始密码
+                  </code>)<hanla></hanla>使用此密码和用户名<hanla></hanla><code>root</code>
+                  <hanla></hanla>登录
+                </p>
+              </div>
+            </li>
+            <li>
+              <p><code>gitlab</code>
+                <hanla></hanla>常用命令
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">gitlab-crl</span> <span class="string">start # 启动所有 gitlab 组件<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-ctl</span> <span class="string">stop # 停止所有 gitlab 组件<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-ctl</span> <span class="string">restart # 重启所有 gitlab 组件<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-ctl</span> <span class="string">status # 查看服务状态<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-ctl</span> <span class="string">reconfigure # 启动服务<hanla></hanla></span></span><br><span class="line"></span><br><span class="line"><span class="attr">vi</span> <span class="string">/etc/gitlab/gitlab.rb # 修改默认的配置文件<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-ctl</span> <span class="string">tail # 查看日志</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>启动</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">启动</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/88d9406b081744098a7d47354babd75b.png" style="zoom:67%;"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>密码修改</p>
+              <ul>
+                <li>
+                  <p>说明</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">24<hanla></hanla>小时候删除</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ded44732a94b41a38a38c3a6facd7cca.png" style="zoom:80%;"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>修改</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">查看临时密码</th>
+                        <th align="center">管理员</th>
+                        <th align="center">修改密码:<code>administrator</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/76e7ce905cba4b28894fbcf4a3ce1425.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/efcd8a394681461486a9d2c0b496fbaa.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/dc013f8e845a42daabcc32fa020edd5b.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="Docker-Gitlab"><a href="#Docker-Gitlab" class="headerlink" title="Docker-Gitlab"></a>Docker-Gitlab</h4>
+          <ul>
+            <li>
+              <p>更新<hanla></hanla><code>yum</code>
+                <hanla></hanla>源
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">yum</span> <span class="string">-y update</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>安装依赖</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">yum</span> <span class="string">install -y yum-utils device-mapper-persistent-data lvm2</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>添加镜像</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 国外镜像<hanla></hanla></span></span><br><span class="line"><span class="attr">yum-config-manager</span> <span class="string">--add-repo https://download.docker.com/linux/centos/docker-ce.repo</span></span><br><span class="line"><span class="comment"># 阿里镜像<hanla></hanla></span></span><br><span class="line"><span class="attr">yum-config-manager</span> <span class="string">--add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>查看源中可使用版本</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">yum</span> <span class="string">list docker-ce --showduplicates | sort -r</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">版本号组成:<code>docker-ce-20.10.9-3.el7</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/68acd0349b044b798d4a27bb6dbc0f90.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>安装指定版本</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">yum</span> <span class="string">install -y docker-ce-20.10.9-3.el7</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>配置开机启动项</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">systemctl</span> <span class="string">start docker</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">enable docker</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">version</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>个人内存分配情况</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">内存使用情况</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e7e376754a3e429f821aca82c9155a64.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p><code>docker</code>
+                <hanla></hanla>添加容器
+              </p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">docker run --detach \</span><br><span class="line">  --hostname 192.168.247.132 \</span><br><span class="line">  --publish 443:443 --publish 80:80 \</span><br><span class="line">  --name gitlab \</span><br><span class="line">  --restart always \</span><br><span class="line">  --volume $GITLAB_HOME/config:/etc/gitlab:Z \</span><br><span class="line">  --volume $GITLAB_HOME/logs:/var/log/gitlab:Z \</span><br><span class="line">  --volume $GITLAB_HOME/data:/var/opt/gitlab:Z \</span><br><span class="line">  --shm-size 512m \</span><br><span class="line">  registry.gitlab.cn/omnibus/gitlab-jh:latest</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>启动容器</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">docker start gitlab</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>进入容器</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">docker exec -it  gitlab /bin/bash</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>密码</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr"><hanla></hanla>用户名</span>: <span class="string">root</span></span><br><span class="line"><span class="comment"># 容器内部执行</span></span><br><span class="line"><span class="attr">密码</span>: <span class="string">cat /etc/gitlab/initial_root_password</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>访问很慢，需要等待较长时间</p>
+            </li>
+            <li>
+              <p>密码修改是同样位置<hanla></hanla><code>root:administrator</code></p>
+            </li>
+          </ul>
+          <h4 id="Jenkins-1"><a href="#Jenkins-1" class="headerlink" title="Jenkins"></a>Jenkins</h4>
+          <ul>
+            <li>
+              <p>下载<hanla></hanla><code>war</code>
+                <hanla></hanla>包
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">网速慢，点击无响应</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/fd2d8a9442f34eca86b49e9a9ff09c12.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>也可以使用如下地址下载</p>
+              <blockquote>
+                <p><code>wget https://get.jenkins.io/war-stable/2.361.2/jenkins.war</code></p>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>Docker</code>
+                <hanla></hanla>安装
+              </p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><hanla></hanla>要使用最新的 LTS: docker pull jenkins/jenkins:lts-jdk11</span><br><span class="line"><hanla></hanla>要使用最新的每周: docker pull jenkins/jenkins:jdk11</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>git</code>
+                <hanla></hanla>下载
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">yum</span> <span class="string">install -y git</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>war</code>
+                <hanla></hanla>包启动
+              </p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 注意下载的 jenkins 是否正常以 .war 结尾 &amp;: 后台启动</span></span><br><span class="line">运行命令 java -jar jenkins.war --httpPort=8080 &amp; </span><br><span class="line">打开浏览器进入链接 http://localhost:8080</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>查看密码</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>cat /root/.jenkins/secrets/initialAdminPassword </code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/3ad633c2b75a429fbd416cc0549f2c9f.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>选择安装推荐的插件</p>
+            </li>
+            <li>
+              <p>安装<hanla></hanla><code>maven</code>
+                <hanla></hanla>插件
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">入口</th>
+                    <th align="center">选择:<code>Install Without restart</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/168d3aa00e474f9a89760d2e27c4237c.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/421121dcef2c4103aeb10477a3f42a8d.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>创建构建项目</p>
+              <ul>
+                <li>
+                  <p>选择创建<hanla></hanla><code>maven</code>
+                    <hanla></hanla>项目
+                  </p>
+                </li>
+                <li>
+                  <p>填写<hanla></hanla><code>git</code>
+                    <hanla></hanla>地址
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">错误</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/fcd689ed78d2473b96eb5a2d1eefdf5f.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <blockquote>
+                    <p>只需要将地址修改为: <code>http://root:administrator@192.168.247.129/gitlab-instance-b5cc0499/first-app-gitlab.git</code></p>
+                    <p><code>root:administrator</code>
+                      <hanla></hanla>是登录<hanla></hanla><code>gitlab</code>
+                      <hanla></hanla>的账户和密码也就是<hanla></hanla><code>gitlab</code>
+                      <hanla></hanla>的<hanla></hanla><code>git</code>
+                      <hanla></hanla>用户名和密码
+                    </p>
+                  </blockquote>
+                </li>
+                <li>
+                  <p>修改拉取分支名称</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">修改分支名称</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/24dde8cca0c94ffdb16d87b99a03f571.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>配置<hanla></hanla><code>maven</code>
+                    <hanla></hanla>环境
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">点击如下</th>
+                        <th align="center">选择已安装的<hanla></hanla><code>MAVEN</code>
+                          <hanla></hanla>环境
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/c5f78df525c64c6691dde1a85d94177e.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/debf79208f694f1f8b0aa0ae72fd38ca.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>根据项目中<hanla></hanla><code>pom.xml</code>
+                    <hanla></hanla>设定
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">添加项目前缀<hanla></hanla>(根据实际内容填写)</th>
+                        <th align="center">直接在仓库根目录则不需要添加</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/02bb8b18123042fdb36f82f88f158a79.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d8fae44a27f949c5a0c6e9ea02c2c116.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>构建结果</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">构建结果</th>
+                        <th align="center">编译最终包的位置</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a7b19300af234a5d8f4224a2f7f71444.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/67547374bf81486aaa03e58b38c1bb06.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>访问项目</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">启动项目：<code>由于<hanla></hanla>jenkins<hanla></hanla>默认<hanla></hanla>8080,<hanla></hanla>配置文件未修改端口,<hanla></hanla>可通过--server.port=8081</code>
+                          <hanla></hanla>指定
+                        </th>
+                        <th align="center">访问项目</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/fac2086caf6f4dfab600ea399e35675e.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ebcd9f6fe83d416e8038a3354e1c9e1a.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4>
+          <ul>
+            <li>
+              <p>检索可用包</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">yum search java|grep jdk</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>安装</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">17</span></span><br><span class="line">yum install -y java-11-openjdk</span><br><span class="line">yum install -y java-11-openjdk-devel</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.8</span></span><br><span class="line"> yum install -y java-1.8.0-openjdk</span><br><span class="line"> yum install -y java-1.8.0-openjdk-devel</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>确定安装路径</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 查询 java</span></span><br><span class="line"><span class="attr">whereis</span> <span class="string">java</span></span><br><span class="line"><span class="comment"># 根据软连接查找<hanla></hanla>(bin/<hanla></hanla>二进制文件)</span></span><br><span class="line"><span class="attr">ls</span> <span class="string">-lrt /usr/bin/java</span></span><br><span class="line"><span class="comment"># 获取软连接的位置<hanla></hanla></span></span><br><span class="line"><span class="attr">ls</span> <span class="string">-lrt /etc/alternatives/java</span></span><br><span class="line"></span><br><span class="line"><span class="attr">&gt;</span> <span class="string">/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64/jre/bin/java</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>JAVA_HOME</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4223b58955b34bf3a92b0a07b7aa3853.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>版本信息查看</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">使用<hanla></hanla><code>java -version</code>，而不能是<hanla></hanla><code>java -V</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b385857dd0be40fea5b918b85d94a358.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>添加环境变量</p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">vim /etc/profile</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 末尾添加<hanla></hanla></span></span><br><span class="line"><span class="attr">export</span> <span class="string">JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.17.0.8-2.el7_9.x86_64/</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH=$JAVA_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>使环境变量生效</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">source</span> <span class="string">/etc/profile</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="自动化构建"><a href="#自动化构建" class="headerlink" title="自动化构建"></a>自动化构建</h4>
+          <ul>
+            <li>
+              <p>插件安装</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>Publish Over SSH</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b0bd17e96e1b4ce2b5f3a054dc5efbf7.png" style="zoom:67%;"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>配置<hanla></hanla><code>Post Steps</code></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">入口</th>
+                    <th align="center">配置<hanla></hanla><code>Post Steps</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f9bba86a1720480a8599066473347cff.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/427265f19bc5425a8350e97b62db5642.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>生成<hanla></hanla><code>ssh</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">[root@localhost</span> <span class="string">.ssh]# 目录位置</span></span><br><span class="line"><span class="comment"># (gitlab 的有效默认是此邮箱)</span></span><br><span class="line"><span class="attr">ssh-keygen</span> <span class="string">-t rsa -b 2048 -C "admin@example.com"</span></span><br><span class="line"><span class="attr">eval</span> <span class="string">$(ssh-agent -s)</span></span><br><span class="line"><span class="attr">ssh-add</span> <span class="string">id_rsa</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <blockquote>
+                <p>在<hanla></hanla><code>gitlab</code>
+                  <hanla></hanla>服务器上配置公钥: <code>头像 -&gt; 偏好设置 -&gt;SSH<hanla></hanla>密钥</code>
+                </p>
+              </blockquote>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 添加配置<hanla></hanla></span></span><br><span class="line"><span class="attr">vim</span> <span class="string">config</span></span><br><span class="line"><span class="comment">#-------------------------------------#</span></span><br><span class="line"><span class="attr">Host</span> <span class="string">gitlab.com</span></span><br><span class="line">  <span class="attr">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line">  <span class="attr">IdentityFile</span> <span class="string">~/.ssh/id_rsa</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 测试连通性<hanla></hanla></span></span><br><span class="line"><span class="attr">ssh</span> <span class="string">-T git@192.168.247.129</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">[root@localhost</span> <span class="string">.ssh]# chmod 700 ~/.ssh</span></span><br><span class="line"><span class="attr">[root@localhost</span> <span class="string">.ssh]# touch authorized_keys</span></span><br><span class="line"><span class="attr">[root@localhost</span> <span class="string">.ssh]# chmod 600 ~/.ssh/authorized_keys</span></span><br><span class="line"><span class="attr">[root@localhost</span> <span class="string">.ssh]# cat id_rsa.pub &gt;authorized_keys </span></span><br><span class="line"><span class="attr">[root@localhost</span> <span class="string">.ssh]# </span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>添加私钥</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>SSH Server</code>
+                      <hanla></hanla>配置
+                    </th>
+                    <th align="center"><code>gitlab</code>
+                      <hanla></hanla>服务器生成的<hanla></hanla><code>SSH</code>
+                      <hanla></hanla>私钥
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d27b46ae341f4f709e2897c0021f08ce.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/c569e02bffc34b6780c558dae75331f5.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote>
+                <p>说明: <code>gitlab</code>
+                  <hanla></hanla>的默认用户名是<hanla></hanla><code>root</code>,<hanla></hanla>只有密码是自定义的，所以<hanla></hanla><code>gitlab</code>
+                  <hanla></hanla>的<hanla></hanla><code>git</code>
+                  <hanla></hanla>账户信息只能是<hanla></hanla><code>root[用户名]/<hanla></hanla>自定义密码</code>
+                </p>
+              </blockquote>
+            </li>
+            <li>
+              <p>默认邮箱修改位置</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">邮箱配置</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4141e2ba5bba468683c64fd8bd963fb3.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>配置<hanla></hanla><code>Post Steps</code>
+                <hanla></hanla>后续
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">服务器传输文件</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b5d2646af916475c85c9e4d551930d2a.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">添加路径测试</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/121ca7012056476ea377a28198bc2f0d.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>自动部署</p>
+              <ul>
+                <li>
+                  <p>检测是否已经安装</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 已安装<hanla></hanla></span></span><br><span class="line"><span class="attr">[root@localhost</span> <span class="string">~]# nohup --version</span></span><br><span class="line"><span class="attr">nohup</span> <span class="string">(GNU coreutils) 8.22</span></span><br><span class="line"><span class="attr">Copyright</span> <span class="string">(C) 2013 Free Software Foundation, Inc.</span></span><br><span class="line"><span class="attr"><hanla></hanla>许可证：GPLv3+：GNU</span> <span class="string">通用公共许可证第<hanla></hanla>3 版或更新版本<hanla></hanla><http: gnu.org="" licenses="" gpl.html="">。</http:></span></span><br><span class="line"><span class="attr">本软件是自由软件：您可以自由修改和重新发布它。</span></span><br><span class="line"><span class="attr">在法律范围内没有其他保证。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">由<hanla></hanla>Jim</span> <span class="string">Meyering 编写。</span></span><br><span class="line"><span class="attr">[root@localhost</span> <span class="string">~]# </span></span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>下载<hanla></hanla><code>nohub</code></p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">[root@localhost</span> <span class="string">target]#  yum install coreutils</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>配置环境变量</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">[root@localhost</span> <span class="string">~]# vim ~/.bash_profile </span></span><br><span class="line"></span><br><span class="line">	<span class="attr">PATH</span>=<span class="string">$PATH:$HOME/bin:/usr/bin/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[root@localhost</span> <span class="string">~]# source ~/.bash_profile </span></span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>启动测试</p>
+                  <ul>
+                    <li>
+                      <p>远程服务器新建文件</p>
+                      <figure class="highlight properties">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line"><span class="attr">[root@localhost]</span> <span class="string">vim startadmin.sh</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="attr">BUILD_ID</span>=<span class="string">dontKillme</span></span><br><span class="line"><span class="comment"># 传输后远程服务器中的 jar 文件位置<hanla></hanla></span></span><br><span class="line"><span class="attr">JAR_NAME</span>=<span class="string">/root/springboot/target/*.jar</span></span><br><span class="line"><span class="attr">PID</span>=<span class="string">`ps -ef | grep ${JAR_NAME} | grep -v grep | grep -v startup | awk '{print \$2}'`</span></span><br><span class="line"><span class="attr">echo</span> <span class="string">$PID;</span></span><br><span class="line"><span class="attr">if</span> <span class="string">[ ! "$PID" ] ;then</span></span><br><span class="line">     <span class="attr">echo</span> <span class="string">"no exis"</span></span><br><span class="line"><span class="attr">else</span></span><br><span class="line">    <span class="attr">echo</span> <span class="string">"exis pid，kill PID: $PID"</span></span><br><span class="line">    <span class="attr">kill</span> <span class="string">-9 $PID</span></span><br><span class="line"><span class="attr">fi</span></span><br><span class="line"><span class="attr">echo</span> <span class="string">"service starting..........."</span></span><br><span class="line"><span class="attr">/usr/bin/nohup</span> <span class="string">/root/zulu8/bin/java -jar $JAR_NAME &gt;mylog.log 2&gt;&amp;1 &amp;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[root@localhost]</span> <span class="string">chmod 777 startadmin.sh</span></span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                    </li>
+                    <li>
+                      <p>选择执行脚本</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center"><code>sh /root/startadmin.sh</code></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ce8198b590e74b9ca698b14d4a25c02e.png"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>构建前置清理脚本<hanla></hanla>(<code>Pre Steps</code>)</p>
+              <ul>
+                <li>
+                  <p>选择</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">选择如下</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4601c1bd2a0e4910a4288331e1006388.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>创建脚本</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 删除历史数据<hanla></hanla></span></span><br><span class="line"><span class="attr">rm</span> <span class="string">-rf springboot</span></span><br><span class="line"><span class="attr">rm</span> <span class="string">-rf mylog.log</span></span><br><span class="line"></span><br><span class="line"><span class="attr">appname</span>=<span class="string">$1</span></span><br><span class="line"><span class="comment"># 获取传入的参数<hanla></hanla></span></span><br><span class="line"><span class="attr">echo</span> <span class="string">"arg:$1"</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 获取正在运行的<hanla></hanla>jar<hanla></hanla>包<hanla></hanla>pid</span></span><br><span class="line"><span class="attr">pid</span>=<span class="string">`ps -ef | grep $1 | grep 'java -jar' | awk '{printf $2}'`</span></span><br><span class="line"></span><br><span class="line"><span class="attr">echo</span> <span class="string">$pid</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 如果<hanla></hanla>pid<hanla></hanla>为空，提示一下，否则，执行<hanla></hanla>kill<hanla></hanla>命令<hanla></hanla></span></span><br><span class="line"><span class="attr">if</span> <span class="string">[ -z $pid ];</span></span><br><span class="line"><span class="comment"># 使用 -z 做空值判断</span></span><br><span class="line">        <span class="attr">then</span></span><br><span class="line">                <span class="attr">echo</span> <span class="string">"$appname not started"</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">else</span></span><br><span class="line">               <span class="attr">kill</span> <span class="string">-9 $pid</span></span><br><span class="line">                <span class="attr">echo</span> <span class="string">"$appname stoping...."</span></span><br><span class="line"></span><br><span class="line"><span class="attr">check</span>=<span class="string">`ps -ef | grep -w $pid | grep java`</span></span><br><span class="line"><span class="attr">if</span> <span class="string">[ -z $check ];</span></span><br><span class="line"></span><br><span class="line">        <span class="attr">then</span></span><br><span class="line">                <span class="attr">echo</span> <span class="string">"$appname pid:$pid is stop"</span></span><br><span class="line">        <span class="attr">else</span></span><br><span class="line">                <span class="attr">echo</span> <span class="string">"$appname stop failed"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">fi</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">fi</span></span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>执行脚本</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>./preSteps.sh gitlab[项目关键字]</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f4b23c98c22d4ac897af26967cb810df.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+              <h4 id="提交时自动触发构建"><a href="#提交时自动触发构建" class="headerlink" title="提交时自动触发构建"></a>提交时自动触发构建</h4>
+              <ul>
+                <li>
+                  <p>选择配置</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">选择<code>构建触发器</code>如下选项</th>
+                        <th align="center">测试是否触发</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/57f9483d9ed24656b461d7a06465c429.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/3e5ab558d7ee4eeda953b3f0b14ee67b.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>添加插件<hanla></hanla><code>Build Authorization Token Root</code>（解决匿名登录使用）</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>Build Authorization Token Root</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/95dd5fe28e3b4524a179a4c92144b980.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <blockquote>
+                    <p>插件使用的方式: Http GET or POST to <code>buildByToken/build?job=NAME&amp;token=SECRET</code>. </p>
+                  </blockquote>
+                </li>
+                <li>
+                  <p>插件访问测试</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>http://192.168.2.3:8080/buildByToken/build?job=first-app&amp;token=admin</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/27ee5b725db64b5696a495b6a8cb1a8b.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p><code>gitlab</code>
+                    <hanla></hanla>做以下配置
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">配置（图：gitlab-webhooks）</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/381cf4a3601c417c9a04d2cc5b918972.png" alt="gitlab-webhooks"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <ul>
+                    <li>
+                      <p>以下信息的解决方案</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center"><code>!</code></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/77231e5b1e3b465b9a8cd044745792ff.png"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <ul>
+                        <li>
+                          <p>解决</p>
+                          <table>
+                            <thead>
+                              <tr>
+                                <th align="center"><code>左上角菜单 -&gt; 管理员 -&gt; 设置 -&gt; 网络 -&gt; 出站请求<hanla></hanla>(选择后保存)</code></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/879d28cfba444aa3965b2a7e442cfe64.png"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </li>
+                        <li>
+                          <p>再次添加<code>图: gitlab-webhooks</code>
+                            <hanla></hanla>的配置流程后保存
+                          </p>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="定时构建"><a href="#定时构建" class="headerlink" title="定时构建"></a>定时构建</h4>
+          <ul>
+            <li>
+              <p>网站推荐: <code>https://crontab.guru/</code></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">定时理解</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/017e91b10dce4709aba01456b3aad609.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>理解</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr"><hanla></hanla>第一个</span> <span class="string">* 表示每个小时的第几分钟，取值<hanla></hanla>0~59</span></span><br><span class="line"></span><br><span class="line"><span class="attr">H</span> <span class="string">* * * *</span></span><br><span class="line"><span class="attr">H：每小时执行一次</span></span><br><span class="line"></span><br><span class="line"><span class="attr">第二颗</span> <span class="string">* 表示小时，取值<hanla></hanla>0~23</span></span><br><span class="line"></span><br><span class="line"><span class="attr">*</span> <span class="string">15 * * * 表示每天下午<hanla></hanla>3<hanla></hanla>点<hanla></hanla></span></span><br><span class="line"><span class="attr">*</span> <span class="string">1 * * *  表示每天凌晨<hanla></hanla>1<hanla></hanla>点</span></span><br><span class="line"></span><br><span class="line"><span class="attr">第三颗</span> <span class="string">* 表示一个月的第几天，取值<hanla></hanla>1~31</span></span><br><span class="line"><span class="attr">*</span> <span class="string">1 5 * *  表示每月<hanla></hanla>5<hanla></hanla>日凌晨<hanla></hanla>1<hanla></hanla>点</span></span><br><span class="line"></span><br><span class="line"><span class="attr">第四颗</span> <span class="string">* 表示第几月，取值<hanla></hanla>1~12</span></span><br><span class="line"><span class="attr">*</span> <span class="string">15 5 1 *  表示每年几月执行</span></span><br><span class="line"></span><br><span class="line"><span class="attr">第五颗</span> <span class="string">* 表示一周中的第几天，取值<hanla></hanla>0~7，其中<hanla></hanla>0<hanla></hanla>和<hanla></hanla>7<hanla></hanla>代表的都是周日</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>/</code>:<hanla></hanla>表示每隔多长时间，比如<code> */10 * * * * 表示 每隔<hanla></hanla>10<hanla></hanla>分钟</code></p>
+            </li>
+            <li>
+              <p><code>H</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">hash<hanla></hanla>散列值，以<hanla></hanla>job<hanla></hanla>名取值，获取到以<hanla></hanla>job<hanla></hanla>名为入参的唯一值，相同名称值也相同，这个偏移量会和实际时间相加，获得一个真实的运行时间</span></span><br><span class="line"></span><br><span class="line"><span class="attr">意义在于：不同的项目在不同的时间运行，即使配置的值是一样的，比如</span> <span class="string">都是`15 * * * * ` ，表示每个小时的第<hanla></hanla>15<hanla></hanla>分钟开始执行任务，那么会造成同一时间内在<hanla></hanla>Jenkins<hanla></hanla>中启动很多<hanla></hanla>job，换成`H/15 * * * *`,<hanla></hanla>那么在首次启动任务时，会有随机值参与进来，有的会在<hanla></hanla>17<hanla></hanla>分钟启动 有的会在<hanla></hanla>19<hanla></hanla>分钟启动，随后的启动时间也是这个值。这样就能错开相同<hanla></hanla>cron<hanla></hanla>值的任务执行了。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">H<hanla></hanla>的值也可以设置范围<hanla></hanla></span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">`H</span> <span class="string">* * * *`表示一小时内的任意时间</span></span><br><span class="line"></span><br><span class="line"><span class="attr">`*/10</span> <span class="string">* * * *`每<hanla></hanla>10<hanla></hanla>分钟</span></span><br><span class="line"></span><br><span class="line"><span class="attr">`H/10</span> <span class="string">* * * *`每<hanla></hanla>10<hanla></hanla>分钟,<hanla></hanla>可能是<hanla></hanla>7,17,27，起始时间<hanla></hanla>hash，步长不变</span></span><br><span class="line"></span><br><span class="line"><span class="attr">`45</span> <span class="string">3 * * 1-6 ` 每个周一至周六，凌晨<hanla></hanla>3<hanla></hanla>点<hanla></hanla>45 执行<hanla></hanla>1<hanla></hanla>次</span></span><br><span class="line"></span><br><span class="line"><span class="attr">`45</span> <span class="string">3-5 * * 1-6 ` 每个周一至周六，凌晨<hanla></hanla>3<hanla></hanla>点<hanla></hanla>45 ，凌晨<hanla></hanla>4<hanla></hanla>点<hanla></hanla>45，凌晨<hanla></hanla>5<hanla></hanla>点<hanla></hanla>45 各执行<hanla></hanla>1<hanla></hanla>次</span></span><br><span class="line"></span><br><span class="line"><span class="attr">`H(40-48)</span> <span class="string">3-5 * * 1-6 ` 在<hanla></hanla>40~48<hanla></hanla>之间取值 其他同上</span></span><br><span class="line"></span><br><span class="line"><span class="attr">`45</span> <span class="string">3-5/2 * * 1-6 ` 每个周一至周六，凌晨<hanla></hanla>3<hanla></hanla>点<hanla></hanla>45 ，凌晨<hanla></hanla>5<hanla></hanla>点<hanla></hanla>45 各执行<hanla></hanla>1<hanla></hanla>次</span></span><br><span class="line"></span><br><span class="line"><span class="attr">`</span> <span class="string">45 0-6/2 * * 1-6 * * 1-6 ` 0<hanla></hanla>点开始，每间隔<hanla></hanla>2<hanla></hanla>小时执行一次 0:45、2:45、4:45</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>几种构建方式</p>
+              <ul>
+                <li>快照依赖构建: 当依赖的快照被构建时执行本<hanla></hanla><code>job</code></li>
+                <li>触发远程构建<hanla></hanla>(例如: 使用脚本)</li>
+                <li><code>定时构建</code>: 使用<hanla></hanla><code>cron</code>
+                  <hanla></hanla>表达式定时构建本<hanla></hanla><code>job</code>
+                </li>
+                <li>向<hanla></hanla><code>github</code>
+                  <hanla></hanla>提交代码时触发<hanla></hanla><code>jenkins</code>
+                  <hanla></hanla>自动构建
+                </li>
+                <li>定期检查代码变更<hanla></hanla><code>Poll SCM</code>:<hanla></hanla>使用<hanla></hanla><code>cron</code>
+                  <hanla></hanla>表达式定时检查代码变更,<hanla></hanla>变更后构建脚本<hanla></hanla><code>job</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="邮箱通知"><a href="#邮箱通知" class="headerlink" title="邮箱通知"></a>邮箱通知</h4>
+          <ul>
+            <li>
+              <p>密钥</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>JRWJIHADWXTPUHYB</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b604dd633da24b489b41970b4f160397.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>系统设置中<hanla></hanla><code>Jenkins Location</code>，添加发送方邮箱地址</p>
+            </li>
+            <li>
+              <p>网易服务</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">下图位置: <code>设置中</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/35928ff255f94e56b562b192a10cadb7.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>添加凭证用户信息</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>配置项: <code>Extended E-mail Notification</code></th>
+                    <th align="center">添加</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/aae20db978314e95bd6a7bba23176b0e.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/60b6eae62b30403299191d5fd50c4b88.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>再配置下触发器<hanla></hanla><code>Default Triggers</code></p>
+            </li>
+            <li>
+              <p>邮件通知</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">基础配置</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e91623a90bff47f29d6a82e95763e824.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>项目配置中</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">添加邮箱配置</th>
+                    <th align="center">配置触发器</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/17f51d6b26804cc4bc6dde55e9011d5a.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e9be1658ebdf4b0e954382434d5e0289.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>接收方邮件信息填写说明： 测试发送时填写的接收方</p>
+            </li>
+          </ul>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">
+              <hanla></hanla>文章链接:
+            </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">
+              <hanla></hanla>版权声明:
+            </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+        </div>
+        <div class="tag_share">
+          <div class="post-meta__tag-list"></div>
+          <div class="post_share">
+            <div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/10.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+            <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+          </div>
+        </div>
+        <nav class="pagination-post" id="pagination">
+          <div class="prev-post pull-left"><a href="/2022/11/02/64968.html" title="日期时间相关总结"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/08.jpg" onerror="onerror=null;src='/null'" alt="cover of previous post">
+              <div class="pagination-info">
+                <div class="label">上一篇</div>
+                <div class="prev_info">日期时间相关总结</div>
+              </div>
+            </a></div>
+          <div class="next-post pull-right"><a href="/2022/10/25/48424.html" title="IDEA-模板文件"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/05.jpg" onerror="onerror=null;src='/null'" alt="cover of next post">
+              <div class="pagination-info">
+                <div class="label">下一篇<hanla></hanla>
+                </div>
+                <div class="next_info">IDEA-模板文件</div>
+              </div>
+            </a></div>
+        </nav>
+        <hr>
+        <div id="post-comment">
+          <div class="comment-head">
+            <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+          </div>
+          <div class="comment-wrap">
+            <div>
+              <div id="twikoo-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget" id="card-toc">
+            <div class="item-headline"><i class="fas fa-stream"></i><span>
+                <hanla></hanla>目录<hanla></hanla>
+              </span><span class="toc-percentage"></span></div>
+            <div class="toc-content">
+              <ol class="toc">
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins"><span class="toc-number">1.</span> <span class="toc-text">Jenkins</span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#SSH-Gitlab"><span class="toc-number">1.1.</span> <span class="toc-text">SSH-Gitlab</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Docker-Gitlab"><span class="toc-number">1.2.</span> <span class="toc-text">Docker-Gitlab</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Jenkins-1"><span class="toc-number">1.3.</span> <span class="toc-text">Jenkins</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#JDK"><span class="toc-number">1.4.</span> <span class="toc-text">JDK</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA"><span class="toc-number">1.5.</span> <span class="toc-text">自动化构建<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%97%B6%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA"><span class="toc-number">1.6.</span> <span class="toc-text">提交时自动触发构建<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E6%9E%84%E5%BB%BA"><span class="toc-number">1.7.</span> <span class="toc-text">定时构建<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%AE%E7%AE%B1%E9%80%9A%E7%9F%A5"><span class="toc-number">1.8.</span> <span class="toc-text">邮箱通知</span></a></li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

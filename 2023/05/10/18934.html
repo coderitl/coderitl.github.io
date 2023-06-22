@@ -1,0 +1,1200 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>JSON-框架的具体使用 | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="JSON-框架的具体使用非 SpringBoot 项目Jackson  Jackson 是另一个流行的JSON序列化和反序列化库，具有以下特点   速度快：Jackson 采用了高效的JSON解析算法和字节码生成技术，使得其序列化和反序列化速度非常快。 支持全类型序列化：Jackson 能够序列化所有类型的对象，包括复杂类型和自定义类型。 功能强大：Jackson 提供了很多高级特性，如 JS">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JSON-框架的具体使用">
+  <meta property="og:url" content="https://coderitl.github.io/2023/05/10/18934.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="JSON-框架的具体使用非 SpringBoot 项目Jackson  Jackson 是另一个流行的JSON序列化和反序列化库，具有以下特点   速度快：Jackson 采用了高效的JSON解析算法和字节码生成技术，使得其序列化和反序列化速度非常快。 支持全类型序列化：Jackson 能够序列化所有类型的对象，包括复杂类型和自定义类型。 功能强大：Jackson 提供了很多高级特性，如 JS">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/16.jpg">
+  <meta property="article:published_time" content="2023-05-10T02:41:56.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.478Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/16.jpg">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2023/05/10/18934.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'JSON-框架的具体使用',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/16.jpg')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">JSON-框架的具体使用</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于<hanla></hanla></span><time class="post-meta-date-created" datetime="2023-05-10T02:41:56.000Z" title="发表于 2023-05-10 10:41:56">2023-05-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.478Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="JSON-框架的具体使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/16.jpg');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h2 id="JSON-框架的具体使用"><a href="#JSON-框架的具体使用" class="headerlink" title="JSON-框架的具体使用"></a>JSON-框架的具体使用</h2>
+          <h3 id="非-SpringBoot-项目"><a href="#非-SpringBoot-项目" class="headerlink" title="非 SpringBoot 项目"></a>非 SpringBoot 项目<hanla></hanla>
+          </h3>
+          <h4 id="Jackson"><a href="#Jackson" class="headerlink" title="Jackson"></a>Jackson</h4>
+          <blockquote>
+            <p><code> Jackson</code> 是另一个流行的<hanla></hanla><code>JSON</code>
+              <hanla></hanla>序列化和反序列化库，具有以下特点
+            </p>
+          </blockquote>
+          <ul>
+            <li>速度快：<code>Jackson</code> 采用了高效的<hanla></hanla><code>JSON</code>
+              <hanla></hanla>解析算法和字节码生成技术，使得其序列化和反序列化速度非常快。
+            </li>
+            <li>支持全类型序列化：<code>Jackson</code> 能够序列化所有类型的对象，包括复杂类型和自定义类型。</li>
+            <li>功能强大：<code>Jackson</code> 提供了很多高级特性，如 <code>JSON 映射、注解和 JSON 树模型</code>等，使得其在企业级应用中得到广泛应用。</li>
+          </ul>
+          <ul>
+            <li>
+              <p>依赖</p>
+              <figure class="highlight xml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">&lt;!-- 测试 JSON 框架时项目所有依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.26<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.13.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.13.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.13.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.13.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>使用示例</p>
+              <figure class="highlight java">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">package</span> org.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JacksonExample</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> JsonProcessingException {</span><br><span class="line">        <span class="comment">// 将 Java 对象转换为 JSON 字符串</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">"Tom"</span>, <span class="number">18</span>);</span><br><span class="line">        <span class="type">ObjectMapper</span> <span class="variable">mapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMapper</span>();</span><br><span class="line">        <span class="type">String</span> <span class="variable">json</span> <span class="operator">=</span> mapper.writeValueAsString(user);</span><br><span class="line">        System.out.println(json); <span class="comment">// {"name":"Tom","age":18}</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将 JSON 字符串转换为 Java 对象</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">jsonStr</span> <span class="operator">=</span> <span class="string">"{\"name\":\"Tom\",\"age\":18}"</span>;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user2</span> <span class="operator">=</span> mapper.readValue(jsonStr, User.class);</span><br><span class="line">        System.out.println(user2.getName() + <span class="string">" "</span> + user2.getAge()); <span class="comment">// Tom 18</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="meta">@NoArgsConstructor</span></span><br><span class="line">    <span class="meta">@AllArgsConstructor</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">User</span> {</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="Gson"><a href="#Gson" class="headerlink" title="Gson"></a>Gson</h4>
+          <blockquote>
+            <p><code>Gson</code> 是<hanla></hanla><code>Google</code> 提供的 <code>JSON</code> 序列化和反序列化库。<code>Gson</code> 也是一个非常流行的 <code>JSON</code>
+              <hanla></hanla>序列化和反序列化库，具有以下特点
+            </p>
+          </blockquote>
+          <ul>
+            <li>
+              <p>简单易用：<code>Gson</code> 的使用非常简单，只需要在项目中引入 <code>gson.jar</code>，即可开始使用。</p>
+            </li>
+            <li>
+              <p>高度灵活性：<code>Gson</code> 可以很方便地处理各种类型的对象，包括 <code>Java 8</code> 的新特性，如<hanla></hanla><code>LocalDate</code>
+                <hanla></hanla>和 <code>LocalDateTime</code>
+              </p>
+            </li>
+            <li>
+              <p>扩展性强：<code>Gson</code> 提供了很多扩展点，可以方便地进行自定义扩展。</p>
+            </li>
+            <li>
+              <p>依赖</p>
+              <figure class="highlight xml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">&lt;!-- 测试 JSON 框架时项目所有依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.26<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.13.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.code.gson<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.9<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>使用示例</p>
+              <figure class="highlight java">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">package</span> org.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.gson.Gson;</span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GsonExample</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line">        <span class="comment">// 将 Java 对象转换为 JSON 字符串</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">"Tom"</span>, <span class="number">18</span>);</span><br><span class="line">        <span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line">        <span class="type">String</span> <span class="variable">json</span> <span class="operator">=</span> gson.toJson(user);</span><br><span class="line">        System.out.println(json); <span class="comment">// {"name":"Tom","age":18}</span></span><br><span class="line">        <span class="comment">// 将 JSON 字符串转换为 Java 对象</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">jsonStr</span> <span class="operator">=</span> <span class="string">"{\"name\":\"Tom\",\"age\":18}"</span>;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user2</span> <span class="operator">=</span> gson.fromJson(jsonStr, User.class);</span><br><span class="line">        System.out.println(user2.getName() + <span class="string">" "</span> + user2.getAge()); <span class="comment">// Tom 18</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="meta">@NoArgsConstructor</span></span><br><span class="line">    <span class="meta">@AllArgsConstructor</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">User</span> {</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="Fastjson"><a href="#Fastjson" class="headerlink" title="Fastjson"></a>Fastjson</h4>
+          <blockquote>
+            <p><code>Fastjson</code> 是阿里巴巴开源的 <code>JSON</code> 序列化和反序列化库，由于其高效性和稳定性，成为目前使用最广泛的 <code>JSON</code> 序列化和反序列化库之一。以下是 <code>Fastjson</code> 的主要特点</p>
+          </blockquote>
+          <ul>
+            <li>
+              <p>高性能：<code>Fastjson</code> 采用了许多优化措施，如字节码生成和对象池，使得其反序列化速度非常快，序列化速度也很快。</p>
+            </li>
+            <li>
+              <p>支持全类型序列化：<code>Fastjson</code> 能够序列化所有类型的对象，包括复杂类型和自定义类型。</p>
+            </li>
+            <li>
+              <p>兼容性好：<code>Fastjson</code>
+                <hanla></hanla>支持 <code>JSON</code> 标准规范，并且与其他 <code>JSON</code> 库兼容。
+              </p>
+            </li>
+            <li>
+              <p>使用方便：<code>Fastjson</code> 的使用非常简单，几乎不需要配置，只需要在项目中引入<code> fastjson.jar</code>，即可开始使用。</p>
+            </li>
+            <li>
+              <p>依赖</p>
+              <figure class="highlight xml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.26<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.13.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.78<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>用法</p>
+              <figure class="highlight java">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">package</span> org.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FastjsonExample</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line">        <span class="comment">// 将 Java 对象转换为 JSON 字符串</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">"Tom"</span>, <span class="number">18</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">json</span> <span class="operator">=</span> JSON.toJSONString(user);</span><br><span class="line">        System.out.println(json); <span class="comment">// {"age":18,"name":"Tom"}</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将 JSON 字符串转换为 Java 对象</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">jsonStr</span> <span class="operator">=</span> <span class="string">"{\"age\":18,\"name\":\"Tom\"}"</span>;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user2</span> <span class="operator">=</span> JSON.parseObject(jsonStr, User.class);</span><br><span class="line">        System.out.println(user2.getName() + <span class="string">" "</span> + user2.getAge()); <span class="comment">// Tom 18</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="meta">@NoArgsConstructor</span></span><br><span class="line">    <span class="meta">@AllArgsConstructor</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">User</span> {</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h3 id="SpringBoot项目中使用"><a href="#SpringBoot项目中使用" class="headerlink" title="SpringBoot项目中使用"></a>SpringBoot<hanla></hanla>项目中使用<hanla></hanla>
+          </h3>
+          <h4 id="Jackson-1"><a href="#Jackson-1" class="headerlink" title="Jackson"></a>Jackson</h4>
+          <ul>
+            <li>
+              <p>介绍</p>
+              <blockquote>
+                <p> 在 <code>Spring Boot</code> 中，<code>JSON</code>
+                  <hanla></hanla>序列化和反序列化默认使用<code> Jackson</code> 库，因此不需要额外配置 <code>Jackson</code> 的依赖。但如果想使用<code> Fastjson</code> 或 <code>Gson</code> 库，可以通过以下方式配置 <code>Maven</code> 依赖
+                </p>
+              </blockquote>
+            </li>
+            <li>
+              <p>依赖导入未发生变化</p>
+            </li>
+            <li>
+              <p>Jackson: 不需要添加,<hanla></hanla>因为当添加<hanla></hanla><code>spring-boot-starter-web</code>
+                <hanla></hanla>的依赖时内部已经添加了
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>jackson</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/05/10/iYDG63.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="Gson-1"><a href="#Gson-1" class="headerlink" title="Gson"></a>Gson</h4>
+          <ul>
+            <li>
+              <p>因为使用<hanla></hanla><code>spring-boot-starter-web</code>
+                <hanla></hanla>内部已经有<hanla></hanla><code>jackson</code>，为了使用<hanla></hanla><code>gson</code>，所以排除<hanla></hanla><code>jackson</code>
+                <hanla></hanla>的依赖
+              </p>
+              <figure class="highlight xml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-json<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.code.gson<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.9<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>yml</code></p>
+              <figure class="highlight yml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 可以配置的一些参数<hanla></hanla></span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">gson:</span></span><br><span class="line">    <span class="comment"># 用于指定日期格式化的格式字符串，将 Java 对象中的日期类型属性转换成对应的字符串形式。示例配置 yyyy-MM-dd HH:mm:ss 表示使用标准的日期格式将日期类型属性转换成字符串形式。如果不配置该属性，则使用 Gson 默认的日期格式化方式。</span></span><br><span class="line">    <span class="attr">date-format:</span> <span class="string">yyyy-MM-dd</span> <span class="string">HH:mm:ss</span></span><br><span class="line">    <span class="comment"># disable-html-escaping：用于指定是否禁用 HTML 转义，当序列化 HTML 内容时，开启该选项可以防止 XSS 攻击。该属性默认值为 false，即默认启用 HTML 转义。</span></span><br><span class="line">    <span class="attr">disable-html-escaping:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># disable-inner-class-serialization：用于指定是否禁用序列化内部类，默认值为 false，即序列化内部类。</span></span><br><span class="line">    <span class="attr">disable-inner-class-serialization:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># enable-complex-map-key-serialization：用于指定是否启用复杂类型的 Map 键的序列化，默认值为 false，即禁用复杂类型的 Map 键的序列化。</span></span><br><span class="line">    <span class="attr">enable-complex-map-key-serialization:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># exclude-fields-without-expose-annotation：用于指定是否排除未标注 @Expose 注解的字段，默认值为 false，即不排除未标注 @Expose 注解的字段。</span></span><br><span class="line">    <span class="attr">exclude-fields-without-expose-annotation:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># field-naming-policy：用于指定字段命名策略，默认值为 IDENTITY，即使用 Java 对象中的字段名称作为 Gson 中的字段名称。其他可选值包括 LOWER_CASE_WITH_UNDERSCORES、UPPER_CAMEL_CASE 和 UPPER_CAMEL_CASE_WITH_SPACES 等。</span></span><br><span class="line">    <span class="attr">field-naming-policy:</span> <span class="string">LOWER_CASE_WITH_UNDERSCORES</span></span><br><span class="line">    <span class="comment"># serialize-nulls：用于指定是否序列化 null 值，默认值为 false，即不序列化 null 值。</span></span><br><span class="line">    <span class="attr">serialize-nulls:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>也可以通过<hanla></hanla><code>GsonBuilder</code>
+                <hanla></hanla>实现，两种方式选择一种
+              </p>
+              <figure class="highlight java">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GsonConfig</span> {</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> GsonBuilder <span class="title function_">gsonBuilder</span><span class="params">()</span> {</span><br><span class="line">        <span class="type">GsonBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GsonBuilder</span>();</span><br><span class="line">        builder.setDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">        <span class="keyword">return</span> builder;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">配置前</th>
+                    <th align="center">配置后<hanla></hanla>(<code>builder.setDateFormat("yyyy-MM-dd HH:mm:ss");</code>)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/05/10/iYtlzv.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/05/10/iYtBCX.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="Fastjson-1"><a href="#Fastjson-1" class="headerlink" title="Fastjson"></a>Fastjson</h4>
+          <ul>
+            <li>
+              <p>使用程度较低</p>
+            </li>
+            <li>
+              <p>排除依赖</p>
+              <figure class="highlight xml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-json<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.78<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>注意点</p>
+              <blockquote>
+                <p>需要注意的是，使用<code> Fastjson 或 Gson</code> 时，要保证它们的依赖包的版本与 <code>Spring Boot </code>的依赖包版本兼容，避免出现不必要的冲突和错误。</p>
+                <p>在 <code>SpringMVC</code>
+                  <hanla></hanla>框架 中,<code>jackson</code>
+                  <hanla></hanla>和<hanla></hanla><code>gson</code>
+                  <hanla></hanla>已经自动配置好了，只需要添加相应的依赖，而<hanla></hanla><code>Fastjson</code>
+                  <hanla></hanla>则需要开发者手动配置<hanla></hanla><code>HttpMessageConverter</code>,<hanla></hanla>直接启动会出现如下错误
+                </p>
+              </blockquote>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/05/10/iYt5Cq.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>
+                  <p>解决方法</p>
+                  <figure class="highlight java">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="keyword">package</span> com.example.jsondemo.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.serializer.SerializerFeature;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.support.config.FastJsonConfig;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.converter.HttpMessageConverter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebMvcConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> {</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用 Fastjson 作为 HTTP 消息转换器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">configureMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> {</span><br><span class="line">        <span class="type">FastJsonHttpMessageConverter</span> <span class="variable">converter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FastJsonHttpMessageConverter</span>();</span><br><span class="line">        converter.setFastJsonConfig(getFastJsonConfig());</span><br><span class="line">        converters.add(converter);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 配置 Fastjson</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> FastJsonConfig <span class="title function_">getFastJsonConfig</span><span class="params">()</span> {</span><br><span class="line">        <span class="type">FastJsonConfig</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FastJsonConfig</span>();</span><br><span class="line">        config.setSerializerFeatures(SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty, SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteDateUseDateFormat);</span><br><span class="line">        <span class="comment">// 也可以直接在 yml 文件中配置</span></span><br><span class="line">        config.setDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">配置前</th>
+                        <th align="center">配置后</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/05/10/iYtMjp.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/05/10/iYtTQv.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>yml</p>
+                  <figure class="highlight xml">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line">spring:</span><br><span class="line">  fastjson:</span><br><span class="line">    date-format: yyyy-MM-dd HH:mm:ss</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>测试</p>
+              <figure class="highlight java">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">JsonDemoApplicationTests</span> {</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> {</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">        user.setUid(<span class="string">"1001"</span>);</span><br><span class="line">        user.setUname(<span class="string">"coder-itl"</span>);</span><br><span class="line">        user.setAddress(<span class="string">"http://coderitl.github.io"</span>);</span><br><span class="line">        user.setCreateTime(<span class="keyword">new</span> <span class="title class_">Date</span>(System.currentTimeMillis()));</span><br><span class="line">        <span class="type">String</span> <span class="variable">toJSONString</span> <span class="operator">=</span> JSON.toJSONString(user);</span><br><span class="line">        System.out.println(toJSONString);</span><br><span class="line">        <span class="comment">// 反序列化</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输出</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">测试序列化</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/05/10/iYW0cc.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h3>
+          <ul>
+            <li>
+              <p>序列化: 对象转换为<hanla></hanla><code>JSON</code></p>
+            </li>
+            <li>
+              <p>反序列化: <code>JSON</code>
+                <hanla></hanla>转换为对象
+              </p>
+            </li>
+            <li>
+              <p>如何实现序列化和反序列化这个过程的?</p>
+              <ul>
+                <li>
+                  <p>由转换器:<code>HttpMessageConverter </code>实现</p>
+                  <blockquote>
+                    <p>在 <code>Spring</code> 框架中，<code>HttpMessageConverter </code> 是一个用于在消息传递时将消息从一种格式转换为另一种格式的接口。它的主要作用是帮助在不同的客户端和服务之间传递消息，并确保消息在传递过程中能够正确地序列化和反序列化。</p>
+                    <p><code>Spring</code> 框架中提供了多个预定义的 <code>HttpMessageConverter </code> 实现，可以根据不同的需求选择使用。常用的消息格式包括<code> JSON、XML、二进制</code>等。</p>
+                    <p>配置 <code>HttpMessageConverter </code> 可以通过在 <code>Spring</code> 应用程序上下文中注册 <code>HttpMessageConverter </code> 类型的 <code>Bean</code>
+                      <hanla></hanla>来实现。具体语法如下
+                    </p>
+                  </blockquote>
+                  <figure class="highlight java">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebMvc</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> {</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">configureMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> {</span><br><span class="line">        converters.add(<span class="keyword">new</span> <span class="title class_">MappingJackson2HttpMessageConverter</span>());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <blockquote>
+                    <p>上面的示例配置了一个 <code>MappingJackson2HttpMessageConverter</code> 对象，用于将 <code>Java</code> 对象转换为 <code>JSON</code> 格式的消息。在这个例子中，我们使用了 <code>Spring 的 Java</code> 配置方式，并实现了 <code>WebMvcConfigurer</code> 接口中的 <code>configureMessageConverters()</code> 方法来注册我们自己的 <code>MessageConverter</code> 实现。</p>
+                    <p>需要注意的是，当我们自定义 <code>MessageConverter</code> 时，必须添加到 <code>converters</code> 列表的前面，以确保它是在默认的转换器之前被调用的。此外，我们也可以通过重写 <code>extendMessageConverters()</code> 方法来添加自定义的 <code>MessageConverter</code>，这个方法会在默认的转换器之后调用。</p>
+                  </blockquote>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">
+              <hanla></hanla>文章链接:
+            </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">
+              <hanla></hanla>版权声明:
+            </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+        </div>
+        <div class="tag_share">
+          <div class="post-meta__tag-list"></div>
+          <div class="post_share">
+            <div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/16.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+            <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+          </div>
+        </div>
+        <nav class="pagination-post" id="pagination">
+          <div class="prev-post pull-left"><a href="/2023/05/24/30601.html" title="后端常用实现"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f8c268047ea6459db155cbc8f91630d9.png" onerror="onerror=null;src='/null'" alt="cover of previous post">
+              <div class="pagination-info">
+                <div class="label">上一篇</div>
+                <div class="prev_info">后端常用实现</div>
+              </div>
+            </a></div>
+          <div class="next-post pull-right"><a href="/2023/05/07/6146.html" title="正则总结"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/04.jpg" onerror="onerror=null;src='/null'" alt="cover of next post">
+              <div class="pagination-info">
+                <div class="label">下一篇</div>
+                <div class="next_info">正则总结</div>
+              </div>
+            </a></div>
+        </nav>
+        <hr>
+        <div id="post-comment">
+          <div class="comment-head">
+            <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+          </div>
+          <div class="comment-wrap">
+            <div>
+              <div id="twikoo-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget" id="card-toc">
+            <div class="item-headline"><i class="fas fa-stream"></i><span>
+                <hanla></hanla>目录<hanla></hanla>
+              </span><span class="toc-percentage"></span></div>
+            <div class="toc-content">
+              <ol class="toc">
+                <li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-%E6%A1%86%E6%9E%B6%E7%9A%84%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">JSON-框架的具体使用<hanla></hanla></span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E-SpringBoot-%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">非 SpringBoot 项目<hanla></hanla></span></a>
+                      <ol class="toc-child">
+                        <li class="toc-item toc-level-4"><a class="toc-link" href="#Jackson"><span class="toc-number">1.1.1.</span> <span class="toc-text">Jackson</span></a></li>
+                        <li class="toc-item toc-level-4"><a class="toc-link" href="#Gson"><span class="toc-number">1.1.2.</span> <span class="toc-text">Gson</span></a></li>
+                        <li class="toc-item toc-level-4"><a class="toc-link" href="#Fastjson"><span class="toc-number">1.1.3.</span> <span class="toc-text">Fastjson</span></a></li>
+                      </ol>
+                    </li>
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">SpringBoot<hanla></hanla>项目中使用<hanla></hanla></span></a>
+                      <ol class="toc-child">
+                        <li class="toc-item toc-level-4"><a class="toc-link" href="#Jackson-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">Jackson</span></a></li>
+                        <li class="toc-item toc-level-4"><a class="toc-link" href="#Gson-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">Gson</span></a></li>
+                        <li class="toc-item toc-level-4"><a class="toc-link" href="#Fastjson-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">Fastjson</span></a></li>
+                      </ol>
+                    </li>
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text">序列化和反序列化</span></a></li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

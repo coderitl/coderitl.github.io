@@ -1,0 +1,2217 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>GIT-版本控制 | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="简介 GIT是一个开源的分布式版本控制系统,用于敏捷高效地处理任何或小或大地项目 GIT是Linux Torvalds为了帮助管理Linux内核开发二开发地一个开放源码地版本控制软件 官网: https://git-scm.com  下载安装 下载    官网下载 镜像地址下载    官网https://git-scm.com/download/win 镜像地址https://registry">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="GIT-版本控制">
+  <meta property="og:url" content="https://coderitl.github.io/2022/02/08/24473.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="简介 GIT是一个开源的分布式版本控制系统,用于敏捷高效地处理任何或小或大地项目 GIT是Linux Torvalds为了帮助管理Linux内核开发二开发地一个开放源码地版本控制软件 官网: https://git-scm.com  下载安装 下载    官网下载 镜像地址下载    官网https://git-scm.com/download/win 镜像地址https://registry">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://img-blog.csdnimg.cn/b5b90619cdb940cf8f63dd5e20c74942.png">
+  <meta property="article:published_time" content="2022-02-08T08:39:48.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.462Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://img-blog.csdnimg.cn/b5b90619cdb940cf8f63dd5e20c74942.png">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2022/02/08/24473.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'GIT-版本控制',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://img-blog.csdnimg.cn/b5b90619cdb940cf8f63dd5e20c74942.png')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">GIT-版本控制</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于<hanla></hanla></span><time class="post-meta-date-created" datetime="2022-02-08T08:39:48.000Z" title="发表于 2022-02-08 16:39:48">2022-02-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.462Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Git/">Git</a></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="GIT-版本控制"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://img-blog.csdnimg.cn/b5b90619cdb940cf8f63dd5e20c74942.png');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>
+            <hanla></hanla>简介
+          </h3>
+          <blockquote>
+            <p><code>GIT</code>
+              <hanla></hanla>是一个开源的<code>分布式</code>版本控制系统,<hanla></hanla>用于敏捷高效地处理任何或小或大地项目
+            </p>
+            <p><code>GIT</code>
+              <hanla></hanla>是<hanla></hanla><code>Linux Torvalds</code>
+              <hanla></hanla>为了帮助管理<hanla></hanla><code>Linux</code>
+              <hanla></hanla>内核开发二开发地一个开放源码地版本控制软件
+            </p>
+            <p>官网: <code>https://git-scm.com</code></p>
+          </blockquote>
+          <h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3>
+          <ul>
+            <li>
+              <p>下载</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">官网下载</th>
+                    <th align="center">镜像地址下载</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center">
+                      <div class="tag link"><a class="link-card" title="官网" target="_blank" rel="external nofollow noopener noreferrer" href="https://git-scm.com/download/win">
+                          <div class="left"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://git-scm.com/favicon.ico"></div>
+                          <div class="right">
+                            <p class="text">官网<hanla></hanla>
+                            </p>
+                            <p class="url">https://git-scm.com/download/win</p>
+                          </div>
+                        </a></div>
+                    </td>
+                    <td align="center">
+                      <div class="tag link"><a class="link-card" title="镜像地址" target="_blank" rel="external nofollow noopener noreferrer" href="https://registry.npmmirror.com/binary.html?path=git-for-windows/v2.35.1.windows.2/">
+                          <div class="left"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://git-scm.com/favicon.ico"></div>
+                          <div class="right">
+                            <p class="text">镜像地址<hanla></hanla>
+                            </p>
+                            <p class="url">https://registry.npmmirror.com/binary.html?path=git-for-windows/v2.35.1.windows.2/</p>
+                          </div>
+                        </a></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/901a5df9b8fb4dc3ba57044e8e931b6a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="下载对应版本"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/806a47de9c354beea32ccb3af4d60703.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="选择对应版本"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>安装流程</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">推荐选择,<hanla></hanla>未出现则为默认选择</th>
+                    <th align="center">注意环境变量添加或选择</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d458efe3ebb54f748070b19df7636364.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_18,color_FFFFFF,t_70,g_se,x_16" alt="使用命令行" style="zoom:80%;"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/8ef280d5a7244ac284c067b04116965c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="检测环境是否正常"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h3 id="配置账户信息"><a href="#配置账户信息" class="headerlink" title="配置账户信息"></a>配置账户信息</h3>
+          <ul>
+            <li>
+              <p>添加配置</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 如下信息会在提交代码时使用，记录在你的每次提交中,<hanla></hanla>以后才知道那次提交是谁地<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">config --global user.name "Your Name" 	# gitee | github 用户名<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">config --global user.email "Your Email" # gitee | github 邮箱</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 查看信息 [小写<hanla></hanla>L]</span></span><br><span class="line"><span class="attr">git</span> <span class="string">config -l </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 可以在提交后通过如下命令查看<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">log</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>查看信息</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">提交日志信息</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/8dee2402d7ab465996373c9bfa86c0c8.png" alt="提交信息"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3>
+          <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+            <p><strong>版本库</strong>: 工作区中有一个隐藏目录<code>.git</code>，这个目录不属于工作区，而是<hanla></hanla><code>git</code>
+              <hanla></hanla>的<code>版本库</code>,<hanla></hanla>是<hanla></hanla><code>git</code>
+              <hanla></hanla>管理的所有内容
+            </p>
+            <p><strong>暂存区</strong>: 版本库中包含一个临时区域,<hanla></hanla>保存下一步要提交的文件</p>
+            <p><strong>分支</strong>: 版本库中包含若干分支,<hanla></hanla>提交的文件存储在分支中</p>
+            <table>
+              <thead>
+                <tr>
+                  <th align="center">架构图</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f5629c55f12342128a76fb7087a008fa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="架构图"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h3>
+          <div class="tabs" id="仓库">
+            <ul class="nav-tabs">
+              <li class="tab active"><button type="button" data-href="#仓库-1">什么是仓库</button></li>
+              <li class="tab"><button type="button" data-href="#仓库-2">新建仓库</button></li>
+              <li class="tab"><button type="button" data-href="#仓库-3">查看仓库状态</button></li>
+            </ul>
+            <div class="tab-contents">
+              <div class="tab-item-content active" id="仓库-1">
+                <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                  <p>对应的就是一个<strong>目录</strong>,<hanla></hanla>这个目录中的所有文件被<hanla></hanla><code>git</code>
+                    <hanla></hanla>管理起来，以后会将一个<code>项目的根目录</code>,<hanla></hanla>作为仓库，仓库中的每个文件的改动,<hanla></hanla>都是由<hanla></hanla><code>git</code>
+                    <hanla></hanla>跟踪
+                  </p>
+                </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+              </div>
+              <div class="tab-item-content" id="仓库-2">
+                <ul>
+                  <li>
+                    <p>执行指令</p>
+                    <figure class="highlight properties">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td class="gutter">
+                              <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                            </td>
+                            <td class="code">
+                              <pre><span class="line"><span class="comment"># 选择一个目录,<hanla></hanla>执行该指令<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">init</span></span><br></pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </figure>
+                  </li>
+                  <li>
+                    <p>查看</p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th align="center">初始化仓库</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/20c018c86f664dbcbcec2bdb4bf34580.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="初始化仓库"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                  <li>
+                    <p>仓库添加文件</p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th align="center">文件添加</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/fdab395b4e6c4f768f8edd184420d64e.png"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                  <li>
+                    <p>查看提交日志</p>
+                    <ul>
+                      <li>
+                        <p>简便查看</p>
+                        <figure class="highlight properties">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td class="gutter">
+                                  <pre><span class="line">1</span><br></pre>
+                                </td>
+                                <td class="code">
+                                  <pre><span class="line"><span class="attr">git</span> <span class="string">log</span></span><br></pre>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </figure>
+                      </li>
+                      <li>
+                        <p>详细查看</p>
+                        <figure class="highlight properties">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td class="gutter">
+                                  <pre><span class="line">1</span><br></pre>
+                                </td>
+                                <td class="code">
+                                  <pre><span class="line"><span class="attr">git</span> <span class="string">log --pretty=oneline</span></span><br></pre>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </figure>
+                      </li>
+                      <li>
+                        <p>简介详细查看</p>
+                        <figure class="highlight properties">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td class="gutter">
+                                  <pre><span class="line">1</span><br></pre>
+                                </td>
+                                <td class="code">
+                                  <pre><span class="line"><span class="attr">git</span> <span class="string">log --oneline</span></span><br></pre>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </figure>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th align="center">简洁</th>
+                              <th align="center">详细</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a915bf718542451baf18956e5741f9a2.png"></td>
+                              <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/6bc93d003b414056b395982f0cb71357.png"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </li>
+                      <li>
+                        <p>图形化</p>
+                        <figure class="highlight properties">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td class="gutter">
+                                  <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                                </td>
+                                <td class="code">
+                                  <pre><span class="line"><span class="comment"># 查看所有分支的提交<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">log --all --graph</span></span><br></pre>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </figure>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p><code>commit</code></p>
+                    <figure class="highlight properties">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td class="gutter">
+                              <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                            </td>
+                            <td class="code">
+                              <pre><span class="line"><span class="comment"># 查看提交点内的文件<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">cat-file -p commit-id</span></span><br></pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </figure>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th align="center"><code>commit</code></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9088867b242a453da799ca3d96495584.png"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <blockquote>
+                      <p><code>Blob</code>: 文件夹</p>
+                      <p><code>file</code>: 文件</p>
+                    </blockquote>
+                  </li>
+                </ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+              </div>
+              <div class="tab-item-content" id="仓库-3">
+                <ul>
+                  <li>
+                    <p>查看状态</p>
+                    <figure class="highlight properties">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td class="gutter">
+                              <pre><span class="line">1</span><br></pre>
+                            </td>
+                            <td class="code">
+                              <pre><span class="line"><span class="attr">git</span> <span class="string">status</span></span><br></pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </figure>
+                  </li>
+                  <li>
+                    <p>未记录</p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th align="center">未记录过的文件,<hanla></hanla>是未跟踪状态</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4fb16d1e3c0c4d5e8c55a01747851158.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="未记录过的文件,是未跟踪状态"></td>
+                          <td><code>Untracked files</code>
+                            <hanla></hanla>翻译为: 未跟踪的文件
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                  <li>
+                    <p>暂存文件</p>
+                    <figure class="highlight properties">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td class="gutter">
+                              <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                            </td>
+                            <td class="code">
+                              <pre><span class="line"><span class="comment"># 将仓库中所有文件添加在暂存区中<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">add .</span></span><br></pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </figure>
+                    <ul>
+                      <li>
+                        <p>添加在暂存区状态</p>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th align="center">添加在暂存区状态</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e0a46c6b249045bfb2a87d9408077c6a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="添加在暂存区状态"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>文件提交</p>
+                    <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                      <p>执行<hanla></hanla><code>git commit -m "这里填写提交的描述信息"</code>,<hanla></hanla>作用是将暂存区的文件存入分支,<hanla></hanla>形成一个版本</p>
+                    </div>
+                  </li>
+                </ul>
+              </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3>
+      <div class="tabs" id="远程仓库">
+        <ul class="nav-tabs">
+          <li class="tab active"><button type="button" data-href="#远程仓库-1">远程仓库工作模式</button></li>
+          <li class="tab"><button type="button" data-href="#远程仓库-2">远程仓库选择</button></li>
+          <li class="tab"><button type="button" data-href="#远程仓库-3">实现完整提交记录</button></li>
+          <li class="tab"><button type="button" data-href="#远程仓库-4">克隆共享</button></li>
+          <li class="tab"><button type="button" data-href="#远程仓库-5">分支</button></li>
+        </ul>
+        <div class="tab-contents">
+          <div class="tab-item-content active" id="远程仓库-1">
+            <table>
+              <thead>
+                <tr>
+                  <th align="center">远程仓库工作模式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/087d71d1d4434cb1b572ad2ff3b30445.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="远程仓库工作模式" style="zoom:80%;"></td>
+                </tr>
+              </tbody>
+            </table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+          </div>
+          <div class="tab-item-content" id="远程仓库-2">
+            <ul>
+              <li>
+                <p>选择<hanla></hanla><code>gitee | github</code></p>
+                <ul>
+                  <li>
+                    <p>以<hanla></hanla><code>gitee</code>
+                      <hanla></hanla>为例
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th align="center">进入<hanla></hanla><code>gitee</code>
+                            <hanla></hanla>官网
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td align="center">
+                            <div class="tag link"><a class="link-card" title="gitee-官网" target="_blank" rel="external nofollow noopener noreferrer" href="https://gitee.com/">
+                                <div class="left"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://gitee.com/assets/favicon.ico"></div>
+                                <div class="right">
+                                  <p class="text">gitee-官网<hanla></hanla>
+                                  </p>
+                                  <p class="url">https://gitee.com/</p>
+                                </div>
+                              </a></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                  <li>
+                    <p>注册账户</p>
+                    <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                      <p>注意<strong>用户名</strong>名称,<hanla></hanla>在<hanla></hanla><code>github</code>
+                        <hanla></hanla>可以使用<hanla></hanla><code>git pages</code>
+                        <hanla></hanla>做静态网站部署,<hanla></hanla>但是必须使用和用户名同名,<hanla></hanla>为了后续使用,<hanla></hanla>建议为英文并且名称尽量合理为主,<code>gitee</code>
+                        <hanla></hanla>目前也采用此方式
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              <p>新建仓库</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">新建仓库</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/47013c7b33564cb38f7522ee4cb0b595.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="新建仓库"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>
+                  <p>修改仓库默认分支为<hanla></hanla><code>main(个人习惯)</code></p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">点击头像下的<code>设置</code>,<hanla></hanla>修改仓库默认分支为<hanla></hanla><code>main</code></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/306cfbd33043439697e299cd385b2d5b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="修改默认分支名"></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>创建一个私有仓库</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">私有仓库创建</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a9149df6529d4600ad5e9c75b164d629.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="私有仓库创建"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>本地仓库关联远程仓库</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">本地仓库中执行 origin 是为后面的链接地址起的别名<hanla></hanla></span></span><br><span class="line">git remote add origin https://gitee.com/coder-itl/repo-test.git</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看<hanla></hanla></span></span><br><span class="line">git remote -v</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后续也可以修改链接地址</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>地址获取</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">远程仓库地址获取</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4e13961d4a6240fe87a09a521dbf3932.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="远程仓库地址获取"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+        </div>
+        <div class="tab-item-content" id="远程仓库-3">
+          <ul>
+            <li>
+              <p>提交流程</p>
+              <ol>
+                <li>初始化本地仓库</li>
+                <li>关联远程仓库</li>
+                <li>添加文件至暂存区</li>
+                <li>提交至远程仓库</li>
+              </ol>
+            </li>
+            <li>
+              <p>提交命令<hanla></hanla>(<code>理想状态提交</code>)</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化本地仓库<hanla></hanla></span></span><br><span class="line">git init</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关联远程仓库<hanla></hanla></span></span><br><span class="line">git remote add origin 远程仓库地址</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加文件至暂存区<hanla></hanla></span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加提交描述,<hanla></hanla>必不可少<hanla></hanla></span></span><br><span class="line">git commit -m "xxx"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">推送至远程仓库，注意分支名称,<hanla></hanla>如果为设置,<hanla></hanla>则为 master</span></span><br><span class="line">git push origin main</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>完整提交</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">完整提交,<hanla></hanla>弹窗填写为<hanla></hanla><code>gitee</code>
+                      <hanla></hanla>账户名与密码
+                    </th>
+                    <th align="center">刷新远程仓库</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/5c2e29de17074431853fbae6032818bb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/6a21f6e60e604bbfb9eb51e20518566d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="刷新远程仓库"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+        </div>
+        <div class="tab-item-content" id="远程仓库-4">
+          <ul>
+            <li>
+              <p>克隆</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取默认分支<hanla></hanla></span></span><br><span class="line">git clone https://gitee.com/coder-itl/repo-test.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取指定分支<hanla></hanla></span></span><br><span class="line">git clone -b branche-name link-address</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>拉取远程仓库</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">远程仓库拉取</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/51e5d99d0aa84ad795f59462b18e9b1e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="远程仓库拉取"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>协同开发</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">协同开发</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/14d1e74f79ab4e18b36881b3a7ed6462.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="协同开发"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>
+                  <p>分析如何协同的</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">分析是如何协同的</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/474d4727f9de45d1931ede16416e4e26.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="分析是如何协同的"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+        </div>
+        <div class="tab-item-content" id="远程仓库-5">
+          <ul>
+            <li>
+              <p>创建分支</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建分支并切换到该分支<hanla></hanla></span></span><br><span class="line">git checkout -b new-branch-name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除本地分支<hanla></hanla></span></span><br><span class="line">git branch -D branch-name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除远程分支<hanla></hanla></span></span><br><span class="line">git push origin --delete branch-name</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>变化本地仓库信息,<hanla></hanla>进行提交</p>
+            </li>
+            <li>
+              <p>测试</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">测试分支</th>
+                    <th align="center">检测远程仓库</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a7063f792160416495bd71b4c6376ec2.png" alt="测试分支"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d5531bd66a154daab394bc1a9eda7309.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>格式化提交日志</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">git log --oneline --graph --decorate --all</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>问题</p>
+              <div class="tip error">
+                <p>新建的分支必须推送至远程仓库</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <ul>
+          <li>
+            <p>推送分支到远程仓库</p>
+            <figure class="highlight shell">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="gutter">
+                      <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                    </td>
+                    <td class="code">
+                      <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检测本地分支信息<hanla></hanla></span></span><br><span class="line">git branch -av</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到需要推送至远程的分支上<hanla></hanla></span></span><br><span class="line">git checkout branch-name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">推送至远程仓库 fix:fix =&gt; 本地分支名:<hanla></hanla>远程分支名<hanla></hanla>(自定义名称)</span></span><br><span class="line">git push origin fix:fix </span><br></pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </figure>
+            <ul>
+              <li>
+                <p>添加到远程仓库</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <th align="center">将本地分支推送至远程仓库</th>
+                      <th align="center">远程仓库信息查看</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4f2ed0f7267d42169ae112fdbf865fcd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="将本地分支推送至远程仓库"></td>
+                      <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/8ced072aa5494a64b7a61d6133edf694.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="远程仓库信息"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>分支内容</p>
+            <div class="tip error">
+              <p>新建分支上的内容可以删除,<hanla></hanla>并不会影响另一个分支信息</p>
+            </div>
+          </li>
+        </ul>
+        <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b55a239935264742b10b0dc178bf5fa8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+      </div>
+      <ul>
+        <li>
+          <p>使用方式</p>
+          <figure class="highlight shell">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到新分支<hanla></hanla></span></span><br><span class="line">git checkout new-branch-name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除所有文件<hanla></hanla></span></span><br><span class="line">rm -r *.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加至暂存区<hanla></hanla></span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加日志<hanla></hanla></span></span><br><span class="line">git commit -m "feat:clear all txt file"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">推送至远程,<hanla></hanla>注意推送分支 （fix<hanla></hanla>改变变更不会影响 main 分支内容)</span> </span><br><span class="line">git push origin fix</span><br></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <ul>
+            <li>
+              <p>查看</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">分支使用,<hanla></hanla>需要注意的是分支切换问题</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a87a7b39d41246599267614d957536c6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="分支使用"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>分支合并</p>
+          <table>
+            <thead>
+              <tr>
+                <th align="center">分支合并</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f2a7304b99ac4bf7ae6130bf2d797bc9.gif#pic_center" alt="分支合并"></td>
+              </tr>
+            </tbody>
+          </table>
+          <ul>
+            <li>快速合并</li>
+            <li>三方合并</li>
+          </ul>
+        </li>
+        <li>
+          <p>版本回退</p>
+          <figure class="highlight shell">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line">git log</span><br><span class="line">git reset --hard HEAD commit-ID</span><br></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+        </li>
+      </ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+    </main>
+  </div>
+  <h3 id="合并冲突"><a href="#合并冲突" class="headerlink" title="合并冲突"></a>合并冲突</h3>
+  <div class="tabs" id="合并冲突">
+    <ul class="nav-tabs">
+      <li class="tab active"><button type="button" data-href="#合并冲突-1">起因</button></li>
+      <li class="tab"><button type="button" data-href="#合并冲突-2">模拟冲突</button></li>
+    </ul>
+    <div class="tab-contents">
+      <div class="tab-item-content active" id="合并冲突-1">
+        <div class="tip cogs">
+          <p>两个分支进行合并,<hanla></hanla>但他们含有对同一个文件的修改,<hanla></hanla>则在合并时出现冲突,<code>git</code>
+            <hanla></hanla>无法决断该保留
+          </p>
+        </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+      </div>
+      <div class="tab-item-content" id="合并冲突-2">
+        <ul>
+          <li>
+            <p>本地仓库文件内容</p>
+            <table>
+              <thead>
+                <tr>
+                  <th align="center">当前仓库文件信息</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/cb965235748c4406b066b4408bafe076.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="当前仓库文件信息"></td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>
+            <p><code>main</code>
+              <hanla></hanla>分支修改<hanla></hanla><code>fix.txt</code>
+              <hanla></hanla>并提交
+            </p>
+          </li>
+          <li>
+            <p><code>fix</code>
+              <hanla></hanla>分支同样修改<hanla></hanla><code>fix.txx</code>
+              <hanla></hanla>并提交
+            </p>
+          </li>
+          <li>
+            <p>在<hanla></hanla><code>main</code>
+              <hanla></hanla>上合并<hanla></hanla><code>fix</code>
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th align="center">复现冲突</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a99472bba0ec464cb6aa1b96411d1476.gif#pic_center" alt="复现冲突"></td>
+                </tr>
+              </tbody>
+            </table>
+            <ul>
+              <li>
+                <p>查看文件</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <th align="center">查看冲突文件</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/489a62b2eed04cec83135f0e2be9ee21.png" alt="冲突文件"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li>
+                <p>解决方案</p>
+                <div class="tip cogs">
+                  <blockquote></blockquote>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>删除文件中特殊符号<hanla></hanla><code>&lt;&lt;&lt;&lt;</code>，保留自己所需要内容信息,<code>
+            <hanla></hanla>再次提交
+          </code></p>
+        <table>
+          <thead>
+            <tr>
+              <th align="center">再次提交</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0d5bfee23930439ba941cd6a738c30ec.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button>
+    </div>
+  </div>
+  <h3 id="分离头指针"><a href="#分离头指针" class="headerlink" title="分离头指针"></a>分离头指针</h3>
+  <ul>
+    <li>
+      <p>进入分离头指针</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">checkout commit-id</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+    <li>
+      <p>后续提交</p>
+    </li>
+  </ul>
+  <h3 id="提交-Message"><a href="#提交-Message" class="headerlink" title="提交-Message"></a>提交-<code>Message</code></h3>
+  <ul>
+    <li>
+      <p>修改最新一次提交的信息</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">commit --amend -m "new commit message"</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">错误信息修改</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/15bea9ae90a34aff964998b70bcd6e07.png"></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>修改历史的信息</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">rebase -i 要修改信息的父级</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">交互式变基</th>
+            <th align="center">编辑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ae5bb84e1af94556ae877090e5a70c38.png"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9e8daafd388242088c118e03b1437f03.png"></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>在上述命令后进入如下</p>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">将<hanla></hanla><code>pick</code>
+              <hanla></hanla>修改为<hanla></hanla><code>r(reword)</code>，值后保存退出
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/aa41719b937b44758c1d8bc883f71226.png"></td>
+          </tr>
+        </tbody>
+      </table>
+      <blockquote>
+        <p>在保存退出后会<code>主动进入需要修改的信息界面</code>,<hanla></hanla>修改后再次保存退出即可,<hanla></hanla>在完成提交推送至远程仓库</p>
+      </blockquote>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">更新消息</th>
+            <th align="center">保存后退出</th>
+            <th align="center">查看历史变更</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/31d4e69aac0240f5ace3fe3867ec279a.png"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2bf00fd64a6645cf972e89d8cbaffdf2.png" alt="在这里插入图片描述"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/46dfc235a2e2456eba3515adf5eaeacf.png"></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <h3 id="将连续的Message合并"><a href="#将连续的Message合并" class="headerlink" title="将连续的Message合并"></a>将连续的<hanla></hanla><code>Message</code>
+    <hanla></hanla>合并
+  </h3>
+  <ul>
+    <li>
+      <p>当前提交情况</p>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">提交状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d532f321f8fe47a7b3ab6a4f310832dc.png"></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>需求: 合并后三个提交</p>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">选则父级</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/1427450c8f7342f1a9fbe110b4c9ba1d.png"></td>
+          </tr>
+        </tbody>
+      </table>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">rebase -i 父级<hanla></hanla>commitId</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">修改状态,<hanla></hanla>保存退出</th>
+            <th>在上一步后,<hanla></hanla>会进入本次合并的最终信息填写</th>
+            <th align="center">在上一步保存退出后,<hanla></hanla>出现如下完成变基</th>
+            <th align="center">当前状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/1fda6b1d19d543919c8b8555b8eabe69.png"></td>
+            <td><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0de60453d77a47bfa946a9d9a2219225.png"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ebde1d96bed04dcda10f72d5cc0288f5.png"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e0929afa25384d3f9255a6e3f51e28dd.png"></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <h3 id="将间隔的Message合并"><a href="#将间隔的Message合并" class="headerlink" title="将间隔的Message合并"></a>将间隔的<hanla></hanla>Message<hanla></hanla>合并</h3>
+  <ul>
+    <li>
+      <p>当前提交状态</p>
+      <table>
+        <thead>
+          <tr>
+            <th align="center">当前提交状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/341cb949e1c0476b96ddc6fca6074d55.png"></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>需求: 将添加<hanla></hanla><code>A、B、C</code>
+        <hanla></hanla>文件修改为添加文件文本文件
+      </p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">rebase -i 59f75ec(添加<hanla></hanla>A<hanla></hanla>文件的<hanla></hanla>commitId)</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <table>
+        <thead>
+          <tr>
+            <th>进入后,<hanla></hanla>修正</th>
+            <th align="center">将存在间隔需要合并的放在一起，需要存在<hanla></hanla><code>pick*</code></th>
+            <th align="center">最后要显示的信息</th>
+            <th align="center">查看是否成功</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/1a6d6fd199964c3bbf7bea3a3abd599d.png"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d3d468fce7734a8e9b2b860552ab27b0.png"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/08ca2812a5ef46549d72a38153c7c0e9.png"></td>
+            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b45a7e025a394afa98744b2c43a9b737.png"></td>
+          </tr>
+        </tbody>
+      </table>
+      <blockquote>
+        <p>将最古老的放在第一个<hanla></hanla>(<code>添加<hanla></hanla>A<hanla></hanla>文件</code>),<hanla></hanla>其他需要合并的紧挨</p>
+      </blockquote>
+    </li>
+  </ul>
+  <h3 id="暂存区与HEAD比较"><a href="#暂存区与HEAD比较" class="headerlink" title="暂存区与HEAD比较"></a>暂存区与<hanla></hanla>HEAD<hanla></hanla>比较</h3>
+  <ul>
+    <li>
+      <p>比较</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="comment"># 暂存区与<hanla></hanla>HEAD<hanla></hanla>比较<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">diff --cached</span></span><br><span class="line"><span class="comment"># 工作区与暂存区的比较<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">diff</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="暂存区恢复到HEAD一致"><a href="#暂存区恢复到HEAD一致" class="headerlink" title="暂存区恢复到HEAD一致"></a>暂存区恢复到<hanla></hanla>HEAD<hanla></hanla>一致</h3>
+  <ul>
+    <li>
+      <p>恢复</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">reset HEAD</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="工作区的文件恢复和暂存区一致"><a href="#工作区的文件恢复和暂存区一致" class="headerlink" title="工作区的文件恢复和暂存区一致"></a>工作区的文件恢复和暂存区一致</h3>
+  <ul>
+    <li>
+      <p>恢复</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">checkout -- 文件【Eg: a.txt】</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="取消暂存区部分文件的更改"><a href="#取消暂存区部分文件的更改" class="headerlink" title="取消暂存区部分文件的更改"></a>取消暂存区部分文件的更改</h3>
+  <ul>
+    <li>
+      <p>操作</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">reset HEAD 文件【Eg: a.txt】</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="消除最近几次提交"><a href="#消除最近几次提交" class="headerlink" title="消除最近几次提交"></a>消除最近几次提交</h3>
+  <ul>
+    <li>
+      <p>版本回退</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">reset --hard 回退点【commitId】</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="公钥钥添加"><a href="#公钥钥添加" class="headerlink" title="公钥钥添加"></a>公钥钥添加</h3>
+  <ul>
+    <li>
+      <p>添加公钥</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="comment"># 连续回车三下 rsa</span></span><br><span class="line"><span class="attr">ssh-keygen</span> <span class="string">-t rsa -C "example@qq.com"</span></span><br><span class="line"><span class="comment"># 查看公钥内容<hanla></hanla></span></span><br><span class="line"><span class="attr">cat</span> <span class="string">id_rsa.pub</span></span><br><span class="line"><span class="comment"># 复制该公钥，添加到 gitee | github </span></span><br><span class="line"><span class="attr">gitee</span> <span class="string">图像下设置 =&gt; SSH 公钥 添加即可</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="公钥使用报错解决方案"><a href="#公钥使用报错解决方案" class="headerlink" title="公钥使用报错解决方案"></a>公钥使用报错解决方案</h3>
+  <ul>
+    <li>
+      <p>公钥配置</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="comment"># ed25519</span></span><br><span class="line"><span class="attr">ssh-keygen</span> <span class="string">-t ed25519 -C "xxxxx@xxxxx.com"  </span></span><br><span class="line"><span class="comment"># 查看 ~ 指 windows: c://user/xx/</span></span><br><span class="line"><span class="attr">~/.ssh/id_ed25519.pub</span> <span class="string"></span></span><br><span class="line"><span class="comment"># 添加在 gitee | github</span></span><br><span class="line"><span class="comment"># 测试连通性<hanla></hanla></span></span><br><span class="line"><span class="attr">ssh</span> <span class="string">-T git@gitee.com</span></span><br><span class="line"><span class="comment"># 出现用户名提示为成功</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 失败执行此处<hanla></hanla></span></span><br><span class="line"><span class="attr">chmod</span> <span class="string">-R 755 ~/.ssh/</span></span><br><span class="line"><span class="attr">chmod</span> <span class="string">-R 755 ~/.ssh/id_ed25519.pub </span></span><br><span class="line"><span class="attr">chmod</span> <span class="string">-R 755 ~/.ssh/id_ed25519</span></span><br><span class="line"><span class="attr">eval</span> <span class="string">`ssh-agent -s`</span></span><br><span class="line"><span class="attr">ssh-add</span> <span class="string">~/.ssh/id_ed25519</span></span><br><span class="line"><span class="comment"># 创建 config 配置</span></span><br><span class="line"><span class="comment"># github</span></span><br><span class="line"><span class="attr">Host</span> <span class="string">github.com</span></span><br><span class="line"><span class="attr">User</span> <span class="string">lovobin</span></span><br><span class="line"><span class="attr">Hostname</span> <span class="string">github.com</span></span><br><span class="line"><span class="attr">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line"><span class="attr">IdentityFile</span> <span class="string">~/.ssh/github_lovobin</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># Hosts</span></span><br><span class="line"><span class="attr">ip</span> <span class="string">githubd</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="gitignore-文件失效问题解决"><a href="#gitignore-文件失效问题解决" class="headerlink" title=".gitignore 文件失效问题解决"></a><code>.gitignore</code> 文件失效问题解决</h3>
+  <ul>
+    <li>
+      <p>忽略文件失效解决</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="comment"># 清理暂存区<hanla></hanla></span></span><br><span class="line"><span class="attr">git</span> <span class="string">rm -r --cached .</span></span><br><span class="line"><span class="attr">git</span> <span class="string">add .</span></span><br><span class="line"><span class="attr">git</span> <span class="string">commit -m 'update .gitignore'</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="GIT浏览器插件安装"><a href="#GIT浏览器插件安装" class="headerlink" title="GIT浏览器插件安装"></a><code>GIT</code>
+    <hanla></hanla>浏览器插件安装
+  </h3>
+  <ul>
+    <li>
+      <p>浏览器插件推荐</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">1.</span> <span class="string">Octotree - GitHub code tree(作用: 列出目录结构)</span></span><br><span class="line"><span class="attr">2.</span> <span class="string">Enhanced Github(作用: 直接显示文件大小)</span></span><br><span class="line"><span class="attr">3.</span> <span class="string">GitZip for github(作用: 双击可以下载单独文件)</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <h3 id="日志输出"><a href="#日志输出" class="headerlink" title="日志输出"></a>日志输出</h3>
+  <ul>
+    <li>
+      <p>简单输出</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">log</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+    <li>
+      <p>优化</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="attr">git</span> <span class="string">log --pretty=oneline</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+    <li>
+      <p>详细信息并配置别名</p>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="comment"># git lg</span></span><br><span class="line"><span class="attr">git</span> <span class="string">config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --"</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <figure class="highlight properties">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+              </td>
+              <td class="code">
+                <pre><span class="line"><span class="comment"># git llg</span></span><br><span class="line"><span class="attr">git</span> <span class="string">config --global alias.llg  "log --graph --after='1 week ago' --oneline --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%Cred%h%Creset - %Cgreen(%ad) %C(yellow)%d%Creset %s ' --abbrev-commit"</span></span><br></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </li>
+  </ul>
+  <div class="post-copyright">
+    <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+    <div class="post-copyright__type"><span class="post-copyright-meta">
+        <hanla></hanla>文章链接:
+      </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+    <div class="post-copyright__notice"><span class="post-copyright-meta">
+        <hanla></hanla>版权声明:
+      </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+  </div>
+  <div class="tag_share">
+    <div class="post-meta__tag-list"></div>
+    <div class="post_share">
+      <div class="social-share" data-image="https://img-blog.csdnimg.cn/b5b90619cdb940cf8f63dd5e20c74942.png" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+      <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+    </div>
+  </div>
+  <nav class="pagination-post" id="pagination">
+    <div class="prev-post pull-left"><a href="/2022/02/09/14869.html" title="Docker-应用容器"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="ttps://i.328888.xyz/2023/04/01/i2X7Tt.png" onerror="onerror=null;src='/null'" alt="cover of previous post">
+        <div class="pagination-info">
+          <div class="label">上一篇<hanla></hanla>
+          </div>
+          <div class="prev_info">Docker-应用容器</div>
+        </div>
+      </a></div>
+    <div class="next-post pull-right"><a href="/2022/02/08/31140.html" title="Java-日志管理"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p8Zv.jpeg" onerror="onerror=null;src='/null'" alt="cover of next post">
+        <div class="pagination-info">
+          <div class="label">下一篇<hanla></hanla>
+          </div>
+          <div class="next_info">Java-日志管理</div>
+        </div>
+      </a></div>
+  </nav>
+  <hr>
+  <div id="post-comment">
+    <div class="comment-head">
+      <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+    </div>
+    <div class="comment-wrap">
+      <div>
+        <div id="twikoo-wrap"></div>
+      </div>
+    </div>
+  </div>
+  <div class="aside-content" id="aside-content">
+    <div class="card-widget card-info">
+      <div class="is-center">
+        <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+        <div class="author-info__name">coder-itl</div>
+        <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+      </div>
+      <div class="card-info-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+    </div>
+    <div class="card-widget card-announcement">
+      <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+          <hanla></hanla>公告
+        </span></div>
+      <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+    </div>
+    <div class="sticky_layout">
+      <div class="card-widget" id="card-toc">
+        <div class="item-headline"><i class="fas fa-stream"></i><span>
+            <hanla></hanla>目录<hanla></hanla>
+          </span><span class="toc-percentage"></span></div>
+        <div class="toc-content">
+          <ol class="toc">
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">下载安装<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%B4%A6%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">3.</span> <span class="toc-text">配置账户信息<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">架构<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">本地仓库<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">远程仓库<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81"><span class="toc-number">7.</span> <span class="toc-text">合并冲突<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%A6%BB%E5%A4%B4%E6%8C%87%E9%92%88"><span class="toc-number">8.</span> <span class="toc-text">分离头指针<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4-Message"><span class="toc-number">9.</span> <span class="toc-text">提交-Message</span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E8%BF%9E%E7%BB%AD%E7%9A%84Message%E5%90%88%E5%B9%B6"><span class="toc-number">10.</span> <span class="toc-text">将连续的<hanla></hanla>Message<hanla></hanla>合并<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E9%97%B4%E9%9A%94%E7%9A%84Message%E5%90%88%E5%B9%B6"><span class="toc-number">11.</span> <span class="toc-text">将间隔的<hanla></hanla>Message<hanla></hanla>合并<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%8C%BA%E4%B8%8EHEAD%E6%AF%94%E8%BE%83"><span class="toc-number">12.</span> <span class="toc-text">暂存区与<hanla></hanla>HEAD<hanla></hanla>比较<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%8C%BA%E6%81%A2%E5%A4%8D%E5%88%B0HEAD%E4%B8%80%E8%87%B4"><span class="toc-number">13.</span> <span class="toc-text">暂存区恢复到<hanla></hanla>HEAD<hanla></hanla>一致<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%96%87%E4%BB%B6%E6%81%A2%E5%A4%8D%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA%E4%B8%80%E8%87%B4"><span class="toc-number">14.</span> <span class="toc-text">工作区的文件恢复和暂存区一致<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%96%E6%B6%88%E6%9A%82%E5%AD%98%E5%8C%BA%E9%83%A8%E5%88%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%9B%B4%E6%94%B9"><span class="toc-number">15.</span> <span class="toc-text">取消暂存区部分文件的更改<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E6%9C%80%E8%BF%91%E5%87%A0%E6%AC%A1%E6%8F%90%E4%BA%A4"><span class="toc-number">16.</span> <span class="toc-text">消除最近几次提交<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E9%92%A5%E6%B7%BB%E5%8A%A0"><span class="toc-number">17.</span> <span class="toc-text">公钥钥添加<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E4%BD%BF%E7%94%A8%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">18.</span> <span class="toc-text">公钥使用报错解决方案<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#gitignore-%E6%96%87%E4%BB%B6%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-number">19.</span> <span class="toc-text">.gitignore 文件失效问题解决<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#GIT%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">20.</span> <span class="toc-text">GIT<hanla></hanla>浏览器插件安装<hanla></hanla></span></a></li>
+            <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA"><span class="toc-number">21.</span> <span class="toc-text">日志输出</span></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer" style="background: transparent">
+    <div id="footer-wrap">
+      <div class="copyright">©2020 - 2023 By coder-itl</div>
+      <div class="framework-info"><span>
+          <hanla></hanla>框架
+        </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+      <div class="footer_custom_text">
+        <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+        <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+      </div>
+    </div>
+  </footer>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

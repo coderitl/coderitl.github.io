@@ -1,0 +1,1463 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>ENSP-使用 | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="ENSP-使用基础了解 交换机的作用: 在局域网中,交换机负责在主机之间快速转发数据帧  交换机端口  Ethernet=> 百兆口 GigabitEthernet=> 千兆口   以太网交换机配置视图    命令行视图 功能 提示符 进入命令 退出命令(quit)    用户视图 查看交换机的简单运行状态和统计信息 <coderitl> 与交换机建">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ENSP-使用">
+  <meta property="og:url" content="https://coderitl.github.io/2022/03/05/33718.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="ENSP-使用基础了解 交换机的作用: 在局域网中,交换机负责在主机之间快速转发数据帧  交换机端口  Ethernet=> 百兆口 GigabitEthernet=> 千兆口   以太网交换机配置视图    命令行视图 功能 提示符 进入命令 退出命令(quit)    用户视图 查看交换机的简单运行状态和统计信息 <coderitl> 与交换机建">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://img-blog.csdnimg.cn/a9f80ef4103b4dc1a27f76df2157d1db.png">
+  <meta property="article:published_time" content="2022-03-05T14:32:10.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.466Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://img-blog.csdnimg.cn/a9f80ef4103b4dc1a27f76df2157d1db.png">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2022/03/05/33718.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'ENSP-使用',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://img-blog.csdnimg.cn/a9f80ef4103b4dc1a27f76df2157d1db.png')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">ENSP-使用</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于<hanla></hanla></span><time class="post-meta-date-created" datetime="2022-03-05T14:32:10.000Z" title="发表于 2022-03-05 22:32:10">2022-03-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.466Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="ENSP-使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://img-blog.csdnimg.cn/a9f80ef4103b4dc1a27f76df2157d1db.png');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h3 id="ENSP-使用"><a href="#ENSP-使用" class="headerlink" title="ENSP-使用"></a>ENSP-使用</h3>
+          <h4 id="基础了解"><a href="#基础了解" class="headerlink" title="基础了解"></a>基础了解</h4>
+          <ul>
+            <li>
+              <p>交换机的作用: 在<code>局域网</code>中,<hanla></hanla>交换机负责在主机之间快速转发数据帧</p>
+            </li>
+            <li>
+              <p>交换机端口</p>
+              <ul>
+                <li><code>Ethernet</code>=&gt; 百兆口</li>
+                <li><code>GigabitEthernet</code>=&gt; 千兆口</li>
+              </ul>
+            </li>
+            <li>
+              <p>以太网交换机配置视图</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">命令行视图</th>
+                    <th align="center">功能</th>
+                    <th align="center">提示符</th>
+                    <th align="center">进入命令</th>
+                    <th align="center">退出命令<hanla></hanla>(<code>quit</code>)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center">用户视图</td>
+                    <td align="center">查看交换机的简单运行状态和统计信息</td>
+                    <td align="center"><code>&lt;coderitl&gt;</code></td>
+                    <td align="center">与交换机建立连接立即进入</td>
+                    <td align="center"><code>q</code></td>
+                  </tr>
+                  <tr>
+                    <td align="center">系统试图</td>
+                    <td align="center">配置系统参数</td>
+                    <td align="center"><code>[coderitl]</code></td>
+                    <td align="center">在用户视图下键入<hanla></hanla><code>sys</code></td>
+                    <td align="center"><code>q</code></td>
+                  </tr>
+                  <tr>
+                    <td align="center">以太网口视图</td>
+                    <td align="center">配置以太网参数</td>
+                    <td align="center"><code>coderitl-Ethernet0/0/1</code></td>
+                    <td align="center">在系统视图下键入<hanla></hanla><code>int eth0/0/1</code></td>
+                    <td align="center"><code>q</code></td>
+                  </tr>
+                  <tr>
+                    <td align="center">千兆以太网接口视图</td>
+                    <td align="center">配置千兆以太网接口参数</td>
+                    <td align="center"><code>[coderitl-GigabitEthernet0/0/1]</code></td>
+                    <td align="center">在系统视图下键入<hanla></hanla><code>int gigabitethernet0/0/1</code></td>
+                    <td align="center"><code>q</code></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>视图之间是由权限区分</li>
+              </ul>
+            </li>
+            <li>
+              <p><code>eth0/0/1</code>
+                <hanla></hanla>是什么?
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">解释</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ed5aed6c62d74db3b1cf1d02d4eb19f9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="请添加图片描述"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>常见配置命令</p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">[接口号] shutdown <span class="comment"># 断网<hanla></hanla></span></span><br><span class="line">[接口号] undo shutdown <span class="comment"># 开启</span></span><br><span class="line"><span class="comment"># 添加 ip</span></span><br><span class="line">ip add 10.1.1.1</span><br><span class="line"><span class="comment"># 在线帮助<hanla></hanla></span></span><br><span class="line">[命令]?</span><br><span class="line"><span class="comment"># 补全按键<hanla></hanla></span></span><br><span class="line">Tab</span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>WLAN</code></p>
+              <ul>
+                <li><code>LAN</code>
+                  <hanla></hanla>局域网
+                </li>
+                <li><code>WAN</code>
+                  <hanla></hanla>广域网
+                </li>
+                <li><code>WLAN</code>
+                  <hanla></hanla>虚拟局域网
+                </li>
+                <li>一个<hanla></hanla><code>WLAN=<hanla></hanla>一个广域网<hanla></hanla>=<hanla></hanla>一个网段<hanla></hanla>(子网)</code></li>
+              </ul>
+            </li>
+            <li>
+              <p><code>access</code>
+                <hanla></hanla>与<hanla></hanla><code>trunck</code>
+              </p>
+              <ul>
+                <li><code>access</code>
+                  <hanla></hanla>实现<hanla></hanla><code>PC</code>
+                  <hanla></hanla>与交换机通信连接,<hanla></hanla>不带<hanla></hanla><code>WLAN</code>
+                  <hanla></hanla>标签<code>访问链路</code>
+                </li>
+                <li><code>trunck</code>
+                  <hanla></hanla>实现交换机与交换机之间连接通信，带<hanla></hanla><code>WLAN</code>
+                  <hanla></hanla>标签<code>千兆链路</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="VLAN-Access实验"><a href="#VLAN-Access实验" class="headerlink" title="VLAN-Access实验"></a>VLAN-Access<hanla></hanla>实验</h4>
+          <ul>
+            <li>
+              <p>软件认识</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">工具认识</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/320a50efd29d4da3afdb86a7577e8c85.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="工具认识"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>交换机系统视窗</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">设备未开机</th>
+                    <th align="center">开机</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d203f77a9e1148d684f7c23c93d944ae.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_17,color_FFFFFF,t_70,g_se,x_16" alt="设备开机"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/af999dcde5b94fa9b82a1d0429610184.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_14,color_FFFFFF,t_70,g_se,x_16" alt="回车"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>设备重命名</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">设备下的名称重命名,<hanla></hanla>双击该名称信息,<hanla></hanla>以完成重命名</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/6ab11bf671a54b94ba4ed40c73ccb44c.png" alt="设备重命名"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>认识交换机<hanla></hanla><code>CLI</code></p>
+              <figure class="highlight bash">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">[S1] sys <span class="comment"># [S1] system-view 简写 sys</span></span><br><span class="line"><span class="comment"># [S1] system-view # 用户视图切换系统视图,<hanla></hanla>进入系统试图<hanla></hanla>(提高权限) <huawei> 尖角号是用户视图,<hanla></hanla>权限较低,[]: 系统视图权限高</huawei></span></span><br><span class="line">[S1] undo info-center <span class="built_in">enable</span> <span class="comment"># 关闭信息中心<hanla></hanla>(默认情况下,<hanla></hanla>交换机的信息中心是未关闭的，当执行命令时,<hanla></hanla>会给出一些反馈信息，此处可以使用 undo 命令关闭信息中心)</span></span><br><span class="line">[S1] sysname new-name <span class="comment"># 更改网络设备名称<hanla></hanla></span></span><br><span class="line">[S1] display current-configuration <span class="comment"># 在系统试图下,<hanla></hanla>可以查看当前交换西配置,<hanla></hanla>可以简写为 dis cur</span></span><br><span class="line">[S1] display vlan <span class="comment"># 查看 vlan 配置信息<hanla></hanla></span></span><br><span class="line">[S1] display interface <span class="comment"># 查看交换机接口信息 ctrl+c 结束<hanla></hanla></span></span><br><span class="line">[S1] display interface Enthernet0/0/1 <span class="comment"># 查看指定接口<hanla></hanla></span></span><br><span class="line">[S1] interface Enthernet0/0/1 <span class="comment"># 进入指定接口 [S1] display this </span></span><br><span class="line">[S1] quit <span class="comment"># 退出视图<hanla></hanla></span></span><br><span class="line">&lt;S1&gt; save <span class="comment"># 保存配置，需要在 &lt;S1&gt; 模式下<hanla></hanla></span></span><br><span class="line">&lt;S1&gt; reboot <span class="comment"># 重启交换机<hanla></hanla></span></span><br><span class="line">&lt;S1&gt; reset saved-configuration <span class="comment"># 重置交换机 </span></span><br><span class="line">[S1]undo vlan 10 <span class="comment"># 删除添加的 vlan 信息</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>设备互通测试</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>ping ip</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/c159bf55f5054da0b8b8ca68f2ebadb9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="设备互通测试"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>创建<hanla></hanla><code>vlan</code>
+                <hanla></hanla>配置<hanla></hanla><code>Access</code>
+                <hanla></hanla>接口
+              </p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">[S1] vlan batch 10 20</span><br><span class="line">[S1]interface Ethernet0/0/1</span><br><span class="line">[S1-Ethernet0/0/1]port link-type access</span><br><span class="line">[S1-Ethernet0/0/1]port default vlan 10</span><br><span class="line">[S1-Ethernet0/0/1]interface Ethernet0/0/2</span><br><span class="line">[S1-Ethernet0/0/2]port link-type access</span><br><span class="line">[S1-Ethernet0/0/2]port default vlan 10</span><br><span class="line">[S1-Ethernet0/0/2]interface Ethernet0/0/3</span><br><span class="line">[S1-Ethernet0/0/3]port link-type access</span><br><span class="line">[S1-Ethernet0/0/3]port default vlan 20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[S2]interface Ethernet0/0/1</span><br><span class="line">[S2-Ethernet0/0/1]port link-type access</span><br><span class="line">[S2-Ethernet0/0/1]port default vlan 30</span><br><span class="line">[S2-Ethernet0/0/1]interface Ethernet0/0/2</span><br><span class="line">[S2-Ethernet0/0/2]port link-type access</span><br><span class="line">[S2-Ethernet0/0/2]port default vlan 40</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>查看已经创建的<hanla></hanla><code>vlan</code></p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">查看创建的<hanla></hanla><code>vlan</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/1013b72cbd3943528feca7a019e8f268.png" alt="查看创建的vlan"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>S1</code></th>
+                        <th align="center"><code>S2</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/528a3660efd94a529f33f3e9161dbfc1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_17,color_FFFFFF,t_70,g_se,x_16" alt="查看S1"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0665eeaf31cb48998c4ecdb883031adf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_17,color_FFFFFF,t_70,g_se,x_16" alt="查看S2"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>检查配置结果</p>
+              <div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i>
+                <p> 在交换机上将不同接口加入各自不同的<hanla></hanla><code>VLAN</code>
+                  <hanla></hanla>中后,<hanla></hanla>属于相同<hanla></hanla><code>VLAN</code>
+                  <hanla></hanla>的接口处于同一个广播域,<hanla></hanla>相互之间可以直接通信，属于不同<hanla></hanla><code>VLAN</code>
+                  <hanla></hanla>的接口是处于不同的广播域,<hanla></hanla>相互之间不能直接通信
+                </p>
+                <p> 在本次环境中,<hanla></hanla>只有同属于<hanla></hanla><code>IT</code>
+                  <hanla></hanla>部门<hanla></hanla><code>VLAN 10</code>
+                  <hanla></hanla>的两台主机<hanla></hanla><code>PC-1,PC-2</code>
+                  <hanla></hanla>之间可以互相通信,<hanla></hanla>其他不同部门之间的<hanla></hanla><code>PC</code>
+                  <hanla></hanla>之间将无法通信
+                </p>
+                <p> 在<hanla></hanla><code>IT</code>
+                  <hanla></hanla>部门的终端<hanla></hanla><code>PC-1</code>
+                  <hanla></hanla>上分别测试与同部门的终端<hanla></hanla><code>PC-2</code>，<code>HR</code>
+                  <hanla></hanla>部门的<hanla></hanla><code>PC-3</code>
+                  <hanla></hanla>之间的连通性
+                </p>
+                <table>
+                  <thead>
+                    <tr>
+                      <th align="center">同一<hanla></hanla><code>vlan</code>
+                        <hanla></hanla>互通,<hanla></hanla>注意<hanla></hanla>Ethernet0/0/x 和自己配置的 <code>vlan</code>
+                        <hanla></hanla>是否对应,<hanla></hanla>不对应,<hanla></hanla>是无法<hanla></hanla><code>ping</code>
+                        <hanla></hanla>通的
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/c4a9e56af854406f807c92b89ff5308e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="同一vlan互通"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            <li>
+              <p>配置<hanla></hanla><code>Trunk</code>
+                <hanla></hanla>接口
+              </p>
+              <ul>
+                <li>
+                  <p>测试<hanla></hanla><code>PC-1</code>
+                    <hanla></hanla>和<hanla></hanla><code>PC-3</code>
+                    <hanla></hanla>之间的连通性
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>PC-1</code>
+                          <hanla></hanla>和<hanla></hanla><code>PC-3</code>
+                          <hanla></hanla>连通性测试
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d1539b3d8a7f4f04a54f57546ca1cc82.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="PC-1和PC-3连通性测试"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>测试<hanla></hanla><code>PC-2</code>
+                    <hanla></hanla>和<hanla></hanla><code>PC-4</code>
+                    <hanla></hanla>连通性测试
+                  </p>
+                </li>
+                <li>
+                  <p>可以查看到此时的部门的<hanla></hanla><code>PC</code>
+                    <hanla></hanla>之间不能通信
+                  </p>
+                  <div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i>
+                    <p>目前在该跨交换机实现不同的<hanla></hanla><code>VLAN</code>
+                      <hanla></hanla>通信的二层网络拓扑中,<hanla></hanla>虽然与<hanla></hanla><code>PC</code>
+                      <hanla></hanla>端相连的交换机接口上创建并划分了<hanla></hanla><code>VLAN</code>
+                      <hanla></hanla>信息,<hanla></hanla>但是在交换机与交换机之间相连的接口上并没有相应的<hanla></hanla><code>VLAN</code>
+                      <hanla></hanla>信息,<hanla></hanla>不能够识别和发送跨越交换机的<hanla></hanla><code>VLAN</code>
+                      <hanla></hanla>报文,<hanla></hanla>此时<hanla></hanla><code>VLAN</code>
+                      <hanla></hanla>只具有在每台交换机上的本地意义,<hanla></hanla>无法实现相同<hanla></hanla><code>VLAN</code>
+                      <hanla></hanla>的跨交换机通信
+                    </p>
+                    <p>为了让交换机能够识别和发送跨越交换机的<hanla></hanla><code>VLAN</code>
+                      <hanla></hanla>报文,<hanla></hanla>需要将交换机相连的接口配置为<hanla></hanla><code>Trunk</code>
+                      <hanla></hanla>接口,<hanla></hanla>配置时要明确被允许通过的<hanla></hanla><code>VLAN</code>，实现对<hanla></hanla><code>VlAN</code>
+                      <hanla></hanla>流量传输的控制
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <p>配置</p>
+                  <figure class="highlight sh">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># vlan 10</span></span><br><span class="line">[S2] interface Ethernet0/0/3 </span><br><span class="line">[S2] port link-type access <span class="comment"># 设置为 access 接口<hanla></hanla></span></span><br><span class="line">[S2] port default vlan 10</span><br><span class="line"><span class="comment"># vlan 20 </span></span><br><span class="line">[S2] interface Ethernet0/0/4</span><br><span class="line">[S2] port link-type access</span><br><span class="line">[S2] port default vlan 20</span><br><span class="line"><span class="comment"># 查看接口分配的 vlan 信息<hanla></hanla></span></span><br><span class="line">[S2] display port vlan <span class="comment"># 检查 vlan 和接口的配置情况</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># S1 配置 Ethernet0/0/1<hanla></hanla>为<hanla></hanla>Trunk<hanla></hanla>接口,<hanla></hanla>放任 vlan 10 20 通过<hanla></hanla></span></span><br><span class="line">[S1]interface Ethernet0/0/1</span><br><span class="line">[S1-Ethernet0/0/1]port link-type trunk</span><br><span class="line">[S1-Ethernet0/0/1]port trunk allow-pass vlan 10 20</span><br><span class="line"></span><br><span class="line"><span class="comment"># S2 配置 Ethernet0/0/2<hanla></hanla>为<hanla></hanla>Trunk<hanla></hanla>接口,<hanla></hanla>放任 vlan 10 20 通过<hanla></hanla></span></span><br><span class="line">[S2]interface Ethernet0/0/2</span><br><span class="line">[S2-Ethernet0/0/2]port link-type trunk</span><br><span class="line">[S2-Ethernet0/0/2]port trunk allow-pass vlan 10 20</span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="cloud-连接虚拟机"><a href="#cloud-连接虚拟机" class="headerlink" title="cloud-连接虚拟机"></a><code>cloud</code>-连接虚拟机</h4>
+          <ul>
+            <li>
+              <p><code>Cloud</code>
+                <hanla></hanla>设置
+              </p>
+              <ul>
+                <li>
+                  <p>首先添加一个 <code>UDP</code> 端口,<hanla></hanla>在【绑定信息】下拉框中选择”<code>UDP</code>“，【端口类型】选择”<code>Ethernet</code>“，然后单机右侧【增加】按钮，即可在端口列表中显示第一个端口信息</p>
+                </li>
+                <li>
+                  <p>添加网卡端口,<hanla></hanla>在【绑定信息】下拉框中选择<hanla></hanla><code>VirtualBox Host-Only Net-work</code>，端口类型选择【<code>Ethernet</code>】,<hanla></hanla>然后单击右侧【增加】按钮,<hanla></hanla>即可以在端口列表中显示第二个端口信息</p>
+                </li>
+                <li>
+                  <p>在下方的【端口映射】，进行【图二】设置</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><code>Cloud</code>
+                <hanla></hanla>配置结束后,<hanla></hanla>将 交换机<hanla></hanla><code>(SW1)<hanla></hanla>的<hanla></hanla>eth0/0/2</code> 接口与<hanla></hanla><code>Cloud<hanla></hanla>的<hanla></hanla>eth0/0/1</code> 连接
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>Host-only</code></th>
+                    <th align="center">端口映射设置</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a304b5d1bdfe4bc480f5e6cf222681e8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4c99e7ae52d74586a7f861e040479250.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="端口映射设置"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>创建虚拟机<hanla></hanla>(<code>基础配置 =&gt; 虚拟机安装</code>)</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">创建虚拟机</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/1fbab0c543e147d8b37ae57e1b270f34.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="创建虚拟机"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">选择创建好的虚拟机-右击-设置<hanla></hanla>=&gt; 设置为<hanla></hanla><code>Host-Only</code>
+                      <hanla></hanla>网络
+                    </th>
+                    <th align="center">镜像添加下载的镜像文件</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/87a4c8315f104512a6ca0f71cb295802.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b1bb70ce321e4292a75f3ed5f66a938e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_18,color_FFFFFF,t_70,g_se,x_16" alt="镜像添加"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>虚拟机网卡配置-测试连通性</p>
+              <ul>
+                <li>
+                  <p><code>ensp</code>
+                    <hanla></hanla>的<hanla></hanla><code>PC</code>
+                    <hanla></hanla>机<hanla></hanla><code>IP</code>
+                    <hanla></hanla>选择
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">PC-IP</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/6858a89b9b114dd391774be30e752d37.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="PC-IP"></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>防火墙关闭</p>
+                  <figure class="highlight sh">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 临时关闭<hanla></hanla></span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line"><span class="comment"># 永久关闭<hanla></hanla></span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewald</span><br><span class="line"><span class="comment"># windows 关闭<hanla></hanla></span></span><br><span class="line">win+s: 防火墙和网络保护 (选择项关闭)</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>网卡配置<hanla></hanla><code>vi /etc/sysconfig/network-scripts/ifc-ens303</code></p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">网卡配置<hanla></hanla>=&gt; 主要添加<hanla></hanla><code>ipaddr,netmask,gateway</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/fc9b2d943b94421d8f4e78495150dcd2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_15,color_FFFFFF,t_70,g_se,x_16" alt="网卡配置"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>测试是否连通</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">连通性测试</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/34068189fb3e4fca866c9287e1149621.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="连通性测试"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>本次拓扑文件获取</p>
+                  <div class="tag link"><a class="link-card" title="Cloud-虚拟机连通" target="_blank" rel="external nofollow noopener noreferrer" href="https://gitee.com/coder-itl/network.git">
+                      <div class="left"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://gitee.com/assets/favicon.ico"></div>
+                      <div class="right">
+                        <p class="text">Cloud-虚拟机连通<hanla></hanla>
+                        </p>
+                        <p class="url">https://gitee.com/coder-itl/network.git</p>
+                      </div>
+                    </a></div>
+                  <figure class="highlight sh">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/coder-itl/network.git</span><br><span class="line"><span class="comment"># 获取标签信息<hanla></hanla></span></span><br><span class="line">git tag </span><br><span class="line"><span class="comment"># 切换标签<hanla></hanla></span></span><br><span class="line">git checkout tag-name</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="交换机配置IP与PC通信"><a href="#交换机配置IP与PC通信" class="headerlink" title="交换机配置IP与PC通信"></a>交换机配置<hanla></hanla><code>IP</code>
+            <hanla></hanla>与<hanla></hanla><code>PC</code>
+            <hanla></hanla>通信
+          </h4>
+          <ul>
+            <li>
+              <p>创建<hanla></hanla><code>vlan</code>,<hanla></hanla>交换机添加<hanla></hanla><code>ip</code>
+                <hanla></hanla>是需要经过<hanla></hanla><code>vlan</code>
+                <hanla></hanla>封装
+              </p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">vlan 10</span><br><span class="line">intface vlan 10</span><br><span class="line">ip address 10.1.1.1 24 <span class="comment"># (24==255.255.255.0)</span></span><br><span class="line">quit</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>进入相应接口</p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 查看当前交换机都有那些接口<hanla></hanla></span></span><br><span class="line">display current</span><br><span class="line"><span class="comment"># 进入相应的接口<hanla></hanla></span></span><br><span class="line">interface GigabitEthernet0/0/1</span><br><span class="line"><span class="comment"># 设置为 access 类型<hanla></hanla></span></span><br><span class="line">port link-type access</span><br><span class="line"><span class="comment"># 设置 vlan</span></span><br><span class="line">port default vlan 10 | port access vlan 10 <span class="comment"># 后一条为真实实验环境平台时输入 default 报错,<hanla></hanla>改为 access</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>测试</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">测试连通性</th>
+                        <th align="center">拓扑结构</th>
+                        <th align="center">PC-连通性测试</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/163d036285ee496584c3f3a7266f4ee7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="测试连通性"></td>
+                        <td align="center">拓扑结构<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/7d657133125c43cdb2c4579a55904bf9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="拓扑结构"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2f6587721258468faf97f5f9606b7cd9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_15,color_FFFFFF,t_70,g_se,x_16" alt="PC-连通性测试"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="网关与IP通信"><a href="#网关与IP通信" class="headerlink" title="网关与IP通信"></a>网关与<hanla></hanla><code>IP</code>
+            <hanla></hanla>通信
+          </h4>
+          <ul>
+            <li>
+              <p>路由配置</p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 添加 PC 的网关<hanla></hanla></span></span><br><span class="line">interface GigabitEthernet0/0/0</span><br><span class="line"><span class="comment"># 添加 PC-1 网关<hanla></hanla></span></span><br><span class="line">ip address 10.1.1.254 24</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>交换机配置</p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 创建 vlan</span></span><br><span class="line">vlan 10</span><br><span class="line"><span class="comment"># 进入 vlan 10 接口<hanla></hanla></span></span><br><span class="line">interface vlan 10</span><br><span class="line"><span class="comment"># 添加 PC-2 网关作为<hanla></hanla>IP</span></span><br><span class="line">ip address 10.1.2.254 24</span><br><span class="line"><span class="comment"># 退出 vlan</span></span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置接口为 access</span></span><br><span class="line">interface GigabitEthernet0/0/1</span><br><span class="line">port link-type access</span><br><span class="line">port access vlan 10</span><br><span class="line">quit</span><br><span class="line"><span class="comment"># 交换机内部测试网关与 ip 通信<hanla></hanla></span></span><br><span class="line">ping 10.1.2.2</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>测试连通性</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">网关与<hanla></hanla><code>IP</code>
+                          <hanla></hanla>通信
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/5dbfe789799b4a90a1e76da633c719a2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="网关与IP通信"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h4>
+          <ul>
+            <li>
+              <p>拓扑结构</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">拓扑结构</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2575b6c920ab4a5696ed4c75bfaca373.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_14,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>配置</p>
+              <figure class="highlight sh">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># AR1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 0/0/0 </span></span><br><span class="line">ip address 10.1.1.254 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 0/0/1</span></span><br><span class="line">ip address 10.0.0.1 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 静态路由<hanla></hanla></span></span><br><span class="line">ip route-static (10.1.2.0)<hanla></hanla>目标网段 24  ( 10.0.0.2)<hanla></hanla>下一条<hanla></hanla>ip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># AR2</span></span><br><span class="line"><span class="comment"># AR1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 0/0/0 </span></span><br><span class="line">ip address 10.0.0.2 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 0/0/1</span></span><br><span class="line">ip address 10.1.2.254 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 静态路由<hanla></hanla></span></span><br><span class="line">ip route-static (10.1.1.0)<hanla></hanla>目标网段 24  ( 10.0.0.1)<hanla></hanla>下一条<hanla></hanla>ip</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>通信测试</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">静态路由</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2d6ac8331d594e2e9ebc63b871d791ce.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_15,color_FFFFFF,t_70,g_se,x_16" alt="静态路由"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">
+              <hanla></hanla>文章链接:
+            </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">
+              <hanla></hanla>版权声明:
+            </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+        </div>
+        <div class="tag_share">
+          <div class="post-meta__tag-list"></div>
+          <div class="post_share">
+            <div class="social-share" data-image="https://img-blog.csdnimg.cn/a9f80ef4103b4dc1a27f76df2157d1db.png" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+            <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+          </div>
+        </div>
+        <nav class="pagination-post" id="pagination">
+          <div class="prev-post pull-left"><a href="/2022/03/09/3907.html" title="Oracle11g-安装"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/25bac123fb104e4093ee5663428a0eb2.jpeg" onerror="onerror=null;src='/null'" alt="cover of previous post">
+              <div class="pagination-info">
+                <div class="label">上一篇<hanla></hanla>
+                </div>
+                <div class="prev_info">Oracle11g-安装</div>
+              </div>
+            </a></div>
+          <div class="next-post pull-right"><a href="/2022/03/04/37555.html" title="Vue-Element-UI 按需加载使用"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/03.jpg" onerror="onerror=null;src='/null'" alt="cover of next post">
+              <div class="pagination-info">
+                <div class="label">下一篇<hanla></hanla>
+                </div>
+                <div class="next_info">Vue-Element-UI 按需加载使用</div>
+              </div>
+            </a></div>
+        </nav>
+        <hr>
+        <div id="post-comment">
+          <div class="comment-head">
+            <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+          </div>
+          <div class="comment-wrap">
+            <div>
+              <div id="twikoo-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget" id="card-toc">
+            <div class="item-headline"><i class="fas fa-stream"></i><span>
+                <hanla></hanla>目录<hanla></hanla>
+              </span><span class="toc-percentage"></span></div>
+            <div class="toc-content">
+              <ol class="toc">
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#ENSP-%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">ENSP-使用<hanla></hanla></span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E4%BA%86%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">基础了解<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#VLAN-Access%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.2.</span> <span class="toc-text">VLAN-Access<hanla></hanla>实验<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#cloud-%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.3.</span> <span class="toc-text">cloud-连接虚拟机<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AEIP%E4%B8%8EPC%E9%80%9A%E4%BF%A1"><span class="toc-number">1.4.</span> <span class="toc-text">交换机配置<hanla></hanla>IP<hanla></hanla>与<hanla></hanla>PC<hanla></hanla>通信<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E5%85%B3%E4%B8%8EIP%E9%80%9A%E4%BF%A1"><span class="toc-number">1.5.</span> <span class="toc-text">网关与<hanla></hanla>IP<hanla></hanla>通信<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.6.</span> <span class="toc-text">静态路由</span></a></li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

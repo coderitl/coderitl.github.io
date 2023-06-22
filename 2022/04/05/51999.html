@@ -1,0 +1,1955 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Es6-Es11 | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="let 变量不能重复生命 12let star = &amp;#x27;start&amp;#x27;let star = &amp;#x27;start&amp;#x27; // error  块儿级作用域 1234567&amp;#123;    let star = &amp;#x27;start&amp;#x27;&amp;#125;console.log(star) // error// if else while for  不存在变量提升 12">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Es6-Es11">
+  <meta property="og:url" content="https://coderitl.github.io/2022/04/05/51999.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="let 变量不能重复生命 12let star = &amp;#x27;start&amp;#x27;let star = &amp;#x27;start&amp;#x27; // error  块儿级作用域 1234567&amp;#123;    let star = &amp;#x27;start&amp;#x27;&amp;#125;console.log(star) // error// if else while for  不存在变量提升 12">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/25.jpg">
+  <meta property="article:published_time" content="2022-04-05T08:25:38.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.466Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/25.jpg">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2022/04/05/51999.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'Es6-Es11',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/25.jpg')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">Es6-Es11</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">
+                <hanla></hanla>发表于<hanla></hanla>
+              </span><time class="post-meta-date-created" datetime="2022-04-05T08:25:38.000Z" title="发表于 2022-04-05 16:25:38">2022-04-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.466Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web%E5%89%8D%E7%AB%AF/">Web<hanla></hanla>前端</a></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="Es6-Es11"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/25.jpg');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3>
+          <ul>
+            <li>
+              <p>变量不能重复生命</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">let</span> star = <span class="string">'start'</span></span><br><span class="line"><span class="keyword">let</span> star = <span class="string">'start'</span> <span class="comment">// error</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>块儿级作用域</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">{</span><br><span class="line">    <span class="keyword">let</span> star = <span class="string">'start'</span></span><br><span class="line">}</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(star) <span class="comment">// error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// if else while for</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>不存在变量提升</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(start) <span class="comment">//error</span></span><br><span class="line"><span class="keyword">let</span> start = <span class="string">'star'</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>不影响作用域链</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">{</span><br><span class="line">    <span class="keyword">let</span> star = <span class="string">'star'</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">outStar</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(star);</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">outStar</span>();</span><br><span class="line">}</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>案例练习</p>
+              <figure class="highlight html">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.app</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> {</span></span><br><span class="line"><span class="language-css">        <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border</span>: <span class="number">2px</span> solid skyblue;</span></span><br><span class="line"><span class="language-css">    }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">   </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> items = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">'.item'</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">for</span> (<span class="keyword">let</span> item = <span class="number">0</span>; item &lt; items.<span class="property">length</span>; item++) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span></span><br><span class="line"><span class="language-javascript">        items[item].<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            items[item].<span class="property">style</span>.<span class="property">background</span> = <span class="string">'blue'</span>;</span></span><br><span class="line"><span class="language-javascript">        };</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// let 为 var 时,item<hanla></hanla>结果为 3 ,<hanla></hanla>无法执行内部函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">item</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3>
+          <ul>
+            <li>定义常量</li>
+            <li>一定要赋初始值</li>
+            <li>潜规则变量大写</li>
+            <li>块级作用域</li>
+          </ul>
+          <h3 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h3>
+          <ul>
+            <li>
+              <p><code>Es6</code>
+                <hanla></hanla>允许按照一定模式从数组和对象中提取值,<hanla></hanla>对变量进行赋值,<hanla></hanla>这被称为<code>解构赋值</code>
+              </p>
+            </li>
+            <li>
+              <p>数组解构</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">//  数组的解构<hanla></hanla></span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">ARRAR</span> = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line"><span class="comment">// a,b,c 就是数组元素对应的值<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> [a, b, c] = <span class="variable constant_">ARRAR</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>对象解构</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">let</span> coderitl = {</span><br><span class="line">    <span class="attr">name</span>: <span class="string">'coderitl'</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="string">'不详'</span>,</span><br><span class="line">    <span class="title function_">study</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'正在学习<hanla></hanla>es6...'</span>);</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="comment">// 简化对象值的获取<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> { name, age, study } = coderitl;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// coderitl</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age); <span class="comment">// 不详<hanla></hanla></span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(study); <span class="comment">// 正在学习<hanla></hanla>es6...</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">study</span>() <span class="comment">// 函数调用<hanla></hanla></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象的属性获取,<hanla></hanla>解构可以简化如下操作<hanla></hanla></span></span><br><span class="line">coderitl.<span class="property">name</span></span><br><span class="line">coderitl.<span class="property">age</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输出</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">解构对象</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2edca169991949b383d533e82383853a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_15,color_FFFFFF,t_70,g_se,x_16" alt="解构对象"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3>
+          <ul>
+            <li>
+              <p>声明</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">let</span> str = <span class="string">`aa`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str,<span class="keyword">typeof</span> str);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>内容中可以直接出现换行符</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">let</span> str = <span class="string">`</span></span><br><span class="line"><span class="string">   &lt;ul&gt;</span></span><br><span class="line"><span class="string">   	&lt;li&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">   &lt;/ul&gt;</span></span><br><span class="line"><span class="string">   `</span>;</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>拼接变量</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">let</span> name = <span class="string">`coderitl`</span>;</span><br><span class="line"><span class="keyword">let</span> cd  = <span class="string">`<span class="subst">${name}</span><hanla></hanla>正在学习 Es6`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(cd);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h3 id="对象简写"><a href="#对象简写" class="headerlink" title="对象简写"></a>对象简写</h3>
+          <ul>
+            <li>
+              <p><code>Es6</code>
+                <hanla></hanla>允许在大括号里面,<hanla></hanla>直接写入变量和函数,<hanla></hanla>作为对象的属性和方法
+              </p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">let</span> name = <span class="string">'coder-itl'</span>;</span><br><span class="line"><span class="keyword">let</span> change = <span class="keyword">function</span> (<span class="params"></span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'我们改变你!'</span>);</span><br><span class="line">};</span><br><span class="line"><span class="keyword">const</span> info = {</span><br><span class="line">    name,</span><br><span class="line">    change,</span><br><span class="line">};</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(info);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输出对比</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">对象简写</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/7f252a7069094c9cbfad95c60cdf7b66.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="对象简写"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3>
+          <ul>
+            <li>
+              <p>声明</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 普通函数<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> userName1 = <span class="keyword">function</span>(<span class="params"></span>){</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'coder-itl-1'</span>);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 箭头函数<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">userName2</span> = (<span class="params"></span>)=&gt;{</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'coder-itl-2'</span>); </span><br><span class="line">}</span><br><span class="line"><span class="comment">// 函数调用<hanla></hanla></span></span><br><span class="line"><span class="title function_">userName1</span>()</span><br><span class="line"><span class="title function_">userName2</span>()</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>特性</p>
+              <ul>
+                <li>
+                  <p><code>this</code>
+                    <hanla></hanla>是静态的,<code>this</code>
+                    <hanla></hanla>始终指向函数声明时所在作用域下的<hanla></hanla><code>this</code>
+                    <hanla></hanla>的值
+                  </p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="keyword">let</span> userName1 = <span class="keyword">function</span> (<span class="params"></span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'coder-itl-1'</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'userName1:'</span>,<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">};</span><br><span class="line"><span class="keyword">let</span> <span class="title function_">userName2</span> = (<span class="params"></span>) =&gt; {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'coder-itl-2'</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'userName2:'</span>,<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">};</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">name</span> = <span class="string">'global coder-itl'</span>;</span><br><span class="line"><span class="keyword">const</span> school = {</span><br><span class="line">    <span class="attr">name</span>: <span class="string">'育才中学'</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="title function_">userName1</span>();</span><br><span class="line"><span class="title function_">userName2</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'------------'</span>);</span><br><span class="line">userName1.<span class="title function_">call</span>(school)</span><br><span class="line">userName2.<span class="title function_">call</span>(school)</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <ul>
+                    <li>
+                      <p>输出对比</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center"><code>this</code>
+                              <hanla></hanla>指向
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/db11ea7f97a04e2fbc0dd219ce487088.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="this指向"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>不能为构造函数实例化</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="keyword">let</span> <span class="title function_">Person</span> = (<span class="params">name, age</span>) =&gt; {</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">};</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <ul>
+                    <li>
+                      <p>输出</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">箭头函数不能为构造函数实例化</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b6a0e381aa20474bbc7e2d22abbd55ff.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_15,color_FFFFFF,t_70,g_se,x_16" alt="箭头函数不能为构造函数实例化"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>不能使用<hanla></hanla><code>arguments</code>
+                    <hanla></hanla>变量
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>arguments</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/28a070b6d3ff420781dcf7da354b07ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_15,color_FFFFFF,t_70,g_se,x_16" alt="arguments"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest<hanla></hanla>参数</h3>
+          <ul>
+            <li>
+              <p>使用</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">function</span> <span class="title function_">date</span>(<span class="params">...args</span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(args);</span><br><span class="line">}</span><br><span class="line"><span class="title function_">date</span>(<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'白芷'</span>);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输出</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>rest</code>
+                          <hanla></hanla>参数
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/580bf81a57a84f2b8527fb9e9eff938a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_18,color_FFFFFF,t_70,g_se,x_16" alt="rest参数"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>注意: 在有其他参数时,<hanla></hanla>该参数必须放在最后</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h3>
+          <ul>
+            <li>
+              <p><code>...</code>
+                <hanla></hanla>扩展运算符能将<hanla></hanla><code>[数组]</code>
+                <hanla></hanla>转换为逗号分隔的<code>参数序列</code>
+              </p>
+            </li>
+            <li>
+              <p>使用</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 声明一个数组<hanla></hanla></span></span><br><span class="line"><span class="keyword">const</span> tfboys = [<span class="string">'易烊千玺'</span>, <span class="string">'王源'</span>, <span class="string">'王俊凯'</span>];</span><br><span class="line"><span class="comment">// 声明一个函数<hanla></hanla></span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 等价于 fn('易烊千玺', '王源', '王俊凯')</span></span><br><span class="line"><span class="title function_">fn</span>(...tfboys);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输出</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>...</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/6ad6ba674eff40e6b85b347575c96620.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="..."></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>数组的合并</p>
+              <ul>
+                <li>
+                  <p><code>concat</code></p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>concat</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/171190f06e8c454fa7743c9b666ed698.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="concat"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p><code>...</code></p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">扩展运算合并数组</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9e5129e5d7214cd6aff36cbdca444795.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="扩展运算合并数组"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>数组的克隆<hanla></hanla>(<code>浅拷贝</code>)</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">// 声明一个数组<hanla></hanla></span></span><br><span class="line"><span class="keyword">const</span> tfboys = [<span class="string">'易烊千玺'</span>, <span class="string">'王源'</span>, <span class="string">'王俊凯'</span>];</span><br><span class="line"><span class="keyword">const</span> girlBoyfriends = [...tfboys];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(girlBoyfriends);</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>将一个伪数组转换为一个真正的数组</p>
+                  <ul>
+                    <li>
+                      <p>输出</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">伪数组转为真实数组</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0f7ab49555244de5a0349db7e7333504.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="伪数组转为真实数组"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="Symbol-基本使用"><a href="#Symbol-基本使用" class="headerlink" title="Symbol 基本使用"></a>Symbol 基本使用</h3>
+          <ul>
+            <li>
+              <p>介绍</p>
+              <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                <p><code>Es6</code>
+                  <hanla></hanla>引入了一种新的原始数据类型<hanla></hanla><code>Symbol</code>，表示<code>独一无二的值</code>,<hanla></hanla>它是<hanla></hanla><code>Javascript</code>
+                  <hanla></hanla>语言的第其中数据类型,<hanla></hanla>是一种类似于字符串的数据类型
+                </p>
+              </div>
+            </li>
+            <li>
+              <p>特点</p>
+              <ul>
+                <li>
+                  <p><code>Symbol</code>
+                    <hanla></hanla>的值是唯一的,<hanla></hanla>用来解决命名冲突的问题
+                  </p>
+                </li>
+                <li>
+                  <p><code>Symbol</code>
+                    <hanla></hanla>值不能与其他数据进行运算<hanla></hanla>(自己也不行)
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>symbol</code>
+                          <hanla></hanla>不能运算
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/91de9bc331a64880aec067443ce331a9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_13,color_FFFFFF,t_70,g_se,x_16" alt="symbol不能运算"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p><code>Symbol</code>
+                    <hanla></hanla>定义的对象属性不能使用<hanla></hanla><code>for in </code>循环遍历,<hanla></hanla>但可以使用<hanla></hanla><code>Reflect.ownKeys</code>
+                    <hanla></hanla>来获取对象的所有键名
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>函数式创建</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">let</span> s1 = <span class="title class_">Symbol</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1, <span class="keyword">typeof</span> s1);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="title class_">Symbol</span>(<span class="string">'内容是标识,<hanla></hanla>和注释一样'</span>);</span><br><span class="line"><span class="keyword">let</span> s3 = <span class="title class_">Symbol</span>(<span class="string">'内容是标识,<hanla></hanla>和注释一样'</span>);</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s2 === s3);</span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>Symbol.for</code>
+                <hanla></hanla>创建
+              </p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 可以得出唯一的 Symbol</span></span><br><span class="line"><span class="keyword">let</span> s4 = <span class="title class_">Symbol</span>.<span class="title function_">for</span>(<span class="string">'A'</span>)</span><br><span class="line"><span class="keyword">let</span> s5 = <span class="title class_">Symbol</span>.<span class="title function_">for</span>(<span class="string">'A'</span>)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s4===s5);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>数据类型总结</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">USONB</span>: you are so niubility</span><br><span class="line">U <span class="literal">undefined</span></span><br><span class="line">S <span class="title class_">String</span> symbol</span><br><span class="line">o <span class="title class_">Object</span></span><br><span class="line">n <span class="literal">null</span> number</span><br><span class="line">b boolean</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>Symbol</code>
+                <hanla></hanla>可以给对象安全的添加方法
+              </p>
+            </li>
+          </ul>
+          <h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3>
+          <ul>
+            <li>
+              <p>介绍</p>
+              <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                <p>迭代器<hanla></hanla>(<code>Iterator</code>)<hanla></hanla>是一种接口,<hanla></hanla>为各种不同的数据结构提供统一的访问机制,<hanla></hanla>任何数据结构只要部署了<hanla></hanla><code>Iterator</code>
+                  <hanla></hanla>接口,<hanla></hanla>就可以完成遍历操作
+                </p>
+              </div>
+            </li>
+            <li>
+              <p>特性</p>
+              <ul>
+                <li>
+                  <p><code>Es6</code>
+                    <hanla></hanla>创造了一种新的便利命令<hanla></hanla><code>for of</code> 循环,<code>Iterator</code>
+                    <hanla></hanla>接口主要提供<hanla></hanla><code>for of</code>
+                    <hanla></hanla>消费
+                  </p>
+                </li>
+                <li>
+                  <p>原生具备<hanla></hanla><code>Iterator</code>
+                    <hanla></hanla>接口的数据<hanla></hanla>(<code>可以使用 for of<hanla></hanla>遍历</code>)
+                  </p>
+                  <ul>
+                    <li><code>Array</code></li>
+                    <li><code>Arguemnts</code></li>
+                    <li><code>Set</code></li>
+                    <li><code>Map</code></li>
+                    <li><code>String</code></li>
+                    <li><code>TypedArray</code></li>
+                    <li><code>NodeList</code></li>
+                  </ul>
+                </li>
+                <li>
+                  <p><code>for of</code>
+                    <hanla></hanla>遍历数组
+                  </p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="keyword">let</span> arrayWorld = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> word <span class="keyword">of</span> arrayWorld) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(word);</span><br><span class="line">}</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>工作原理</p>
+                  <ul>
+                    <li>
+                      <p>创建一个指针对象,<hanla></hanla>指向当前数据结构的起始位置</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">创建一个指针对象,<hanla></hanla>指向当前数据结构的起始位置</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4368043807ef41d383926d943ad968b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="创建一个指针对象,指向当前数据结构的起始位置"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                    <li>
+                      <p>第一次调用对象的<hanla></hanla><code>next()</code>
+                        <hanla></hanla>方法,<hanla></hanla>指针会自动指向数据结构的第一个成员
+                      </p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center"><code>next</code>
+                              <hanla></hanla>方法调用
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f70b73d2f3bb489c8f10ad0c7b57b56a.png" alt="next方法调用"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                    <li>
+                      <p>接下来不断调用<hanla></hanla><code>next</code>
+                        <hanla></hanla>方法,<hanla></hanla>指针一直往后移动,<hanla></hanla>直到指向最后一个成员
+                      </p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">连续调用<hanla></hanla><code>next</code></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/cc7aeac0576b488b8044a521e43ab11b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="连续调用next"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                    <li>
+                      <p>每调用<hanla></hanla><code>next</code>
+                        <hanla></hanla>方法返回一个包含<hanla></hanla><code>value</code>
+                        <hanla></hanla>和<hanla></hanla><code>node</code>
+                        <hanla></hanla>属性的对象
+                      </p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3>
+          <ul>
+            <li>
+              <p>就是一个特殊的函数<hanla></hanla>(异步)</p>
+            </li>
+            <li>
+              <p>创建</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">function</span>* <span class="title function_">fn</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'Hello fn!'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> _fn = <span class="title function_">fn</span>();</span><br><span class="line"><span class="comment">// 真正的调用<hanla></hanla></span></span><br><span class="line">_fn.<span class="title function_">next</span>();</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>yield</code>
+                <hanla></hanla>分割
+              </p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">function</span>* <span class="title function_">fn</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'Hello fn!'</span>);</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'H next'</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'H next next'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> _fn = <span class="title function_">fn</span>();</span><br><span class="line"><span class="comment">// 真正的调用<hanla></hanla></span></span><br><span class="line">_fn.<span class="title function_">next</span>();</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输出</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">生成器</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/221034f468ff436180df894e8d3e5a8b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="生成器"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>生成器的函数参数</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">参数传递</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9d5a122710ba4d69a92897da11acc28c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="参数传递"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>生成器函数实例</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">// 1s<hanla></hanla>后输出 11 2s<hanla></hanla>后输出 22 3s<hanla></hanla>后输出<hanla></hanla>33</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">one</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1111</span>);</span><br><span class="line">        iterator.<span class="title function_">next</span>();</span><br><span class="line">    }, <span class="number">1000</span>);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">two</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2222</span>);</span><br><span class="line">        iterator.<span class="title function_">next</span>();</span><br><span class="line">    }, <span class="number">2000</span>);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">three</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3333</span>);</span><br><span class="line">    }, <span class="number">3000</span>);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">function</span>* <span class="title function_">gen</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="keyword">yield</span> <span class="title function_">one</span>();</span><br><span class="line">    <span class="keyword">yield</span> <span class="title function_">two</span>();</span><br><span class="line">    <span class="keyword">yield</span> <span class="title function_">three</span>();</span><br><span class="line">}</span><br><span class="line"><span class="keyword">let</span> iterator = <span class="title function_">gen</span>();</span><br><span class="line">iterator.<span class="title function_">next</span>()</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3>
+          <ul>
+            <li>
+              <p>介绍</p>
+              <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                <p><code>Promise</code>
+                  <hanla></hanla>是<hanla></hanla><code>Es6</code>
+                  <hanla></hanla>引入的异步编程的新解决方案,<hanla></hanla>与发生<hanla></hanla><code>Promise</code>
+                  <hanla></hanla>是一个构造函数,<hanla></hanla>用来封装异步操作并可以获取其成功或失败的结果
+                </p>
+                <ol>
+                  <li><code>Promise</code>
+                    <hanla></hanla>构造函数: <code>Promise(excutor){}</code>
+                  </li>
+                  <li><code>Promise.prototype.then</code>
+                    <hanla></hanla>方法
+                  </li>
+                  <li><code>Promise.prototype.catch</code>
+                    <hanla></hanla>方法
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ul>
+          <h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3>
+          <ul>
+            <li>
+              <p>介绍</p>
+              <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                <p><code>Es6</code>
+                  <hanla></hanla>提供了新的数据结构<hanla></hanla><code>Set(集合)</code>，它类似于数组,<hanla></hanla>但成员的值都是唯一的,<hanla></hanla>集合实现了<hanla></hanla><code>iterator</code>
+                  <hanla></hanla>接口，所以可以使用<code>扩展运算符</code>和<hanla></hanla><code>for of</code>
+                  <hanla></hanla>进行遍历
+                </p>
+              </div>
+            </li>
+            <li>
+              <p>集合的属性和方法</p>
+              <ul>
+                <li><code>size</code>
+                  <hanla></hanla>返回集合的元素个数
+                </li>
+                <li><code>add</code>
+                  <hanla></hanla>增加一个新元素,<hanla></hanla>返回当前集合
+                </li>
+                <li><code>delete</code>
+                  <hanla></hanla>删除元素，返回<hanla></hanla><code>boolean</code>
+                  <hanla></hanla>值
+                </li>
+                <li><code>has</code>
+                  <hanla></hanla>检测集合中是否包含某个元素,<hanla></hanla>返回<hanla></hanla><code>boolean</code>
+                  <hanla></hanla>值
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>输出</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>Size</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f15a356537784d2c82ae7b0c51f24ac4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Size"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>实践</p>
+              <ul>
+                <li>
+                  <p>数组去重</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">1</span>];</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'未去重之前数组长度: '</span>, arr.<span class="property">length</span>);</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(arr);</span><br><span class="line">           <span class="comment">// 数组去重</span></span><br><span class="line">           <span class="keyword">let</span> newArr = [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)];</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'通过<hanla></hanla>Set<hanla></hanla>去重后,<hanla></hanla>数组长度: '</span>, newArr.<span class="property">length</span>);</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(newArr);</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <ul>
+                    <li>
+                      <p>输出</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">数组去重</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/175edeed812548a899f19cf2c7502207.png" alt="数组去重"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>交集</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">// 声明数组<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">1</span>];</span><br><span class="line"><span class="comment">// 声明数组<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>];</span><br><span class="line"><span class="comment">// 通过<hanla></hanla>Set<hanla></hanla>将数组<hanla></hanla>1<hanla></hanla>去重并过滤<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> result = [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr1)].<span class="title function_">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> {</span><br><span class="line">    <span class="comment">// 将数组<hanla></hanla>2<hanla></hanla>转换为 Set<hanla></hanla>去重</span></span><br><span class="line">    <span class="keyword">let</span> s2 = <span class="keyword">new</span> <span class="title class_">Set</span>(arr2);</span><br><span class="line">    <span class="comment">// 通过<hanla></hanla>Set 方法判断元素是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (s2.<span class="title function_">has</span>(item)) {</span><br><span class="line">        <span class="comment">// 存在</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="comment">// 不存在</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">});</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 简化</span></span><br><span class="line"> <span class="keyword">let</span> res = [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr1)].<span class="title function_">filter</span>(</span><br><span class="line">                <span class="function"><span class="params">item</span> =&gt;</span> <span class="keyword">new</span> <span class="title class_">Set</span>(arr2).<span class="title function_">has</span>(item)</span><br><span class="line">            );</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <ul>
+                    <li>
+                      <p>输出</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">交集</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/bbebc07f3930488eb146a6aa8072e784.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbG92b2Jpbi5naXRodWIuaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="交集"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>并集</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">// 声明数组<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">1</span>];</span><br><span class="line"><span class="comment">// 声明数组<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>];</span><br><span class="line"><span class="comment">// 数组合并 =&gt; 转换为 Set<hanla></hanla>去重 =&gt; 再转化为数组<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> union = [<span class="keyword">new</span> <span class="title class_">Set</span>([...arr1, ...arr2])];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(union);</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>差集</p>
+                  <figure class="highlight js">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">// S1 - S2(S1<hanla></hanla>中存在,S2<hanla></hanla>中不存在)</span></span><br><span class="line"> <span class="keyword">let</span> res = [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr1)].<span class="title function_">filter</span>(</span><br><span class="line">                <span class="function"><span class="params">item</span> =&gt;</span> !(<span class="keyword">new</span> <span class="title class_">Set</span>(arr2).<span class="title function_">has</span>(item))</span><br><span class="line">            );</span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3>
+          <ul>
+            <li>
+              <p>介绍</p>
+              <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                <p><code>Es6</code>
+                  <hanla></hanla>提供了<hanla></hanla><code>Map</code>
+                  <hanla></hanla>数据结构,<hanla></hanla>它类似于对象,<hanla></hanla>也是键值对的集合,<hanla></hanla>但是<code>键</code>的范围不限于字符串,<hanla></hanla>各种类型的值<hanla></hanla>(包括对象)<hanla></hanla>都可以当作键,<code>Map</code>
+                  <hanla></hanla>也实现了<hanla></hanla><code>iterator</code>
+                  <hanla></hanla>接口，所以可以使用<code>扩展运算符</code>和<hanla></hanla><code>for of</code>
+                  <hanla></hanla>进行遍历
+                </p>
+              </div>
+            </li>
+            <li>
+              <p><code>Map</code>
+                <hanla></hanla>的属性和方法
+              </p>
+              <ul>
+                <li><code>size</code>
+                  <hanla></hanla>返回<hanla></hanla><code>Map</code>
+                  <hanla></hanla>的元素个数
+                </li>
+                <li><code>set</code>
+                  <hanla></hanla>增加一个新元素,<hanla></hanla>返回当前<hanla></hanla><code>Map</code>
+                </li>
+                <li><code>get</code>
+                  <hanla></hanla>返回键名对象的键值
+                </li>
+                <li><code>has</code>
+                  <hanla></hanla>检测<hanla></hanla><code>Map</code>
+                  <hanla></hanla>中是否包含某个元素,<hanla></hanla>返回<hanla></hanla><code>boolean</code>
+                  <hanla></hanla>值
+                </li>
+                <li><code>clear</code>
+                  <hanla></hanla>清空集合,<hanla></hanla>返回<hanla></hanla><code>undefined</code>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>基础使用</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 声明 Map</span></span><br><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line"><span class="comment">// 添加<hanla></hanla></span></span><br><span class="line">map.<span class="title function_">set</span>(<span class="string">'coderName'</span>, <span class="string">'coder-itl'</span>);</span><br><span class="line">map.<span class="title function_">set</span>(<span class="string">'coderAge'</span>, <span class="number">18</span>);</span><br><span class="line"><span class="keyword">let</span> coderInfo = {</span><br><span class="line">    <span class="attr">address</span>: <span class="string">'BJ'</span>,</span><br><span class="line">};</span><br><span class="line"><span class="comment">// 对象最为 key</span></span><br><span class="line">map.<span class="title function_">set</span>(coderInfo, [<span class="string">'SH'</span>, <span class="string">'HN'</span>, <span class="string">'SX'</span>]);</span><br><span class="line"><span class="comment">// value<hanla></hanla>是一个函数<hanla></hanla></span></span><br><span class="line">map.<span class="title function_">set</span>(<span class="string">'change'</span>, <span class="function">() =&gt;</span> {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'你有目标吗?'</span>);</span><br><span class="line">});</span><br><span class="line"><span class="comment">// 获取 map<hanla></hanla>元素个数<hanla></hanla></span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map.<span class="property">size</span>);</span><br><span class="line"><span class="comment">// 获取元素怒<hanla></hanla></span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map.<span class="title function_">get</span>(<span class="string">'coderName'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 迭代器使用<hanla></hanla></span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> iterator <span class="keyword">of</span> map) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(iterator);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 删除<hanla></hanla></span></span><br><span class="line">map.<span class="title function_">delete</span>(<span class="string">'coderInfo'</span>);</span><br><span class="line">map.<span class="title function_">clear</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h3 id="Class-类"><a href="#Class-类" class="headerlink" title="Class -类"></a>Class -类</h3>
+          <ul>
+            <li>
+              <p>简介</p>
+              <div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i>
+                <p><code>Es6</code>
+                  <hanla></hanla>提供了更接近传统语言的写法,<hanla></hanla>引入了<hanla></hanla><code>Class(类)</code>
+                  <hanla></hanla>这个概念,<hanla></hanla>作为对象的模板，通过<hanla></hanla><code>class</code>
+                  <hanla></hanla>关键字,<hanla></hanla>可以定义类,<hanla></hanla>基本上,<code>Es6</code>
+                  <hanla></hanla>的<hanla></hanla><code>class</code>
+                  <hanla></hanla>可以看作只是一个语法糖,<hanla></hanla>它的绝大部分功能,<code>Es5</code>
+                  <hanla></hanla>都可以做到,<hanla></hanla>新的<hanla></hanla><code>class</code>
+                  <hanla></hanla>写法只是让对象原型的写法更加清晰,<hanla></hanla>更像面向对象编程的语法而已
+                </p>
+              </div>
+            </li>
+            <li>
+              <p>知识点</p>
+              <ul>
+                <li><code>class</code>
+                  <hanla></hanla>声明类
+                </li>
+                <li><code>constructor</code>
+                  <hanla></hanla>定义构造函数初始化
+                </li>
+                <li><code>extends</code>
+                  <hanla></hanla>继承父类
+                </li>
+                <li><code>super</code>
+                  <hanla></hanla>调用父级构造方法
+                </li>
+                <li><code>static</code>
+                  <hanla></hanla>定义静态方法和属性
+                </li>
+                <li>父类方法可以重写</li>
+              </ul>
+            </li>
+            <li>
+              <p>使用</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 声明类<hanla></hanla></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Phone</span> {</span><br><span class="line">    <span class="comment">// 定义一个有参的构造函数</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">brand, price</span>) {</span><br><span class="line">        <span class="comment">// 初始化</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">price</span> = price;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 声明一个方法 必须使用 方法名<hanla></hanla>(){ // ... 方法体 }</span></span><br><span class="line">    <span class="title function_">call</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'正在通话中,<hanla></hanla>请稍后在拨....'</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 实例化<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> phone = <span class="keyword">new</span> <span class="title class_">Phone</span>(<span class="string">'IQ Neno5'</span>, <span class="number">2999</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(phone);</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>静态成员</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 声明类<hanla></hanla></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Phone</span> {</span><br><span class="line">    <span class="comment">// 静态属性 属于类 不属于实例对象</span></span><br><span class="line">    <span class="keyword">static</span> name = <span class="string">'手机'</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="title function_">change</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'我可以改变世界!'</span>);</span><br><span class="line">}</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 实例化<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> phone = <span class="keyword">new</span> <span class="title class_">Phone</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(phone.<span class="property">name</span>); <span class="comment">// undefined 不属于实例对象<hanla></hanla></span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Phone</span>.<span class="property">name</span>); <span class="comment">// 属于类 </span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>类继承</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 声明类<hanla></hanla></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Phone</span> {</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">brand, price</span>) {</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">price</span> = price;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 父类的成员属性</span></span><br><span class="line">    <span class="title function_">call</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'正在通话中,<hanla></hanla>请稍后再拨....'</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">IQNeoo5</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Phone</span> {</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">brand, price, color, size</span>) {</span><br><span class="line">        <span class="comment">// 调用父级构造函数</span></span><br><span class="line">        <span class="variable language_">super</span>(brand, price);</span><br><span class="line">        <span class="comment">// 初始化子级属性</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">size</span> = size;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 子级特有成员属性</span></span><br><span class="line">    <span class="title function_">photo</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'我拍了一张照片!'</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">playGame</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'我正在进行<hanla></hanla>xxx<hanla></hanla>游戏中....'</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例化<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> phone = <span class="keyword">new</span> <span class="title class_">IQNeoo5</span>(<span class="string">'IQNeno5'</span>, <span class="number">1999</span>, <span class="string">'红色'</span>, <span class="number">6.54</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(phone);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用父级方法<hanla></hanla></span></span><br><span class="line">phone.<span class="title function_">call</span>()</span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>子类对父类方法的重写</p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 父类有 call</span></span><br><span class="line"><span class="comment">// 子类重写<hanla></hanla></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">IQNeoo5</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Phone</span> {</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">brand, price, color, size</span>) {</span><br><span class="line">        <span class="comment">// 调用父级构造函数</span></span><br><span class="line">        <span class="variable language_">super</span>(brand, price);</span><br><span class="line">        <span class="comment">// 初始化子级属性</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">size</span> = size;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 子级特有成员属性</span></span><br><span class="line">    <span class="title function_">photo</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'我拍了一张照片!'</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="title function_">playGame</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'我正在进行<hanla></hanla>xxx<hanla></hanla>游戏中....'</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 重写 子类不能直接调用父类方法</span></span><br><span class="line">    <span class="title function_">call</span>(<span class="params"></span>){</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'完全重写了父类....'</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>get</code>
+                <hanla></hanla>和<hanla></hanla><code>set</code>
+              </p>
+              <figure class="highlight js">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment">// 声明类<hanla></hanla></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Phone</span> {</span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">price</span>() {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'price 属性被读取了'</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'data'</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 需要传入一个参数</span></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">price</span>(<span class="params">val</span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'price 被修改时将会被调用...'</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 实例化对象<hanla></hanla></span></span><br><span class="line"><span class="keyword">let</span> phone = <span class="keyword">new</span> <span class="title class_">Phone</span>();</span><br><span class="line"><span class="comment">// 读取属性<hanla></hanla></span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(phone.<span class="property">price</span>);</span><br><span class="line">phone.<span class="property">price</span> = <span class="string">'free'</span>;</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">
+              <hanla></hanla>文章链接:
+            </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">
+              <hanla></hanla>版权声明:
+            </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+        </div>
+        <div class="tag_share">
+          <div class="post-meta__tag-list"></div>
+          <div class="post_share">
+            <div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/25.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+            <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+          </div>
+        </div>
+        <nav class="pagination-post" id="pagination">
+          <div class="prev-post pull-left"><a href="/2022/04/11/55833.html" title="Java-动态数据接口"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/33.jpg" onerror="onerror=null;src='/null'" alt="cover of previous post">
+              <div class="pagination-info">
+                <div class="label">上一篇<hanla></hanla>
+                </div>
+                <div class="prev_info">Java-动态数据接口</div>
+              </div>
+            </a></div>
+          <div class="next-post pull-right"><a href="/2022/04/04/63138.html" title="IDEA-安装使用"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/40.jpg" onerror="onerror=null;src='/null'" alt="cover of next post">
+              <div class="pagination-info">
+                <div class="label">下一篇<hanla></hanla>
+                </div>
+                <div class="next_info">IDEA-安装使用</div>
+              </div>
+            </a></div>
+        </nav>
+        <hr>
+        <div id="post-comment">
+          <div class="comment-head">
+            <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+          </div>
+          <div class="comment-wrap">
+            <div>
+              <div id="twikoo-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget" id="card-toc">
+            <div class="item-headline"><i class="fas fa-stream"></i><span>
+                <hanla></hanla>目录<hanla></hanla>
+              </span><span class="toc-percentage"></span></div>
+            <div class="toc-content">
+              <ol class="toc">
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#let"><span class="toc-number">1.</span> <span class="toc-text">let</span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-number">2.</span> <span class="toc-text">const</span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">解构<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.</span> <span class="toc-text">模板字符串<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%AE%80%E5%86%99"><span class="toc-number">5.</span> <span class="toc-text">对象简写<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">箭头函数<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#rest%E5%8F%82%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">rest<hanla></hanla>参数<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">8.</span> <span class="toc-text">扩展运算符<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Symbol-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">9.</span> <span class="toc-text">Symbol 基本使用<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text">迭代器<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-number">11.</span> <span class="toc-text">生成器<hanla></hanla></span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Promise"><span class="toc-number">12.</span> <span class="toc-text">Promise</span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Set"><span class="toc-number">13.</span> <span class="toc-text">Set</span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Map"><span class="toc-number">14.</span> <span class="toc-text">Map</span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Class-%E7%B1%BB"><span class="toc-number">15.</span> <span class="toc-text">Class -类</span></a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

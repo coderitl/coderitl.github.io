@@ -1,0 +1,2816 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Ubuntu-系统 | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Ubuntu系统-版本16安装配置虚拟主机创建 下载VMware  下载Ubuntu所需的镜像  http://mirrors.aliyun.com/ubuntu-releases/16.04/ubuntu-16.04.7-desktop-amd64.iso?spm=a2c6h.25603864.0.0.23583decoI8SOQ     如下        VMware创建新虚拟机">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ubuntu-系统">
+  <meta property="og:url" content="https://coderitl.github.io/2022/12/29/2485.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="Ubuntu系统-版本16安装配置虚拟主机创建 下载VMware  下载Ubuntu所需的镜像  http://mirrors.aliyun.com/ubuntu-releases/16.04/ubuntu-16.04.7-desktop-amd64.iso?spm=a2c6h.25603864.0.0.23583decoI8SOQ     如下        VMware创建新虚拟机">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg">
+  <meta property="article:published_time" content="2022-12-29T06:33:16.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.478Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2022/12/29/2485.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'Ubuntu-系统',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">Ubuntu-系统</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于<hanla></hanla></span><time class="post-meta-date-created" datetime="2022-12-29T06:33:16.000Z" title="发表于 2022-12-29 14:33:16">2022-12-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.478Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="Ubuntu-系统"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h3 id="Ubuntu系统-版本16安装配置"><a href="#Ubuntu系统-版本16安装配置" class="headerlink" title="Ubuntu系统-版本16安装配置"></a>Ubuntu<hanla></hanla>系统-版本<hanla></hanla>16<hanla></hanla>安装配置</h3>
+          <h4 id="虚拟主机创建"><a href="#虚拟主机创建" class="headerlink" title="虚拟主机创建"></a>虚拟主机创建</h4>
+          <ul>
+            <li>
+              <p>下载<hanla></hanla><code>VMware</code></p>
+            </li>
+            <li>
+              <p>下载<hanla></hanla><code>Ubuntu</code>
+                <hanla></hanla>所需的镜像
+              </p>
+              <blockquote>
+                <p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://mirrors.aliyun.com/ubuntu-releases/16.04/ubuntu-16.04.7-desktop-amd64.iso?spm=a2c6h.25603864.0.0.23583decoI8SOQ">http://mirrors.aliyun.com/ubuntu-releases/16.04/ubuntu-16.04.7-desktop-amd64.iso?spm=a2c6h.25603864.0.0.23583decoI8SOQ</a></p>
+              </blockquote>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">如下</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b4a3ac77e0cc4c7c8d4605eba44a24bd.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p><code>VMware</code>
+                <hanla></hanla>创建新虚拟机
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">其他未出现步骤选择默认</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/1eb38be5ebe646f3bf621e7b6a4c4cf7.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>配置镜像,<hanla></hanla>移除打印机</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">配置下载的镜像文件</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/54376de36d144d19bef1b6cd049de06e.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>显示了两行文字,<hanla></hanla>此时关机</p>
+              <ul>
+                <li>
+                  <p>执行如下</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">进入固件</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/62d5a074553b48638095c1c4fc0f1527.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">通过左右键-&gt;<hanla></hanla>切换到<hanla></hanla><code>Boot</code>-&gt;<hanla></hanla>选择如下，按下<hanla></hanla><code>shift +</code>,<hanla></hanla>实现置顶，之后<hanla></hanla><code>F10</code>
+                          <hanla></hanla>保存,<code>yes</code>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9fea54d7d0734aa18b1da830c622cc28.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>调整分辨率</p>
+            </li>
+          </ul>
+          <h4 id="Root-用户"><a href="#Root-用户" class="headerlink" title="Root-用户"></a>Root-用户</h4>
+          <ul>
+            <li>
+              <p>为<hanla></hanla><code>root</code>
+                <hanla></hanla>添加密码
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 普通用户<hanla></hanla></span></span><br><span class="line"><span class="attr">user</span>: <span class="string">coder-itl</span></span><br><span class="line"><span class="attr">password</span>: <span class="string">coder-itl</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#  root<hanla></hanla>设置密码 </span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">passwd root</span></span><br><span class="line"><span class="comment"># 输入新密码: root</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 注销后登录 root 用户<hanla></hanla></span></span><br><span class="line"><span class="attr">logout</span></span><br><span class="line"></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="命令行界面字体大小"><a href="#命令行界面字体大小" class="headerlink" title="命令行界面字体大小"></a>命令行界面字体大小</h4>
+          <ul>
+            <li>
+              <p>当前大小</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">修改界面字体大小</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9fafb091caa947bf8fcf266a76191e2b.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>配置</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">sudo</span> <span class="string">dpkg-reconfigure console-setup</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ol>
+                <li>
+                  <p>输入上述命令后,<hanla></hanla>进入字符集选择界面</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">选择<hanla></hanla><code>UTF-8</code>，回车进入下一步,<code>ESC</code>
+                          <hanla></hanla>退回上一步
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/97c496d05cef483bb405f88c8d10c0e7.png" style="zoom:80%;"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>字符集选择</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">上下键选择如下，之后回车进入下一步</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ac1a7304308b4342b20b40155e5b5a1c.png" style="zoom:80%;"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>控制台字体</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">选择<hanla></hanla><code>VGA</code>,<hanla></hanla>回车进入下一步</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/8b87f2a6e8a64c559a15cf2cf8f676e9.png" style="zoom:80%;"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>最终字体大小选择</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">选择: <code>16x32</code>，之后回车，进入命令行界面</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e9b24c7671e541b996a9d8ae69bbee7c.png" style="zoom:80%;"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>修改使用情况</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">字体大小修正</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b2fc60e7be734e29bc90b15125f355ed.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ol>
+            </li>
+          </ul>
+          <h4 id="SSH-服务"><a href="#SSH-服务" class="headerlink" title="SSH-服务"></a>SSH-服务</h4>
+          <ul>
+            <li>
+              <p>安装</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">sudo</span> <span class="string">apt-get install openssh-server</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>查看状态</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">查看<hanla></hanla><code>sshd</code>
+                      <hanla></hanla>服务
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/66267519417d4abdb935e7a8d160c679.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>修改配置文件</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">sudo</span> <span class="string">vim /etc/ssh/sshd_config</span></span><br><span class="line"><span class="comment"># 修改如下部分</span></span><br><span class="line"><span class="comment"># Port 22 =&gt; 2022 【如果<hanla></hanla>22<hanla></hanla>不可用时在修改】</span></span><br><span class="line"><span class="comment"># PermitRootLogin yes 启用 root 登录</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 保存后退出</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>因为已经修改了<hanla></hanla><code>SSH</code>
+                <hanla></hanla>配置项,<hanla></hanla>所以已经启动的<hanla></hanla><code>SSH</code>
+                <hanla></hanla>服务需要关闭
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 获取 SSH 的进程编号<hanla></hanla></span></span><br><span class="line"><span class="attr">ps</span> <span class="string">-ef | grep sshd</span></span><br><span class="line"><span class="comment"># 之后关闭<hanla></hanla>(结束进程)</span></span><br><span class="line"><span class="attr">kill</span> <span class="string">-9 进程<hanla></hanla>ID</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>重新启动<hanla></hanla><code>ssh</code>
+                <hanla></hanla>服务端
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">/etc/init.d/ssh</span> <span class="string">start</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>使用远程工具连接</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># ip 获取 /: 或者<hanla></hanla></span></span><br><span class="line"><span class="attr">ipconfig</span> <span class="string">/ ip addr</span></span><br><span class="line"><span class="comment"># 以 root 身份登录,<hanla></hanla>回车之后输入 root 用户密码<hanla></hanla></span></span><br><span class="line"><span class="attr">ssh</span> <span class="string">root@192.168.2.3</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4>
+          <h5 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h5>
+          <ul>
+            <li>
+              <p>启动防火墙</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">sudo</span> <span class="string">ufw enable</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>关闭防火墙</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">sudo</span> <span class="string">ufw disable</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h5 id="常用库"><a href="#常用库" class="headerlink" title="常用库"></a>常用库</h5>
+          <ul>
+            <li>
+              <p>安装</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">apt-get</span> <span class="string">-y install make g++ gcc libpcre3 libpcrecpp* libpcre3-dev libssl-dev autoconf automake libtool libncurses5-dev libaio.dev ruby-dev rubygems vim</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4>
+          <ul>
+            <li>
+              <p><code>IP</code>
+                <hanla></hanla>查看
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 查看网卡标识 看到标识为: ens33(或者其他)</span></span><br><span class="line"><span class="attr">ipconfig</span> <span class="string">-a / ip addr</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>ubuntu</code>
+                <hanla></hanla>网络的配置文件
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>sudo vi /etc/network/interfaces</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4606bb5a8a974e6d873efcd1f49eff8f.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>修改<hanla></hanla><code>IP</code>
+                <hanla></hanla>为静态
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 网络所在的配置文件<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">vim /etc/network/interface</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 添加内容  </span></span><br><span class="line"><span class="comment"># The primary network interface</span></span><br><span class="line"><span class="attr">auto</span> <span class="string">enp0s3</span></span><br><span class="line"><span class="comment">#iface enp0s3 inet dhcp</span></span><br><span class="line"><span class="attr">iface</span> <span class="string">enp0s3 inet static</span></span><br><span class="line"><span class="attr">address</span> <span class="string">192.168.1.10</span></span><br><span class="line"><span class="attr">netmask</span> <span class="string">255.255.255.0</span></span><br><span class="line"><span class="attr">gateway</span> <span class="string">192.168.1.1</span></span><br><span class="line"><span class="attr">dns-nameservers</span> <span class="string">192.168.1.2 192.168.1.3</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 修改 DNS</span></span><br><span class="line"><span class="attr">vim</span> <span class="string">/etc/resolv.conf</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">nameserver</span> <span class="string">192.168.1.1 # DNS<hanla></hanla>服务器地址</span></span><br><span class="line">    <span class="attr">nameserver</span> <span class="string">114.114.114.114 # 备用<hanla></hanla>DNS<hanla></hanla>地址</span></span><br><span class="line">    <span class="attr">nameserver</span> <span class="string">8.8.8.8 # 备用<hanla></hanla>DNS<hanla></hanla>地址<hanla></hanla></span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 使得如上配置生效<hanla></hanla></span></span><br><span class="line"><span class="attr">/etc/init.d/networking</span> <span class="string">restart</span></span><br><span class="line"><span class="comment"># 同作用<hanla></hanla>(新版)</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">start networking</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">重启网络</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b00356a992b248ffbe24ab7811081cd9.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="VMware-Tools"><a href="#VMware-Tools" class="headerlink" title="VMware-Tools"></a>VMware-Tools</h4>
+          <ul>
+            <li>
+              <p>安装后的作用</p>
+              <blockquote>
+                <p>可以直接在虚拟机中拖拽文件到宿主机<hanla></hanla>(<code>windows...</code>)，也可以将宿主机文件直接拖拽到虚拟机内部使用</p>
+              </blockquote>
+            </li>
+            <li>
+              <p>选择如下</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">虚拟机-安装<hanla></hanla><code>VMware Tools</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/dd115ab205a647998cab29f70c5add94.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>将压缩文件复制到主目录<hanla></hanla>(<code>home</code>)</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">复制</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/1cf1a33069a64cd080a73fbf5ec55234.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>在主目录下解压</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 解压<hanla></hanla></span></span><br><span class="line"><span class="attr">tar</span> <span class="string">-zxvf  VMwareTools-10.3.22-15902021.tar.gz</span></span><br><span class="line"><span class="comment"># 进入解压后的目录<hanla></hanla></span></span><br><span class="line"><span class="attr">cd</span> <span class="string">vmware-tools-distrib</span></span><br><span class="line"><span class="comment"># 执行如下文件<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">./vmware-install.pl</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">所在位置</th>
+                    <th align="center">执行</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a48561e430fc4f909595f0d26a540044.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2e2a8e75b5c444ff9dbdc539b42f8d8b.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote>
+                <p>回车后输入密码（输入密码不会显示，输完直接回车），他就会进行安装，最开始遇到个<hanla></hanla><code>yes/no</code>，输<hanla></hanla><code>yes</code>，然后后面一遇到<hanla></hanla><code>yes</code>
+                  <hanla></hanla>就输<hanla></hanla><code>yes</code>，其他一律回车。
+                </p>
+              </blockquote>
+            </li>
+          </ul>
+          <h4 id="软件源镜像更换"><a href="#软件源镜像更换" class="headerlink" title="软件源镜像更换"></a>软件源镜像更换</h4>
+          <ul>
+            <li>
+              <p>更换下载源</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">图形界面的切换方式</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ae18a3d44c7149f0bc614b6029f3b1fe.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>清华源的更换</p>
+              <blockquote>
+                <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+              </blockquote>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 系统版本查看<hanla></hanla></span></span><br><span class="line"><span class="attr">cat</span> <span class="string">/etc/issue</span></span><br><span class="line"> <span class="attr">Ubuntu</span> <span class="string">16.04.7 LTS \n \l</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <blockquote>
+                <p><code>Ubuntu</code> 的软件源配置文件是 <code>/etc/apt/sources.list</code>。将系统自带的该文件做个备份</p>
+              </blockquote>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 备份<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp /etc/apt/sources.list /etc/apt/sources.list.backup</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>自动切换</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">sudo</span> <span class="string">sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>更新</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 更新<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">apt-get update</span></span><br><span class="line"><span class="comment"># 更新软件源<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">apt-get -y upgrade</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>阿里云源切换</p>
+              <ul>
+                <li>
+                  <p>备份</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 可以创建一个空文件名称为: sources.list </span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp /etc/apt/sources.list /etc/apt/sources.list.backup</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>编辑文件<hanla></hanla><code>sources.list</code>,<hanla></hanla>添加如下内容</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">deb</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb-src</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb-src</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb-src</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb-src</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="attr">deb-src</span> <span class="string">http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>添加阿里云源的<hanla></hanla><code>DNS</code></p>
+                  <ul>
+                    <li>
+                      <p>临时生效</p>
+                      <figure class="highlight properties">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/resolv.conf</span></span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                      <figure class="highlight properties">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line"><span class="comment"># 添加如下<hanla></hanla></span></span><br><span class="line"><span class="attr">nameserver</span> <span class="string">ip【ping mirrors.aliyun.com/ubuntu/ =&gt; ip】</span></span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                    </li>
+                    <li>
+                      <p>永久生效</p>
+                      <figure class="highlight properties">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/network/interfaces</span></span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                      <figure class="highlight properties">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line"><span class="attr">dns-nameserver</span> <span class="string">ip【ping mirrors.aliyun.com/ubuntu/ =&gt; ip】</span></span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>更新</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">sudo</span> <span class="string">apt-get update</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="配置时区与时间"><a href="#配置时区与时间" class="headerlink" title="配置时区与时间"></a>配置时区与时间</h4>
+          <ul>
+            <li>
+              <p>时区选择</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># tz: Time Zone select: 选择<hanla></hanla></span></span><br><span class="line"><span class="attr">tzselect</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">出现如下</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/c066f2f363fb4b69ac60b5e07f2a0d85.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote>
+                <p>按顺序出现依次输入<hanla></hanla><code>4 、9、 1、 1</code></p>
+              </blockquote>
+            </li>
+            <li>
+              <p>时间同步</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 安装<hanla></hanla></span></span><br><span class="line"><span class="attr">apt-get</span> <span class="string">-y install ntp ntpdate</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 使用<hanla></hanla></span></span><br><span class="line"><span class="attr">ntpdate</span> <span class="string">-u ntp1.aliyun.com</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">实现时间同步</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/62d84b019104447f92c9afc810cfbea9.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>写入硬件</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 在复制后集群时可以保持一致<hanla></hanla></span></span><br><span class="line"><span class="attr">hwclock</span> <span class="string">--systohc</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h4>
+          <h5 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>
+            <hanla></hanla>前提准备
+          </h5>
+          <ul>
+            <li>
+              <p>切换用户身份</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr"><hanla></hanla>通过</span> <span class="string">sudo su -，切换到 root 用户</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>或在每一个命令前，加上<hanla></hanla><code>sudo</code>，用来临时提升权限</p>
+            </li>
+          </ul>
+          <h5 id="MYSQL-5-7"><a href="#MYSQL-5-7" class="headerlink" title="MYSQL-5.7"></a>MYSQL-5.7</h5>
+          <ul>
+            <li>
+              <p>下载<hanla></hanla><code>apt</code>
+                <hanla></hanla>仓库文件
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 下载 apt 仓库的安装包，Ubuntu 的安装包是 .deb 文件<hanla></hanla></span></span><br><span class="line"><span class="attr">wget</span> <span class="string">https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>配置<hanla></hanla><code>apt</code>
+                <hanla></hanla>仓库
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 使用 dpkg 命令安装仓库<hanla></hanla></span></span><br><span class="line"><span class="attr">dpkg</span> <span class="string">-i mysql-apt-config_0.8.12-1_all.deb</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <blockquote>
+                <p>弹出框中选择：<code>ubuntu bionic</code> （<code>Ubuntu18.04</code>
+                  <hanla></hanla>系统的代号是<hanla></hanla><code>bionic</code>，选择<hanla></hanla><code>18.04</code>
+                  <hanla></hanla>的版本库用来安装）
+                </p>
+                <p><code>Ubuntu 16.04 (LTS)</code>
+                  <hanla></hanla>代号为<hanla></hanla><code>xenial </code> 未出现 。
+                </p>
+              </blockquote>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">出现可视化界面,<hanla></hanla>选择第一个,<hanla></hanla>选择<hanla></hanla><code>MYSQL5.7</code>，之后选择<hanla></hanla><code>OK</code></th>
+                    <th align="center"><code>OK</code>
+                      <hanla></hanla>之后回车,<hanla></hanla>可以选择清屏
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/bb2c24cd87bb4d54af9fc217fd8c5310.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/303114e03c534447a22fff4f5d227af3.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>更新<hanla></hanla><code>apt</code>
+                <hanla></hanla>仓库的信息
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 首先导入仓库的密钥信息<hanla></hanla></span></span><br><span class="line"><span class="attr">apt-key</span> <span class="string">adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29</span></span><br><span class="line"><span class="comment"># 更新仓库信息<hanla></hanla></span></span><br><span class="line"><span class="attr">apt</span> <span class="string">update</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>检查是否成功配置<hanla></hanla><code>MySQL5.7</code>
+                <hanla></hanla>的仓库
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">apt-cache</span> <span class="string">policy mysql-server</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">如图所示字样即为成功</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2c9900fa5819417f9cad0af263c3532a.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>安装<hanla></hanla><code>MySQL5.7</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 使用<hanla></hanla>apt<hanla></hanla>安装<hanla></hanla>mysql<hanla></hanla>客户端和<hanla></hanla>mysql<hanla></hanla>服务端<hanla></hanla></span></span><br><span class="line"><span class="attr">apt</span> <span class="string">install -f -y mysql-client=5.7* mysql-community-server=5.7*</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <blockquote>
+                <p>弹出框中输入<hanla></hanla><code>root</code>
+                  <hanla></hanla>密码并选择<hanla></hanla><code>ok</code>，密码任意,<hanla></hanla>输入两次，输入完毕一次过程中需要按下回车确认
+                </p>
+                <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a71060cdc53d46fd846779a4f438685a.png"></p>
+              </blockquote>
+            </li>
+            <li>
+              <p>启动<hanla></hanla><code>MySQL</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">/etc/init.d/mysql</span> <span class="string">start			# 启动<hanla></hanla></span></span><br><span class="line"><span class="attr">/etc/init.d/mysql</span> <span class="string">stop			# 停止<hanla></hanla></span></span><br><span class="line"><span class="attr">/etc/init.d/mysql</span> <span class="string">status		# 查看状态</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">当前状态</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/17985bb544464bfd933433ba00997e4e.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p><code>对<hanla></hanla>MySQL</code>
+                <hanla></hanla>进行初始化
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 执行如下命令，此命令是<hanla></hanla>MySQL<hanla></hanla>安装后自带的配置程序<hanla></hanla></span></span><br><span class="line"><span class="attr">mysql_secure_installation</span></span><br><span class="line"><span class="comment"># 可以通过<hanla></hanla>which<hanla></hanla>命令查看到这个自带程序所在的位置<hanla></hanla></span></span><br><span class="line"><span class="attr">root@DESKTOP-Q89USRE</span>:<span class="string">~# which mysql_secure_installation</span></span><br><span class="line"><span class="attr">/usr/bin/mysql_secure_installation</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输入密码</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">输入密码</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/a88cca9516cc445fb9a9bdb0f8d848ab.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>是否开启密码验证插件，如果需要增强密码安全性，输入<hanla></hanla><code>y</code>
+                    <hanla></hanla>并回车，不需要直接回车
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">本次选择回车</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/643124342b0a4f409be42ad2a6e3a72e.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>是否更改<hanla></hanla>root<hanla></hanla>密码，需要输入<hanla></hanla><code>y</code>
+                    <hanla></hanla>回车，不需要直接回车
+                  </p>
+                </li>
+                <li>
+                  <p>是否进制<hanla></hanla><code>root</code>
+                    <hanla></hanla>用户远程登录，禁止输入<hanla></hanla><code>y</code>
+                    <hanla></hanla>回车，不禁止直接回车
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">不禁止</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/33ed593c10de477fae9ac03acd0fbf2f.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>是否移除自带的测试数据库，移除输入<hanla></hanla><code>y</code>
+                    <hanla></hanla>回车，不移除直接回车
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">不移除测试数据库</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0296d06b0574483aaf9bf71f176132eb.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>是否刷新权限，刷新输入<hanla></hanla><code>y</code>
+                    <hanla></hanla>回车，不刷新直接回车
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">输入<hanla></hanla><code>y</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/5611f0afc5d140ab9ee82dc2a6b3555e.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>登陆<hanla></hanla><code>MySQL</code></p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">mysql</span> <span class="string">-uroot -p</span></span><br><span class="line"><span class="comment"># 输入密码即可登陆成功</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>pwd:root</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d17776b4d3a94847b54a6a31e7387b71.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h5 id="MYSQL-8-0"><a href="#MYSQL-8-0" class="headerlink" title="MYSQL-8.0"></a>MYSQL-8.0</h5>
+          <ol>
+            <li>
+              <p>如果已经安装过<hanla></hanla><code>MySQL5.7</code>
+                <hanla></hanla>版本，需要卸载仓库信息
+              </p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止服务</span> </span><br><span class="line">/etc/init.d/mysql stop</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载<hanla></hanla>MySQL5.7<hanla></hanla>版本<hanla></hanla></span></span><br><span class="line">apt remove -y mysql-client=5.7* mysql-community-server=5.7*</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载<hanla></hanla>5.7<hanla></hanla>的仓库信息<hanla></hanla></span></span><br><span class="line">dpkg -l | grep mysql | awk '{print $2}' | xargs dpkg -P</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">重新配置<hanla></hanla>(执行<hanla></hanla>5.7<hanla></hanla>版本<hanla></hanla><code>apt update</code>
+                      <hanla></hanla>之前的内容)
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4cba44e2652c4cd08f49dd3d9d380a4b.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>更新<hanla></hanla><code>apt</code>
+                <hanla></hanla>仓库信息
+              </p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">apt update</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>安装<hanla></hanla><code>mysql</code></p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">apt install -y mysql-server</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>配置</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">密码强度</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/695a79252d164b6da0d83f9852c8ad8f.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>输入<hanla></hanla><code>root</code>
+                <hanla></hanla>密码
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">后续步骤中，由于上述安装过程出现过输入<hanla></hanla><code>root</code>
+                      <hanla></hanla>密码,<hanla></hanla>所以无法直接通过<hanla></hanla><code>mysql</code>
+                      <hanla></hanla>登入
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/83dace2bd43849f7b733f16b0ca3722c.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>启动<hanla></hanla>MySQL</p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">systemctl status mysql</span><br><span class="line">systemctl start mysql</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">检查状态</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0eadaae198c847adbf70b3c44a7dab78.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>查看当前安装的版本</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">检查是否更新</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/00e1f77bd9864ed0b4470e9a6b20c734.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>登陆<hanla></hanla><code>MySQL</code>
+                <hanla></hanla>设置密码
+              </p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">mysql -u root -proot</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">再次确定版本</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9f65ee3def9f499d9bcf29b8db7daa21.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>设置密码【可选】</p>
+              <figure class="highlight sql">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'password'</span>;</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>退出<hanla></hanla><code>MySQL</code>
+                <hanla></hanla>控制台
+              </p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line">exit</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>对<hanla></hanla><code>MySQL</code>
+                <hanla></hanla>进行初始化【可选】
+              </p>
+              <figure class="highlight shell">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行如下命令，此命令是<hanla></hanla>MySQL<hanla></hanla>安装后自带的配置程序<hanla></hanla></span></span><br><span class="line">mysql_secure_installation</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以通过<hanla></hanla><span class="built_in">which</span><hanla></hanla>命令查看到这个自带程序所在的位置<hanla></hanla></span></span><br><span class="line">root@DESKTOP-Q89USRE:~# which mysql_secure_installation</span><br><span class="line">/usr/bin/mysql_secure_installation</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">未出现则为默认回车,<hanla></hanla>本次输入:<code>y</code>【同<hanla></hanla>5.7】</th>
+                    <th align="center">不移除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b0434607874f40e0b52264a9a003c38f.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2ccb9f6545414a3bb4d90a2e376b6025.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ol>
+          <h4 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h4>
+          <ul>
+            <li>
+              <p>纯命令行模式</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">命令行模式<hanla></hanla>(<code>ctrl+alt+F5</code>)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/c0fdc097730f4b3eb55cd91beb4433f0.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>切换到图形化界面:<code>ctrl+alt+F7</code></p>
+            </li>
+            <li>
+              <p>独占模式</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">全屏显示,<hanla></hanla>隐藏导航栏,<hanla></hanla>按下<hanla></hanla><code>ctrl+alt</code>
+                      <hanla></hanla>退出独占模式
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/678f3247033440cb86f6dfe23a27d082.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>打开软件后全屏的退出方法</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">打开主文件夹后需要关闭,<hanla></hanla>只需要将鼠标移动到左上角位置即可点击关闭</th>
+                    <th align="center">其他应用相同，关闭后回到主屏幕</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d0b42f8e2d3d433d8d72bba31f3b7ff9.png"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ace44a6e869241e4a611d33bf8239a48.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h3 id="Ubuntu系统-版本22安装配置"><a href="#Ubuntu系统-版本22安装配置" class="headerlink" title="Ubuntu系统-版本22安装配置"></a>Ubuntu<hanla></hanla>系统-版本<hanla></hanla>22<hanla></hanla>安装配置</h3>
+          <h4 id="虚拟主机创建-1"><a href="#虚拟主机创建-1" class="headerlink" title="虚拟主机创建"></a>虚拟主机创建</h4>
+          <ul>
+            <li>
+              <p>官网</p>
+              <blockquote>
+                <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://ubuntu.com/">https://ubuntu.com/</a></p>
+              </blockquote>
+            </li>
+            <li>
+              <p>下载镜像</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">使用<hanla></hanla><code>Ubuntu Server</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e81c022b81d8439f8da18e9ed178ae16.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote>
+                <p>镜像文件: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://mirrors.cnnic.cn/ubuntu-releases/22.04.1/ubuntu-22.04.1-live-server-amd64.iso">https://mirrors.cnnic.cn/ubuntu-releases/22.04.1/ubuntu-22.04.1-live-server-amd64.iso</a></p>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>VMWare<hanla></hanla>虚拟机</code>创建流程</p>
+              <ul>
+                <li>
+                  <p>新建虚拟机</p>
+                </li>
+                <li>
+                  <p>选择<code>自定义【高级】</code></p>
+                </li>
+                <li>
+                  <p>下一步<code>...</code></p>
+                </li>
+                <li>
+                  <p>选择镜像文件</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">添加镜像</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/8133ce76572e4373b5594fbda1f855aa.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>命名与目录位置选择</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">目录位置选择</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/020d5994240441b8bdad1031343f0ae8.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>内存大小不要超过物理内存<code>【电脑本身的内存大小】</code></p>
+                </li>
+                <li>
+                  <p><code>ip</code>
+                    <hanla></hanla>地址的配置：<code>NAT</code>
+                  </p>
+                  <ul>
+                    <li>
+                      <p>桥接模式：模拟的真实主机,<hanla></hanla>使虚拟机能被分配到一个网络中独立的<hanla></hanla><code>IP</code>,<hanla></hanla>所有的网络功能完全和在网络中的真实机器一样</p>
+                    </li>
+                    <li>
+                      <p>网络地址转换<code>【简称 NAT】</code>: 主机网卡直接与虚拟<hanla></hanla><code>NAT</code>
+                        <hanla></hanla>设备链接,<hanla></hanla>并且通过虚拟<hanla></hanla><code>DHCP</code>
+                        <hanla></hanla>服务器为其分配<hanla></hanla><code>IP</code>
+                        <hanla></hanla>地址,<hanla></hanla>这样多台虚拟机就形成一套完整的虚拟网络,<hanla></hanla>也是推荐使用的网络配置
+                      </p>
+                    </li>
+                    <li>
+                      <p>仅主机模式: 让虚拟机处于一个独立的网络环境下,<hanla></hanla>无法直接进行互联网访问,<hanla></hanla>但是可以通过操作系统提供的链接共享功能实现上网,<hanla></hanla>相当于实现了一个私有局域网</p>
+                    </li>
+                    <li>
+                      <p>不使用网络连接: 在虚拟机中不进行虚拟网卡的安装,<hanla></hanla>无法实现网络访问</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center"><code>NAT-模式</code></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b71289391a734f3985b0492b15c0b613.png"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                    <li>
+                      <p>下一步<code>【...】</code></p>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>开启<hanla></hanla><code>IPV6</code></p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">虚拟网络<hanla></hanla>(①)</th>
+                        <th align="center"><code>NAT</code>
+                          <hanla></hanla>设置<hanla></hanla>(②)
+                        </th>
+                        <th align="center">开启<hanla></hanla>(③)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d12ccacb2de8414dab2e3b4f31d4f23e.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0b811babe4ce40d4bc031b10c2224d0f.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/baecf3d5bc4e411c92455bf3bbc27d8a.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="启动-安装"><a href="#启动-安装" class="headerlink" title="启动-安装"></a>启动-安装</h4>
+          <ul>
+            <li>语言<code>【英语】</code></li>
+          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th align="center">语言<code>【英语】</code>,<hanla></hanla>之后<code>回车</code></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d1b3d3cb0e674c89a80e23c3b927b9c1.png"></td>
+              </tr>
+            </tbody>
+          </table>
+          <ul>
+            <li>
+              <p><code>Continue without updating</code></p>
+            </li>
+            <li>
+              <p>键盘布局选择默认<hanla></hanla><code>Done</code></p>
+            </li>
+            <li>
+              <p>选择<hanla></hanla><code>Ubuntu Server</code></p>
+            </li>
+            <li>
+              <p>网络环境选择默认<hanla></hanla><code>Done</code></p>
+            </li>
+            <li>
+              <p>代理选择默认<hanla></hanla><code>Done</code></p>
+            </li>
+            <li>
+              <p>仓库镜像源配置，此时选择<hanla></hanla><code>Done</code>,<code>【TODO: 后期修改】</code></p>
+            </li>
+            <li>
+              <p>配置当前要使用的磁盘,<hanla></hanla>选择默认<hanla></hanla><code>Done</code></p>
+            </li>
+            <li>
+              <p>随后要询问采用的存储的配置,<hanla></hanla>进行磁盘的挂载,<hanla></hanla>而后进行一些基本的目录配置,<hanla></hanla>选择默认<hanla></hanla><code>Done</code></p>
+            </li>
+            <li>
+              <p>配置管理员账户</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">管理员账户</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/838ccaa197dd4d4c9799a5c9438a4470.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr"><hanla></hanla>用户名</span>: <span class="string">coder-itl</span></span><br><span class="line"><span class="attr"><hanla></hanla>服务名</span>: <span class="string">localhost</span></span><br><span class="line"><span class="attr"><hanla></hanla>用户名</span>: <span class="string">coder-itl</span></span><br><span class="line"><span class="attr"><hanla></hanla>密码</span>: <span class="string">coder-itl</span></span><br><span class="line"><span class="attr"><hanla></hanla>确认密码</span>: <span class="string">coder-itl</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>询问安装时是否要进行<hanla></hanla><code>OpenSSH</code>
+                <hanla></hanla>服务的安装,<hanla></hanla>为了以后的远程管理方便,<hanla></hanla>选择安装
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">空格键进行选择<code>【】内出现 x 即为选择上</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/cef76a745b214573b9a7a2f47a642446.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>一些额外服务配置,<hanla></hanla>通过上下键之间选择<hanla></hanla><code>Done</code></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>Done</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/8457b650530c4222a6e8206147e1232e.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>随后就进入到系统的安装环节,<code>
+                  <hanla></hanla>慢慢等待....
+                </code></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>安装中.....</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f1a9043f399d4f98995048fc12c31341.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>安装结束后,<hanla></hanla>选择重新启动当前系统</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>注意不是取消并重启,<hanla></hanla>等待时间比较长,<hanla></hanla>出现如下 Reboot Now</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/7543e71511d14e3d8de9e749a7074533.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote>
+                <p>如果重启过程中出现<hanla></hanla><code>Failed /cdrom</code>，回车一下</p>
+              </blockquote>
+            </li>
+            <li>
+              <p>出现登录字样,<hanla></hanla>输入安装时配置的用户信息，密码输入时不会回显<code>不会显示</code></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">成功登录</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/dcae883f47f14efbab260664ec66b8e2.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>启用<hanla></hanla><code>root</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 修改 root 用户密码<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">passwd root</span></span><br><span class="line"><span class="comment"># 之后输入密码【自定义】</span></span><br><span class="line"><span class="attr">root</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">密码输入三次,<hanla></hanla>第一次是普通管理员密码<hanla></hanla>(当前登录用户密码),<hanla></hanla>第二次是新密码,<hanla></hanla>第三次确认密码</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d2ff0b0dcadd41f29cd8bd913e4f622d.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>注销当前登录账户<hanla></hanla><code>coder-itl</code>，切换<hanla></hanla><code>root</code>
+                <hanla></hanla>账户
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 注销<hanla></hanla></span></span><br><span class="line"><span class="attr">logout</span></span><br><span class="line"><span class="comment"># 使用 root 登录权限比较高,<hanla></hanla>可以减少输入命令过程中加入 sudo </span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">输入<hanla></hanla><code>root</code>
+                      <hanla></hanla>登录
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/69a8a6c8d06f4274b33bdd9012cbfc3a.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4>
+          <ul>
+            <li>
+              <p>查看<hanla></hanla><code>sshd</code>
+                <hanla></hanla>服务是否启动
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>systemctl status sshd</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/235e78ee9c7a4443ab3fbee38faff4f9.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p><code>root</code>
+                <hanla></hanla>连接被拒绝
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">此时<hanla></hanla><code>root</code>
+                      <hanla></hanla>连接拒绝
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f6fa104056064aed9143bd390eeb9c5b.png"></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>
+                  <p>解决</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 修改如下配置文件中的配置<hanla></hanla></span></span><br><span class="line"><span class="attr">vi</span> <span class="string">/etc/ssh/sshd_config</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 允许 root 登录，修改后,<hanla></hanla>保存退出<hanla></hanla></span></span><br><span class="line"><span class="attr">PermitRootLogin</span> <span class="string">yes</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 重启 sshd 服务<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">restart sshd [新]</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 旧<hanla></hanla></span></span><br><span class="line"><span class="attr">/etc/init.d/ssh</span> <span class="string">stop</span></span><br><span class="line"><span class="attr">/etc/init.d/ssh</span> <span class="string">start</span></span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">成功连接</th>
+                        <th align="center">服务启停测试</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/cc694787b31940fa89a143bff564ebcf.png"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/16bf62bb7ed04c2fb4e04336ef54a913.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="配置静态-IP"><a href="#配置静态-IP" class="headerlink" title="配置静态 IP"></a>配置静态 IP</h4>
+          <ul>
+            <li>
+              <p>新版本发生变化</p>
+            </li>
+            <li>
+              <p>配置文件位置</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/netplan/00-installer-config.yaml</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># ubuntu 可以使用文本编辑器 gedit 缺点: 中文无法输入<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">gedit /etc/netplan/00-installer-config.yaml</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure class="highlight yaml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 网络配置文件内容<hanla></hanla></span></span><br><span class="line"><span class="attr">network:</span> <span class="comment"># 网络的配置</span></span><br><span class="line">  <span class="attr">ethernets:</span> <span class="comment"># 以太网的配置</span></span><br><span class="line">    <span class="attr">ens33:</span> <span class="comment"># 网卡的编号</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">false</span> <span class="comment"># 不使用 DHCP 进行 IPV4 的配置</span></span><br><span class="line">      <span class="attr">dhcp6:</span> <span class="literal">false</span> <span class="comment"># 不使用 DHCP 进行 IPV46 的配置</span></span><br><span class="line">      <span class="attr">addresses:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.247</span><span class="number">.130</span><span class="string">/24</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">fe80::20c:29ff:fed4:a289/64</span> <span class="comment"># ip addr 获取 ipv6</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">default</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.247</span><span class="number">.2</span> <span class="comment"># 网关地址</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span> [<span class="number">223.5</span><span class="number">.5</span><span class="number">.5</span>,<span class="number">180.76</span><span class="number">.76</span><span class="number">.76</span>,<span class="number">114.114</span><span class="number">.114</span><span class="number">.114</span>] <span class="comment"># DNS</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">renderer:</span> <span class="string">networkd</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>IPV6</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/194cce1f50ce44adba87584774d6afa0.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>重新启用</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">netplan</span> <span class="string">apply</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>测试网络状态</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">成功</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/6d3fffcac823402f8f02033d91051654.png"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">
+              <hanla></hanla>文章链接:
+            </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">
+              <hanla></hanla>版权声明:
+            </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+        </div>
+        <div class="tag_share">
+          <div class="post-meta__tag-list"></div>
+          <div class="post_share">
+            <div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+            <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+          </div>
+        </div>
+        <nav class="pagination-post" id="pagination">
+          <div class="prev-post pull-left"><a href="/2023/01/26/28869.html" title="AOP-深入了解"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/1.jpg" onerror="onerror=null;src='/null'" alt="cover of previous post">
+              <div class="pagination-info">
+                <div class="label">上一篇<hanla></hanla>
+                </div>
+                <div class="prev_info">AOP-深入了解</div>
+              </div>
+            </a></div>
+          <div class="next-post pull-right"><a href="/2022/12/27/14068.html" title="SpringBoot、微服务瘦身实战"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/5.jpg" onerror="onerror=null;src='/null'" alt="cover of next post">
+              <div class="pagination-info">
+                <div class="label">下一篇<hanla></hanla>
+                </div>
+                <div class="next_info">SpringBoot、微服务瘦身实战</div>
+              </div>
+            </a></div>
+        </nav>
+        <hr>
+        <div id="post-comment">
+          <div class="comment-head">
+            <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+          </div>
+          <div class="comment-wrap">
+            <div>
+              <div id="twikoo-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget" id="card-toc">
+            <div class="item-headline"><i class="fas fa-stream"></i><span>
+                <hanla></hanla>目录<hanla></hanla>
+              </span><span class="toc-percentage"></span></div>
+            <div class="toc-content">
+              <ol class="toc">
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu%E7%B3%BB%E7%BB%9F-%E7%89%88%E6%9C%AC16%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">Ubuntu<hanla></hanla>系统-版本<hanla></hanla>16<hanla></hanla>安装配置<hanla></hanla></span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%88%9B%E5%BB%BA"><span class="toc-number">1.1.</span> <span class="toc-text">虚拟主机创建<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Root-%E7%94%A8%E6%88%B7"><span class="toc-number">1.2.</span> <span class="toc-text">Root-用户<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.3.</span> <span class="toc-text">命令行界面字体大小<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#SSH-%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.4.</span> <span class="toc-text">SSH-服务<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.5.</span> <span class="toc-text">环境准备<hanla></hanla></span></a>
+                      <ol class="toc-child">
+                        <li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.5.1.</span> <span class="toc-text">防火墙<hanla></hanla></span></a></li>
+                        <li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BA%93"><span class="toc-number">1.5.2.</span> <span class="toc-text">常用库<hanla></hanla></span></a></li>
+                      </ol>
+                    </li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">1.6.</span> <span class="toc-text">网络<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#VMware-Tools"><span class="toc-number">1.7.</span> <span class="toc-text">VMware-Tools</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%BA%90%E9%95%9C%E5%83%8F%E6%9B%B4%E6%8D%A2"><span class="toc-number">1.8.</span> <span class="toc-text">软件源镜像更换<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%97%B6%E5%8C%BA%E4%B8%8E%E6%97%B6%E9%97%B4"><span class="toc-number">1.9.</span> <span class="toc-text">配置时区与时间<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#MYSQL"><span class="toc-number">1.10.</span> <span class="toc-text">MYSQL</span></a>
+                      <ol class="toc-child">
+                        <li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E6%8F%90%E5%87%86%E5%A4%87"><span class="toc-number">1.10.1.</span> <span class="toc-text">前提准备<hanla></hanla></span></a></li>
+                        <li class="toc-item toc-level-5"><a class="toc-link" href="#MYSQL-5-7"><span class="toc-number">1.10.2.</span> <span class="toc-text">MYSQL-5.7</span></a></li>
+                        <li class="toc-item toc-level-5"><a class="toc-link" href="#MYSQL-8-0"><span class="toc-number">1.10.3.</span> <span class="toc-text">MYSQL-8.0</span></a></li>
+                      </ol>
+                    </li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2"><span class="toc-number">1.11.</span> <span class="toc-text">模式切换<hanla></hanla></span></a></li>
+                  </ol>
+                </li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu%E7%B3%BB%E7%BB%9F-%E7%89%88%E6%9C%AC22%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">Ubuntu<hanla></hanla>系统-版本<hanla></hanla>22<hanla></hanla>安装配置<hanla></hanla></span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%88%9B%E5%BB%BA-1"><span class="toc-number">2.1.</span> <span class="toc-text">虚拟主机创建<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8-%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.</span> <span class="toc-text">启动-安装<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#SSH"><span class="toc-number">2.3.</span> <span class="toc-text">SSH</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81-IP"><span class="toc-number">2.4.</span> <span class="toc-text">配置静态 IP</span></a></li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

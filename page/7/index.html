@@ -1,0 +1,799 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="To read without reflecting is like eating without digesting.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="coder-itl">
+  <meta property="og:url" content="https://coderitl.github.io/page/7/index.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="To read without reflecting is like eating without digesting.">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://i.328888.xyz/2023/03/19/MJUXa.jpeg">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="coder-itl,Java,HTML+CSS,Hexo,MYSQL">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://i.328888.xyz/2023/03/19/MJUXa.jpeg">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/page/7/index.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'coder-itl',
+      isPost: false,
+      isHome: true,
+      isHighlightShrink: false,
+      isToc: false,
+      postUpdate: '2023-06-22 19:52:22'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="page" id="body-wrap">
+    <header class="full_page" id="page-header" style="background: transparent">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="site-info">
+        <h1 id="site-title">coder-itl</h1>
+        <div id="site-subtitle"><span id="subtitle"></span></div>
+      </div>
+      <div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div class="recent-posts" id="recent-posts">
+        <div class="recent-post-item">
+          <div class="post_cover left"><a href="/2022/02/13/28203.html" title="Centos7-安装GITLAB并配置"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/12.jpg" onerror="this.onerror=null;this.src='/null'" alt="Centos7-安装GITLAB并配置"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/02/13/28203.html" title="Centos7-安装GITLAB并配置">Centos7-安装<hanla></hanla>GITLAB<hanla></hanla>并配置</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于<hanla></hanla></span><time datetime="2022-02-13T01:08:02.000Z" title="发表于 2022-02-13 09:08:02">2022-02-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div>
+            <div class="content"> Centos7-安装<hanla></hanla>GITLAB<hanla></hanla>并配置网络配置 安装虚拟机时选择<hanla></hanla>NAT<hanla></hanla>网络，安装不开启本地网络<hanla></hanla>(物理环境使用路由器选择桥接模式，单机或拨号上网选择<hanla></hanla>NAT<hanla></hanla>模式，不想用虚拟机上网则选主机模式) 安装完毕后修改 1234567891011121314151617181920212223242526272829303132333435363738cd /etc/sysconfig/network-scrips/ls# 每个人的名称不一样 前缀应该一样<hanla></hanla>vim ifcfg-ens33# 自动获取<hanla></hanla>IPdhclinet# 查看 IP 可以设置 ens 显示的 IPip addr########################### 标注修改、添加部分改动,<hanla></hanla>其余全部默认 ###############TYPE=EthernetPROXY_METHOD=noneBROWSER_ONLY=noBOOTPROTO=static # 修改 DEFROUTE=yesIPV4_FAILURE_FATAL=noIPV6INIT=yesIPV6_AUTOCONF=yesIPV6_DEFROUTE=yesIPV6_ ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover right"><a href="/2022/02/09/10336.html" title="GITHUB-Pages-绑定自定义域名"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/24.jpg" onerror="this.onerror=null;this.src='/null'" alt="GITHUB-Pages-绑定自定义域名"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/02/09/10336.html" title="GITHUB-Pages-绑定自定义域名">GITHUB-Pages-绑定自定义域名</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于<hanla></hanla></span><time datetime="2022-02-09T06:32:04.000Z" title="发表于 2022-02-09 14:32:04">2022-02-09</time></span></div>
+            <div class="content"> GITHUB-Pages-绑定自定义域名服务器购买选择一个服务器厂商,<hanla></hanla>需要备案个人主体信息，如：阿里云、腾讯云 域名解析选择一个服务器厂商,<hanla></hanla>解析两个,<hanla></hanla>一个是关于域名绑定服务器<hanla></hanla>(DNS),<hanla></hanla>一个是关于<hanla></hanla>github pages<hanla></hanla>绑定域名<hanla></hanla>(DNS) 在服务器上<hanla></hanla>ping [github]username.github.io,<hanla></hanla>将会获取一个<hanla></hanla>IP，在<hanla></hanla>windows<hanla></hanla>上<hanla></hanla>ping<hanla></hanla>超时过于严重 进入<hanla></hanla>github，点击如下位置 Nginx 部署<hanla></hanla>
+            </div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover left"><a href="/2022/02/09/14869.html" title="Docker-应用容器"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="ttps://i.328888.xyz/2023/04/01/i2X7Tt.png" onerror="this.onerror=null;this.src='/null'" alt="Docker-应用容器"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/02/09/14869.html" title="Docker-应用容器">Docker-应用容器</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于<hanla></hanla></span><time datetime="2022-02-09T00:36:47.000Z" title="发表于 2022-02-09 08:36:47">2022-02-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Docker/">Docker</a></span></div>
+            <div class="content"> Docker-应用容器安装<hanla></hanla>Docker 官网 官网<hanla></hanla>(①): https://www.docker.com/ centos(②): https://docs.docker.com/engine/install/centos/ 选择<hanla></hanla>Linux(①) 选择对应系统安装<hanla></hanla>(②) 卸载旧版本 12345678sudo yum remove docker \ docker-client \ docker-client-latest \ docker-common \ docker-latest \ docker-latest-logrotate \ docker-logrotate \ docker-engine 下载关于<hanla></hanla>Docker<hanla></hanla>的依赖环境 1yum install -y yum-utils device-mapper-persistent- ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover right"><a href="/2022/02/08/24473.html" title="GIT-版本控制"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b5b90619cdb940cf8f63dd5e20c74942.png" onerror="this.onerror=null;this.src='/null'" alt="GIT-版本控制"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/02/08/24473.html" title="GIT-版本控制">GIT-版本控制</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于<hanla></hanla></span><time datetime="2022-02-08T08:39:48.000Z" title="发表于 2022-02-08 16:39:48">2022-02-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div>
+            <div class="content"> 简介 GIT<hanla></hanla>是一个开源的分布式版本控制系统,<hanla></hanla>用于敏捷高效地处理任何或小或大地项目 GIT<hanla></hanla>是<hanla></hanla>Linux Torvalds<hanla></hanla>为了帮助管理<hanla></hanla>Linux<hanla></hanla>内核开发二开发地一个开放源码地版本控制软件 官网: https://git-scm.com 下载安装 下载 官网下载 镜像地址下载 官网<hanla></hanla>https://git-scm.com/download/win 镜像地址<hanla></hanla>https://registry.npmmirror.com/binary.html?path=git-for-windows/v2.35.1.windows.2/ 安装流程 推荐选择,<hanla></hanla>未出现则为默认选择 注意环境变量添加或选择 配置账户信息 添加配置 123456789# 如下信息会在提交代码时使用，记录在你的每次提交中,<hanla></hanla>以后才知道那次提交是谁地<hanla></hanla>git config --global user.name "Your Name" # gitee | github 用户名<hanla></hanla>git config --global user.email "Your Email&amp;q ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover left"><a href="/2022/02/08/31140.html" title="Java-日志管理"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p8Zv.jpeg" onerror="this.onerror=null;this.src='/null'" alt="Java-日志管理"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/02/08/31140.html" title="Java-日志管理">Java-日志管理</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于<hanla></hanla></span><time datetime="2022-02-08T08:04:59.000Z" title="发表于 2022-02-08 16:04:59">2022-02-08</time></span></div>
+            <div class="content"> Java-日志管理<hanla></hanla>JUL(内置) 基本使用 123456789101112131415161718192021222324package com.coderitl.test;import org.junit.jupiter.api.Test;import java.util.logging.Level;import java.util.logging.Logger;public class JUTDemo { @Test public void testJUL() { // 获取日志记录器对象 =&gt; 需要一个唯一标识<hanla></hanla>(一般以当前类的全限定名称) Logger logger = Logger.getLogger("com.coderitl.test.JUTDemo"); // 日志输出 logger.info("日志记录输出"); // 通用方法进行日志记录 logger.log(Level.INFO, "info ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover right"><a href="/2022/02/07/27420.html" title="Java-JDBC"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/17.jpg" onerror="this.onerror=null;this.src='/null'" alt="Java-JDBC"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/02/07/27420.html" title="Java-JDBC">Java-JDBC</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">
+                  <hanla></hanla>发表于<hanla></hanla>
+                </span><time datetime="2022-02-07T05:17:23.000Z" title="发表于 2022-02-07 13:17:23">2022-02-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div>
+            <div class="content"> JDBC(MYSQL-5.7)IDEA<hanla></hanla>搭建<hanla></hanla>JDBC<hanla></hanla>环境<hanla></hanla>JDBC<hanla></hanla>环境搭建动画演示<hanla></hanla>JDBC<hanla></hanla>环境搭建流程<hanla></hanla>Maven-依赖 新建空<hanla></hanla>java<hanla></hanla>项目在<hanla></hanla>idea<hanla></hanla>中 新建文件夹<hanla></hanla>lib,<hanla></hanla>在当前项目中 下载<hanla></hanla>mysql-connector-java，选择适当版本当前选择为: 5.1.47 自行下载<hanla></hanla>mysql-connector.jar 个人阿里云盘获取 mysql-connector-java<hanla></hanla>点击跳转<hanla></hanla>https://mvnrepository.com/artifact/mysql/mysql-connector-java Java-Jarhttps://www.aliyundrive.com/s/z21pTCo7QzP 选中<hanla></hanla>lib<hanla></hanla>文件夹右键<hanla></hanla>Add as Library... 依赖 12345678910111213141516171819<!--   mysql --><!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+              <dependency> &amp; ...</dependency>
+            </div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover left"><a href="/2022/02/03/31838.html" title="JavaWeb-Ajax-Axios"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2Xc4H.jpeg" onerror="this.onerror=null;this.src='/null'" alt="JavaWeb-Ajax-Axios"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/02/03/31838.html" title="JavaWeb-Ajax-Axios">JavaWeb-Ajax-Axios</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">
+                  <hanla></hanla>发表于<hanla></hanla>
+                </span><time datetime="2022-02-03T08:07:15.000Z" title="发表于 2022-02-03 16:07:15">2022-02-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div>
+            <div class="content"> JavaWeb-Ajax-AxiosJSON-概述什么是<hanla></hanla>JSON? JSON(JavaScript Object Notation),JS<hanla></hanla>对象标记,<hanla></hanla>是一种轻量级别的数据交换格式.<hanla></hanla>它基于<hanla></hanla>ECMAScript(w3c)<hanla></hanla>制定的<hanla></hanla>js<hanla></hanla>规范的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得<hanla></hanla>JSON<hanla></hanla>成为理想的数据交换语言,<hanla></hanla>易于人阅读和编写,<hanla></hanla>同时也易于机器解析和生成。并有效地提升网络传输效率。 FastJSON FastJson<hanla></hanla>是一个<hanla></hanla>Java<hanla></hanla>库,<hanla></hanla>可以将<hanla></hanla>Java<hanla></hanla>对象转换为<hanla></hanla>JSON<hanla></hanla>格式,<hanla></hanla>当然它也可以将<hanla></hanla>JSON<hanla></hanla>字符串转换为<hanla></hanla>Java<hanla></hanla>对象 提供了<hanla></hanla>toJSONString()<hanla></hanla>和<hanla></hanla>parseObject()<hanla></hanla>方法来将<hanla></hanla>Java<hanla></hanla>对象与<hanla></hanla>JSON<hanla></hanla>相互转换 调用<hanla></hanla>toJSONString()<hanla></hanla>方法即可将对象转换成<hanla></hanla>JSON<hanla></hanla>字符串 parseObject<hanla></hanla>方法则反过来将<hanla></hanla>JSON<hanla></hanla>字符串转换成对象 使用<hanla></hanla>toJSONString toJSONStringparseObject 添加<hanla></hanla>maven<hanla></hanla>依赖 123456<!-- https://mvnrepository.com/artifact/c ...--></div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover right"><a href="/2022/01/27/55648.html" title="PowerDesigner数据库设计软件"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/891d8afad8fb40888d8f5a63c83a041a.png" onerror="this.onerror=null;this.src='/null'" alt="PowerDesigner数据库设计软件"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/01/27/55648.html" title="PowerDesigner数据库设计软件">PowerDesigner<hanla></hanla>数据库设计软件</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于<hanla></hanla></span><time datetime="2022-01-27T10:20:42.000Z" title="发表于 2022-01-27 18:20:42">2022-01-27</time></span></div>
+            <div class="content"> PowerDesigner<hanla></hanla>数据库设计软件作用: 数据复用安装 双击<hanla></hanla>xx.exe<hanla></hanla>运行 语言选择 | 语言选择 | | :———————————————————-: | | | 更改安装路径 | 更改安装路径 | | :———————————————————-: | | | 选择该项 | 选择该项 | | :———————————————————-: | | | 未出现步骤一律<hanla></hanla>next 找到安装目录中的<hanla></hanla>pdxshell.exe<hanla></hanla>双击运行，点击如下检查可用时常 | 点击如下 | | :———————————————————-: | | s | 添加 ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover left"><a href="/2022/01/26/13919.html" title="Mybatis"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/281aea8ea6224f7daaae6e74d67d5d13.png" onerror="this.onerror=null;this.src='/null'" alt="Mybatis"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2022/01/26/13919.html" title="Mybatis">Mybatis</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">
+                  <hanla></hanla>发表于<hanla></hanla>
+                </span><time datetime="2022-01-26T10:40:57.000Z" title="发表于 2022-01-26 18:40:57">2022-01-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div>
+            <div class="content"> Mybatis<hanla></hanla>基础环境搭建总结实现步骤下载映射文件解析主配置文件使用注意事项具体使用 是什么 mybatis<hanla></hanla>是一个<hanla></hanla>sql<hanla></hanla>映射框架,<hanla></hanla>提供的数据库的操作能力,<hanla></hanla>增强的<hanla></hanla>JDBC，使用<hanla></hanla>mybatis<hanla></hanla>让开发人员集中精神写<hanla></hanla>sql<hanla></hanla>就行了,<hanla></hanla>不必关心 Connection、Statement、ResuletSet<hanla></hanla>的创建,<hanla></hanla>销毁,sql<hanla></hanla>的执行 新建表 123456789101112-- 创建数据库<hanla></hanla>create database springdb CHARACTER SET utf8 COLLATE utf8_general_ci;-- 使用数据库<hanla></hanla>use springdb;-- 创建表<hanla></hanla>create table Student( userId int not null primary key comment '用户<hanla></hanla>ID', userName varchar(80) not null comment '用户名', email varchar(20) not null comment '邮箱', ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover right"><a href="/2021/12/31/6304.html" title="Jupyter NoteBook"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/20.jpg" onerror="this.onerror=null;this.src='/null'" alt="Jupyter NoteBook"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2021/12/31/6304.html" title="Jupyter NoteBook">Jupyter NoteBook</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">
+                  <hanla></hanla>发表于<hanla></hanla>
+                </span><time datetime="2021-12-31T01:43:55.000Z" title="发表于 2021-12-31 09:43:55">2021-12-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a></span></div>
+            <div class="content">Jupyter NoteBook<hanla></hanla>运行配置什么是<hanla></hanla>Jupyter NoteBook1Jupyter Notebook, 以前又称为<hanla></hanla>IPython notebook,<hanla></hanla>是一个交互式笔记本, 支持运行<hanla></hanla>40+<hanla></hanla>种编程语言. 可以用来编写漂亮的交互式文档. 检测<hanla></hanla>Python<hanla></hanla>系统版本并升级<hanla></hanla>1234567# 检测 python 版本信息<hanla></hanla>python --versionEg: Python 3.9.5# 升级<hanla></hanla>python -m pip install --upgrade pip 更换<hanla></hanla>pip<hanla></hanla>镜像<hanla></hanla>12345678910111213141516171819# 创建 pip 文件夹<hanla></hanla>C:\Users\[coderitl 用户名]\pip[自行新建 pip 文件夹]#创建文件 pip.ini# 文件内容<hanla></hanla>[global]index-url = http://mirrors.aliyun.com/pypi/simple/ # 更换可选择下列地址<hanla></hanla>[install]trusted-host = mirrors.aliyun.com # 更换可选择下列地址# 其他镜像源中国科技大学: https://pypi.mirr ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover left"><a href="/2021/10/03/63691.html" title="C语言开发工具-CodeBloks安装与配置(包含汉化)"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/20.jpg" onerror="this.onerror=null;this.src='/null'" alt="C语言开发工具-CodeBloks安装与配置(包含汉化)"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2021/10/03/63691.html" title="C语言开发工具-CodeBloks安装与配置(包含汉化)">C<hanla></hanla>语言开发工具-CodeBloks<hanla></hanla>安装与配置<hanla></hanla>(包含汉化)</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">
+                  <hanla></hanla>发表于<hanla></hanla>
+                </span><time datetime="2021-10-03T13:51:51.000Z" title="发表于 2021-10-03 21:51:51">2021-10-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C<hanla></hanla>语言<hanla></hanla></a></span></div>
+            <div class="content">C<hanla></hanla>语言开发工具-CodeBloks<hanla></hanla>安装与配置<hanla></hanla>(包含汉化) 下载流程 软件下载 自行下载 阿里云盘获取 CodeBloks<hanla></hanla>下载<hanla></hanla>https://www.codeblocks.org/downloads/binaries/ CodeBloks<hanla></hanla>下载<hanla></hanla>https://www.aliyundrive.com/s/wF6ReUjoLhq 下载提供的汉化包，进入<hanla></hanla>Codebloks<hanla></hanla>的安装目录:Eg: C:\SoftwareDownload\CodeBloks\CodeBlocks\share\CodeBlocks 将提供的<hanla></hanla>share<hanla></hanla>下的文件复制到该文件夹目录下 打开<hanla></hanla>Codebloks<hanla></hanla>软件,<hanla></hanla>执行如下操作 CodeBlok<hanla></hanla>汉化演示动画<hanla></hanla>CodeBlok<hanla></hanla>文字流程字体设置格式化快捷键设置去除波浪线<hanla></hanla>(关闭单词拼写检查) 12345<hanla></hanla>进入<hanla></hanla>CodeBloks<hanla></hanla>安装目录: xxx\CodeBloks\CodeBlocks\share\CodeBlocks\locale<hanla></hanla>将提供的 zh_CN 复制到该目录下打开<hanla></hanla>CodeBloks 软件,<hanla></hanla>点击 Settings/Enviroment/Views/ 选择 ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover right"><a href="/2021/09/24/1552.html" title="Java-Spring框架"><img class="post-bg" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/15.jpg" onerror="this.onerror=null;this.src='/null'" alt="Java-Spring框架"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2021/09/24/1552.html" title="Java-Spring框架">Java-Spring<hanla></hanla>框架</a>
+            <div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于<hanla></hanla></span><time datetime="2021-09-24T02:20:51.000Z" title="发表于 2021-09-24 10:20:51">2021-09-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div>
+            <div class="content">Java-Spring<hanla></hanla>框架了解什么是<hanla></hanla>Springspring-官网<hanla></hanla>spring-优点<hanla></hanla>spring-体系结构 spring<hanla></hanla>官网 Spring<hanla></hanla>官网<hanla></hanla>https://spring.io/projects/spring-framework#learn 点击如下图查看具体内容: 优点 轻量 1Spring 框架使用的 jar 都比较小，一般在 1M 一下或者几百 KB,Spring 核心功能的所需的 jar 总共在 3M 左右 针对接口编程 1Spring 提供了 ioc 控制反转,<hanla></hanla>由容器管理对象,<hanla></hanla>对象的依赖关系,<hanla></hanla>原来在程序代码中的对象创建方式，现在由容器来完成,<hanla></hanla>对象之间的依赖解耦合。 AOP<hanla></hanla>编程支持 12<hanla></hanla>通过 Spring 提供的 AOP 功能,<hanla></hanla>方便进行面向切面的编程,<hanla></hanla>许多不容易用传统 OOP 实现的功能可以通过 AOP 轻松应付在 Spring 中，开发人员可以从繁琐的事物管理代码中解脱出来，通过声明方式灵活的进行事物的管理，提高开发效率和质量 方便各种优秀框架的集成 1Spring 不排斥各种优秀的开源框架,<hanla></hanla>相反 Spring 可以降低各种框架的使用难度，S ...</div>
+          </div>
+        </div>
+        <nav id="pagination">
+          <div class="pagination"><a class="extend prev" rel="prev" href="/page/6/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">…</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="space">…</span><a class="page-number" href="/page/10/#content-inner">10</a><a class="extend next" rel="next" href="/page/8/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div>
+        </nav>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget card-webinfo">
+            <div class="item-headline"><i class="fas fa-chart-line"></i><span>
+                <hanla></hanla>网站资讯
+              </span></div>
+            <div class="webinfo">
+              <div class="webinfo-item">
+                <div class="item-name">文章数目 :</div>
+                <div class="item-count">119</div>
+              </div>
+              <div class="webinfo-item">
+                <div class="item-name">
+                  <hanla></hanla>本站访客数 :
+                </div>
+                <div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div>
+              </div>
+              <div class="webinfo-item">
+                <div class="item-name">
+                  <hanla></hanla>本站总访问量 :
+                </div>
+                <div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div>
+              </div>
+              <div class="webinfo-item">
+                <div class="item-name">
+                  <hanla></hanla>最后更新时间 :
+                </div>
+                <div class="item-count" id="last-push-date" data-lastpushdate="2023-06-22T11:52:19.363Z"><i class="fa-solid fa-spinner fa-spin"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        window.typedJSFn = {
+          init: (str) =>
+          {
+            window.typed = new Typed('#subtitle', Object.assign(
+            {
+              strings: str,
+              startDelay: 300,
+              typeSpeed: 150,
+              loop: true,
+              backSpeed: 50,
+            }, null))
+          },
+          run: (subtitleType) =>
+          {
+            if (true)
+            {
+              if (typeof Typed === 'function')
+              {
+                subtitleType()
+              }
+              else
+              {
+                getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+              }
+            }
+            else
+            {
+              subtitleType()
+            }
+          }
+        }
+
+      </script>
+      <script>
+        function subtitleType()
+        {
+          if (true)
+          {
+            typedJSFn.init(["To read without reflecting is like eating without digesting."])
+          }
+          else
+          {
+            document.getElementById("subtitle").innerHTML = 'To read without reflecting is like eating without digesting.'
+          }
+        }
+        typedJSFn.run(subtitleType)
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>

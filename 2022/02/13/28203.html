@@ -1,0 +1,1979 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Centos7-安装GITLAB并配置 | coder-itl</title>
+  <meta name="author" content="coder-itl">
+  <meta name="copyright" content="coder-itl">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Centos7-安装GITLAB并配置网络配置 安装虚拟机时选择NAT网络，安装不开启本地网络(物理环境使用路由器选择桥接模式，单机或拨号上网选择NAT模式，不想用虚拟机上网则选主机模式)  安装完毕后修改 1234567891011121314151617181920212223242526272829303132333435363738cd /etc/sysconfig/network-s">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Centos7-安装GITLAB并配置">
+  <meta property="og:url" content="https://coderitl.github.io/2022/02/13/28203.html">
+  <meta property="og:site_name" content="coder-itl">
+  <meta property="og:description" content="Centos7-安装GITLAB并配置网络配置 安装虚拟机时选择NAT网络，安装不开启本地网络(物理环境使用路由器选择桥接模式，单机或拨号上网选择NAT模式，不想用虚拟机上网则选主机模式)  安装完毕后修改 1234567891011121314151617181920212223242526272829303132333435363738cd /etc/sysconfig/network-s">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/12.jpg">
+  <meta property="article:published_time" content="2022-02-13T01:08:02.000Z">
+  <meta property="article:modified_time" content="2023-06-22T11:51:59.462Z">
+  <meta property="article:author" content="coder-itl">
+  <meta property="article:tag" content="Linux">
+  <meta property="article:tag" content="Docker">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/12.jpg">
+  <link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png">
+  <link rel="canonical" href="https://coderitl.github.io/2022/02/13/28203.html">
+  <link rel="preconnect" href="//cdn.jsdelivr.net">
+  <link rel="preconnect" href="//busuanzi.ibruce.info">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'">
+  <script>
+    const GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch:
+      {
+        "path": "/search.xml",
+        "preload": false,
+        "languages":
+        {
+          "hits_empty": "找不到您查询的内容：${query}"
+        }
+      },
+      translate: undefined,
+      noticeOutdate: undefined,
+      highlight:
+      {
+        "plugin": "highlighjs",
+        "highlightCopy": true,
+        "highlightLang": false,
+        "highlightHeightLimit": false
+      },
+      copy:
+      {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      relativeDate:
+      {
+        homepage: false,
+        post: false
+      },
+      runtime: '',
+      date_suffix:
+      {
+        just: '刚刚',
+        min: '分钟前',
+        hour: '小时前',
+        day: '天前',
+        month: '个月前'
+      },
+      copyright: undefined,
+      lightbox: 'fancybox',
+      Snackbar: undefined,
+      source:
+      {
+        justifiedGallery:
+        {
+          js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+          css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+        }
+      },
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isAnchor: false,
+      percent:
+      {
+        toc: true,
+        rightside: false,
+      }
+    }
+
+  </script>
+  <script id="config-diff">
+    var GLOBAL_CONFIG_SITE = {
+      title: 'Centos7-安装GITLAB并配置',
+      isPost: true,
+      isHome: false,
+      isHighlightShrink: false,
+      isToc: true,
+      postUpdate: '2023-06-22 19:51:59'
+    }
+
+  </script><noscript>
+    <style type="text/css">
+      #nav
+      {
+        opacity: 1
+      }
+
+      .justified-gallery img
+      {
+        opacity: 1
+      }
+
+      #recent-posts time,
+      #post-meta time
+      {
+        display: inline !important
+      }
+
+    </style>
+  </noscript>
+  <script>
+    (win =>
+    {
+      win.saveToLocal = {
+        set: function setWithExpiry(key, value, ttl)
+        {
+          if (ttl === 0) return
+          const now = new Date()
+          const expiryDay = ttl * 86400000
+          const item = {
+            value: value,
+            expiry: now.getTime() + expiryDay,
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+        get: function getWithExpiry(key)
+        {
+          const itemStr = localStorage.getItem(key)
+          if (!itemStr)
+          {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = new Date()
+          if (now.getTime() > item.expiry)
+          {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      win.getScript = url => new Promise((resolve, reject) =>
+      {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function ()
+        {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+      win.getCSS = url => new Promise((resolve, reject) =>
+      {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        link.onload = () => resolve()
+        link.onerror = () => reject()
+        document.head.appendChild(link)
+      })
+      win.activateDarkMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function ()
+      {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null)
+        {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined)
+      {
+        if (asideStatus === 'hide')
+        {
+          document.documentElement.classList.add('hide-aside')
+        }
+        else
+        {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+      const detectApple = () =>
+      {
+        if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent))
+        {
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)
+
+  </script>
+  <link rel="stylesheet" href="/css/modify.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.12/css/gitcalendar.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperstyle.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/animate-css/animate.css@3.7.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" media="defer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coderitl/globalfont@v0.0.4/my.css">
+  <link rel="stylesheet" href="/css/my.css">
+  <meta name="referrer" content="no-referrer"><!-- hexo injector head_end start -->
+  <style>
+    body hanla:after
+    {
+      content: ' ';
+      display: inline;
+      font-family: inherit;
+      font-size: 0.45em;
+    }
+
+    html code hanla,
+    html pre hanla,
+    html kbd hanla,
+    html samp hanla,
+    html ruby hanla,
+    html .tag-list-item hanla
+    {
+      display: none;
+    }
+
+    html ol>hanla,
+    html ul>hanla
+    {
+      display: none;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
+  <style>
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags:before
+    {
+      content: "\A";
+      white-space: pre;
+    }
+
+    #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap>.tags>.article-meta__separator
+    {
+      display: none
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'">
+  <script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end -->
+  <meta name="generator" content="Hexo 5.4.2">
+  <link rel="alternate" href="/atom.xml" title="coder-itl" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <script>
+    const preloader = {
+      endLoading: () =>
+      {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () =>
+      {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+      }
+    }
+    window.addEventListener('load', () =>
+    {
+      preloader.endLoading()
+    })
+    if (true)
+    {
+      document.addEventListener('pjax:send', () =>
+      {
+        preloader.initLoading()
+      })
+      document.addEventListener('pjax:complete', () =>
+      {
+        preloader.endLoading()
+      })
+    }
+
+  </script>
+  <div id="web_bg"></div>
+  <div id="sidebar">
+    <div id="menu-mask"></div>
+    <div id="sidebar-menus">
+      <div class="avatar-img is-center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="onerror=null;src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+      <div class="sidebar-site-data site-data is-center"><a href="/archives/">
+          <div class="headline">
+            <hanla></hanla>文章<hanla></hanla>
+          </div>
+          <div class="length-num">119</div>
+        </a><a href="/tags/">
+          <div class="headline">
+            <hanla></hanla>标签<hanla></hanla>
+          </div>
+          <div class="length-num">21</div>
+        </a><a href="/categories/">
+          <div class="headline">
+            <hanla></hanla>分类<hanla></hanla>
+          </div>
+          <div class="length-num">13</div>
+        </a></div>
+      <hr>
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="post" id="body-wrap">
+    <header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/12.jpg')">
+      <nav id="nav"><span id="blog-info"><a href="/" title="coder-itl"><span class="site-name">coder-itl</span></a></span>
+        <div id="menus">
+          <div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Timeline/"><i class="fa-fw fab fa-docker"></i><span> 日志</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> 学习路线</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于<hanla></hanla></span></a></div>
+          </div>
+          <div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div>
+        </div>
+      </nav>
+      <div id="post-info">
+        <h1 class="post-title">Centos7-安装<hanla></hanla>GITLAB<hanla></hanla>并配置</h1>
+        <div id="post-meta">
+          <div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于<hanla></hanla></span><time class="post-meta-date-created" datetime="2022-02-13T01:08:02.000Z" title="发表于 2022-02-13 09:08:02">2022-02-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于<hanla></hanla></span><time class="post-meta-date-updated" datetime="2023-06-22T11:51:59.462Z" title="更新于 2023-06-22 19:51:59">2023-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div>
+          <div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="Centos7-安装GITLAB并配置"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout" id="content-inner">
+      <div id="post"><div class="top-img" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/12.jpg');"></div>
+        <article class="post-content" id="article-container">
+          <meta name="referrer" content="no-referrer">
+          <h3 id="Centos7-安装GITLAB并配置"><a href="#Centos7-安装GITLAB并配置" class="headerlink" title="Centos7-安装GITLAB并配置"></a>Centos7-安装<hanla></hanla>GITLAB<hanla></hanla>并配置</h3>
+          <h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4>
+          <ul>
+            <li>
+              <p>安装虚拟机时选择<hanla></hanla><code>NAT</code>
+                <hanla></hanla>网络，安装不开启本地网络<hanla></hanla>(<code>物理环境使用路由器选择桥接模式，单机或拨号上网选择<hanla></hanla>NAT<hanla></hanla>模式，不想用虚拟机上网则选主机模式</code>)
+              </p>
+            </li>
+            <li>
+              <p>安装完毕后修改</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">cd</span> <span class="string">/etc/sysconfig/network-scrips/</span></span><br><span class="line"><span class="attr">ls</span></span><br><span class="line"><span class="comment"># 每个人的名称不一样 前缀应该一样<hanla></hanla></span></span><br><span class="line"><span class="attr">vim</span> <span class="string">ifcfg-ens33</span></span><br><span class="line"><span class="comment"># 自动获取<hanla></hanla>IP</span></span><br><span class="line"><span class="attr">dhclinet</span></span><br><span class="line"><span class="comment"># 查看 IP 可以设置 ens 显示的 IP</span></span><br><span class="line"><span class="attr">ip</span> <span class="string">addr</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">########################### 标注修改、添加部分改动,<hanla></hanla>其余全部默认 ###############</span></span><br><span class="line"></span><br><span class="line"><span class="attr">TYPE</span>=<span class="string">Ethernet</span></span><br><span class="line"><span class="attr">PROXY_METHOD</span>=<span class="string">none</span></span><br><span class="line"><span class="attr">BROWSER_ONLY</span>=<span class="string">no</span></span><br><span class="line"><span class="attr">BOOTPROTO</span>=<span class="string">static # 修改 </span></span><br><span class="line"><span class="attr">DEFROUTE</span>=<span class="string">yes</span></span><br><span class="line"><span class="attr">IPV4_FAILURE_FATAL</span>=<span class="string">no</span></span><br><span class="line"><span class="attr">IPV6INIT</span>=<span class="string">yes</span></span><br><span class="line"><span class="attr">IPV6_AUTOCONF</span>=<span class="string">yes</span></span><br><span class="line"><span class="attr">IPV6_DEFROUTE</span>=<span class="string">yes</span></span><br><span class="line"><span class="attr">IPV6_FAILURE_FATAL</span>=<span class="string">no</span></span><br><span class="line"><span class="attr">IPV6_ADDR_GEN_MODE</span>=<span class="string">stable-privacy</span></span><br><span class="line"><span class="attr">NAME</span>=<span class="string">ens33</span></span><br><span class="line"><span class="attr">UUID</span>=<span class="string">ab405b3a-ac93-4f32-8f98-1c2b6f89ec9f</span></span><br><span class="line"><span class="attr">DEVICE</span>=<span class="string">ens33</span></span><br><span class="line"><span class="attr">ONBOOT</span>=<span class="string">yes # 修改</span></span><br><span class="line"><span class="comment"># 添加<hanla></hanla></span></span><br><span class="line"><span class="attr">IPADDR</span>=<span class="string">192.168.133.128 # NAT 网关同一网段 IP 都可以进行通信<hanla></hanla></span></span><br><span class="line"><span class="attr">NETMASK</span>=<span class="string">255.255.255.0</span></span><br><span class="line"><span class="attr">GATEWAY</span>=<span class="string">192.168.133.2</span></span><br><span class="line"><span class="attr">DNS1</span>=<span class="string">192.168.133.2</span></span><br><span class="line"><span class="attr">DNS2</span>=<span class="string">144.144.144.144</span></span><br><span class="line"><span class="attr">DNS3</span>=<span class="string">8.8.8.8</span></span><br><span class="line"><span class="comment">####################################################################</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 重启网络<hanla></hanla></span></span><br><span class="line"><span class="attr">service</span> <span class="string">network restart</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>配置原因</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>IPADDR</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ddf609b0b84744f8a87c567457083ca9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><code>SSH</code>
+                <hanla></hanla>连接
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 检测 SSHD 服务<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">status sshd</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">可运行 =&gt; 该<hanla></hanla><code>SSHD</code>
+                      <hanla></hanla>服务正常
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/742f770da3e14ff8a005e1402ad73006.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="可运行"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>
+                  <p><code>error</code></p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 可能需要安装 </span></span><br><span class="line"><span class="attr">yum</span> <span class="string">install openssh-server </span></span><br><span class="line"><span class="comment"># 端口占用修改<hanla></hanla></span></span><br><span class="line"><span class="attr">vim</span> <span class="string">/etc/sshd/sshd_config</span></span><br><span class="line"><span class="comment"># 将文件中的监听端口，监听地址、开启远程登陆和密码登陆 前的 # 号去掉<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">status sshd</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">start sshd</span></span><br><span class="line"><span class="comment"># 检测是否启动<hanla></hanla></span></span><br><span class="line"><span class="attr">ps</span> <span class="string">-e | grep sshd    |   netstat -an | grep 22</span></span><br><span class="line"><span class="comment"># 防火墙问题 =&gt; 关闭 active<hanla></hanla>时<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">status firewalld </span></span><br><span class="line"><span class="comment"># 关闭防火墙<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">stop firewalld</span></span><br><span class="line"><span class="comment"># 关闭开机自动开启<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">disable firewalld</span></span><br><span class="line"><span class="attr">init</span> <span class="string">6</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>连接</p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 获取 ip</span></span><br><span class="line"><span class="attr">ip</span> <span class="string">addr  |  ipconfig(最小化安装没有该命令)</span></span><br><span class="line"><span class="comment"># xproperties.. 其他工具连接方式 =&gt; 输入 root 用户即密码<hanla></hanla>(安装时设定的)</span></span><br><span class="line"><span class="attr">ssh</span> <span class="string">root@ip:port </span></span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p>脚本<hanla></hanla>(<code>创建一个 properties<hanla></hanla>文件运行</code>)</p>
+                  <figure class="highlight sh">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 创建一个 aliyunYum.sh</span></span><br><span class="line"><span class="comment"># 赋予权限 chmod 777  aliyunYum.sh</span></span><br><span class="line"><span class="comment"># 添加如下能容</span></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"><span class="comment"># yum</span></span><br><span class="line">yum install -y  wget</span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bk</span><br><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d</span><br><span class="line">wget -nc http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">mv</span> Centos-7.repo CentOS-Base.repo</span><br><span class="line">yum clean all</span><br><span class="line">yum list</span><br><span class="line">yum makecache</span><br><span class="line">yum update -y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># docker</span></span><br><span class="line">yum list installed | grep docker</span><br><span class="line">sudo yum -y remove *.x86_64</span><br><span class="line">sudo yum install -y yum-utils</span><br><span class="line">sudo yum-config-manager \</span><br><span class="line">--add-repo \</span><br><span class="line">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">sudo yum install -y docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <ul>
+                    <li>
+                      <p>验证</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">验证是否被篡改</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/4ffde9b307a6424a9f3d2cc63d109f48.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="验证"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="Yum源更换"><a href="#Yum源更换" class="headerlink" title="Yum源更换"></a>Yum<hanla></hanla>源更换</h4>
+          <ul>
+            <li>
+              <p>更换<hanla></hanla><code>Yum</code>
+                <hanla></hanla>源
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 注意权限问题<hanla></hanla></span></span><br><span class="line"><span class="attr">yum</span> <span class="string">install -y  wget</span></span><br><span class="line"><span class="attr">mv</span> <span class="string">/etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bk</span></span><br><span class="line"><span class="attr">cd</span> <span class="string">/etc/yum.repos.d</span></span><br><span class="line"><span class="attr">wget</span> <span class="string">-nc http://mirrors.aliyun.com/repo/Centos-7.repo</span></span><br><span class="line"><span class="attr">mv</span> <span class="string">Centos-7.repo CentOS-Base.repo</span></span><br><span class="line"><span class="comment"># 全部清除<hanla></hanla></span></span><br><span class="line"><span class="attr">yum</span> <span class="string">clean all</span></span><br><span class="line"><span class="comment"># 更新列表<hanla></hanla></span></span><br><span class="line"><span class="attr">yum</span> <span class="string">list</span></span><br><span class="line"><span class="comment"># 缓存<hanla></hanla>yum<hanla></hanla>包信息到本机，提高搜索速度<hanla></hanla></span></span><br><span class="line"><span class="attr">yum</span> <span class="string">makecache</span></span><br><span class="line"><span class="comment"># 更新 yum</span></span><br><span class="line"><span class="attr">yum</span> <span class="string">update -y</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="Docker-安装"><a href="#Docker-安装" class="headerlink" title="Docker 安装"></a>Docker 安装</h4>
+          <ul>
+            <li>
+              <p>删除之前版本</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">yum</span> <span class="string">list installed | grep docker</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">yum -y remove *.x86_64</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>安装</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 安装 yum-utils</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">yum install -y yum-utils</span></span><br><span class="line"><span class="comment"># 设置 yum 源为阿里云方便下载 Docker Engine</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">yum-config-manager \</span></span><br><span class="line"><span class="string">--add-repo \</span></span><br><span class="line"><span class="string">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span></span><br><span class="line"><span class="comment"># 安装最新版本的 Docker Engine 和 容器<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">yum  -y install docker-ce docker-ce-cli containerd.io</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>Docker</code> 启动与停止</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 启动 docker</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl start docker</span></span><br><span class="line"><span class="comment"># 停止 docker</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl stop docker</span></span><br><span class="line"><span class="comment"># 重启 docker</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl restart docker</span></span><br><span class="line"><span class="comment"># 设置开机启动<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl enable docker</span></span><br><span class="line"><span class="comment"># 查看 docker 状态<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl status docker</span></span><br><span class="line"><span class="comment"># 查看 docker 内容器运行的状态<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">docker stats</span></span><br><span class="line"><span class="comment"># 查看 docker 概要信息<hanla></hanla></span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">docker info</span></span><br><span class="line"><span class="comment"># 查看 docker 帮助文档</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>配置镜像加速</p>
+              <figure class="highlight json">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"># 修改如下文件<hanla></hanla></span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 添加此 json</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line"><span class="attr">"registry-mirrors"</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">"https://hub-mirror.c.163.com/"</span><span class="punctuation">,</span><span class="string">"https://ustc-edu-cn.mirror.aliyuncs.com/"</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"># 重新加载<hanla></hanla></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line"># 重启 docker</span><br><span class="line">sudo systemctl restart docker</span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>数据卷</p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 查看该数据卷对应宿主机的目录地址<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">volume inspect 数据卷名称 </span></span><br><span class="line"><span class="comment"># 数据卷挂载信息查看 Munts</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">inspect 容器<hanla></hanla>id<hanla></hanla>或名称</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+          </ul>
+          <h4 id="安装GITLAB"><a href="#安装GITLAB" class="headerlink" title="安装GITLAB"></a>安装<hanla></hanla><code>GITLAB</code></h4>
+          <ul>
+            <li>
+              <p>切换<hanla></hanla><code>sshd</code>
+                <hanla></hanla>端口
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/ssh/sshd_config</span></span><br><span class="line"><span class="comment"># 修改 Port 22</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 关闭 selinux</span></span><br><span class="line"><span class="attr">vim</span> <span class="string">/etc/selinux/config</span></span><br><span class="line"><span class="comment"># 修改如下<hanla></hanla></span></span><br><span class="line"><span class="attr">SELINUX</span>=<span class="string">enforcing 改为 SELINUX=disable</span></span><br><span class="line"><span class="comment"># 重启 </span></span><br><span class="line"><span class="attr">init</span> <span class="string">6</span></span><br><span class="line"><span class="comment"># 检测 sshd<hanla></hanla>状态<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">status sshd</span></span><br><span class="line"><span class="comment"># 如果<hanla></hanla>sshd<hanla></hanla>是关闭状态，则关闭防火墙<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">stop firewalld</span></span><br><span class="line"><span class="comment"># 开机禁用<hanla></hanla></span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">disable firewalld</span></span><br><span class="line"><span class="comment"># 重启 sshd</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">restart sshd</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 修改<hanla></hanla>xproperties 连接端口<hanla></hanla></span></span><br><span class="line"><span class="attr">ssh</span> <span class="string">root@ip:port</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>安装<hanla></hanla><code>docker-compose</code></p>
+            </li>
+            <li>
+              <p><code>gitlab</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 创建本地<hanla></hanla>gitlab 存储配置文件、日志、数据等的路径<hanla></hanla></span></span><br><span class="line"><span class="attr">mkdir</span> <span class="string">-p ~/data/gitlab ~/data/gitlab/logs ~/data/gitlab/data</span></span><br><span class="line"><span class="comment"># 拉取 gitlab</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">pull gitlab/gitlab-ce:12.9.0-ce.0</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 运行 gitlab  </span></span><br><span class="line"><span class="attr">docker</span> <span class="string">run -d  -p 443:443 -p 80:80 -p 22:22 --name gitlab --restart always  --privileged=true -v ~/data/gitlab:/etc/gitlab/ -v ~/data/gitlab/logs:/var/log/gitlab -v ~/data/gitlab:/var/opt/gitlab gitlab/gitlab-ce:12.9.0-ce.0</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># -privileged=true 使用该参数，container<hanla></hanla>内的<hanla></hanla>root<hanla></hanla>拥有真正的<hanla></hanla>root<hanla></hanla>权限。</span></span><br><span class="line"><span class="comment"># docker help run</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 进入容器内部<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">exec -it gitlab properties </span></span><br><span class="line"><span class="attr">vim</span> <span class="string">/etc/gitlab/gitlab.rb</span></span><br><span class="line"><span class="comment"># 编辑站点地址</span></span><br><span class="line"><span class="comment">#可以访问<hanla></hanla>GitLab<hanla></hanla>的<hanla></hanla>URL。</span></span><br><span class="line"><span class="attr">external_url</span> <span class="string">'http://47.104.232.247'</span></span><br><span class="line"><span class="comment"># 刷新配置<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-ctl</span> <span class="string">reconfigure </span></span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line"><span class="comment"># gitlab-ctl restart</span></span><br><span class="line"><span class="comment"># 退出容器<hanla></hanla></span></span><br><span class="line"><span class="attr">exit</span></span><br><span class="line"><span class="comment"># docker 重启</span></span><br><span class="line"><span class="comment"># docker restart gitlab</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#服务控制<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">start gitlab</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">stop gitlab</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">rm gitlab</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 获取运行容器名称<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">ps -qa --format "{{.Names}}"</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>通过绑定的<hanla></hanla><code>ip</code>
+                <hanla></hanla>访问,<code>Eg:192.168.0.128:80(默认<hanla></hanla>80 注意是否被端口占用)</code>
+              </p>
+            </li>
+            <li>
+              <p>修改密码,<code>
+                  <hanla></hanla>登录服务器
+                </code></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">修改<hanla></hanla><code>root</code>
+                      <hanla></hanla>密码
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/ea0eb66fb2f64352943f9d6b2c484ba1.png" alt="修改root密码"></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">第一次是修改<hanla></hanla><code>root</code>
+                      <hanla></hanla>密码，下图是修改后的
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/f230e9777ca6416594b3143742009df7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="第一次是修改root密码"></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>安装、注册<hanla></hanla><code>runner</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># docker 安装<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">pull gitlab/gitlab-runner:v12.9.0</span></span><br><span class="line"><span class="comment"># 创建映射路径<hanla></hanla></span></span><br><span class="line"><span class="attr">mkdir</span> <span class="string">-p  ~/data/gitlab-runner/config</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 启动容器交互式 指定名称后期需要使用 gitlab-runner 名称<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">run -d --name gitlab-runner --privileged=true  --restart always \</span></span><br><span class="line"><span class="string">  -v /var/run/docker.sock:/var/run/docker.sock \</span></span><br><span class="line"><span class="string">  -v ~/data/gitlab-runner/config:/etc/gitlab-runner/config \</span></span><br><span class="line"><span class="string">  -v /usr/bin/docker:/usr/bin/docker \</span></span><br><span class="line"><span class="string">  -v /usr/local/maven/apache-maven-3.6.3:/usr/local/maven/apache-maven-3.6.3 \</span></span><br><span class="line"><span class="string">  -v /usr/local/java/jdk1.8.0_231:/usr/local/java/jdk1.8.0_231 \</span></span><br><span class="line"><span class="string">  -v /usr/local/docker-compose:/usr/local/docker-compose \</span></span><br><span class="line"><span class="string">  gitlab/gitlab-runner:v12.9.0 </span></span><br><span class="line"></span><br><span class="line"><span class="attr">sudo</span> <span class="string">chown root:root /var/run/docker.socks</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 检查<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">ps | grep gitlab-runner</span></span><br><span class="line"><span class="comment"># 进入容器内部<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">exec -it 容器<hanla></hanla>id properties</span></span><br><span class="line"><span class="comment"># 测试<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-runner</span> <span class="string">-h </span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">测试环境<hanla></hanla><code>v12.9.0</code></th>
+                    <th align="center">配置容器内环境变量</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/285f0aa2dd794c179361d6aa4db912dd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="测试环境"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9d7f194fcfb048ee92deee7daa436026.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="容器内环境测试"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul>
+                <li>
+                  <p>认识<hanla></hanla><code>runner</code>
+                    <hanla></hanla>类型入口位置
+                  </p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">注册<hanla></hanla><code>Runner =&gt; share</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/bf2a7ae9b8cc4958b03fd11c95c9d4f5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="注册Runner"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">特定<hanla></hanla><code>Runner</code></th>
+                        <th align="center"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/d20b6c83ed3747d79cb4844c86a6ccdd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_14,color_FFFFFF,t_70,g_se,x_16" alt="特定Runner"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/72ed5ed819de47189cf06227df3c8ff0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="特定"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center"><code>IP（192.168.0.128:[port]）/dashboard/groups =&gt; 1.<hanla></hanla>创建组 2. 创建<hanla></hanla>Runner</code></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/5e574c5d057a4703820412d0d7e351bb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Groups-Runner"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><code>GitlabRunner</code>
+                <hanla></hanla>类型
+              </p>
+              <ol>
+                <li><code>share</code>: 运行整个平台项目的作业<hanla></hanla>(<code>gitlab</code>)</li>
+                <li><code>group</code>: 运行特定<hanla></hanla><code>group</code>
+                  <hanla></hanla>下的所有项目的作业<hanla></hanla>(<code>group</code>)
+                </li>
+                <li><code>specific</code>: 运行指定的项目作业<hanla></hanla>()<code>project</code>)</li>
+                <li><code>locked</code>: 无法运行项目作业</li>
+                <li><code>paused</code> :<hanla></hanla>不会运行作业</li>
+              </ol>
+            </li>
+            <li>
+              <p>交互式注册<hanla></hanla><code>Runner</code></p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 推荐 =&gt; 执行成功了<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">exec -it gitlab-runner gitlab-runner register</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">交互式注册</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b9ae851b3f7e4ab88da37383f878866a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="输入指定信息"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>注册后</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>share</code></th>
+                    <th align="center">注意勾选</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/9bd42c6393074be1843ed5a3be636332.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="share"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e3f81fee875a42a88a21b3251d2acb64.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="注意勾选"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>非交互式注册<hanla></hanla><code>Runner</code></p>
+              <ul>
+                <li>
+                  <p><code>Docker</code></p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">docker</span> <span class="string">run --rm -v ~/data/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner:v12.9.0 register \</span></span><br><span class="line"><span class="string">  --non-interactive \</span></span><br><span class="line"><span class="string">  --executor "docker" \</span></span><br><span class="line"><span class="string">  --docker-image alpine:latest \</span></span><br><span class="line"><span class="string">  --url "http://192.168.0.128/" \ </span></span><br><span class="line">  <span class="attr">--registration-token</span> <span class="string">"sxVUoFYsF6q-JnZpKCnV" \</span></span><br><span class="line"><span class="string">  --description "docker-runner" \</span></span><br><span class="line"><span class="string">  --tag-list "docker,aws" \</span></span><br><span class="line"><span class="string">  --run-untagged="true" \</span></span><br><span class="line"><span class="string">  --locked="false" \</span></span><br><span class="line"><span class="string">  --access-level="not_protected"</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+                <li>
+                  <p><code>properties</code></p>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment">  # 后续测试 </span></span><br><span class="line">  <span class="attr">docker</span> <span class="string">run -itd --rm -v ~/data/gitlab-runner/config:/etc/gitlab-runner  gitlab/gitlab-runner:v12.9.0 register \</span></span><br><span class="line"><span class="string">    --non-interactive \</span></span><br><span class="line"><span class="string">    --executor "properties" \</span></span><br><span class="line"><span class="string">    --url "http://192.168.0.129/" \</span></span><br><span class="line"><span class="string">    --registration-token "1bnZNUEweD2ijpXMnCPP" \</span></span><br><span class="line"><span class="string">    --description "devops-runner" \</span></span><br><span class="line"><span class="string">    --tag-list "build,deploy" \</span></span><br><span class="line"><span class="string">    --run-untagged="true" \</span></span><br><span class="line"><span class="string">    --locked="false" \</span></span><br><span class="line"><span class="string">    --access-level="not_protected"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">+</span> <span class="string">相关命令</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">```properties</span></span><br><span class="line">  <span class="attr">gitlab-runner</span> <span class="string">list # 此命令检查注册在配置文件中的所有运行程序</span></span><br><span class="line">  <span class="attr">gitlab-runner</span> <span class="string">verify # 此命令检查注册的 runner 是否是可以连接的,<hanla></hanla>但不验证 Gitlab 服务器是否是正在使用 runner</span></span><br><span class="line">  <span class="attr">gitlab-runner</span> <span class="string">--delete # 删除</span></span><br><span class="line">  <span class="attr">gitlab-runner</span> <span class="string">unregister # 该命令使用 Gitlab 取消已经注册的 runner</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">  # 使用令牌注销</span></span><br><span class="line">  <span class="attr">gitlab-runner</span> <span class="string">unregister --url http://192.168.0.128/ --tocken xxx</span></span><br><span class="line"><span class="comment">  </span></span><br><span class="line"><span class="comment">  # 使用名称注销<hanla></hanla>(同名删除第一个)</span></span><br><span class="line">  <span class="attr">gitlab-runner</span> <span class="string">unregister --name xxx</span></span><br><span class="line"><span class="comment">  # 注销所有</span></span><br><span class="line">  <span class="attr">gitlab-runner</span> <span class="string">unregister --all-runners</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>关联远程仓库</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">登录页面的用户名和密码而不是<hanla></hanla><code>Admin..</code></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/6acb0a5235ab41398d16018772691460.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="注意用户名信息"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="流水线任务"><a href="#流水线任务" class="headerlink" title="流水线任务"></a>流水线任务</h4>
+          <ul>
+            <li>
+              <p>项目根目录下创建<code>.gitlab-ci.yml</code></p>
+              <figure class="highlight yml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">test</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">test</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">first</span> <span class="string">build</span> <span class="string">ci</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/usr/local/maven_home/apache-maven-3.6.3/bin/mvn</span> <span class="string">package</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">cp</span> <span class="string">target/gitlab-ci-1.0-SNAPSHOT.war</span>  <span class="string">docker/coder-itl.war</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">docker-compose</span> <span class="string">down</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">docker-compose</span> <span class="string">up</span> <span class="string">-d</span> <span class="string">--build</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>流水线语法检测</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">流水线语法检测</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/7493bd7d5c7640ebbda06cf78727c98d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="流水线语法检测"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="GitlabRunner-使用Maven"><a href="#GitlabRunner-使用Maven" class="headerlink" title="GitlabRunner 使用Maven"></a>GitlabRunner 使用<hanla></hanla><code>Maven</code></h4>
+          <ul>
+            <li>
+              <p>错误</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">解决前</th>
+                    <th align="center">解决后</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/e24b527de9e647a2a2a1075dabf90529.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="解决前，未在容器内配置环境变量生效"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/922e9722cf93483cb1c9c8b7f241d675.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="解决后"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <p>解决方案</p>
+              <ol>
+                <li>检测宿主机 <code>maven,java</code> 等的环境变量是否生效</li>
+              </ol>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">检测所需环境</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/5f5e36b723ef4e42b1f664e862f7b3f6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="检测所需环境"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ol start="2">
+                <li>
+                  <p>获取环境变量所在路径</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">获取路径</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/32bbc12d40d240139095c4bcf2c85f73.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="获取路径"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li>
+                  <p>重新启动容器并添加对应文件数据卷路径</p>
+                  <ol>
+                    <li>
+                      <p>或者重新启动<hanla></hanla><code>gitlab-runner</code> 容器时指定数据卷</p>
+                      <figure class="highlight properties">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line"><span class="comment"># 查看正在运行的容器<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">ps</span></span><br><span class="line"><span class="comment"># 停止容器<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">stop 上述获取的容器<hanla></hanla>id</span></span><br><span class="line"><span class="comment"># 删除容器<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">rm 上述获取的容器<hanla></hanla>id</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 参数解释 gitlab-runner =&gt; properties 权限比较低 </span></span><br><span class="line"><span class="comment"># 将宿主机的 maven、java 环境映射到 docker 内 前面是系统<hanla></hanla>(宿主机)<hanla></hanla>相关环境变量位置:<hanla></hanla>后面是<hanla></hanla>docker<hanla></hanla>内映射路径</span></span><br><span class="line"><span class="comment"># 添加 maven 环境</span></span><br><span class="line"><span class="attr">-v</span> <span class="string">/usr/local/maven/apache-maven-3.6.3:/usr/local/maven/apache-maven-3.6.3</span></span><br><span class="line"><span class="comment"># 添加<hanla></hanla>Jdk<hanla></hanla>环境</span></span><br><span class="line"><span class="attr">-v</span> <span class="string">/usr/local/java/jdk1.8.0_231:/usr/local/java/jdk1.8.0_231  \</span></span><br><span class="line"><span class="string"># 添加 docker-compose<hanla></hanla>的环境变量路径</span></span><br><span class="line"><span class="attr">-v</span> <span class="string">/usr/local/docker-compoe:/usr/local/docker-compoe</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  </span></span><br><span class="line"><span class="comment"># 启动容器交互式 指定名称后期需要使用 gitlab-runner 名称 数据卷问题困扰，可以将文件放在默认数据卷路径下 </span></span><br><span class="line"><span class="comment"># <span class="doctag">TODO:</span> 数据卷如何进行附加添加文件路径  Eg:<hanla></hanla>对已经创建运行的容器单独添加数据卷路径指定操作<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">run -d --name gitlab-runner --privileged=true  --restart always \</span></span><br><span class="line"><span class="string">  -v /var/run/docker.sock:/var/run/docker.sock \</span></span><br><span class="line"><span class="string">  -v /etc/gitlab-runner \</span></span><br><span class="line"><span class="string">  -v /usr/local/maven/apache-maven-3.6.3:/usr/local/maven/apache-maven-3.6.3 \</span></span><br><span class="line"><span class="string">  -v /usr/local/java/jdk1.8.0_231:/usr/local/java/jdk1.8.0_231  \</span></span><br><span class="line"><span class="string">  -v /usr/local/docker-compoe:/usr/local/docker-compoe  \</span></span><br><span class="line"><span class="string">  gitlab/gitlab-runner:v12.9.0 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># gitlab-runner:v12.9.0 容器名称 和 版本号 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 交互式注册<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">exec -it gitlab-runner gitlab-runner register</span></span><br><span class="line"></span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                    </li>
+                    <li>
+                      <p>配置所需环境变量</p>
+                    </li>
+                  </ol>
+                  <figure class="highlight properties">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 进入容器内<hanla></hanla></span></span><br><span class="line"><span class="attr">docker</span> <span class="string">exec -it 容器<hanla></hanla>id properties</span></span><br><span class="line"><span class="comment"># 配置容器内 maven,java 环境变量<hanla></hanla></span></span><br><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="comment">    # 填写下面内容 系统内和<hanla></hanla>docker<hanla></hanla>都配置</span></span><br><span class="line">    <span class="attr">JAVA_HOME</span>=<span class="string">/usr/local/java/jdk1.8.0_231</span></span><br><span class="line">    <span class="attr">JRE_HOME</span>=<span class="string">/usr/local/java/jdk1.8.0_231/jre</span></span><br><span class="line">    <span class="attr">MAVEN_HOME</span>=<span class="string">/usr/local/maven/apache-maven-3.6.3</span></span><br><span class="line">    <span class="attr">export</span> <span class="string">PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$MAVEN_HOME/bin:$PATH</span></span><br><span class="line">    <span class="attr">export</span> <span class="string">CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span></span><br><span class="line"><span class="comment"># 使其生效 </span></span><br><span class="line"><span class="attr">source</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="comment"># 容器内检测环境是否生效<hanla></hanla></span></span><br><span class="line"><span class="attr">mvn</span> <span class="string">-version</span></span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <ol start="3">
+                    <li>
+                      <p>测试一个<hanla></hanla><code>maven</code>
+                        <hanla></hanla>项目
+                      </p>
+                      <figure class="highlight yml">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">test</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">test</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">first</span> <span class="string">build</span> <span class="string">ci</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/usr/local/maven/apache-maven-3.6.3/bin/mvn</span> <span class="string">package</span> <span class="comment"># 注意环境变量位置</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">cp</span> <span class="string">target/gitlab-ci-1.0-SNAPSHOT.war</span>  <span class="string">docker/coderitl.war</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">docker-compose</span> <span class="string">down</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">docker-compose</span> <span class="string">up</span> <span class="string">-d</span> <span class="string">--build</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">docker</span> <span class="string">rmi</span> <span class="string">$(docker</span> <span class="string">images</span> <span class="string">-qf</span> <span class="string">dangling=true)</span></span><br><span class="line"></span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center"><code>mvn</code>
+                              <hanla></hanla>项目
+                            </th>
+                            <th align="center"><code>mvn</code>
+                              <hanla></hanla>项目运行结果
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/7eadf7e004eb4648b8674f8fa254a0f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_15,color_FFFFFF,t_70,g_se,x_16" alt="mvn项目"></td>
+                            <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/3ab39ca58d5d4c1b8f5fe5bc7e92fe82.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="mvn项目运行结果"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                    <li>
+                      <p>配置容器内的<hanla></hanla><code>maven<hanla></hanla>镜像</code>、<code>本地存储库</code>等</p>
+                    </li>
+                    <li>
+                      <p>测试<hanla></hanla><code>Maven=&gt;JavaWeb</code>
+                        <hanla></hanla>项目
+                      </p>
+                      <div class="tip cogs">
+                        <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/2f809b85d1ab4d1f8b581e83b93d37bd.gif#pic_center" alt="完整流程">
+                        </p>
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ul>
+          <h4 id="Docker-in-Docker"><a href="#Docker-in-Docker" class="headerlink" title="Docker in Docker"></a>Docker in Docker</h4>
+          <ul>
+            <li>
+              <p>错误信息</p>
+              <div class="tip error">
+                <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/8934d18daeab442fb53cf531eaef321f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Docker not Found"></p>
+              </div>
+            </li>
+            <li>
+              <p>启动<hanla></hanla><code>gitlab-runner</code>
+                <hanla></hanla>时，添加参数
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">--privileged</span>=<span class="string">true </span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>成功运行<hanla></hanla><code>JavaWeb</code>
+                <hanla></hanla>项目构建
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center"><code>JavaWeb</code>
+                      <hanla></hanla>项目构建
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/128926cad52a498db70613da913565ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JavaWeb项目构建"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="资源访问"><a href="#资源访问" class="headerlink" title="资源访问"></a>资源访问</h4>
+          <ul>
+            <li>
+              <p><code>Tomcat</code>
+                <hanla></hanla>端口需要了解
+              </p>
+            </li>
+            <li>
+              <p><code>IP:8080/Dockerfile<hanla></hanla>中复制的<hanla></hanla>xx.war</code>
+                <hanla></hanla>就是项目访问路径
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th align="center">项目访问</th>
+                    <th align="center">输出</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/18397abe4d9e47cdae37765c5fa45c0d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="项目访问"></td>
+                    <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/83b32476e4424abe936367097e0c69cf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="解决之前虽然运行，但是存在错误"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <h4 id="job、script、stages"><a href="#job、script、stages" class="headerlink" title="job、script、stages"></a>job、script、stages</h4>
+          <ul>
+            <li>
+              <p><code>job</code></p>
+              <blockquote>
+                <p>在每个项目中,<hanla></hanla>使用名为<code>.gitlab-ci.yml</code>
+                  <hanla></hanla>的<hanla></hanla><code>YAML</code>
+                  <hanla></hanla>文件配置<hanla></hanla><code>Gitlab CI / CD </code>管道,<hanla></hanla>在文件中可以定义多个或一个作业<hanla></hanla><code>job</code>，每个作业必须具有唯一的名称<hanla></hanla>(不能使用关键字),<hanla></hanla>每个作业是独立的,<hanla></hanla>作业定义了在约束条件下进行相关操作,<hanla></hanla>每个作业至少要包含一个<hanla></hanla><code>script</code>
+                </p>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>script</code></p>
+              <figure class="highlight yml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">job:</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">command</span> <span class="string">x</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">connmand</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">...</span></span><br><span class="line">   </span><br><span class="line"> <span class="string">正则字符需要使用单|双引号</span> <span class="string">包裹</span></span><br><span class="line">  </span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>before_script</code></p>
+              <blockquote>
+                <p>用于定义一个命令,<hanla></hanla>该命令在每个作业之前运行，<code>必须是一个数组</code>。指定的<hanla></hanla><code>script</code>
+                  <hanla></hanla>与主脚本中指定的任何脚本串联在一起,,<hanla></hanla>并在单个<hanla></hanla><code>properties</code>
+                  <hanla></hanla>中一起执行
+                </p>
+                <p><code>before_script</code>
+                  <hanla></hanla>失败导致整个作业失败,<hanla></hanla>其他作业将不在执行.<hanla></hanla>作业失败不会影响<hanla></hanla><code>after_script</code>
+                  <hanla></hanla>运行
+                </p>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>after_script</code></p>
+              <blockquote>
+                <p>用于定义将在每个作业<hanla></hanla>(包括失败的作业)<hanla></hanla>之后运行的命令</p>
+                <p>这<code>必须是一个数组</code></p>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>stages</code></p>
+              <blockquote>
+                <p>用于定义可以使用的阶段,<hanla></hanla>并且是全局定义的</p>
+                <p>同一阶段的作业并行运行,<hanla></hanla>不同节点按顺序执行</p>
+              </blockquote>
+              <figure class="highlight yml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">build</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">test</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">codescan</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">deploy</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>.pre &amp; .post</code></p>
+              <figure class="highlight yml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="string">.pre</span> <span class="string">始终是整个管道的第一个运行阶段</span></span><br><span class="line"><span class="string">.post<hanla></hanla>始终是整个管道的最后一个运行阶段</span></span><br><span class="line"><span class="string">用户定义的阶段都在两者之间运行</span></span><br><span class="line"></span><br><span class="line"><span class="string">.pre</span> <span class="string">和</span> <span class="string">.post</span> <span class="string">的顺序无法更改</span></span><br><span class="line"><span class="string">如果管道仅包含</span> <span class="string">.pre</span> <span class="string">或</span> <span class="string">.post</span> <span class="string">阶段的作业，则不会创建管道</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p>测试</p>
+              <figure class="highlight yml">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="attr">before_script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"before-script"</span></span><br><span class="line"><span class="comment"># 定义全局变量<hanla></hanla></span></span><br><span class="line"><span class="attr">variables:</span></span><br><span class="line">  <span class="attr">DOMAIN:</span> <span class="string">example.com</span></span><br><span class="line"><span class="comment"># 阶段<hanla></hanla>(顺序执行)</span></span><br><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">build</span> <span class="comment"># 构建阶段</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">test</span> <span class="comment"># 测试阶段</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">codescan</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">deploy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 独立阶段任务: 构建<hanla></hanla></span></span><br><span class="line"><span class="attr">build:</span></span><br><span class="line">  <span class="attr">before_script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"before_script in job"</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">build</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"mvn clean"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"mvn install"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"$DOMAIN"</span> <span class="comment"># 获取全局变量</span></span><br><span class="line">  <span class="attr">after_script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"after_script int buildjob"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 单元测试<hanla></hanla></span></span><br><span class="line"><span class="attr">unitites:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">test</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"run test"</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 发布<hanla></hanla></span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">deploy</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"hello deploy"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">sleep</span> <span class="number">2</span><span class="string">;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">codescan:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">codescan</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"codescan"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">sleep</span> <span class="number">5</span><span class="string">;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">after_script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"after_script"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ech</span></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+              <ul>
+                <li>
+                  <p>输出</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">测试任务</th>
+                        <th align="center">测试任务</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/0d91decf238c4ceba495d7c97fd37bb1.png" alt="测试任务"></td>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/b5f9f801426e44f5bffc736e6a51bc84.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="测试任务"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="tags、allow-failure、when、retry、timeout、parallel"><a href="#tags、allow-failure、when、retry、timeout、parallel" class="headerlink" title="tags、allow_failure、when、retry、timeout、parallel"></a>tags、allow_failure、when、retry、timeout、parallel</h4>
+          <ul>
+            <li>
+              <p><code>tags</code></p>
+              <blockquote>
+                <p>用于指定<hanla></hanla><code>runner</code></p>
+                <p>用于从允许运行该项目的所有<hanla></hanla><code>Runner</code>
+                  <hanla></hanla>列表中选择特定的<hanla></hanla><code>Runner</code>，在<hanla></hanla><code>Runner</code>
+                  <hanla></hanla>注册期间,<hanla></hanla>您可以指定<hanla></hanla><code>Runner</code>
+                  <hanla></hanla>的标签
+                </p>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>allow_failure</code></p>
+              <blockquote>
+                <p><code>allow_failure</code>
+                  <hanla></hanla>允许作业失败,<hanla></hanla>默认值为<hanla></hanla><code>false</code>，启用后,<hanla></hanla>如果作业失败,<hanla></hanla>改作业将在用户界面显示橙色警告，但是，管道的逻辑流程将认为作业成功<hanla></hanla>/<hanla></hanla>通过，并且不会阻塞，假设所有其他作业均成功,<hanla></hanla>则该作业的阶段及其管道将显示相同的橙色警告,<hanla></hanla>但是，关联的提交将会被标记为<code>通过</code>,<hanla></hanla>而不会发出警告
+                </p>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>when</code></p>
+              <blockquote>
+                <ul>
+                  <li>
+                    <p><code>on_success</code>
+                      <hanla></hanla>前面阶段中的所有作业都成功时才会执行，<code>默认值</code>
+                    </p>
+                  </li>
+                  <li>
+                    <p><code>on_failure</code>
+                      <hanla></hanla>当前面阶段出现失败时执行
+                    </p>
+                  </li>
+                  <li>
+                    <p><code>always</code>
+                      <hanla></hanla>总是执行作业
+                    </p>
+                  </li>
+                  <li>
+                    <p><code>manual</code>
+                      <hanla></hanla>手动执行作业
+                    </p>
+                  </li>
+                  <li>
+                    <p><code>delayed</code>
+                      <hanla></hanla>延迟执行作业
+                    </p>
+                    <figure class="highlight yml">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td class="gutter">
+                              <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
+                            </td>
+                            <td class="code">
+                              <pre><span class="line"><span class="attr">codescan:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">codescan</span></span><br><span class="line">  <span class="attr">allow_failure:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"codescan"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">sleep</span> <span class="number">5</span><span class="string">;</span></span><br><span class="line">  <span class="attr">when:</span> <span class="string">delayed</span></span><br><span class="line">  <span class="attr">start_in:</span> <span class="string">'30'</span> <span class="comment"># 单位秒</span></span><br><span class="line">                              </span><br></pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </figure>
+                  </li>
+                </ul>
+              </blockquote>
+            </li>
+            <li>
+              <p><code>retry</code></p>
+              <ul>
+                <li>配置在失败的情况下重试作业的次数</li>
+                <li>当作业失败并配置了<hanla></hanla><code>retry</code>，将再次处理该作业,<hanla></hanla>直到达到<hanla></hanla><code>retry</code>
+                  <hanla></hanla>关键字指定的次数
+                </li>
+                <li>如果<hanla></hanla><code>retry</code>
+                  <hanla></hanla>设置为<hanla></hanla><code>2</code>，并且作业在第二次运行成功<hanla></hanla>(第一次重试),<hanla></hanla>则不会再次重试,<code>retry</code>
+                  <hanla></hanla>值必须是一个整数，等于或大于<hanla></hanla><code>0</code>，但小于或等于<hanla></hanla><code>2</code>(最多两次重试,<hanla></hanla>总共运行<hanla></hanla><code>3</code>
+                  <hanla></hanla>次)
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><code>timeout</code></p>
+              <ul>
+                <li>
+                  <p>作业级别的超时可以超过项目级别超时，但不能超过<hanla></hanla><code>Runner</code>
+                    <hanla></hanla>特定的超时
+                  </p>
+                  <figure class="highlight yml">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="attr">job:</span></span><br><span class="line">  <span class="attr">script:</span> <span class="string">echo</span> <span class="string">""</span></span><br><span class="line">  <span class="attr">timeout:</span> <span class="number">2</span> <span class="string">hours</span> <span class="number">30</span> <span class="string">minutes</span></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><code>parallel</code>-并行作业</p>
+              <ul>
+                <li>配置要并行运行的作业实例数，此值必须大于或等于<hanla></hanla><code>2</code>
+                  <hanla></hanla>并且小于或等于<hanla></hanla><code>50</code>
+                </li>
+                <li>这将创建<hanla></hanla><code>N</code>
+                  <hanla></hanla>哥并行运行的同一作业实例,<hanla></hanla>他们从<hanla></hanla><code>job_name 1</code>/<code>N</code>
+                  <hanla></hanla>依次命名
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 id="Pipeline"><a href="#Pipeline" class="headerlink" title="Pipeline"></a>Pipeline</h4>
+          <ul>
+            <li>
+              <p><code>only</code> &amp;&amp; <code>except</code>
+                <hanla></hanla>用分支策略来限制<hanla></hanla><code>jobs</code>
+                <hanla></hanla>构建
+              </p>
+              <ul>
+                <li>
+                  <p><code>only</code>
+                    <hanla></hanla>定义那些分支和标签的<hanla></hanla><code>git</code>
+                    <hanla></hanla>项目将会被<hanla></hanla><code>job</code>
+                    <hanla></hanla>执行
+                  </p>
+                </li>
+                <li>
+                  <p><code>except</code>
+                    <hanla></hanla>定义那些分支和标签的<hanla></hanla><code>git</code>
+                    <hanla></hanla>项目不会被执行
+                  </p>
+                </li>
+                <li>
+                  <p>实例</p>
+                  <figure class="highlight yml">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+                          </td>
+                          <td class="code">
+                            <pre><span class="line"><span class="comment"># 独立阶段任务: 构建<hanla></hanla></span></span><br><span class="line"><span class="attr">build:</span></span><br><span class="line">  <span class="attr">before_script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"before_script in job"</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">build</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"mvn clean"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"mvn install"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">"$DOMAIN"</span> <span class="comment"># 获取全局变量</span></span><br><span class="line">  <span class="attr">only:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">main</span> <span class="comment"># 只允许<hanla></hanla>main 运行 可以匹配正则 /^*.gif$/</span></span><br><span class="line"></span><br></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </figure>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th align="center">限制</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/5306117812cf4f63910cea140393d090.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAY29kZXItaXRs,size_20,color_FFFFFF,t_70,g_se,x_16" alt="限制"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><code>rules</code></p>
+              <ul>
+                <li>
+                  <p>允许按顺序评估单个规则，直到匹配并为作业动态提供属性</p>
+                </li>
+                <li>
+                  <p>不能<hanla></hanla><code>only except</code>
+                    <hanla></hanla>组合使用
+                  </p>
+                </li>
+                <li>
+                  <p>可用规则</p>
+                  <ul>
+                    <li>
+                      <p><code>if</code>
+                        <hanla></hanla>如果条件匹配
+                      </p>
+                    </li>
+                    <li>
+                      <p><code>changes</code>
+                        <hanla></hanla>指定文件发生变化
+                      </p>
+                    </li>
+                    <li>
+                      <p><code>exists</code>
+                        <hanla></hanla>指定文件存在
+                      </p>
+                    </li>
+                    <li>
+                      <p>测试实例</p>
+                      <figure class="highlight yml">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td class="gutter">
+                                <pre><span class="line">1</span><br></pre>
+                              </td>
+                              <td class="code">
+                                <pre><span class="line">      </span><br></pre>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figure>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><code>workfly</code></p>
+            </li>
+          </ul>
+          <h4 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h4>
+          <ul>
+            <li>
+              <p><code>clone</code>： 地址携带<hanla></hanla><code>tocken</code>
+                <hanla></hanla>类似字符串,<hanla></hanla>导致<hanla></hanla><code>hosts</code>
+                <hanla></hanla>解析报错
+              </p>
+            </li>
+            <li>
+              <p><code>gitlab</code>
+                <hanla></hanla>注册由于版本不同导致需要获取密码问题
+              </p>
+            </li>
+            <li>
+              <p><code>gitlab-runneer</code>
+                <hanla></hanla>页面<hanla></hanla><code>500</code>
+              </p>
+              <figure class="highlight properties">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="gutter">
+                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
+                      </td>
+                      <td class="code">
+                        <pre><span class="line"><span class="comment"># 进入 gitlab 容器内部</span></span><br><span class="line"><span class="comment"># 进入控制台<hanla></hanla></span></span><br><span class="line"><span class="attr">gitlab-rails</span> <span class="string">console</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 输入如下  </span></span><br><span class="line"><span class="attr">ApplicationSetting.current.reset_runners_registration_token!</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># Clear project tokens</span></span><br><span class="line"><span class="attr">UPDATE</span> <span class="string">projects SET runners_token = null, runners_token_encrypted = null;</span></span><br><span class="line"><span class="comment"># Clear group tokens</span></span><br><span class="line"><span class="attr">UPDATE</span> <span class="string">namespaces SET runners_token = null, runners_token_encrypted = null;</span></span><br><span class="line"><span class="comment"># Clear instance tokens</span></span><br><span class="line"><span class="attr">UPDATE</span> <span class="string">application_settings SET runners_registration_token_encrypted = null;</span></span><br><span class="line"><span class="comment"># Clear key used for JWT authentication</span></span><br><span class="line"><span class="comment"># This may break the $CI_JWT_TOKEN job variable:</span></span><br><span class="line"><span class="comment"># https://gitlab.com/gitlab-org/gitlab/-/issues/325965</span></span><br><span class="line"><span class="attr">UPDATE</span> <span class="string">application_settings SET encrypted_ci_jwt_signing_key = null;</span></span><br><span class="line"><span class="comment"># Clear runner tokens</span></span><br><span class="line"><span class="attr">UPDATE</span> <span class="string">ci_runners SET token = null, token_encrypted = null;</span></span><br><span class="line"></span><br></pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </li>
+            <li>
+              <p><code>http</code>
+                <hanla></hanla>无法使用问题
+              </p>
+            </li>
+            <li>
+              <p><code>mvn</code>
+                <hanla></hanla>权限不足问题
+              </p>
+            </li>
+            <li>
+              <p><code>docker in docker </code>问题</p>
+            </li>
+          </ul>
+        </article>
+        <div class="post-copyright">
+          <div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">coder-itl</a></span></div>
+          <div class="post-copyright__type"><span class="post-copyright-meta">
+              <hanla></hanla>文章链接:
+            </span><span class="post-copyright-info"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.nesxc.com/post/hexocc.html">https://www.nesxc.com/post/hexocc.html</a></span></div>
+          <div class="post-copyright__notice"><span class="post-copyright-meta">
+              <hanla></hanla>版权声明:
+            </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://coderitl.github.io" target="_blank">coder-itl</a>！</span></div>
+        </div>
+        <div class="tag_share">
+          <div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/Docker/">Docker</a></div>
+          <div class="post_share">
+            <div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/12.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'">
+            <script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script>
+          </div>
+        </div>
+        <nav class="pagination-post" id="pagination">
+          <div class="prev-post pull-left"><a href="/2022/02/16/52592.html" title="Linux-Shell-脚本基础使用"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/aee2e200476b40d7a08ec6119997919f.png" onerror="onerror=null;src='/null'" alt="cover of previous post">
+              <div class="pagination-info">
+                <div class="label">
+                  <hanla></hanla>上一篇<hanla></hanla>
+                </div>
+                <div class="prev_info">Linux-Shell-脚本基础使用</div>
+              </div>
+            </a></div>
+          <div class="next-post pull-right"><a href="/2022/02/09/10336.html" title="GITHUB-Pages-绑定自定义域名"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/24.jpg" onerror="onerror=null;src='/null'" alt="cover of next post">
+              <div class="pagination-info">
+                <div class="label">下一篇<hanla></hanla>
+                </div>
+                <div class="next_info">GITHUB-Pages-绑定自定义域名</div>
+              </div>
+            </a></div>
+        </nav>
+        <div class="relatedPosts">
+          <div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div>
+          <div class="relatedPosts-list">
+            <div><a href="/2021/08/05/26534.html" title="MYSQL-Linux-Install"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/28.jpg" alt="cover">
+                <div class="content is-center">
+                  <div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-06</div>
+                  <div class="title">MYSQL-Linux-Install</div>
+                </div>
+              </a></div>
+            <div><a href="/2021/01/16/4278.html" title="Linux-Mariadb使用"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img-blog.csdnimg.cn/3482a6a2192f45e1b835781076cd5c41.jpeg" alt="cover">
+                <div class="content is-center">
+                  <div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-16</div>
+                  <div class="title">Linux-Mariadb<hanla></hanla>使用</div>
+                </div>
+              </a></div>
+            <div><a href="/2021/01/15/49501.html" title="Linux-git-Install"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/06.jpg" alt="cover">
+                <div class="content is-center">
+                  <div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-15</div>
+                  <div class="title">Linux-git-Install</div>
+                </div>
+              </a></div>
+            <div><a href="/2021/01/14/5863.html" title="Linux-Mariadb-Install"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2XeWJ.jpeg" alt="cover">
+                <div class="content is-center">
+                  <div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div>
+                  <div class="title">Linux-Mariadb-Install</div>
+                </div>
+              </a></div>
+            <div><a href="/2021/01/13/4118.html" title="Linux-Install-Python3"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/01.jpg" alt="cover">
+                <div class="content is-center">
+                  <div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-13</div>
+                  <div class="title">Linux-Install-Python3</div>
+                </div>
+              </a></div>
+            <div><a href="/2020/10/17/56685.html" title="Linux-基础"><img class="cover" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://gitee.com/wang_hong_bin/pic-go-photos/raw/master/Linux.jpg" alt="cover">
+                <div class="content is-center">
+                  <div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-17</div>
+                  <div class="title">Linux-基础</div>
+                </div>
+              </a></div>
+          </div>
+        </div>
+        <hr>
+        <div id="post-comment">
+          <div class="comment-head">
+            <div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论<hanla></hanla></span></div>
+          </div>
+          <div class="comment-wrap">
+            <div>
+              <div id="twikoo-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content" id="aside-content">
+        <div class="card-widget card-info">
+          <div class="is-center">
+            <div class="avatar-img"><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/03/19/MJUXa.jpeg" onerror="this.onerror=null;this.src='https://i.328888.xyz/2023/03/20/P3kfC.gif'" alt="avatar"></div>
+            <div class="author-info__name">coder-itl</div>
+            <div class="author-info__description">To read without reflecting is like eating without digesting.</div>
+          </div>
+          <div class="card-info-data site-data is-center"><a href="/archives/">
+              <div class="headline">
+                <hanla></hanla>文章<hanla></hanla>
+              </div>
+              <div class="length-num">119</div>
+            </a><a href="/tags/">
+              <div class="headline">
+                <hanla></hanla>标签<hanla></hanla>
+              </div>
+              <div class="length-num">21</div>
+            </a><a href="/categories/">
+              <div class="headline">
+                <hanla></hanla>分类<hanla></hanla>
+              </div>
+              <div class="length-num">13</div>
+            </a></div><a id="card-info-btn" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>
+              <hanla></hanla>公告
+            </span></div>
+          <div class="announcement_content">本站所有图片来源于网络,<hanla></hanla>侵权请添加管理员删除【3327511395@qq.com】!</div>
+        </div>
+        <div class="sticky_layout">
+          <div class="card-widget" id="card-toc">
+            <div class="item-headline"><i class="fas fa-stream"></i><span>
+                <hanla></hanla>目录<hanla></hanla>
+              </span><span class="toc-percentage"></span></div>
+            <div class="toc-content">
+              <ol class="toc">
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#Centos7-%E5%AE%89%E8%A3%85GITLAB%E5%B9%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">Centos7-安装<hanla></hanla>GITLAB<hanla></hanla>并配置<hanla></hanla></span></a>
+                  <ol class="toc-child">
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">网络配置<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Yum%E6%BA%90%E6%9B%B4%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">Yum<hanla></hanla>源更换<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Docker-%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text">Docker 安装<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85GITLAB"><span class="toc-number">1.4.</span> <span class="toc-text">安装<hanla></hanla>GITLAB</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.5.</span> <span class="toc-text">流水线任务<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#GitlabRunner-%E4%BD%BF%E7%94%A8Maven"><span class="toc-number">1.6.</span> <span class="toc-text">GitlabRunner 使用<hanla></hanla>Maven</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Docker-in-Docker"><span class="toc-number">1.7.</span> <span class="toc-text">Docker in Docker</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE"><span class="toc-number">1.8.</span> <span class="toc-text">资源访问<hanla></hanla></span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#job%E3%80%81script%E3%80%81stages"><span class="toc-number">1.9.</span> <span class="toc-text">job、script、stages</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#tags%E3%80%81allow-failure%E3%80%81when%E3%80%81retry%E3%80%81timeout%E3%80%81parallel"><span class="toc-number">1.10.</span> <span class="toc-text">tags、allow_failure、when、retry、timeout、parallel</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#Pipeline"><span class="toc-number">1.11.</span> <span class="toc-text">Pipeline</span></a></li>
+                    <li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="toc-number">1.12.</span> <span class="toc-text">问题总结</span></a></li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background: transparent">
+      <div id="footer-wrap">
+        <div class="copyright">©2020 - 2023 By coder-itl</div>
+        <div class="framework-info"><span>
+            <hanla></hanla>框架
+          </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div>
+        <div class="footer_custom_text">
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-orange">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Buffterfly-blue">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/CDN-jsDeliver-blueviolet">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Source-Github-9cf">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Matery-ff69b4">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Python-success">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Python-Flask-red"></p>
+          <p><img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-red?logo=Castorama&amp;logoWidth=18">&nbsp;<img src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?logo=Grunt&amp;logoWidth=18"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="rightside">
+    <div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <div id="local-search">
+    <div class="search-dialog">
+      <nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav>
+      <div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中<hanla></hanla></span></div>
+      <div class="search-wrap">
+        <div id="local-search-input">
+          <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div>
+        </div>
+        <hr>
+        <div id="local-search-results"></div>
+      </div>
+    </div>
+    <div id="search-mask"></div>
+  </div>
+  <div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+    <script src="/js/search/local-search.js"></script>
+    <div class="js-pjax">
+      <script>
+        (() =>
+        {
+          const init = () =>
+          {
+            twikoo.init(Object.assign(
+            {
+              el: '#twikoo-wrap',
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              onCommentLoaded: function ()
+              {
+                btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+              }
+            }, null))
+          }
+          const getCount = () =>
+          {
+            const countELement = document.getElementById('twikoo-count')
+            if (!countELement) return
+            twikoo.getCommentsCount(
+            {
+              envId: 'https://twikoo-jlw0ln3jv-coderitl.vercel.app/',
+              region: 'ap-shanghai',
+              urls: [window.location.pathname],
+              includeReply: false
+            }).then(function (res)
+            {
+              countELement.innerText = res[0].count
+            }).catch(function (err)
+            {
+              console.error(err);
+            });
+          }
+          const runFn = () =>
+          {
+            init()
+          }
+          const loadTwikoo = () =>
+          {
+            if (typeof twikoo === 'object')
+            {
+              setTimeout(runFn, 0)
+              return
+            }
+            getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+          }
+          if ('Twikoo' === 'Twikoo' || !false)
+          {
+            if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+            else loadTwikoo()
+          }
+          else
+          {
+            window.loadOtherComment = () =>
+            {
+              loadTwikoo()
+            }
+          }
+        })()
+
+      </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiper.min.js"></script>
+    <script data-pjax="" src="https://cdn.jsdelivr.net/gh/coderitl/FileJsDeliver@v1.1.13/swiper/swiperindex.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script>
+    <script src="https://www.youxiaohou.com/mactype.user.js"></script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+      let pjaxSelectors = ["head > title", "#config-diff", "#body-wrap", "#rightside-config-hide", "#rightside-config-show", ".js-pjax"]
+      var pjax = new Pjax(
+      {
+        elements: 'a:not([target="_blank"])',
+        selectors: pjaxSelectors,
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+      })
+      document.addEventListener('pjax:send', function ()
+      {
+        // removeEventListener scroll 
+        window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+        window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+        document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+        if (window.aplayers)
+        {
+          for (let i = 0; i < window.aplayers.length; i++)
+          {
+            if (!window.aplayers[i].options.fixed)
+            {
+              window.aplayers[i].destroy()
+            }
+          }
+        }
+        typeof typed === 'object' && typed.destroy()
+        //reset readmode
+        const $bodyClassList = document.body.classList
+        $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        typeof disqusjs === 'object' && disqusjs.destroy()
+      })
+      document.addEventListener('pjax:complete', function ()
+      {
+        window.refreshFn()
+        document.querySelectorAll('script[data-pjax]').forEach(item =>
+        {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ""
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+        })
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        typeof chatBtnFn === 'function' && chatBtnFn()
+        typeof panguInit === 'function' && panguInit()
+        // google analytics
+        typeof gtag === 'function' && gtag('config', '',
+        {
+          'page_path': window.location.pathname
+        });
+        // baidu analytics
+        typeof _hmt === 'object' && _hmt.push(['_trackPageview', window.location.pathname]);
+        typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+        // prismjs
+        typeof Prism === 'object' && Prism.highlightAll()
+      })
+      document.addEventListener('pjax:error', (e) =>
+      {
+        if (e.request.status === 404)
+        {
+          pjax.loadUrl('/404.html')
+        }
+      })
+
+    </script>
+    <script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  </div><!-- hexo injector body_end start -->
+  <script data-pjax="">
+    function history_calendar_injector_config()
+    {
+      var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+      var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span><hanla></hanla>那年今日<hanla></hanla></span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+      console.log('已挂载<hanla></hanla>history_calendar')
+      // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html) // 有报错，但不影响使用<hanla></hanla>(支持<hanla></hanla>pjax<hanla></hanla>跳转)
+    }
+    if (document.getElementsByClassName('sticky_layout')[0] & amp; & amp;
+      (location.pathname === 'all' || 'all' === 'all'))
+    {
+      history_calendar_injector_config()
+    } < /div>
+
+  </script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script data-pjax="" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script>
+  <script data-pjax="">
+    function butterfly_swiper_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/7.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-13</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>文件上传下载实战<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/08/13/15497.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/8.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt="">Docker<hanla></hanla>安装<hanla></hanla>Oracle</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/04/27324.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://i.328888.xyz/2023/04/01/i2p4AN.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt="">SpringCloud</a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/30/42622.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "https://i.328888.xyz/2023/03/20/P3kfC.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/Access@v1.0/medias/featureimages/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"></a><div class="blog-slider__content"><span class="blog-slider__code">2022-12-29</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt="">Ubuntu-系统<hanla></hanla></a><div class="blog-slider__text"><hanla></hanla>再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/12/29/2485.html&quot;);" href="javascript:void(0);" alt=""><hanla></hanla>详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+      console.log('已挂载<hanla></hanla>butterfly_swiper')
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+    }
+    var elist = 'undefined'.split(',');
+    var cpage = location.pathname;
+    var epage = 'all';
+    var flag = 0;
+    for (var i = 0; i
+
+  </script>
+  <script defer="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script>
+  <script defer="" data-pjax="" src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax="" src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script>
+  <script data-pjax="">
+    function gitcalendar_injector_config()
+    {
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin", item_html)
+      console.log('已挂载<hanla></hanla>gitcalendar')
+    }
+    if (document.getElementById('recent-posts') && (location.pathname === '/' || '/' === 'all'))
+    {
+      gitcalendar_injector_config()
+      GitCalendarInit("https://python-github-calenda-4cx5gxbnc-coderitl.vercel.app/api?coderitl", ['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06'], 'coderitl')
+    }
+
+  </script>
+  <script async="" src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end -->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>
+    L2Dwidget.init(
+    {
+      "pluginModelPath": "assets/",
+      "model":
+      {
+        "jsonPath": "/live2dw/assets/shizuku.model.json"
+      },
+      "display":
+      {
+        "position": "left",
+        "width": 150,
+        "height": 300
+      },
+      "mobile":
+      {
+        "show": false
+      },
+      "rect":
+      {
+        "opacity": 0.7
+      },
+      "log": false,
+      "pluginJsPath": "lib/",
+      "pluginRootPath": "live2dw/",
+      "tagMode": false
+    });
+
+  </script>
+
+
+
+</body></html>
